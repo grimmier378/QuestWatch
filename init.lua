@@ -1122,6 +1122,7 @@ local function Main()
 			})
 			SendData = false
 			mq.delay(50)
+			CheckExpansionData()
 		end
 
 		SortActors()
