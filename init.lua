@@ -215,7 +215,6 @@ local function ImportData(file)
 
 						local ok, err = pcall(function() db:exec(query) end)
 						if not ok then
-							print(string.format("Insert failed for item '%s': %s", itemName, err))
 							success = false
 							break
 						end
@@ -279,7 +278,6 @@ local function AddNewQuest(expansion, questData)
 					extra_info = excluded.extra_info;
 			]], expansionEsc, questNameEsc, questCatEsc, itemSlotEsc, restrictionEsc, restrictionEsc, itemNameEsc, quantity, extraInfoEsc)
 
-		printf("Adding item '%s' qty %s to quest '%s'", itemNameEsc, quantity, questNameEsc)
 		local ok, err = pcall(function() db:exec(query) end)
 		if not ok then
 			print(string.format("Insert failed for item '%s': %s", itemNameEsc, err))
@@ -521,7 +519,6 @@ local function ActorsHandler()
 
 		if newMessage.Subject == 'Hello' and newMessage.From ~= MyName then
 			if MyActor then
-				-- printf("Received data request from %s for %s", newMessage.From, newMessage.Expansion)
 				MyActor:send({ mailbox = 'QuestWatch', }, {
 					Subject = 'data_reply',
 					From = MyName,
@@ -540,11 +537,9 @@ local function ActorsHandler()
 		end
 
 		if newMessage.Subject == 'data_reply' and newMessage.Data ~= nil and newMessage.From ~= MyName then
-			-- printf("Received data from %s for %s", newMessage.From, newMessage.Expansion)
 			Boxes[newMessage.From] = {}
 			Boxes[newMessage.From][newMessage.Expansion] = {}
 			Boxes[newMessage.From][newMessage.Expansion] = newMessage.Data
-			-- print(string.format("Received data from %s for %s", newMessage.From, newMessage.Expansion))
 		end
 	end)
 end
@@ -1085,7 +1080,6 @@ local function Main()
 			end
 			ImportData(string.format("%s/%s", ResourceDir, ImportFile))
 			ImportQuests = false
-			printf("Quest data imported from %s", ImportFile)
 		end
 
 		if EnterNewQuest then
@@ -1128,7 +1122,6 @@ local function Main()
 
 		if SendData and MyActor then
 			WorkingTable = GetQuestData(LookupExpan)
-			-- printf("Sending data for %s to actors", LookupExpan)
 			MyActor:send({ mailbox = 'QuestWatch', }, {
 				Subject = 'data_reply',
 				From = MyName,
