@@ -41,7 +41,6 @@ local NewQuestData    = {}
 local SQLFilters      = {
 	['expansion'] = '',
 	['quest_name'] = '',
-	['quest_cat'] = '',
 	['item_slot'] = '',
 	['item_type'] = '',
 	['item_name'] = '',
@@ -456,6 +455,7 @@ local function ActorsHandler()
 
 		if newMessage.Subject == 'data_req' and newMessage.Expansion ~= nil then
 			LookupExpan = newMessage.Expansion
+			SQLFilters = newMessage.Filters or SQLFilters
 			SendData = true
 			return
 		end
@@ -996,6 +996,7 @@ local function Main()
 				Subject = 'data_req',
 				From = MyName,
 				Expansion = LookupExpan,
+				Filters = SQLFilters,
 			})
 			GetData = false
 			mq.delay(50)
