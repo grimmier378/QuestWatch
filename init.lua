@@ -753,7 +753,11 @@ local function RenderAddQuestWindow()
 	-- this is a window to allow manually adding quests to the database
 	-- you can enter the quest information and click the + button to add items needed
 	-- you can also export your quest data to a file as well as import data from a file
-	local open, draw = ImGui.Begin('Add Quest Data##' .. MyName, true)
+	if not ShowAddQuest then return end
+
+	ImGui.SetNextWindowSize(ImVec2(400, 400), ImGuiCond.FirstUseEver)
+	ImGui.SetNextWindowPos(ImVec2(100, 100), ImGuiCond.FirstUseEver)
+	local open, draw = ImGui.Begin('Add Quest Data##QuestWatch' .. MyName, true)
 	if not open then
 		draw = false
 		ShowAddQuest = false
@@ -841,7 +845,10 @@ local function RenderActorsWindow()
 	if not MyActor then return end
 	if not ShowActors then return end
 
-	local open, draw = ImGui.Begin('Quest Watch Actors##' .. MyName, true)
+	ImGui.SetNextWindowSize(ImVec2(600, 500), ImGuiCond.FirstUseEver)
+	ImGui.SetNextWindowPos(ImVec2(100, 100), ImGuiCond.FirstUseEver)
+
+	local open, draw = ImGui.Begin('Quest Watch Actors##QuestWatch' .. MyName, true)
 	if not open then
 		draw = false
 		ShowActors = false
@@ -890,7 +897,9 @@ end
 
 --- Renders the main Quest Watch window.
 local function RenderMain()
-	local open, draw = ImGui.Begin('Quest Watch##' .. MyName, true)
+	ImGui.SetNextWindowSize(ImVec2(600, 500), ImGuiCond.FirstUseEver)
+	ImGui.SetNextWindowPos(ImVec2(100, 100), ImGuiCond.FirstUseEver)
+	local open, draw = ImGui.Begin('Quest Watch##QuestWatch' .. MyName, true)
 	if not open then
 		draw = false
 		ShowMain = false
