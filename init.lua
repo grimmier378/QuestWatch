@@ -97,15 +97,40 @@ local expans         = {
 	'Ruins of Kunark',
 	'Scars of Velious',
 	'Shadows of Luclin',
+	'Planes of Power',
 	'Legacy of Ykesha',
 	'Lost Dungeons of Norrath',
-	'Planes of Power',
 	'Gates of Discord',
 	'Omens of War',
 	'Dragons of Norrath',
+	'Depths of Darkhollow',
+	'Prophecy of Ro',
+	'The Serpent\'s Spine',
+	'The Buried Sea',
+	'Secrets of Faydwer',
+	'Seeds of Destruction',
+	'Underfoot',
+	'House of Thule',
+	'Veil of Alaris',
+	'Rain of Fear',
+	'Call of the Forsaken',
+	'The Darkened Sea',
+	'The Broken Mirror',
+	'Empires of Kunark',
+	'Ring of Scale',
+	'The Burning Lands',
+	'Torment of Velious',
+	'Claws of Veeshan',
+	'Terror of Luclin',
+	'Night of Shadows',
+	'Laurion\'s Song',
+	'The Outer Brood',
 }
 
-local WorkingTable   = nil
+local hasData        = {} -- lists all expansions and if they have data we will enable them for the drop down filter (adding new quests will always show all expansions)
+
+
+local WorkingTable = nil
 
 -- SQL STUFF --
 
@@ -268,8 +293,27 @@ local function AddNewQuest(expansion, questData)
 	db:close()
 end
 
+-- update the hasData table for filtering the expansion combo list
+local function CheckExpansionData()
+	-- iterate through the expansions and check if we have data for them so we can filter out the combo list
+	-- check the DB for the expansion data if we find any set the hasData flag for that expansion
+	local db = OpenDB(FileDB)
+	if not db then return end
+	local query = "SELECT DISTINCT expansion FROM quest_data;"
+	local stmt = db:prepare(query)
+	if stmt then
+		for row in stmt:nrows() do
+			local expansion = row.expansion or 'Unknown Expansion'
+			hasData[expansion] = true
+		end
+		stmt:finalize()
+	end
+	db:close()
+end
+
 -- Helpers --
 
+-- Check to see if the database needs to update with new data
 local function CheckUpdate()
 	if not Utils.File.Exists(UpdateFile) then
 		ImportData()
@@ -287,6 +331,14 @@ local function CheckUpdate()
 	end
 end
 
+---comment
+---@param expansion string the expansion to get quests for.
+---@param classFilter string|nil the class filter to apply, defaults to MyClass.
+---@param armorFilter string|nil the armor filter to apply, defaults to MyArmor.
+---@param itemFilter string|nil the item filter to apply, defaults to ''.
+---@param slotFilter string|nil the slot filter to apply, defaults to ''.
+---@param tierFilter string|nil the tier filter to apply, defaults to ''.
+---@return table QuestData Returns a table containing quest data for the specified expansion.
 local function GetQuests(expansion, classFilter, armorFilter, itemFilter, slotFilter, tierFilter)
 	local tmp = {}
 	local db = OpenDB(FileDB)
@@ -345,6 +397,7 @@ local function GetQuests(expansion, classFilter, armorFilter, itemFilter, slotFi
 	return tmp
 end
 
+--- Exports the quest data from the database to a Lua table format, so it can be shared with others.
 local function ExportDBtoLua()
 	local db = OpenDB(FileDB)
 	local tmpData = {}
@@ -451,7 +504,7 @@ local function QuestStatus(items_table)
 	for _, item in ipairs(items_table) do
 		if item.qty and item.name then
 			totalNeeded = totalNeeded + item.qty
-			totalOnHand = totalOnHand + item.on_hand
+			totalOnHand = totalOnHand + (item.on_hand <= item.qty and item.on_hand or item.qty)
 		end
 	end
 
@@ -716,12 +769,14 @@ local function RenderExpansionSelector(id)
 			LookupExpan = 'none'
 		end
 		for _, expan in ipairs(expans) do
-			if ImGui.Selectable(expan, LookupExpan == expan) then
-				if LookupExpan ~= expan then
-					GetData = true
+			if hasData[expan] then
+				if ImGui.Selectable(expan, LookupExpan == expan) then
+					if LookupExpan ~= expan then
+						GetData = true
+					end
+					LookupExpan = expan
+					SQLFilters.expansion = expan
 				end
-				LookupExpan = expan
-				SQLFilters.expansion = expan
 			end
 		end
 		ImGui.EndCombo()
@@ -980,8 +1035,19 @@ end
 -- Main --
 local function Init()
 	CheckUpdate()
+
+	-- initialize the hasData table
+	for _, expan in ipairs(expans) do
+		hasData[expan] = false
+	end
+	-- check for data and update the hasData table
+	CheckExpansionData()
+
+	-- initialize Actors
 	ActorsHandler()
+
 	MyArmor = GetArmorType()
+
 	WorkingTable = GetQuestData(LookupExpan)
 
 	mq.imgui.init('QuestData', RenderGUI)
@@ -1021,6 +1087,8 @@ local function Main()
 			EnterNewQuest = false
 			NewQuestExpan = 'none'
 			NewQuestData = {}
+
+			CheckExpansionData()
 		end
 
 		if (LookupExpan ~= 'none' and WorkingTable == nil) or LastLookupExpan ~= LookupExpan then
