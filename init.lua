@@ -854,12 +854,7 @@ local function RenderAddQuestWindow()
 		ImGui.SetNextItemWidth(180)
 		NewQuestData.Restrictions = ImGui.InputTextWithHint('Restrictions##NewQuestRestrictions', "Class Restriction, Armor Type etc (lower case)", NewQuestData.Restrictions)
 
-		if ImGui.Button('Add Item') then
-			if not NewQuestData.Items then
-				NewQuestData.Items = {}
-			end
-			table.insert(NewQuestData.Items, { Name = 'NEWITEM', Qty = 1, Extra = '', })
-		end
+
 
 		if ImGui.BeginTable("ItemsTable", 4, ImGuiTableFlags.BordersInnerV) then
 			ImGui.TableSetupColumn("Delete", ImGuiTableColumnFlags.WidthFixed, 80)
@@ -886,10 +881,30 @@ local function RenderAddQuestWindow()
 
 			ImGui.EndTable()
 		end
-		ImGui.Spacing()
+		if ImGui.Button('Add Item') then
+			if not NewQuestData.Items then
+				NewQuestData.Items = {}
+			end
+			table.insert(NewQuestData.Items, { Name = 'NEWITEM', Qty = 1, Extra = '', })
+		end
+		ImGui.SameLine()
 		if ImGui.Button('Save Quest Data') then
 			EnterNewQuest = true
 			ShowAddQuest = false
+		end
+
+		ImGui.SameLine()
+
+		if ImGui.Button('Cancel') then
+			ShowAddQuest = false
+			-- reset the new quest data
+			NewQuestExpan = 'none'
+			NewQuestData = {
+				Name = '',
+				Slot = '',
+				Restrictions = '',
+				Items = {},
+			}
 		end
 	end
 	ImGui.End()
