@@ -1,5 +1,6 @@
 local mq              = require('mq')
 local ImGui           = require('ImGui')
+local Icons           = require('mq.ICONS')
 local Data            = require('quest.quest_data')
 local Actors          = require('actors')
 local PackageMan      = require('mq.PackageMan')
@@ -433,6 +434,31 @@ local function GetQuestData(expansion)
 	return questData
 end
 
+---comment
+---@param items_table table The quest items to check.
+---@return boolean readyToHandIn
+---@return number OnHand
+---@return number Needed
+local function QuestStatus(items_table)
+	-- check the items in the quest and if we have enough of all of them we are ready to hand in
+	local totalNeeded = 0
+	local totalOnHand = 0
+	local readyToHandIn = false
+
+	if not items_table then
+		return false, 0, 0
+	end
+	for _, item in ipairs(items_table) do
+		if item.qty and item.name then
+			totalNeeded = totalNeeded + item.qty
+			totalOnHand = totalOnHand + item.on_hand
+		end
+	end
+
+	readyToHandIn = totalNeeded > 0 and totalOnHand >= totalNeeded
+	return readyToHandIn, totalOnHand, totalNeeded
+end
+
 -- ACTORS --
 
 --- Handles the actors mailbox for Quest Watch.
@@ -496,13 +522,19 @@ local function RenderTable(table_data, who)
 				for slot, sData in pairs(tierSlots) do
 					for armorType, items in pairs(sData) do
 						ImGui.TableNextColumn()
+
 						ImGui.TextColored(Colors.tangarine, slot)
 
 						ImGui.TableNextColumn()
+						if QuestStatus(items) then
+							ImGui.TextColored(Colors.green, Icons.FA_STAR)
+						end
+						ImGui.SameLine()
 						ImGui.PushTextWrapPos(0.0)
 						ImGui.TextColored(Colors.yellow, tier)
 						ImGui.PopTextWrapPos()
 						ImGui.TableNextColumn()
+
 						for _, iData in ipairs(items or {}) do
 							local iName = iData.name or 'Unknown Item'
 							ImGui.Separator()
