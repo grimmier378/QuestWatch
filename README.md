@@ -10,3 +10,4 @@ This is mostly meant for the quests that are not in the Task Window.
 - Uses Actors to monitor other characters quest status on the same machine
 
 ## Media
+https://youtu.be/X0nhaZlO1b4
