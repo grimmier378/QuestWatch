@@ -360,10 +360,12 @@ local function GetQuests(expansion, filters)
 	if not db then return tmp end
 
 	local classFilter = filters.restriction ~= '' and filters.restriction or MyClass
-	local armorFilter = filters.item_type ~= '' and filters.item_type or MyArmor
-	local itemFilter = filters.item_name ~= '' and filters.item_name or ''
+	local armorFilter = filters.restriction ~= '' and filters.restriction or MyArmor
+	local itemNameFilter = filters.item_name ~= '' and filters.item_name or ''
 	local slotFilter = filters.item_slot ~= '' and filters.item_slot or ''
 	local catFilter = filters.quest_cat ~= '' and filters.quest_cat or ''
+	local questNameFilter = filters.quest_name ~= '' and filters.quest_name or ''
+	local rewardTypeFilter = filters.item_type ~= '' and filters.item_type or 'All'
 
 
 	local expansionEsc = expansion:gsub("'", "''")
@@ -372,14 +374,20 @@ local function GetQuests(expansion, filters)
 		WHERE expansion = '%s'
 		AND (restriction = 'All' OR restriction LIKE '%%%s%%' OR restriction LIKE '%%%s%%')
 	]], expansionEsc, classFilter, armorFilter)
-	if itemFilter ~= '' then
-		query = query .. string.format(" AND item_name LIKE '%%%s%%'", itemFilter:gsub("'", "''"))
+	if itemNameFilter ~= '' then
+		query = query .. string.format(" AND item_name LIKE '%%%s%%'", itemNameFilter:gsub("'", "''"))
 	end
 	if slotFilter ~= '' then
 		query = query .. string.format(" AND item_slot LIKE '%%%s%%'", slotFilter:gsub("'", "''"))
 	end
 	if catFilter ~= '' then
-		query = query .. string.format(" AND quest_name LIKE '%%%s%%'", catFilter:gsub("'", "''"))
+		query = query .. string.format(" AND quest_cat LIKE '%%%s%%'", catFilter:gsub("'", "''"))
+	end
+	if questNameFilter ~= '' then
+		query = query .. string.format(" AND quest_name LIKE '%%%s%%'", questNameFilter:gsub("'", "''"))
+	end
+	if rewardTypeFilter ~= 'All' then
+		query = query .. string.format(" AND (item_type = 'All' OR item_type LIKE '%%%s%%')", rewardTypeFilter:gsub("'", "''"))
 	end
 	query = query .. ";"
 	local stmt = db:prepare(query)
@@ -611,7 +619,7 @@ local function RenderTable(table_data, who)
 	if ImGui.BeginTable('QuestData##' .. who, 5, bit32.bor(ImGuiTableFlags.Borders, ImGuiTableFlags.ScrollY, ImGuiTableFlags.RowBg), ImVec2(ImGui.GetContentRegionAvail() - 10, 0.0)) then
 		ImGui.TableSetupColumn('Category', ImGuiTableColumnFlags.WidthFixed, 100)
 		ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthFixed, 80)
-		ImGui.TableSetupColumn('Restrictions', ImGuiTableColumnFlags.WidthFixed, 100)
+		ImGui.TableSetupColumn('Restrictions', ImGuiTableColumnFlags.WidthFixed, 80)
 		ImGui.TableSetupColumn('Slot', ImGuiTableColumnFlags.WidthFixed, 50)
 
 		ImGui.TableSetupColumn('Item', ImGuiTableColumnFlags.WidthStretch, 300)
@@ -802,12 +810,6 @@ local function RenderBtn()
 		end
 		ImGui.PopStyleColor(3)
 		if ImGui.BeginPopupContextItem("QuestWatchContextMenu") then
-			if ImGui.Selectable("Toggle Quest Watch", ShowMain) then
-				ShowMain = not ShowMain
-			end
-			if ImGui.Selectable('Show Actors') then
-				ShowActors = not ShowActors
-			end
 			ImGui.Separator()
 			ImGui.Spacing()
 			DrawContextMenu()
@@ -852,11 +854,15 @@ local function RenderQuestFilter(id)
 
 	ImGui.SameLine()
 	ImGui.SetNextItemWidth(200)
-	SQLFilters['quest_name'] = ImGui.InputTextWithHint('Quest Name##' .. id, 'Quest Name or Category', SQLFilters['quest_name'])
+	SQLFilters['quest_name'] = ImGui.InputTextWithHint('Quest Name##' .. id, 'Quest Name', SQLFilters['quest_name'])
+
+	ImGui.SetNextItemWidth(200)
+	SQLFilters['quest_cat'] = ImGui.InputTextWithHint('Quest Category##' .. id, 'Quest Category', SQLFilters['quest_cat'])
+
+	ImGui.SameLine()
 
 	ImGui.SetNextItemWidth(200)
 	SQLFilters['item_name'] = ImGui.InputTextWithHint('Item Name##' .. id, 'Item Name', SQLFilters['item_name'])
-	ImGui.SameLine()
 
 	ImGui.SetNextItemWidth(200)
 	SQLFilters['item_slot'] = ImGui.InputTextWithHint('Item Slot##' .. id, 'Item Slot (head, chest, etc.)', SQLFilters['item_slot'])
