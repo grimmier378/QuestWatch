@@ -375,13 +375,23 @@ local function GetQuests(expansion, classFilter, armorFilter, itemFilter, slotFi
 			local itemName = row.item_name or 'Unknown Item'
 			local quantity = tonumber(row.quantity) or 1
 			local extraInfo = row.extra_info or ''
-
+			-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
 			if not tmp[expansion] then tmp[expansion] = {} end
+			-- if not tmp[expansion][questCat][questName] then tmp[expansion][questName] = {} end
+			-- if not tmp[expansion][questName][itemSlot] then tmp[expansion][questName][itemSlot] = {} end
+			-- if not tmp[expansion][questName][itemSlot][restriction] then tmp[expansion][questName][itemSlot][restriction] = {} end
 			if not tmp[expansion][questName] then tmp[expansion][questName] = {} end
 			if not tmp[expansion][questName][itemSlot] then tmp[expansion][questName][itemSlot] = {} end
-			if not tmp[expansion][questName][itemSlot][restriction] then tmp[expansion][questName][itemSlot][restriction] = {} end
+			if not tmp[expansion][questCat][itemSlot][itemType] then tmp[expansion][questCat][itemSlot][itemType] = {} end
+			if not tmp[expansion][questCat][itemSlot][itemType][restriction] then
+				tmp[expansion][questCat][itemSlot][itemType][restriction] = {}
+			end
+			if not tmp[expansion][questCat][itemSlot][itemType][restriction][questName] then
+				tmp[expansion][questCat][itemSlot][itemType][restriction][questName] = {}
+			end
 
-			table.insert(tmp[expansion][questName][itemSlot][restriction], {
+
+			table.insert(tmp[expansion][questCat][itemSlot][itemType][restriction][questName], {
 				name = itemName,
 				qty = quantity,
 				on_hand = Utils.CheckOnHand(itemName),
@@ -569,9 +579,12 @@ end
 ---@param who string The name of the actor to display data for.
 local function RenderTable(table_data, who)
 	if table_data == nil then return end
-	if ImGui.BeginTable('QuestData##' .. who, 3, bit32.bor(ImGuiTableFlags.Borders, ImGuiTableFlags.ScrollY, ImGuiTableFlags.RowBg), ImVec2(ImGui.GetContentRegionAvail() - 10, 0.0)) then
-		ImGui.TableSetupColumn('Slot', ImGuiTableColumnFlags.WidthFixed, 50)
+	if ImGui.BeginTable('QuestData##' .. who, 5, bit32.bor(ImGuiTableFlags.Borders, ImGuiTableFlags.ScrollY, ImGuiTableFlags.RowBg), ImVec2(ImGui.GetContentRegionAvail() - 10, 0.0)) then
+		ImGui.TableSetupColumn('Category', ImGuiTableColumnFlags.WidthFixed, 100)
 		ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthFixed, 80)
+		ImGui.TableSetupColumn('Restrictions', ImGuiTableColumnFlags.WidthFixed, 100)
+		ImGui.TableSetupColumn('Slot', ImGuiTableColumnFlags.WidthFixed, 50)
+
 		ImGui.TableSetupColumn('Item', ImGuiTableColumnFlags.WidthStretch, 300)
 
 		ImGui.TableSetupScrollFreeze(3, 1) -- Freeze the first row
@@ -579,80 +592,95 @@ local function RenderTable(table_data, who)
 		ImGui.TableNextRow()
 
 		-- display data by tiers
-		-- data[expansion][tier|quest][slot|itemType][armor_type|class][item] = { qty = qty, on_hand = CheckOnHand(item), extra = '' }
+		--tmp[expansion][questCat][itemSlot][itemType][restriction][questName]
 		if table_data and table_data[LookupExpan] then
-			for tier, tierSlots in pairs(table_data[LookupExpan]) do
-				for slot, sData in pairs(tierSlots) do
-					for armorType, items in pairs(sData) do
-						ImGui.TableNextColumn()
+			for category, catSlots in pairs(table_data[LookupExpan]) do
+				for slot, sData in pairs(catSlots) do
+					for item_type, restrictions in pairs(sData) do
+						for restrict, quest_data in pairs(restrictions or {}) do
+							for quest_name, items in pairs(quest_data or {}) do
+								ImGui.TableNextColumn()
+								ImGui.PushTextWrapPos(0.0)
+								ImGui.Text("%s", category)
+								ImGui.PopTextWrapPos()
 
-						ImGui.TextColored(Colors.tangarine, slot)
-
-						ImGui.TableNextColumn()
-						if Utils.QuestStatus(items) then
-							ImGui.TextColored(Colors.green, Icons.FA_STAR)
-						end
-						ImGui.SameLine()
-						ImGui.PushTextWrapPos(0.0)
-						ImGui.TextColored(Colors.yellow, tier)
-						ImGui.PopTextWrapPos()
-						ImGui.TableNextColumn()
-
-						for _, iData in ipairs(items or {}) do
-							local iName = iData.name or 'Unknown Item'
-							ImGui.Separator()
-
-							if ImGui.BeginTable('ItemData##' .. tier .. armorType .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
-								ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
-								ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
-								ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
-
-								ImGui.TableNextRow()
+								ImGui.TableNextColumn()
+								if Utils.QuestStatus(items) then
+									ImGui.TextColored(Colors.green, Icons.FA_STAR)
+									ImGui.SameLine()
+								end
+								ImGui.PushTextWrapPos(0.0)
+								ImGui.TextColored(Colors.yellow, quest_name)
+								ImGui.PopTextWrapPos()
 								ImGui.TableNextColumn()
 
-								local tCol = Colors.white
-								if iData.on_hand >= iData.qty then
-									tCol = Colors.green -- Green if enough on hand
-								end
-								if iData.on_hand > 0 and iData.on_hand < iData.qty then
-									tCol = Colors.tangarine -- Orange if not enough on hand
-								end
-								ImGui.PushStyleColor(ImGuiCol.Text, tCol)
-								ImGui.PushID(tier .. armorType .. slot .. iName .. who)
-								if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
-									ImGui.SetClipboardText(iName)
-								end
-								ImGui.PopStyleColor()
-								if ImGui.IsItemHovered() then
-									ImGui.BeginTooltip()
-									ImGui.Text(iName)
-									ImGui.Separator()
-									ImGui.Text(iData.extra)
-									ImGui.EndTooltip()
-								end
-								ImGui.PopID()
-							end
+								ImGui.PushTextWrapPos(0.0)
+								ImGui.TextColored(Colors.teal, restrict)
+								ImGui.PopTextWrapPos()
 
-							ImGui.TableNextColumn()
-							local tCol = Colors.teal
-							if iData.on_hand > 0 and iData.on_hand < iData.qty then
-								tCol = Colors.yellow -- Yellow if not enough on hand
+								ImGui.TableNextColumn()
+								ImGui.TextColored(Colors.tangarine, slot)
+
+								ImGui.TableNextColumn()
+
+
+								for _, iData in ipairs(items or {}) do
+									local iName = iData.name or 'Unknown Item'
+									ImGui.Separator()
+
+									if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
+										ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
+										ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
+										ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
+
+										ImGui.TableNextRow()
+										ImGui.TableNextColumn()
+
+										local tCol = Colors.white
+										if iData.on_hand >= iData.qty then
+											tCol = Colors.green -- Green if enough on hand
+										end
+										if iData.on_hand > 0 and iData.on_hand < iData.qty then
+											tCol = Colors.tangarine -- Orange if not enough on hand
+										end
+										ImGui.PushStyleColor(ImGuiCol.Text, tCol)
+										ImGui.PushID(category .. item_type .. slot .. iName .. who)
+										if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
+											ImGui.SetClipboardText(iName)
+										end
+										ImGui.PopStyleColor()
+										if ImGui.IsItemHovered() then
+											ImGui.BeginTooltip()
+											ImGui.Text(iName)
+											ImGui.Separator()
+											ImGui.Text(iData.extra)
+											ImGui.EndTooltip()
+										end
+										ImGui.PopID()
+									end
+
+									ImGui.TableNextColumn()
+									local tCol = Colors.teal
+									if iData.on_hand > 0 and iData.on_hand < iData.qty then
+										tCol = Colors.yellow -- Yellow if not enough on hand
+									end
+									if iData.on_hand >= iData.qty then
+										tCol = Colors.green -- Green if enough on hand
+									end
+									ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
+									ImGui.TextColored(tCol, "%s", iData.on_hand)
+									ImGui.PopID()
+									ImGui.SameLine()
+									ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
+									ImGui.Text(" / %s", iData.qty)
+									ImGui.PopID()
+									ImGui.TableNextColumn()
+									ImGui.PushID(category .. item_type .. iName .. slot)
+									ImGui.TextWrapped(iData.extra)
+									ImGui.PopID()
+									ImGui.EndTable()
+								end
 							end
-							if iData.on_hand >= iData.qty then
-								tCol = Colors.green -- Green if enough on hand
-							end
-							ImGui.PushID(tier .. armorType .. slot .. iName .. iData.on_hand)
-							ImGui.TextColored(tCol, "%s", iData.on_hand)
-							ImGui.PopID()
-							ImGui.SameLine()
-							ImGui.PushID(tier .. armorType .. slot .. iName .. iData.qty)
-							ImGui.Text(" / %s", iData.qty)
-							ImGui.PopID()
-							ImGui.TableNextColumn()
-							ImGui.PushID(tier .. armorType .. iName .. slot)
-							ImGui.TextWrapped(iData.extra)
-							ImGui.PopID()
-							ImGui.EndTable()
 						end
 					end
 				end
