@@ -6,7 +6,7 @@ local Actors          = require('actors')
 local PackageMan      = require('mq.PackageMan')
 local SQL             = PackageMan.Require('lsqlite3')
 local Utils           = require('mq.Utils')
-local Version         = 1.0
+local Version         = 1.2
 
 local ResourceDir     = mq.TLO.MacroQuest.Path('resources')()
 local FileDB          = string.format("%s/QuestWatch.db", ResourceDir)
@@ -46,6 +46,8 @@ local SQLFilters      = {
 	['item_slot'] = '',
 	['item_type'] = '',
 	['item_name'] = '',
+	['quest_cat'] = '',
+	['restriction'] = '', -- class, armor type, etc.
 }
 
 local EQ_ICON_OFFSET  = 500
@@ -188,35 +190,54 @@ local function ImportData(file)
 
 	db:exec("BEGIN TRANSACTION;")
 	local success = true
+	for expansion, questCat in pairs(tmpData) do
+		for cat, itemSlots in pairs(questCat) do
+			for slot, itemTypes in pairs(itemSlots) do
+				for itemType, restrictions in pairs(itemTypes) do
+					for restriction, quests in pairs(restrictions) do
+						for questName, items in pairs(quests) do
+							-- escape single quotes in SQL strings
+							local expansionEsc = expansion:gsub("'", "''")
+							local questNameEsc = questName:gsub("'", "''")
+							local questCatEsc = cat:gsub("'", "''")
+							local slotEsc = slot:gsub("'", "''")
+							local itemTypeEsc = itemType:gsub("'", "''")
+							local restrictionEsc = restriction:gsub("'", "''")
 
-	for expansion, tiers in pairs(tmpData) do
-		for tier, quests in pairs(tiers) do
-			for slot, items in pairs(quests) do
-				for itemType, itemData in pairs(items) do
-					for itemName, itemInfo in pairs(itemData) do
-						-- escape single quotes in SQL strings
-						local itemNameEsc = itemName:gsub("'", "''")
-						local extraEsc = (itemInfo.extra or ''):gsub("'", "''")
-						local itemTypeEsc = (itemType or 'All'):gsub("'", "''")
-						local tierEsc = tier:gsub("'", "''")
-						local expansionEsc = expansion:gsub("'", "''")
+							for _, itemData in pairs(items or {}) do
+								if not itemData.name or not itemData.qty then
+									print("Invalid item data. Each item must have a Name and Qty.")
+									success = false
+									break
+								end
 
-						local query = string.format([[
-							INSERT INTO quest_data (
-								expansion, quest_name, quest_cat, item_slot,
-								item_type, restriction, item_name, quantity, extra_info)
-							VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s')
-							ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
-							DO UPDATE SET
-								quantity = excluded.quantity,
-								extra_info = excluded.extra_info;
-						]], expansionEsc, tierEsc, tierEsc, slot, itemTypeEsc, itemTypeEsc, itemNameEsc, itemInfo.qty or 1, extraEsc)
+								local itemNameEsc = itemData.name:gsub("'", "''")
+								local extraInfoEsc = (itemData.extra or ''):gsub("'", "''")
+								local quantity = tonumber(itemData.qty) or 1
 
-						local ok, err = pcall(function() db:exec(query) end)
-						if not ok then
-							success = false
-							break
+								local query = string.format([[
+									INSERT INTO quest_data (
+										expansion, quest_name, quest_cat, item_slot,
+										item_type, restriction, item_name, quantity, extra_info)
+									VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s')
+									ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
+									DO UPDATE SET
+										quantity = excluded.quantity,
+										extra_info = excluded.extra_info;
+								]], expansionEsc, questNameEsc, questCatEsc, slotEsc, itemTypeEsc,
+									restrictionEsc, itemNameEsc, quantity, extraInfoEsc)
+
+								local ok, err = pcall(function() db:exec(query) end)
+								if not ok then
+									print(string.format("Insert failed for item '%s': %s", itemNameEsc, err))
+									success = false
+									break
+								end
+							end
+							if not success then break end
 						end
+
+						if not success then break end
 					end
 					if not success then break end
 				end
@@ -331,22 +352,19 @@ end
 
 ---comment
 ---@param expansion string the expansion to get quests for.
----@param classFilter string|nil the class filter to apply, defaults to MyClass.
----@param armorFilter string|nil the armor filter to apply, defaults to MyArmor.
----@param itemFilter string|nil the item filter to apply, defaults to ''.
----@param slotFilter string|nil the slot filter to apply, defaults to ''.
----@param tierFilter string|nil the tier filter to apply, defaults to ''.
+---@param filters table containing filters for class, armor type, item name, slot, and tier.
 ---@return table QuestData Returns a table containing quest data for the specified expansion.
-local function GetQuests(expansion, classFilter, armorFilter, itemFilter, slotFilter, tierFilter)
+local function GetQuests(expansion, filters)
 	local tmp = {}
 	local db = OpenDB(FileDB)
 	if not db then return tmp end
 
-	classFilter = classFilter or MyClass
-	armorFilter = armorFilter or MyArmor
-	itemFilter = itemFilter or ''
-	slotFilter = slotFilter or ''
-	tierFilter = tierFilter or ''
+	local classFilter = filters.restriction ~= '' and filters.restriction or MyClass
+	local armorFilter = filters.item_type ~= '' and filters.item_type or MyArmor
+	local itemFilter = filters.item_name ~= '' and filters.item_name or ''
+	local slotFilter = filters.item_slot ~= '' and filters.item_slot or ''
+	local catFilter = filters.quest_cat ~= '' and filters.quest_cat or ''
+
 
 	local expansionEsc = expansion:gsub("'", "''")
 	local query = string.format([[
@@ -360,8 +378,8 @@ local function GetQuests(expansion, classFilter, armorFilter, itemFilter, slotFi
 	if slotFilter ~= '' then
 		query = query .. string.format(" AND item_slot LIKE '%%%s%%'", slotFilter:gsub("'", "''"))
 	end
-	if tierFilter ~= '' then
-		query = query .. string.format(" AND quest_name LIKE '%%%s%%'", tierFilter:gsub("'", "''"))
+	if catFilter ~= '' then
+		query = query .. string.format(" AND quest_name LIKE '%%%s%%'", catFilter:gsub("'", "''"))
 	end
 	query = query .. ";"
 	local stmt = db:prepare(query)
@@ -377,9 +395,6 @@ local function GetQuests(expansion, classFilter, armorFilter, itemFilter, slotFi
 			local extraInfo = row.extra_info or ''
 			-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
 			if not tmp[expansion] then tmp[expansion] = {} end
-			-- if not tmp[expansion][questCat][questName] then tmp[expansion][questName] = {} end
-			-- if not tmp[expansion][questName][itemSlot] then tmp[expansion][questName][itemSlot] = {} end
-			-- if not tmp[expansion][questName][itemSlot][restriction] then tmp[expansion][questName][itemSlot][restriction] = {} end
 			if not tmp[expansion][questName] then tmp[expansion][questName] = {} end
 			if not tmp[expansion][questName][itemSlot] then tmp[expansion][questName][itemSlot] = {} end
 			if not tmp[expansion][questCat][itemSlot][itemType] then tmp[expansion][questCat][itemSlot][itemType] = {} end
@@ -404,12 +419,18 @@ local function GetQuests(expansion, classFilter, armorFilter, itemFilter, slotFi
 
 	BoxCompleted[MyName] = false
 	-- check if any of the quests are completed and add a flag to the BoxCompleted table for that user so we can highlight them in the list
-	for quest, tData in pairs(tmp[expansion] or {}) do
-		for slot, sData in pairs(tData or {}) do
-			for restriction, items in pairs(sData or {}) do
-				BoxCompleted[MyName] = Utils.QuestStatus(items or {})
-				if BoxCompleted[MyName] then
-					goto continue
+	-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
+
+	for _, catSlots in pairs(tmp[expansion] or {}) do
+		for _, sData in pairs(catSlots or {}) do
+			for _, restrictions in pairs(sData or {}) do
+				for _, quest_data in pairs(restrictions or {}) do
+					for _, items in pairs(quest_data or {}) do
+						BoxCompleted[MyName] = Utils.QuestStatus(items or {})
+						if BoxCompleted[MyName] then
+							goto continue
+						end
+					end
 				end
 			end
 		end
@@ -439,11 +460,19 @@ local function ExportDBtoLua()
 			local extraInfo = row.extra_info or ''
 
 			if not tmpData[expansion] then tmpData[expansion] = {} end
-			if not tmpData[expansion][questName] then tmpData[expansion][questName] = {} end
-			if not tmpData[expansion][questName][itemSlot] then tmpData[expansion][questName][itemSlot] = {} end
-			if not tmpData[expansion][questName][itemSlot][restriction] then tmpData[expansion][questName][itemSlot][restriction] = {} end
+			if not tmpData[expansion][questCat] then tmpData[expansion][questCat] = {} end
+			if not tmpData[expansion][questCat][itemSlot] then tmpData[expansion][questCat][itemSlot] = {} end
+			if not tmpData[expansion][questCat][itemSlot][itemType] then
+				tmpData[expansion][questCat][itemSlot][itemType] = {}
+			end
+			if not tmpData[expansion][questCat][itemSlot][itemType][restriction] then
+				tmpData[expansion][questCat][itemSlot][itemType][restriction] = {}
+			end
+			if not tmpData[expansion][questCat][itemSlot][itemType][restriction][questName] then
+				tmpData[expansion][questCat][itemSlot][itemType][restriction][questName] = {}
+			end
 
-			tmpData[expansion][questName][itemSlot][restriction][itemName] = {
+			tmpData[expansion][questCat][itemSlot][itemType][restriction][questName][itemName] = {
 				name = itemName,
 				qty = quantity,
 				extra = extraInfo,
@@ -499,7 +528,7 @@ local function GetQuestData(expansion)
 	local QuestFilter = SQLFilters.quest_name ~= '' and SQLFilters.quest_name or ''
 	local ItemFilter = SQLFilters.item_name ~= '' and SQLFilters.item_name or ''
 	local SlotFilter = SQLFilters.item_slot ~= '' and SQLFilters.item_slot or ''
-	local questData = GetQuests(expansion, ClassFilter, ArmorFilter, ItemFilter, SlotFilter, QuestFilter)
+	local questData = GetQuests(expansion, SQLFilters)
 	if not questData or next(questData) == nil then
 		return {}
 	end
@@ -819,11 +848,11 @@ local function RenderQuestFilter(id)
 	end
 
 	ImGui.SetNextItemWidth(200)
-	SQLFilters.restriction = ImGui.InputTextWithHint('Restrictions##' .. id, 'Class, Armor Type etc.', SQLFilters.restriction):lower()
+	SQLFilters.restriction = ImGui.InputTextWithHint('Restrictions##' .. id, 'Class, Item Type etc.', SQLFilters.restriction):lower()
 
 	ImGui.SameLine()
 	ImGui.SetNextItemWidth(200)
-	SQLFilters['quest_name'] = ImGui.InputTextWithHint('Quest Name##' .. id, 'Quest Name or Tier', SQLFilters['quest_name'])
+	SQLFilters['quest_name'] = ImGui.InputTextWithHint('Quest Name##' .. id, 'Quest Name or Category', SQLFilters['quest_name'])
 
 	ImGui.SetNextItemWidth(200)
 	SQLFilters['item_name'] = ImGui.InputTextWithHint('Item Name##' .. id, 'Item Name', SQLFilters['item_name'])
@@ -838,6 +867,17 @@ local function RenderQuestFilter(id)
 		LastLookupExpan = 'none'
 		GetData = true
 		SendData = true
+	end
+
+	ImGui.SameLine()
+	if ImGui.Button('Clear Filters##' .. id) then
+		SQLFilters = {
+			restriction = '',
+			quest_name = '',
+			item_name = '',
+			item_slot = '',
+		}
+		GetData = true
 	end
 end
 
