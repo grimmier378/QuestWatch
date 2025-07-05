@@ -616,9 +616,10 @@ end
 ---@param who string The name of the actor to display data for.
 local function RenderTable(table_data, who)
 	if table_data == nil then return end
-	if ImGui.BeginTable('QuestData##' .. who, 6, bit32.bor(ImGuiTableFlags.Borders, ImGuiTableFlags.ScrollY, ImGuiTableFlags.RowBg), ImVec2(ImGui.GetContentRegionAvail() - 10, 0.0)) then
-		ImGui.TableSetupColumn('Category', ImGuiTableColumnFlags.WidthFixed, 100)
+	if ImGui.BeginTable('QuestData##', 6, bit32.bor(ImGuiTableFlags.Borders, ImGuiTableFlags.ScrollY, ImGuiTableFlags.RowBg, ImGuiTableFlags.Hideable), ImVec2(ImGui.GetContentRegionAvail() - 10, 0.0)) then
 		ImGui.TableSetupColumn('Quest Name', ImGuiTableColumnFlags.WidthFixed, 80)
+		ImGui.TableSetupColumn('Category', ImGuiTableColumnFlags.WidthFixed, 100)
+
 		ImGui.TableSetupColumn('Restrictions', ImGuiTableColumnFlags.WidthFixed, 80)
 		ImGui.TableSetupColumn('Slot', ImGuiTableColumnFlags.WidthFixed, 50)
 		ImGui.TableSetupColumn('Reward Type', ImGuiTableColumnFlags.WidthFixed, 70)
@@ -637,17 +638,17 @@ local function RenderTable(table_data, who)
 						for restrict, quest_data in pairs(restrictions or {}) do
 							for quest_name, items in pairs(quest_data or {}) do
 								ImGui.TableNextColumn()
-								ImGui.PushTextWrapPos(0.0)
-								ImGui.Text("%s", category)
-								ImGui.PopTextWrapPos()
-
-								ImGui.TableNextColumn()
 								if Utils.QuestStatus(items) then
 									ImGui.TextColored(Colors.green, Icons.FA_STAR)
 									ImGui.SameLine()
 								end
 								ImGui.PushTextWrapPos(0.0)
 								ImGui.TextColored(Colors.yellow, quest_name)
+								ImGui.PopTextWrapPos()
+
+								ImGui.TableNextColumn()
+								ImGui.PushTextWrapPos(0.0)
+								ImGui.Text("%s", category)
 								ImGui.PopTextWrapPos()
 								ImGui.TableNextColumn()
 
