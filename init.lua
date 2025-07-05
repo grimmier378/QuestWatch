@@ -861,10 +861,13 @@ local function RenderQuestFilter(id)
 	SQLFilters['quest_cat'] = ImGui.InputTextWithHint('Quest Category##' .. id, 'Quest Category', SQLFilters['quest_cat'])
 
 	ImGui.SameLine()
+	ImGui.SetNextItemWidth(200)
+	SQLFilters['item_type'] = ImGui.InputTextWithHint('Reward Type##' .. id, 'Reward Item Type', SQLFilters['item_type'])
 
 	ImGui.SetNextItemWidth(200)
 	SQLFilters['item_name'] = ImGui.InputTextWithHint('Item Name##' .. id, 'Item Name', SQLFilters['item_name'])
 
+	ImGui.SameLine()
 	ImGui.SetNextItemWidth(200)
 	SQLFilters['item_slot'] = ImGui.InputTextWithHint('Item Slot##' .. id, 'Item Slot (head, chest, etc.)', SQLFilters['item_slot'])
 
