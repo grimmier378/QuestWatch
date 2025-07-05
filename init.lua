@@ -6,7 +6,7 @@ local Actors          = require('actors')
 local PackageMan      = require('mq.PackageMan')
 local SQL             = PackageMan.Require('lsqlite3')
 local Utils           = require('mq.Utils')
-local Version         = 1.2
+local Version         = 1.3
 
 local ResourceDir     = mq.TLO.MacroQuest.Path('resources')()
 local FileDB          = string.format("%s/QuestWatch.db", ResourceDir)
@@ -403,8 +403,8 @@ local function GetQuests(expansion, filters)
 			local extraInfo = row.extra_info or ''
 			-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
 			if not tmp[expansion] then tmp[expansion] = {} end
-			if not tmp[expansion][questName] then tmp[expansion][questName] = {} end
-			if not tmp[expansion][questName][itemSlot] then tmp[expansion][questName][itemSlot] = {} end
+			if not tmp[expansion][questCat] then tmp[expansion][questCat] = {} end
+			if not tmp[expansion][questCat][itemSlot] then tmp[expansion][questCat][itemSlot] = {} end
 			if not tmp[expansion][questCat][itemSlot][itemType] then tmp[expansion][questCat][itemSlot][itemType] = {} end
 			if not tmp[expansion][questCat][itemSlot][itemType][restriction] then
 				tmp[expansion][questCat][itemSlot][itemType][restriction] = {}
@@ -616,13 +616,13 @@ end
 ---@param who string The name of the actor to display data for.
 local function RenderTable(table_data, who)
 	if table_data == nil then return end
-	if ImGui.BeginTable('QuestData##' .. who, 5, bit32.bor(ImGuiTableFlags.Borders, ImGuiTableFlags.ScrollY, ImGuiTableFlags.RowBg), ImVec2(ImGui.GetContentRegionAvail() - 10, 0.0)) then
+	if ImGui.BeginTable('QuestData##' .. who, 6, bit32.bor(ImGuiTableFlags.Borders, ImGuiTableFlags.ScrollY, ImGuiTableFlags.RowBg), ImVec2(ImGui.GetContentRegionAvail() - 10, 0.0)) then
 		ImGui.TableSetupColumn('Category', ImGuiTableColumnFlags.WidthFixed, 100)
-		ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthFixed, 80)
+		ImGui.TableSetupColumn('Quest Name', ImGuiTableColumnFlags.WidthFixed, 80)
 		ImGui.TableSetupColumn('Restrictions', ImGuiTableColumnFlags.WidthFixed, 80)
 		ImGui.TableSetupColumn('Slot', ImGuiTableColumnFlags.WidthFixed, 50)
-
-		ImGui.TableSetupColumn('Item', ImGuiTableColumnFlags.WidthStretch, 300)
+		ImGui.TableSetupColumn('Reward Type', ImGuiTableColumnFlags.WidthFixed, 70)
+		ImGui.TableSetupColumn('Items', ImGuiTableColumnFlags.WidthStretch, 300)
 
 		ImGui.TableSetupScrollFreeze(3, 1) -- Freeze the first row
 		ImGui.TableHeadersRow()
@@ -659,7 +659,8 @@ local function RenderTable(table_data, who)
 								ImGui.TextColored(Colors.tangarine, slot)
 
 								ImGui.TableNextColumn()
-
+								ImGui.TextColored(Colors.softblue, item_type)
+								ImGui.TableNextColumn()
 
 								for _, iData in ipairs(items or {}) do
 									local iName = iData.name or 'Unknown Item'
