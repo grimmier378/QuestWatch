@@ -445,6 +445,20 @@ end
 
 -- Helpers --
 
+local function DeepCopy(original)
+	-- Create a deep copy of the original table
+	if type(original) ~= 'table' then return original end
+	local copy = {}
+	for key, value in pairs(original) do
+		if type(value) == 'table' then
+			copy[key] = DeepCopy(value)
+		else
+			copy[key] = value
+		end
+	end
+	return copy
+end
+
 -- Check to see if the database needs to update with new data
 local function CheckUpdate()
 	if not Utils.File.Exists(UpdateFile) then
@@ -637,10 +651,24 @@ local function GetArmorType()
 end
 
 -- Check the player's inventory for the item.
+-- if the item is a spell or song, check the spell book instead.
 ---@param item_name string The name of the item to check.
 ---@return number item_count The number of items found in the player's inventory.
 function Utils.CheckOnHand(item_name)
-	local item_count = mq.TLO.FindItemCount(string.format("=%s", item_name))() or 0
+	local spellname = ''
+	local item_count = 0
+
+	if item_name:find("Spell:") then
+		spellname = item_name:gsub("Spell: ", "")
+		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or 0
+	end
+
+	if item_name:find("Song:") then
+		spellname = item_name:gsub("Song: ", "")
+		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or 0
+	end
+
+	item_count = item_count + (mq.TLO.Me.Inventory(item_name)() or 0)
 
 	return item_count
 end
@@ -679,6 +707,7 @@ function Utils.QuestStatus(items_table)
 	for _, item in ipairs(items_table) do
 		item.qty = item.qty or 1
 		item.on_hand = item.on_hand or Utils.CheckOnHand(item.name or 'Unknown Item')
+
 		if item.is_reward and item.on_hand >= item.qty then
 			return true, (item.on_hand <= item.qty and item.on_hand or item.qty), item.qty
 		end
@@ -770,7 +799,7 @@ local function RenderTable(table_data, who)
 												restrictions = restrict,
 												item_type = item_type,
 												item_slot = slot,
-												items = items,
+												items = DeepCopy(items),
 											}
 											ModifyQuestExpan = LookupExpan
 											ShowModifyQuest = true
@@ -1480,13 +1509,24 @@ local function Main()
 
 		if EnterModifiedQuest then
 			ModifyQuest(ModifyQuestExpan, ModifyQuestData)
+			if LookupExpan == ModifyQuestExpan then
+				LastLookupExpan = 'none'
+				GetData = true
+				SendData = true
+			end
 			EnterModifiedQuest = false
 			ModifyQuestData = nil
 			ModifyQuestExpan = ''
+			CheckExpansionData()
 		end
 
 		if DeleteQuest then
 			DeleteQuestData(ModifyQuestExpan, ModifyQuestData)
+			if LookupExpan == ModifyQuestExpan then
+				LastLookupExpan = 'none'
+				GetData = true
+				SendData = true
+			end
 			DeleteQuest = false
 			ModifyQuestData = nil
 			ModifyQuestExpan = ''
