@@ -769,6 +769,7 @@ end
 
 
 -- GUI --
+
 --- Draws the quest data table.
 --- The Table will display your status on each item needed for the quest.
 --- It will show the slot, tier, item name, quantity needed, and how many you
@@ -816,21 +817,21 @@ local function RenderTable(table_data, who)
 												ShowModifyQuest = true
 											end
 											if isReady then
+												ImGui.SameLine()
 												ImGui.TextColored(Colors.green, Icons.FA_STAR)
 												if ImGui.IsItemHovered() then
 													ImGui.BeginTooltip()
 													ImGui.Text("Ready to hand in.")
 													ImGui.EndTooltip()
 												end
-												ImGui.SameLine()
 											elseif isCompleted then
+												ImGui.SameLine()
 												ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
 												if ImGui.IsItemHovered() then
 													ImGui.BeginTooltip()
 													ImGui.Text("Quest completed.")
 													ImGui.EndTooltip()
 												end
-												ImGui.SameLine()
 											end
 											ImGui.PushTextWrapPos(0.0)
 											ImGui.TextColored(Colors.yellow, quest_name)
