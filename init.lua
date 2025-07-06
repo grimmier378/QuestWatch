@@ -425,7 +425,7 @@ local function ModifyQuest(expansion, questData)
 	local questNameEsc = questData.quest_name:gsub("'", "''")
 	local questCatEsc = questData.quest_cat:gsub("'", "''")
 	local itemSlotEsc = questData.item_slot:gsub("'", "''")
-	local restrictionEsc = questData.restriction and questData.restriction:gsub("'", "''") or 'All'
+	local restrictionEsc = questData.restrictions and questData.restrictions:gsub("'", "''") or 'All'
 	local itemTypeEsc = questData.item_type:gsub("'", "''")
 
 	DeleteQuestData(expansion, questData)
