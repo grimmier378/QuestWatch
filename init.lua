@@ -660,17 +660,15 @@ function Utils.CheckOnHand(item_name)
 
 	if item_name:find("Spell:") then
 		spellname = item_name:gsub("Spell: ", "")
-		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or 0
+		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or item_count
 	end
 
 	if item_name:find("Song:") then
 		spellname = item_name:gsub("Song: ", "")
-		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or 0
+		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or item_count
 	end
 
-	item_count = item_count + mq.TLO.FindItemCount(string.format("=%s", item_name))() +
-		mq.TLO.FindItemBankCount(string.format("=%s", item_name))()
-
+	item_count = item_count + mq.TLO.FindItemCount(string.format("=%s", item_name))() + mq.TLO.FindItemBankCount(string.format("=%s", item_name))()
 
 	return item_count
 end
@@ -706,16 +704,18 @@ function Utils.QuestStatus(items_table)
 	if not items_table then
 		return false, 0, 0
 	end
-	for _, item in ipairs(items_table) do
-		item.qty = item.qty or 1
-		item.on_hand = item.on_hand or Utils.CheckOnHand(item.name or 'Unknown Item')
+	for _, item in ipairs(items_table or {}) do
+		if item then
+			item.qty = item.qty or 1
+			item.on_hand = item.on_hand or Utils.CheckOnHand(item.name or 'Unknown Item')
 
-		if item.is_reward and item.on_hand >= item.qty then
-			return true, (item.on_hand <= item.qty and item.on_hand or item.qty), item.qty
-		end
-		if item.qty and item.name then
-			totalNeeded = totalNeeded + item.qty
-			totalOnHand = totalOnHand + (item.on_hand <= item.qty and item.on_hand or item.qty)
+			if item.is_reward and item.on_hand >= item.qty then
+				return true, (item.on_hand <= item.qty and item.on_hand or item.qty), item.qty
+			end
+			if not item.is_reward then
+				totalNeeded = totalNeeded + item.qty
+				totalOnHand = totalOnHand + (item.on_hand <= item.qty and item.on_hand or item.qty)
+			end
 		end
 	end
 
