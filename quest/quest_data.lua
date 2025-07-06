@@ -1,64 +1,64 @@
 return {
 	['Classic'] = {
-		['General'] = {
-			['feet'] = {
-				['armor'] = {
-					['All'] = {
-						['J-Boots'] = {
-							['Gold'] = {
-								['extra'] = 'Must Be Gold!',
-								['qty'] = 3250,
-								['name'] = 'Gold',
+		['Temple of Solusek Row'] = {
+			['primary'] = {
+				['weapon'] = {
+					['enc'] = {
+						['Rod of Insidious Glamour'] = {
+							['Golden Rod'] = {
+								['qty'] = 1,
+								['name'] = 'Golden Rod',
+								['extra'] = 'From  a froglok priest in Upper Guk',
 							},
-							['Shadowed Rapier'] = {
+							['Rod of Insidious Glamour'] = {
+								['qty'] = 1,
+								['name'] = 'Rod of Insidious Glamour',
+								['extra'] = 'Reward from handing in Glowing Glamour Stone and Golden Rod in Temple of Solusek Ro',
+							},
+							['A Shining Stone'] = {
+								['qty'] = 1,
+								['name'] = 'A Shining Stone',
 								['extra'] = 'From a Shadowed Man',
-								['qty'] = 1,
-								['name'] = 'Shadowed Rapier',
 							},
-							['Ring of the Ancients'] = {
-								['extra'] = 'From an Ancient Cyclops',
+							['Glamour Stone'] = {
 								['qty'] = 1,
-								['name'] = 'Ring of the Ancients',
+								['name'] = 'Glamour Stone',
+								['extra'] = 'From handing in A Shining Stone and 50Plat to Cynthia in Rathe Mountains',
 							},
-							['Journeyman\'s Boots'] = {
-								['extra'] = 'Reward',
+							['Glowing Glamour Stone'] = {
 								['qty'] = 1,
-								['name'] = 'Journeyman\'s Boots',
+								['name'] = 'Glowing Glamour Stone',
+								['extra'] = 'From giving a Glamour Stone and 50Plat to Tarn Visilin in High Keep',
 							},
 						},
 					},
 				},
 			},
 		},
-		['Temple of Solusek Row'] = {
-			['primary'] = {
-				['weapon'] = {
-					['enc'] = {
-						['Rod of Insidious Glamour'] = {
-							['A Shining Stone'] = {
+		['General'] = {
+			['feet'] = {
+				['armor'] = {
+					['All'] = {
+						['J-Boots'] = {
+							['Ring of the Ancients'] = {
+								['qty'] = 1,
+								['name'] = 'Ring of the Ancients',
+								['extra'] = 'From an Ancient Cyclops',
+							},
+							['Journeyman\'s Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Journeyman\'s Boots',
+								['extra'] = 'Reward',
+							},
+							['Shadowed Rapier'] = {
+								['qty'] = 1,
+								['name'] = 'Shadowed Rapier',
 								['extra'] = 'From a Shadowed Man',
-								['qty'] = 1,
-								['name'] = 'A Shining Stone',
 							},
-							['Glamour Stone'] = {
-								['extra'] = 'From handing in A Shining Stone and 50Plat to Cynthia in Rathe Mountains',
-								['qty'] = 1,
-								['name'] = 'Glamour Stone',
-							},
-							['Glowing Glamour Stone'] = {
-								['extra'] = 'From giving a Glamour Stone and 50Plat to Tarn Visilin in High Keep',
-								['qty'] = 1,
-								['name'] = 'Glowing Glamour Stone',
-							},
-							['Rod of Insidious Glamour'] = {
-								['extra'] = 'Reward from handing in Glowing Glamour Stone and Golden Rod in Temple of Solusek Ro',
-								['qty'] = 1,
-								['name'] = 'Rod of Insidious Glamour',
-							},
-							['Golden Rod'] = {
-								['extra'] = 'From  a froglok priest in Upper Guk',
-								['qty'] = 1,
-								['name'] = 'Golden Rod',
+							['Gold'] = {
+								['qty'] = 3250,
+								['name'] = 'Gold',
+								['extra'] = 'Must Be Gold!',
 							},
 						},
 					},
@@ -67,454 +67,32 @@ return {
 		},
 	},
 	['Omens of War'] = {
-		['Tier2 Armor'] = {
-			['legs'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T2 Cloth Legs'] = {
-							['Patorav\'s Amulet'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
-							},
-							['Softened Feran Hide'] = {
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 3,
-								['name'] = 'Softened Feran Hide',
-							},
-						},
-					},
-					['plate'] = {
-						['T2 Plate Legs'] = {
-							['Patorav\'s Amulet'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
-							},
-							['Blackened Discordling Tail'] = {
-								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 3,
-								['name'] = 'Blackened Discordling Tail',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Legs'] = {
-							['Discordling Hoof'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 3,
-								['name'] = 'Discordling Hoof',
-							},
-							['Patorav\'s Amulet'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Legs'] = {
-							['Patorav\'s Amulet'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
-							},
-							['Shattered Ukun Hide'] = {
-								['extra'] = 'Muramite Proving Grounds, Noble\'s Causeway',
-								['qty'] = 3,
-								['name'] = 'Shattered Ukun Hide',
-							},
-						},
-					},
-				},
-			},
-			['chest'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T2 Cloth Robe'] = {
-							['Piece of Vrenlar Fruit'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
-								['qty'] = 3,
-								['name'] = 'Piece of Vrenlar Fruit',
-							},
-							['Jayruk\'s Vest'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
-							},
-						},
-					},
-					['plate'] = {
-						['T2 Plate Breastplate'] = {
-							['Ceremonial Dragorn Candle'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
-								['qty'] = 3,
-								['name'] = 'Ceremonial Dragorn Candle',
-							},
-							['Jayruk\'s Vest'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Tunic'] = {
-							['Bazu Nail Bracelet'] = {
-								['extra'] = 'Asylum of Anguish, Noble\'s Causeway, Muramite Proving Grounds',
-								['qty'] = 3,
-								['name'] = 'Bazu Nail Bracelet',
-							},
-							['Jayruk\'s Vest'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Tunic'] = {
-							['Kyv Short Bow'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 3,
-								['name'] = 'Kyv Short Bow',
-							},
-							['Jayruk\'s Vest'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
-							},
-						},
-					},
-				},
-			},
-			['hands'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T2 Cloth Gloves'] = {
-							['Makyah\'s Axe'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
-							},
-							['Kuuan Whetstone'] = {
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Kuuan Whetstone',
-							},
-						},
-					},
-					['plate'] = {
-						['T2 Plate Gauntlets'] = {
-							['Makyah\'s Axe'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
-							},
-							['Crystal of Yearning'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Crystal of Yearning',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Gloves'] = {
-							['Makyah\'s Axe'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
-							},
-							['Fine Chimera Hide'] = {
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Fine Chimera Hide',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Gloves'] = {
-							['Makyah\'s Axe'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
-							},
-							['Kyv Whetstone'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Whetstone',
-							},
-						},
-					},
-				},
-			},
-			['feet'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T2 Cloth Slippers'] = {
-							['Ikaav Tail'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Ikaav Tail',
-							},
-							['Muramite Cruelty Medal'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-						},
-					},
-					['plate'] = {
-						['T2 Plate Boots'] = {
-							['Kyv Hunter Ring'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Hunter Ring',
-							},
-							['Muramite Cruelty Medal'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Boots'] = {
-							['Chimera Gut String'] = {
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Chimera Gut String',
-							},
-							['Muramite Cruelty Medal'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Boots'] = {
-							['Dragorn Muramite Ring'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Dragorn Muramite Ring',
-							},
-							['Muramite Cruelty Medal'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-						},
-					},
-				},
-			},
-			['arms'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T2 Cloth Sleeves'] = {
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Spool of Balemoon Silk'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Spool of Balemoon Silk',
-							},
-						},
-					},
-					['plate'] = {
-						['T2 Plate Vambraces'] = {
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Noc Right Hand'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Noc Right Hand',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Sleeves'] = {
-							['Spiked Discordling Collar'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Spiked Discordling Collar',
-							},
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Sleeves'] = {
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Ikaav Head'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Ikaav Head',
-							},
-						},
-					},
-				},
-			},
-			['wrists'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T2 Cloth Wristband'] = {
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Softened Feran Hide'] = {
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Softened Feran Hide',
-							},
-						},
-					},
-					['plate'] = {
-						['T2 Plate Bracer'] = {
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Large Piece of Kuuan Ore'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Large Piece of Kuuan Ore',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Bracer'] = {
-							['Quality Feran Hide'] = {
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Quality Feran Hide',
-							},
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Bracer'] = {
-							['Riftseeker Heart'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Withered Discordling Tongue'] = {
-								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Withered Discordling Tongue',
-							},
-						},
-					},
-				},
-			},
-			['head'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T2 Cloth Cap'] = {
-							['Patorav\'s Walking Stick'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-							['Bar of Nashtar Berry Soap'] = {
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Bar of Nashtar Berry Soap',
-							},
-						},
-					},
-					['plate'] = {
-						['T2 Plate Helmet'] = {
-							['Patorav\'s Walking Stick'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-							['Kyv Food Sack'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Food Sack',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Cap'] = {
-							['Muramite Noble\'s March Award'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Muramite Noble\'s March Award',
-							},
-							['Patorav\'s Walking Stick'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Coif'] = {
-							['Kyv Scout Ring'] = {
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Scout Ring',
-							},
-							['Patorav\'s Walking Stick'] = {
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-						},
-					},
-				},
-			},
-		},
 		['Spells'] = {
 			['spell'] = {
 				['spell'] = {
 					['wiz dru'] = {
-						['Bloodfields Ports'] = {
-							['Rolled Discordant Parchment'] = {
-								['extra'] = '',
-								['qty'] = 1,
-								['name'] = 'Rolled Discordant Parchment',
-							},
-							['Discordant Crystal Shard'] = {
-								['extra'] = '',
-								['qty'] = 3,
-								['name'] = 'Discordant Crystal Shard',
-							},
-						},
 						['Wall of Slaughter Ports'] = {
-							['Pure Discordant Blood'] = {
-								['extra'] = '',
-								['qty'] = 3,
-								['name'] = 'Pure Discordant Blood',
-							},
 							['Dark Enchanted Scroll'] = {
-								['extra'] = '',
 								['qty'] = 1,
 								['name'] = 'Dark Enchanted Scroll',
+								['extra'] = '',
+							},
+							['Pure Discordant Blood'] = {
+								['qty'] = 3,
+								['name'] = 'Pure Discordant Blood',
+								['extra'] = '',
+							},
+						},
+						['Bloodfields Ports'] = {
+							['Rolled Discordant Parchment'] = {
+								['qty'] = 1,
+								['name'] = 'Rolled Discordant Parchment',
+								['extra'] = '',
+							},
+							['Discordant Crystal Shard'] = {
+								['qty'] = 3,
+								['name'] = 'Discordant Crystal Shard',
+								['extra'] = '',
 							},
 						},
 					},
@@ -522,61 +100,81 @@ return {
 			},
 		},
 		['Tier1 Armor'] = {
-			['legs'] = {
+			['hands'] = {
 				['armor'] = {
-					['cloth'] = {
-						['T1 Cloth Pantaloons'] = {
-							['Dragorn City Ember'] = {
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+					['chain'] = {
+						['T1 Chain Gloves'] = {
+							['Darkshorn Kyv Hood'] = {
+								['qty'] = 2,
+								['name'] = 'Darkshorn Kyv Hood',
+								['extra'] = 'Noble\'s Causeway',
 							},
-							['Dragorn Muramite Insignia Necklace'] = {
-								['extra'] = 'Harbingers\' Spire, Wall of Slaughter, Ruined City of Dranik, Noble\'s Causeway',
-								['qty'] = 3,
-								['name'] = 'Dragorn Muramite Insignia Necklace',
+							['Spiritkin Mittens'] = {
+								['qty'] = 1,
+								['name'] = 'Spiritkin Mittens',
+								['extra'] = 'Shaman Gloves',
+							},
+							['Ragebound Chain Mittens'] = {
+								['qty'] = 1,
+								['name'] = 'Ragebound Chain Mittens',
+								['extra'] = 'Berserker Gloves',
+							},
+							['Darkraider\'s Gloves'] = {
+								['qty'] = 1,
+								['name'] = 'Darkraider\'s Gloves',
+								['extra'] = 'Rogue Gloves',
+							},
+							['Sunrider\'s Gloves'] = {
+								['qty'] = 1,
+								['name'] = 'Sunrider\'s Gloves',
+								['extra'] = 'Ranger Gloves',
+							},
+							['Spire Control Shard'] = {
+								['qty'] = 1,
+								['name'] = 'Spire Control Shard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
 					['plate'] = {
-						['T1 Plate Greaves'] = {
-							['Dragorn City Ember'] = {
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+						['T1 Plate Gauntlets'] = {
+							['Discordling Message Satchel'] = {
+								['qty'] = 2,
+								['name'] = 'Discordling Message Satchel',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway',
 							},
-							['Dranik Incense Burner'] = {
-								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
-								['qty'] = 3,
-								['name'] = 'Dranik Incense Burner',
+							['Spire Control Shard'] = {
+								['qty'] = 1,
+								['name'] = 'Spire Control Shard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
 					['leather'] = {
-						['T1 Leather Leggings'] = {
-							['Dragorn Metal Bowl'] = {
-								['extra'] = 'Wall of Slaughter',
-								['qty'] = 3,
-								['name'] = 'Dragorn Metal Bowl',
-							},
-							['Dragorn City Ember'] = {
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+						['T1 Leather Gloves'] = {
+							['Spire Control Shard'] = {
 								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+								['name'] = 'Spire Control Shard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Glistening Murkglider Pelts'] = {
+								['qty'] = 2,
+								['name'] = 'Glistening Murkglider Pelts',
+								['extra'] = 'The Ruined City of Dranik and the Wall of Slaughter.',
 							},
 						},
 					},
-					['chain'] = {
-						['T1 Chain Leggings'] = {
-							['Dragorn City Ember'] = {
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+					['cloth'] = {
+						['T1 Cloth Gloves'] = {
+							['Discordling Finger Bone'] = {
+								['qty'] = 2,
+								['name'] = 'Discordling Finger Bone',
+								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
 							},
-							['Lock of Hair from a Chimera Mane'] = {
-								['extra'] = 'Wall of Slaughter',
-								['qty'] = 3,
-								['name'] = 'Lock of Hair from a Chimera Mane',
+							['Spire Control Shard'] = {
+								['qty'] = 1,
+								['name'] = 'Spire Control Shard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
@@ -584,179 +182,79 @@ return {
 			},
 			['chest'] = {
 				['armor'] = {
-					['cloth'] = {
-						['T1 Cloth Robe'] = {
-							['Kuuan Oil Candle'] = {
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+					['chain'] = {
+						['T1 Chain Tunic'] = {
+							['Darkraider\'s Vest'] = {
+								['qty'] = 1,
+								['name'] = 'Darkraider\'s Vest',
+								['extra'] = 'Rogue BP',
+							},
+							['Spiritkin Tunic'] = {
+								['qty'] = 1,
+								['name'] = 'Spiritkin Tunic',
+								['extra'] = 'Shaman BP',
+							},
+							['Ragged Discordling Skin'] = {
 								['qty'] = 3,
-								['name'] = 'Kuuan Oil Candle',
+								['name'] = 'Ragged Discordling Skin',
+								['extra'] = 'Wall of Slaughter',
+							},
+							['Ragebound Chain Chestguard'] = {
+								['qty'] = 1,
+								['name'] = 'Ragebound Chain Chestguard',
+								['extra'] = 'Berserker BP',
+							},
+							['Sunrider\'s Vest'] = {
+								['qty'] = 1,
+								['name'] = 'Sunrider\'s Vest',
+								['extra'] = 'Ranger BP',
 							},
 							['Dragorn Elder Scepter'] = {
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
 								['qty'] = 1,
 								['name'] = 'Dragorn Elder Scepter',
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
 							},
 						},
 					},
 					['plate'] = {
 						['T1 Plate Breastplate'] = {
-							['Dragorn Elder Scepter'] = {
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
-								['qty'] = 1,
-								['name'] = 'Dragorn Elder Scepter',
-							},
 							['Shorn Murkglider Tentacle'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 3,
 								['name'] = 'Shorn Murkglider Tentacle',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Dragorn Elder Scepter'] = {
+								['qty'] = 1,
+								['name'] = 'Dragorn Elder Scepter',
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
 							},
 						},
 					},
 					['leather'] = {
 						['T1 Leather Tunic'] = {
 							['Dragorn Elder Scepter'] = {
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
 								['qty'] = 1,
 								['name'] = 'Dragorn Elder Scepter',
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
 							},
 							['Tattered Chimera Pelt'] = {
-								['extra'] = 'Wall of Slaughter',
 								['qty'] = 3,
 								['name'] = 'Tattered Chimera Pelt',
+								['extra'] = 'Wall of Slaughter',
 							},
 						},
 					},
-					['chain'] = {
-						['T1 Chain Tunic'] = {
+					['cloth'] = {
+						['T1 Cloth Robe'] = {
+							['Kuuan Oil Candle'] = {
+								['qty'] = 3,
+								['name'] = 'Kuuan Oil Candle',
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+							},
 							['Dragorn Elder Scepter'] = {
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
 								['qty'] = 1,
 								['name'] = 'Dragorn Elder Scepter',
-							},
-							['Ragged Discordling Skin'] = {
-								['extra'] = 'Wall of Slaughter',
-								['qty'] = 3,
-								['name'] = 'Ragged Discordling Skin',
-							},
-						},
-					},
-				},
-			},
-			['hands'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T1 Cloth Gloves'] = {
-							['Spire Control Shard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
-							},
-							['Discordling Finger Bone'] = {
-								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
-								['qty'] = 2,
-								['name'] = 'Discordling Finger Bone',
-							},
-						},
-					},
-					['plate'] = {
-						['T1 Plate Gauntlets'] = {
-							['Discordling Message Satchel'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Discordling Message Satchel',
-							},
-							['Spire Control Shard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
-							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Gloves'] = {
-							['Spire Control Shard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
-							},
-							['Glistening Murkglider Pelts'] = {
-								['extra'] = 'The Ruined City of Dranik and the Wall of Slaughter.',
-								['qty'] = 2,
-								['name'] = 'Glistening Murkglider Pelts',
-							},
-						},
-					},
-					['chain'] = {
-						['T1 Chain Gloves'] = {
-							['Darkshorn Kyv Hood'] = {
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Darkshorn Kyv Hood',
-							},
-							['Spire Control Shard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
-							},
-						},
-					},
-				},
-			},
-			['feet'] = {
-				['armor'] = {
-					['cloth'] = {
-						['T1 Cloth Slippers'] = {
-							['Ikaav Braid'] = {
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Ikaav Braid',
-							},
-							['Kuuan Traitor Stones'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
-							},
-						},
-					},
-					['plate'] = {
-						['T1 Plate Boots'] = {
-							['Kyv Bowstring'] = {
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Kyv Bowstring',
-							},
-							['Kuuan Traitor Stones'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
-							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Boots'] = {
-							['Kuuan Traitor Stones'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
-							},
-							['Muramite Dragorn Slaver Whip'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Muramite Dragorn Slaver Whip',
-							},
-						},
-					},
-					['chain'] = {
-						['T1 Chain Boots'] = {
-							['Muramite Dispatch'] = {
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Muramite Dispatch',
-							},
-							['Kuuan Traitor Stones'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
 							},
 						},
 					},
@@ -764,59 +262,239 @@ return {
 			},
 			['arms'] = {
 				['armor'] = {
-					['cloth'] = {
-						['T1 Cloth Sleeves'] = {
-							['Map of Old Kuua'] = {
+					['chain'] = {
+						['T1 Chain Sleeves'] = {
+							['Darkraider\'s Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Darkraider\'s Sleeves',
+								['extra'] = 'Rogue Arms',
+							},
+							['Spiritkin Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Spiritkin Sleeves',
+								['extra'] = 'Shaman Arms',
+							},
+							['Kuuan Lodestone'] = {
+								['qty'] = 2,
+								['name'] = 'Kuuan Lodestone',
 								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Map of Old Kuua'] = {
 								['qty'] = 1,
 								['name'] = 'Map of Old Kuua',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
-							['Jagged Noc Tusk'] = {
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Jagged Noc Tusk',
+							['Ragebound Chain Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Ragebound Chain Sleeves',
+								['extra'] = 'Berserker Arms',
+							},
+							['Sunrider\'s Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Sunrider\'s Sleeves',
+								['extra'] = 'Ranger Arms',
 							},
 						},
 					},
 					['plate'] = {
 						['T1 Plate Vambraces'] = {
-							['Ukun Quill'] = {
-								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
-								['qty'] = 2,
-								['name'] = 'Ukun Quill',
-							},
 							['Map of Old Kuua'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Map of Old Kuua',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Ukun Quill'] = {
+								['qty'] = 2,
+								['name'] = 'Ukun Quill',
+								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
 							},
 						},
 					},
 					['leather'] = {
 						['T1 Leather Sleeves'] = {
 							['Dansk Blossom'] = {
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 2,
 								['name'] = 'Dansk Blossom',
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
 							},
 							['Map of Old Kuua'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Map of Old Kuua',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
-					['chain'] = {
-						['T1 Chain Sleeves'] = {
+					['cloth'] = {
+						['T1 Cloth Sleeves'] = {
 							['Map of Old Kuua'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Map of Old Kuua',
-							},
-							['Kuuan Lodestone'] = {
 								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Jagged Noc Tusk'] = {
 								['qty'] = 2,
-								['name'] = 'Kuuan Lodestone',
+								['name'] = 'Jagged Noc Tusk',
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+							},
+						},
+					},
+				},
+			},
+			['feet'] = {
+				['armor'] = {
+					['chain'] = {
+						['T1 Chain Boots'] = {
+							['Spiritkin Slippers'] = {
+								['qty'] = 1,
+								['name'] = 'Spiritkin Slippers',
+								['extra'] = 'Shaman Boots',
+							},
+							['Sunrider\'s Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Sunrider\'s Boots',
+								['extra'] = 'Ranger BP',
+							},
+							['Kuuan Traitor Stones'] = {
+								['qty'] = 1,
+								['name'] = 'Kuuan Traitor Stones',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Darkraider\'s Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Darkraider\'s Boots',
+								['extra'] = 'Rogue Boots',
+							},
+							['Ragebound Chain Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ragebound Chain Boots',
+								['extra'] = 'Berserker Boots',
+							},
+							['Muramite Dispatch'] = {
+								['qty'] = 2,
+								['name'] = 'Muramite Dispatch',
+								['extra'] = 'Noble\'s Causeway',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Boots'] = {
+							['Kyv Bowstring'] = {
+								['qty'] = 2,
+								['name'] = 'Kyv Bowstring',
+								['extra'] = 'Noble\'s Causeway',
+							},
+							['Kuuan Traitor Stones'] = {
+								['qty'] = 1,
+								['name'] = 'Kuuan Traitor Stones',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Boots'] = {
+							['Kuuan Traitor Stones'] = {
+								['qty'] = 1,
+								['name'] = 'Kuuan Traitor Stones',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Muramite Dragorn Slaver Whip'] = {
+								['qty'] = 2,
+								['name'] = 'Muramite Dragorn Slaver Whip',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+						},
+					},
+					['cloth'] = {
+						['T1 Cloth Slippers'] = {
+							['Kuuan Traitor Stones'] = {
+								['qty'] = 1,
+								['name'] = 'Kuuan Traitor Stones',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Ikaav Braid'] = {
+								['qty'] = 2,
+								['name'] = 'Ikaav Braid',
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['chain'] = {
+						['T1 Chain Leggings'] = {
+							['Darkraider\'s Pants'] = {
+								['qty'] = 1,
+								['name'] = 'Darkraider\'s Pants',
+								['extra'] = 'Rogue Legs',
+							},
+							['Lock of Hair from a Chimera Mane'] = {
+								['qty'] = 3,
+								['name'] = 'Lock of Hair from a Chimera Mane',
+								['extra'] = 'Wall of Slaughter',
+							},
+							['Dragorn City Ember'] = {
+								['qty'] = 1,
+								['name'] = 'Dragorn City Ember',
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+							},
+							['Spiritkin Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Spiritkin Leggings',
+								['extra'] = 'Shaman Legs',
+							},
+							['Ragebound Chain Legguards'] = {
+								['qty'] = 1,
+								['name'] = 'Ragebound Chain Legguards',
+								['extra'] = 'Berserker Legs',
+							},
+							['Sunrider\'s Pants'] = {
+								['qty'] = 1,
+								['name'] = 'Sunrider\'s Pants',
+								['extra'] = 'Ranger Legs',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Greaves'] = {
+							['Dranik Incense Burner'] = {
+								['qty'] = 3,
+								['name'] = 'Dranik Incense Burner',
+								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
+							},
+							['Dragorn City Ember'] = {
+								['qty'] = 1,
+								['name'] = 'Dragorn City Ember',
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Leggings'] = {
+							['Dragorn Metal Bowl'] = {
+								['qty'] = 3,
+								['name'] = 'Dragorn Metal Bowl',
+								['extra'] = 'Wall of Slaughter',
+							},
+							['Dragorn City Ember'] = {
+								['qty'] = 1,
+								['name'] = 'Dragorn City Ember',
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+							},
+						},
+					},
+					['cloth'] = {
+						['T1 Cloth Pantaloons'] = {
+							['Dragorn Muramite Insignia Necklace'] = {
+								['qty'] = 3,
+								['name'] = 'Dragorn Muramite Insignia Necklace',
+								['extra'] = 'Harbingers\' Spire, Wall of Slaughter, Ruined City of Dranik, Noble\'s Causeway',
+							},
+							['Dragorn City Ember'] = {
+								['qty'] = 1,
+								['name'] = 'Dragorn City Ember',
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
 							},
 						},
 					},
@@ -824,59 +502,79 @@ return {
 			},
 			['wrists'] = {
 				['armor'] = {
-					['cloth'] = {
-						['T1 Cloth Wristband'] = {
-							['Hooked Chimera Claw'] = {
-								['extra'] = 'Riftseekers\' Sanctum, Wall of Slaughter',
+					['chain'] = {
+						['T1 Chain Bracer'] = {
+							['Spiritkin Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Spiritkin Bracer',
+								['extra'] = 'Shaman Bracer',
+							},
+							['Darkraider\'s Wristguard'] = {
+								['qty'] = 1,
+								['name'] = 'Darkraider\'s Wristguard',
+								['extra'] = 'Rogue Bracer',
+							},
+							['Ragebound Chain Wristband'] = {
+								['qty'] = 1,
+								['name'] = 'Ragebound Chain Wristband',
+								['extra'] = 'Berserker Bracer',
+							},
+							['Shed Ikaav Skin'] = {
 								['qty'] = 2,
-								['name'] = 'Hooked Chimera Claw',
+								['name'] = 'Shed Ikaav Skin',
+								['extra'] = 'Ruined City of Dranik, Noble\'s Causeway',
 							},
 							['Dranik Blood Standard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Dranik Blood Standard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Sunrider\'s Wristguard'] = {
+								['qty'] = 1,
+								['name'] = 'Sunrider\'s Wristguard',
+								['extra'] = 'Ranger Bracer',
 							},
 						},
 					},
 					['plate'] = {
 						['T1 Plate Bracer'] = {
 							['Ashlock Branch'] = {
-								['extra'] = 'Ruined City of Dranik',
 								['qty'] = 2,
 								['name'] = 'Ashlock Branch',
+								['extra'] = 'Ruined City of Dranik',
 							},
 							['Dranik Blood Standard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Dranik Blood Standard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
 					['leather'] = {
 						['T1 Leather Bracer'] = {
-							['Dansk Branch'] = {
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Dansk Branch',
-							},
 							['Dranik Blood Standard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Dranik Blood Standard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Dansk Branch'] = {
+								['qty'] = 2,
+								['name'] = 'Dansk Branch',
+								['extra'] = 'Noble\'s Causeway',
 							},
 						},
 					},
-					['chain'] = {
-						['T1 Chain Bracer'] = {
-							['Shed Ikaav Skin'] = {
-								['extra'] = 'Ruined City of Dranik, Noble\'s Causeway',
+					['cloth'] = {
+						['T1 Cloth Wristband'] = {
+							['Hooked Chimera Claw'] = {
 								['qty'] = 2,
-								['name'] = 'Shed Ikaav Skin',
+								['name'] = 'Hooked Chimera Claw',
+								['extra'] = 'Riftseekers\' Sanctum, Wall of Slaughter',
 							},
 							['Dranik Blood Standard'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Dranik Blood Standard',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
@@ -884,59 +582,501 @@ return {
 			},
 			['head'] = {
 				['armor'] = {
-					['cloth'] = {
-						['T1 Cloth Cap'] = {
-							['Rugged Murkglider Skin'] = {
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik, Wall of Slaughter',
+					['chain'] = {
+						['T1 Chain Coif'] = {
+							['Deepshadow Feran Pelt'] = {
 								['qty'] = 2,
-								['name'] = 'Rugged Murkglider Skin',
+								['name'] = 'Deepshadow Feran Pelt',
+								['extra'] = 'Noble\'s Causeway',
 							},
 							['Duskfall Chronicles'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Duskfall Chronicles',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+							['Spiritkin Cap'] = {
+								['qty'] = 1,
+								['name'] = 'Spiritkin Cap',
+								['extra'] = 'Shaman Helm',
+							},
+							['Ragebound Chain Cap'] = {
+								['qty'] = 1,
+								['name'] = 'Ragebound Chain Cap',
+								['extra'] = 'Berserker Helm',
+							},
+							['Darkraider\'s Coif'] = {
+								['qty'] = 1,
+								['name'] = 'Darkraider\'s Coif',
+								['extra'] = 'Rogue Helm',
+							},
+							['Sunrider\'s Hat'] = {
+								['qty'] = 1,
+								['name'] = 'Sunrider\'s Hat',
+								['extra'] = 'Ranger Helm',
 							},
 						},
 					},
 					['plate'] = {
 						['T1 Plate Helmet'] = {
 							['Bristling Ukun Hide'] = {
-								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
 								['qty'] = 2,
 								['name'] = 'Bristling Ukun Hide',
+								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
 							},
 							['Duskfall Chronicles'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Duskfall Chronicles',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
 					['leather'] = {
 						['T1 Leather Cap'] = {
 							['Muramite Ritual Scroll'] = {
-								['extra'] = 'Wall of Slaughter, Bloodfields',
 								['qty'] = 2,
 								['name'] = 'Muramite Ritual Scroll',
+								['extra'] = 'Wall of Slaughter, Bloodfields',
 							},
 							['Duskfall Chronicles'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Duskfall Chronicles',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 							},
 						},
 					},
-					['chain'] = {
-						['T1 Chain Coif'] = {
-							['Deepshadow Feran Pelt'] = {
-								['extra'] = 'Noble\'s Causeway',
+					['cloth'] = {
+						['T1 Cloth Cap'] = {
+							['Rugged Murkglider Skin'] = {
 								['qty'] = 2,
-								['name'] = 'Deepshadow Feran Pelt',
+								['name'] = 'Rugged Murkglider Skin',
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik, Wall of Slaughter',
 							},
 							['Duskfall Chronicles'] = {
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
 								['qty'] = 1,
 								['name'] = 'Duskfall Chronicles',
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							},
+						},
+					},
+				},
+			},
+		},
+		['Tier2 Armor'] = {
+			['hands'] = {
+				['armor'] = {
+					['chain'] = {
+						['T2 Chain Gloves'] = {
+							['Kyv Whetstone'] = {
+								['qty'] = 2,
+								['name'] = 'Kyv Whetstone',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+							['Makyah\'s Axe'] = {
+								['qty'] = 1,
+								['name'] = 'Makyah\'s Axe',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Gauntlets'] = {
+							['Crystal of Yearning'] = {
+								['qty'] = 2,
+								['name'] = 'Crystal of Yearning',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+							['Makyah\'s Axe'] = {
+								['qty'] = 1,
+								['name'] = 'Makyah\'s Axe',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Gloves'] = {
+							['Fine Chimera Hide'] = {
+								['qty'] = 2,
+								['name'] = 'Fine Chimera Hide',
+								['extra'] = 'Riftseekers\' Sanctum',
+							},
+							['Makyah\'s Axe'] = {
+								['qty'] = 1,
+								['name'] = 'Makyah\'s Axe',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+					['cloth'] = {
+						['T2 Cloth Gloves'] = {
+							['Kuuan Whetstone'] = {
+								['qty'] = 2,
+								['name'] = 'Kuuan Whetstone',
+								['extra'] = 'Riftseekers\' Sanctum',
+							},
+							['Makyah\'s Axe'] = {
+								['qty'] = 1,
+								['name'] = 'Makyah\'s Axe',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+				},
+			},
+			['chest'] = {
+				['armor'] = {
+					['chain'] = {
+						['T2 Chain Tunic'] = {
+							['Jayruk\'s Vest'] = {
+								['qty'] = 1,
+								['name'] = 'Jayruk\'s Vest',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Kyv Short Bow'] = {
+								['qty'] = 3,
+								['name'] = 'Kyv Short Bow',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Breastplate'] = {
+							['Jayruk\'s Vest'] = {
+								['qty'] = 1,
+								['name'] = 'Jayruk\'s Vest',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Ceremonial Dragorn Candle'] = {
+								['qty'] = 3,
+								['name'] = 'Ceremonial Dragorn Candle',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Tunic'] = {
+							['Jayruk\'s Vest'] = {
+								['qty'] = 1,
+								['name'] = 'Jayruk\'s Vest',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Bazu Nail Bracelet'] = {
+								['qty'] = 3,
+								['name'] = 'Bazu Nail Bracelet',
+								['extra'] = 'Asylum of Anguish, Noble\'s Causeway, Muramite Proving Grounds',
+							},
+						},
+					},
+					['cloth'] = {
+						['T2 Cloth Robe'] = {
+							['Jayruk\'s Vest'] = {
+								['qty'] = 1,
+								['name'] = 'Jayruk\'s Vest',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Piece of Vrenlar Fruit'] = {
+								['qty'] = 3,
+								['name'] = 'Piece of Vrenlar Fruit',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+							},
+						},
+					},
+				},
+			},
+			['arms'] = {
+				['armor'] = {
+					['chain'] = {
+						['T2 Chain Sleeves'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Ikaav Head'] = {
+								['qty'] = 2,
+								['name'] = 'Ikaav Head',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Vambraces'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Noc Right Hand'] = {
+								['qty'] = 2,
+								['name'] = 'Noc Right Hand',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Sleeves'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Spiked Discordling Collar'] = {
+								['qty'] = 2,
+								['name'] = 'Spiked Discordling Collar',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+							},
+						},
+					},
+					['cloth'] = {
+						['T2 Cloth Sleeves'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Spool of Balemoon Silk'] = {
+								['qty'] = 2,
+								['name'] = 'Spool of Balemoon Silk',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+							},
+						},
+					},
+				},
+			},
+			['feet'] = {
+				['armor'] = {
+					['chain'] = {
+						['T2 Chain Boots'] = {
+							['Muramite Cruelty Medal'] = {
+								['qty'] = 1,
+								['name'] = 'Muramite Cruelty Medal',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Dragorn Muramite Ring'] = {
+								['qty'] = 2,
+								['name'] = 'Dragorn Muramite Ring',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Boots'] = {
+							['Muramite Cruelty Medal'] = {
+								['qty'] = 1,
+								['name'] = 'Muramite Cruelty Medal',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Kyv Hunter Ring'] = {
+								['qty'] = 2,
+								['name'] = 'Kyv Hunter Ring',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Boots'] = {
+							['Muramite Cruelty Medal'] = {
+								['qty'] = 1,
+								['name'] = 'Muramite Cruelty Medal',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Chimera Gut String'] = {
+								['qty'] = 2,
+								['name'] = 'Chimera Gut String',
+								['extra'] = 'Riftseekers\' Sanctum',
+							},
+						},
+					},
+					['cloth'] = {
+						['T2 Cloth Slippers'] = {
+							['Ikaav Tail'] = {
+								['qty'] = 2,
+								['name'] = 'Ikaav Tail',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+							},
+							['Muramite Cruelty Medal'] = {
+								['qty'] = 1,
+								['name'] = 'Muramite Cruelty Medal',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['chain'] = {
+						['T2 Chain Legs'] = {
+							['Shattered Ukun Hide'] = {
+								['qty'] = 3,
+								['name'] = 'Shattered Ukun Hide',
+								['extra'] = 'Muramite Proving Grounds, Noble\'s Causeway',
+							},
+							['Patorav\'s Amulet'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Amulet',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Legs'] = {
+							['Blackened Discordling Tail'] = {
+								['qty'] = 3,
+								['name'] = 'Blackened Discordling Tail',
+								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
+							},
+							['Patorav\'s Amulet'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Amulet',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Legs'] = {
+							['Patorav\'s Amulet'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Amulet',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Discordling Hoof'] = {
+								['qty'] = 3,
+								['name'] = 'Discordling Hoof',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+							},
+						},
+					},
+					['cloth'] = {
+						['T2 Cloth Legs'] = {
+							['Softened Feran Hide'] = {
+								['qty'] = 3,
+								['name'] = 'Softened Feran Hide',
+								['extra'] = 'Riftseekers\' Sanctum',
+							},
+							['Patorav\'s Amulet'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Amulet',
+								['extra'] = 'Asylum of Anguish',
+							},
+						},
+					},
+				},
+			},
+			['wrists'] = {
+				['armor'] = {
+					['chain'] = {
+						['T2 Chain Bracer'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Withered Discordling Tongue'] = {
+								['qty'] = 2,
+								['name'] = 'Withered Discordling Tongue',
+								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Bracer'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Large Piece of Kuuan Ore'] = {
+								['qty'] = 2,
+								['name'] = 'Large Piece of Kuuan Ore',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Bracer'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Quality Feran Hide'] = {
+								['qty'] = 2,
+								['name'] = 'Quality Feran Hide',
+								['extra'] = 'Riftseekers\' Sanctum',
+							},
+						},
+					},
+					['cloth'] = {
+						['T2 Cloth Wristband'] = {
+							['Riftseeker Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Riftseeker Heart',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Softened Feran Hide'] = {
+								['qty'] = 2,
+								['name'] = 'Softened Feran Hide',
+								['extra'] = 'Riftseekers\' Sanctum',
+							},
+						},
+					},
+				},
+			},
+			['head'] = {
+				['armor'] = {
+					['chain'] = {
+						['T2 Chain Coif'] = {
+							['Patorav\'s Walking Stick'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Walking Stick',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Kyv Scout Ring'] = {
+								['qty'] = 2,
+								['name'] = 'Kyv Scout Ring',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Helmet'] = {
+							['Patorav\'s Walking Stick'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Walking Stick',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Kyv Food Sack'] = {
+								['qty'] = 2,
+								['name'] = 'Kyv Food Sack',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Cap'] = {
+							['Patorav\'s Walking Stick'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Walking Stick',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Muramite Noble\'s March Award'] = {
+								['qty'] = 2,
+								['name'] = 'Muramite Noble\'s March Award',
+								['extra'] = 'Muramite Proving Grounds',
+							},
+						},
+					},
+					['cloth'] = {
+						['T2 Cloth Cap'] = {
+							['Patorav\'s Walking Stick'] = {
+								['qty'] = 1,
+								['name'] = 'Patorav\'s Walking Stick',
+								['extra'] = 'Asylum of Anguish',
+							},
+							['Bar of Nashtar Berry Soap'] = {
+								['qty'] = 2,
+								['name'] = 'Bar of Nashtar Berry Soap',
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
 							},
 						},
 					},
@@ -945,299 +1085,299 @@ return {
 		},
 	},
 	['Ruins of Kunark'] = {
-		['General'] = {
-			['key'] = {
-				['key'] = {
-					['All'] = {
-						['Key to Sebilis'] = {
-							['Trakanon Idol'] = {
-								['extra'] = 'Key from handing in the 2 Medallions to Emperor Ganak in Trakanon\'s Teeth',
-								['qty'] = 1,
-								['name'] = 'Trakanon Idol',
+		['Epic 1.0'] = {
+			['weapon'] = {
+				['weapon'] = {
+					['bst'] = {
+						['Beastlord Epic 1.0'] = {
+							['Gem of the Void'] = {
+								['qty'] = 2,
+								['name'] = 'Gem of the Void',
+								['extra'] = 'Maiden’s Eye',
 							},
-							['Medallion of the Nathsar'] = {
-								['extra'] = 'From the froglok hunter in Trakanon\'s Teeth',
+							['Seal of Elder Dumul'] = {
 								['qty'] = 1,
-								['name'] = 'Medallion of the Nathsar',
+								['name'] = 'Seal of Elder Dumul',
+								['extra'] = 'From handing in Sealed Box in Shar Vahl',
 							},
-							['Medallion of the Kunzar'] = {
-								['extra'] = 'From the froglok forager in Trakanon\'s Teeth',
+							['Black Silk Sack'] = {
 								['qty'] = 1,
-								['name'] = 'Medallion of the Kunzar',
+								['name'] = 'Black Silk Sack',
+								['extra'] = '6 slot bag from handing in Seal, spawns 6 npc on nearby isle to kill',
+							},
+							['Rahoul\'s Collection Box'] = {
+								['qty'] = 1,
+								['name'] = 'Rahoul\'s Collection Box',
+								['extra'] = '4 slot container, from handing in the receipt',
+							},
+							['Shards of Broken Glass'] = {
+								['qty'] = 6,
+								['name'] = 'Shards of Broken Glass',
+								['extra'] = 'From killing the 6 npc spawned',
+							},
+							['Jagged Claw of Rending'] = {
+								['qty'] = 2,
+								['name'] = 'Jagged Claw of Rending',
+								['extra'] = 'From handing in the Sealed Collection Box in Shar Vahl',
+							},
+							['Sack of Broken Glass'] = {
+								['qty'] = 1,
+								['name'] = 'Sack of Broken Glass',
+								['extra'] = 'From combining the Shards of Broken Glass in the Black Silk Sack',
+							},
+							['Sealed Gilded Wooden Chest'] = {
+								['qty'] = 1,
+								['name'] = 'Sealed Gilded Wooden Chest',
+								['extra'] = 'Combine 2x Jagged Claw of Rending,  Khati Sha Seal of War,  Draz Nurakk\'s Head in  Acrylia Gilded Box ',
+							},
+							['Note for Historian Qua'] = {
+								['qty'] = 1,
+								['name'] = 'Note for Historian Qua',
+								['extra'] = 'From handin of Sack of Broken Glass',
+							},
+							['Qua\'s Receipt'] = {
+								['qty'] = 1,
+								['name'] = 'Qua\'s Receipt',
+								['extra'] = 'From handing in Note for Historian Qua',
+							},
+							['Draz Nurakk\'s Head'] = {
+								['qty'] = 1,
+								['name'] = 'Draz Nurakk\'s Head',
+								['extra'] = 'Fungus Grove Draz Spawns after handing in the Khati Sha Seal of War',
+							},
+							['Sealed Collection Box'] = {
+								['qty'] = 1,
+								['name'] = 'Sealed Collection Box',
+								['extra'] = 'Combining the Gem of the Void x2, Dhunk of Dense Fungal Padding, and Perfect Acrylia Ore',
+							},
+							['Claw of the Savage Spirit'] = {
+								['qty'] = 2,
+								['name'] = 'Claw of the Savage Spirit',
+								['extra'] = 'Epic 1.0',
+							},
+							['Chunk of Dense Fungal Padding'] = {
+								['qty'] = 1,
+								['name'] = 'Chunk of Dense Fungal Padding',
+								['extra'] = 'The Deep',
+							},
+							['Khati Sha Seal of War'] = {
+								['qty'] = 1,
+								['name'] = 'Khati Sha Seal of War',
+								['extra'] = 'From handing in Jagged Claw of Rending x2',
+							},
+							['Perfect Acrylia Ore'] = {
+								['qty'] = 1,
+								['name'] = 'Perfect Acrylia Ore',
+								['extra'] = 'The Grey',
+							},
+							['Acrylia Gilded Box'] = {
+								['qty'] = 1,
+								['name'] = 'Acrylia Gilded Box',
+								['extra'] = '4 slot Container From handing in Jagged Claw of Rending x2',
+							},
+							['Copper Medal of War'] = {
+								['qty'] = 1,
+								['name'] = 'Copper Medal of War',
+								['extra'] = 'Grimling Forest',
+							},
+							['Official Seal of the Khati Sha'] = {
+								['qty'] = 1,
+								['name'] = 'Official Seal of the Khati Sha',
+								['extra'] = 'From Handin of Copper Medal of War',
+							},
+							['Carved Wooden Chest'] = {
+								['qty'] = 1,
+								['name'] = 'Carved Wooden Chest',
+								['extra'] = '6 slot container for combine',
+							},
+							['Totem of the Gorilla'] = {
+								['qty'] = 1,
+								['name'] = 'Totem of the Gorilla',
+								['extra'] = 'from Spirit of Rage in Emerald Jungle',
+							},
+							['Wrapped Gorilla Totem'] = {
+								['qty'] = 1,
+								['name'] = 'Wrapped Gorilla Totem',
+								['extra'] = 'From handin of Totem of the Gorilla',
+							},
+							['Totem of the Ice Bear'] = {
+								['qty'] = 1,
+								['name'] = 'Totem of the Ice Bear',
+								['extra'] = 'From The Icebound Spirit in Permafrost',
+							},
+							['Wrapped Ice Bear Totem'] = {
+								['qty'] = 1,
+								['name'] = 'Wrapped Ice Bear Totem',
+								['extra'] = 'from hand of Totem of the Ice Bear',
+							},
+							['Totem of the Spider'] = {
+								['qty'] = 1,
+								['name'] = 'Totem of the Spider',
+								['extra'] = 'From The Spirit of Decay in Feerrott',
+							},
+							['Wrapped Spider Totem'] = {
+								['qty'] = 1,
+								['name'] = 'Wrapped Spider Totem',
+								['extra'] = 'From handin of Totem of the Spider',
+							},
+							['Totem of the Wolf'] = {
+								['qty'] = 1,
+								['name'] = 'Totem of the Wolf',
+								['extra'] = 'From The Spirit of Malevolence in Lesser Faydark',
+							},
+							['Wrapped Wolf Totem'] = {
+								['qty'] = 1,
+								['name'] = 'Wrapped Wolf Totem',
+								['extra'] = 'From handin of Totem of the Wolf',
+							},
+							['Totem of the Watcher'] = {
+								['qty'] = 1,
+								['name'] = 'Totem of the Watcher',
+								['extra'] = 'From The Spirit of Torment in Stonebrunt Mountains',
+							},
+							['Wrapped Watcher Totem'] = {
+								['qty'] = 1,
+								['name'] = 'Wrapped Watcher Totem',
+								['extra'] = 'From handin of Totem of the Watcher',
+							},
+							['Totem of the Alligator'] = {
+								['qty'] = 1,
+								['name'] = 'Totem of the Alligator',
+								['extra'] = 'From The Spirit of Sorrow in Swamp of No Hope',
+							},
+							['Wrapped Alligator Totem'] = {
+								['qty'] = 1,
+								['name'] = 'Wrapped Alligator Totem',
+								['extra'] = 'From handin of Totem of the Alligator',
+							},
+							['Sealed Box of Totems'] = {
+								['qty'] = 1,
+								['name'] = 'Sealed Box of Totems',
+								['extra'] = 'From Combining the 6 Totems in the Carved Wooden Chest',
+							},
+						},
+					},
+					['clr'] = {
+						['Cleric Epic 1.0'] = {
+							['Ornate Sea Shell'] = {
+								['qty'] = 1,
+								['name'] = 'Ornate Sea Shell',
+								['extra'] = 'After Crown Handin',
+							},
+							['Coral Statue of Tarew'] = {
+								['qty'] = 1,
+								['name'] = 'Coral Statue of Tarew',
+								['extra'] = 'Tim Deep',
+							},
+							['Blood Soaked Plasmatic Priest Robe'] = {
+								['qty'] = 1,
+								['name'] = 'Blood Soaked Plasmatic Priest Robe',
+								['extra'] = 'Temple Solusek Ro',
+							},
+							['Orb of Frozen Water'] = {
+								['qty'] = 1,
+								['name'] = 'Orb of Frozen Water',
+								['extra'] = 'Tim Deep',
+							},
+							['Lord Gimblox\'s Signet Ring'] = {
+								['qty'] = 1,
+								['name'] = 'Lord Gimblox\'s Signet Ring',
+								['extra'] = 'Sol A',
+							},
+							['Swirling Pearl'] = {
+								['qty'] = 1,
+								['name'] = 'Swirling Pearl',
+								['extra'] = 'Zordak',
+							},
+							['Message to Natasha'] = {
+								['qty'] = 1,
+								['name'] = 'Message to Natasha',
+								['extra'] = 'Sol A',
+							},
+							['Pearlescent Fragment'] = {
+								['qty'] = 4,
+								['name'] = 'Pearlescent Fragment',
+								['extra'] = 'Skyfire',
+							},
+							['Assembled Pearlescent Shard'] = {
+								['qty'] = 1,
+								['name'] = 'Assembled Pearlescent Shard',
+								['extra'] = 'Combine in Skyfire',
+							},
+							['Zordak Ragefire\'s Heart'] = {
+								['qty'] = 1,
+								['name'] = 'Zordak Ragefire\'s Heart',
+								['extra'] = 'Assembled',
+							},
+							['Orb of Vapor'] = {
+								['qty'] = 1,
+								['name'] = 'Orb of Vapor',
+								['extra'] = 'Tim Deep',
+							},
+							['Orb of the Triumvirate'] = {
+								['qty'] = 1,
+								['name'] = 'Orb of the Triumvirate',
+								['extra'] = ' combine 3 orbs',
+							},
+							['Water Sprinkler of Nem Ankh'] = {
+								['qty'] = 1,
+								['name'] = 'Water Sprinkler of Nem Ankh',
+								['extra'] = 'Epic 1.0',
+							},
+							['Natasha\'s Letter'] = {
+								['qty'] = 1,
+								['name'] = 'Natasha\'s Letter',
+								['extra'] = 'Give to Naxot in BW',
+							},
+							['Orb of Clear Water'] = {
+								['qty'] = 1,
+								['name'] = 'Orb of Clear Water',
+								['extra'] = 'Tim Deep',
+							},
+							['Singed Scroll'] = {
+								['qty'] = 1,
+								['name'] = 'Singed Scroll',
+								['extra'] = 'Chardok',
+							},
+							['Shimmering Pearl'] = {
+								['qty'] = 1,
+								['name'] = 'Shimmering Pearl',
+								['extra'] = 'Give To Zordak',
+							},
+							['Sceptre of Ixiblat Fer'] = {
+								['qty'] = 1,
+								['name'] = 'Sceptre of Ixiblat Fer',
+								['extra'] = 'Burning Woods',
+							},
+							['Lord Bergurgle\'s Crown'] = {
+								['qty'] = 1,
+								['name'] = 'Lord Bergurgle\'s Crown',
+								['extra'] = 'Lake Rathtear',
 							},
 						},
 					},
 				},
 			},
 		},
-		['Epic 1.0'] = {
-			['weapon'] = {
-				['weapon'] = {
-					['clr'] = {
-						['Cleric Epic 1.0'] = {
-							['Assembled Pearlescent Shard'] = {
-								['extra'] = 'Combine in Skyfire',
+		['General'] = {
+			['key'] = {
+				['key'] = {
+					['All'] = {
+						['Key to Sebilis'] = {
+							['Trakanon Idol'] = {
 								['qty'] = 1,
-								['name'] = 'Assembled Pearlescent Shard',
+								['name'] = 'Trakanon Idol',
+								['extra'] = 'Key from handing in the 2 Medallions to Emperor Ganak in Trakanon\'s Teeth',
 							},
-							['Zordak Ragefire\'s Heart'] = {
-								['extra'] = 'Assembled',
+							['Medallion of the Nathsar'] = {
 								['qty'] = 1,
-								['name'] = 'Zordak Ragefire\'s Heart',
+								['name'] = 'Medallion of the Nathsar',
+								['extra'] = 'From the froglok hunter in Trakanon\'s Teeth',
 							},
-							['Orb of Vapor'] = {
-								['extra'] = 'Tim Deep',
+							['Medallion of the Kunzar'] = {
 								['qty'] = 1,
-								['name'] = 'Orb of Vapor',
-							},
-							['Orb of the Triumvirate'] = {
-								['extra'] = ' combine 3 orbs',
-								['qty'] = 1,
-								['name'] = 'Orb of the Triumvirate',
-							},
-							['Water Sprinkler of Nem Ankh'] = {
-								['extra'] = 'Epic 1.0',
-								['qty'] = 1,
-								['name'] = 'Water Sprinkler of Nem Ankh',
-							},
-							['Natasha\'s Letter'] = {
-								['extra'] = 'Give to Naxot in BW',
-								['qty'] = 1,
-								['name'] = 'Natasha\'s Letter',
-							},
-							['Orb of Clear Water'] = {
-								['extra'] = 'Tim Deep',
-								['qty'] = 1,
-								['name'] = 'Orb of Clear Water',
-							},
-							['Singed Scroll'] = {
-								['extra'] = 'Chardok',
-								['qty'] = 1,
-								['name'] = 'Singed Scroll',
-							},
-							['Shimmering Pearl'] = {
-								['extra'] = 'Give To Zordak',
-								['qty'] = 1,
-								['name'] = 'Shimmering Pearl',
-							},
-							['Sceptre of Ixiblat Fer'] = {
-								['extra'] = 'Burning Woods',
-								['qty'] = 1,
-								['name'] = 'Sceptre of Ixiblat Fer',
-							},
-							['Lord Bergurgle\'s Crown'] = {
-								['extra'] = 'Lake Rathtear',
-								['qty'] = 1,
-								['name'] = 'Lord Bergurgle\'s Crown',
-							},
-							['Ornate Sea Shell'] = {
-								['extra'] = 'After Crown Handin',
-								['qty'] = 1,
-								['name'] = 'Ornate Sea Shell',
-							},
-							['Coral Statue of Tarew'] = {
-								['extra'] = 'Tim Deep',
-								['qty'] = 1,
-								['name'] = 'Coral Statue of Tarew',
-							},
-							['Blood Soaked Plasmatic Priest Robe'] = {
-								['extra'] = 'Temple Solusek Ro',
-								['qty'] = 1,
-								['name'] = 'Blood Soaked Plasmatic Priest Robe',
-							},
-							['Orb of Frozen Water'] = {
-								['extra'] = 'Tim Deep',
-								['qty'] = 1,
-								['name'] = 'Orb of Frozen Water',
-							},
-							['Lord Gimblox\'s Signet Ring'] = {
-								['extra'] = 'Sol A',
-								['qty'] = 1,
-								['name'] = 'Lord Gimblox\'s Signet Ring',
-							},
-							['Swirling Pearl'] = {
-								['extra'] = 'Zordak',
-								['qty'] = 1,
-								['name'] = 'Swirling Pearl',
-							},
-							['Message to Natasha'] = {
-								['extra'] = 'Sol A',
-								['qty'] = 1,
-								['name'] = 'Message to Natasha',
-							},
-							['Pearlescent Fragment'] = {
-								['extra'] = 'Skyfire',
-								['qty'] = 4,
-								['name'] = 'Pearlescent Fragment',
-							},
-						},
-					},
-					['bst'] = {
-						['Beastlord Epic 1.0'] = {
-							['Note for Historian Qua'] = {
-								['extra'] = 'From handin of Sack of Broken Glass',
-								['qty'] = 1,
-								['name'] = 'Note for Historian Qua',
-							},
-							['Qua\'s Receipt'] = {
-								['extra'] = 'From handing in Note for Historian Qua',
-								['qty'] = 1,
-								['name'] = 'Qua\'s Receipt',
-							},
-							['Draz Nurakk\'s Head'] = {
-								['extra'] = 'Fungus Grove Draz Spawns after handing in the Khati Sha Seal of War',
-								['qty'] = 1,
-								['name'] = 'Draz Nurakk\'s Head',
-							},
-							['Sealed Collection Box'] = {
-								['extra'] = 'Combining the Gem of the Void x2, Dhunk of Dense Fungal Padding, and Perfect Acrylia Ore',
-								['qty'] = 1,
-								['name'] = 'Sealed Collection Box',
-							},
-							['Claw of the Savage Spirit'] = {
-								['extra'] = 'Epic 1.0',
-								['qty'] = 2,
-								['name'] = 'Claw of the Savage Spirit',
-							},
-							['Chunk of Dense Fungal Padding'] = {
-								['extra'] = 'The Deep',
-								['qty'] = 1,
-								['name'] = 'Chunk of Dense Fungal Padding',
-							},
-							['Khati Sha Seal of War'] = {
-								['extra'] = 'From handing in Jagged Claw of Rending x2',
-								['qty'] = 1,
-								['name'] = 'Khati Sha Seal of War',
-							},
-							['Perfect Acrylia Ore'] = {
-								['extra'] = 'The Grey',
-								['qty'] = 1,
-								['name'] = 'Perfect Acrylia Ore',
-							},
-							['Acrylia Gilded Box'] = {
-								['extra'] = '4 slot Container From handing in Jagged Claw of Rending x2',
-								['qty'] = 1,
-								['name'] = 'Acrylia Gilded Box',
-							},
-							['Copper Medal of War'] = {
-								['extra'] = 'Grimling Forest',
-								['qty'] = 1,
-								['name'] = 'Copper Medal of War',
-							},
-							['Official Seal of the Khati Sha'] = {
-								['extra'] = 'From Handin of Copper Medal of War',
-								['qty'] = 1,
-								['name'] = 'Official Seal of the Khati Sha',
-							},
-							['Carved Wooden Chest'] = {
-								['extra'] = '6 slot container for combine',
-								['qty'] = 1,
-								['name'] = 'Carved Wooden Chest',
-							},
-							['Totem of the Gorilla'] = {
-								['extra'] = 'from Spirit of Rage in Emerald Jungle',
-								['qty'] = 1,
-								['name'] = 'Totem of the Gorilla',
-							},
-							['Wrapped Gorilla Totem'] = {
-								['extra'] = 'From handin of Totem of the Gorilla',
-								['qty'] = 1,
-								['name'] = 'Wrapped Gorilla Totem',
-							},
-							['Totem of the Ice Bear'] = {
-								['extra'] = 'From The Icebound Spirit in Permafrost',
-								['qty'] = 1,
-								['name'] = 'Totem of the Ice Bear',
-							},
-							['Wrapped Ice Bear Totem'] = {
-								['extra'] = 'from hand of Totem of the Ice Bear',
-								['qty'] = 1,
-								['name'] = 'Wrapped Ice Bear Totem',
-							},
-							['Totem of the Spider'] = {
-								['extra'] = 'From The Spirit of Decay in Feerrott',
-								['qty'] = 1,
-								['name'] = 'Totem of the Spider',
-							},
-							['Wrapped Spider Totem'] = {
-								['extra'] = 'From handin of Totem of the Spider',
-								['qty'] = 1,
-								['name'] = 'Wrapped Spider Totem',
-							},
-							['Totem of the Wolf'] = {
-								['extra'] = 'From The Spirit of Malevolence in Lesser Faydark',
-								['qty'] = 1,
-								['name'] = 'Totem of the Wolf',
-							},
-							['Wrapped Wolf Totem'] = {
-								['extra'] = 'From handin of Totem of the Wolf',
-								['qty'] = 1,
-								['name'] = 'Wrapped Wolf Totem',
-							},
-							['Totem of the Watcher'] = {
-								['extra'] = 'From The Spirit of Torment in Stonebrunt Mountains',
-								['qty'] = 1,
-								['name'] = 'Totem of the Watcher',
-							},
-							['Wrapped Watcher Totem'] = {
-								['extra'] = 'From handin of Totem of the Watcher',
-								['qty'] = 1,
-								['name'] = 'Wrapped Watcher Totem',
-							},
-							['Totem of the Alligator'] = {
-								['extra'] = 'From The Spirit of Sorrow in Swamp of No Hope',
-								['qty'] = 1,
-								['name'] = 'Totem of the Alligator',
-							},
-							['Wrapped Alligator Totem'] = {
-								['extra'] = 'From handin of Totem of the Alligator',
-								['qty'] = 1,
-								['name'] = 'Wrapped Alligator Totem',
-							},
-							['Sealed Box of Totems'] = {
-								['extra'] = 'From Combining the 6 Totems in the Carved Wooden Chest',
-								['qty'] = 1,
-								['name'] = 'Sealed Box of Totems',
-							},
-							['Gem of the Void'] = {
-								['extra'] = 'Maiden’s Eye',
-								['qty'] = 2,
-								['name'] = 'Gem of the Void',
-							},
-							['Seal of Elder Dumul'] = {
-								['extra'] = 'From handing in Sealed Box in Shar Vahl',
-								['qty'] = 1,
-								['name'] = 'Seal of Elder Dumul',
-							},
-							['Black Silk Sack'] = {
-								['extra'] = '6 slot bag from handing in Seal, spawns 6 npc on nearby isle to kill',
-								['qty'] = 1,
-								['name'] = 'Black Silk Sack',
-							},
-							['Rahoul\'s Collection Box'] = {
-								['extra'] = '4 slot container, from handing in the receipt',
-								['qty'] = 1,
-								['name'] = 'Rahoul\'s Collection Box',
-							},
-							['Shards of Broken Glass'] = {
-								['extra'] = 'From killing the 6 npc spawned',
-								['qty'] = 6,
-								['name'] = 'Shards of Broken Glass',
-							},
-							['Jagged Claw of Rending'] = {
-								['extra'] = 'From handing in the Sealed Collection Box in Shar Vahl',
-								['qty'] = 2,
-								['name'] = 'Jagged Claw of Rending',
-							},
-							['Sack of Broken Glass'] = {
-								['extra'] = 'From combining the Shards of Broken Glass in the Black Silk Sack',
-								['qty'] = 1,
-								['name'] = 'Sack of Broken Glass',
-							},
-							['Sealed Gilded Wooden Chest'] = {
-								['extra'] = 'Combine 2x Jagged Claw of Rending,  Khati Sha Seal of War,  Draz Nurakk\'s Head in  Acrylia Gilded Box ',
-								['qty'] = 1,
-								['name'] = 'Sealed Gilded Wooden Chest',
+								['name'] = 'Medallion of the Kunzar',
+								['extra'] = 'From the froglok forager in Trakanon\'s Teeth',
 							},
 						},
 					},
@@ -1247,819 +1387,103 @@ return {
 	},
 	['Scars of Velious'] = {
 		['Thurg Armor'] = {
-			['legs'] = {
-				['armor'] = {
-					['dru'] = {
-						['Thurg Druid Leggings'] = {
-							['Eroded Leather Leggings'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Leggings',
-							},
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Corroded Chain Leggings'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Leggings',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Greaves'] = {
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Corroded Plate Greaves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Greaves',
-							},
-						},
-					},
-					['war pal shd brd'] = {
-						['Thurg Plate Greaves'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Corroded Plate Greaves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Greaves',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Eroded Leather Leggings'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Leggings',
-							},
-						},
-					},
-					['enc wiz mag nec'] = {
-						['Thurg Silk Pantaloons'] = {
-							['Nephrite'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Nephrite',
-							},
-							['Torn Enchanted Silk Pantaloons'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Pantaloons',
-							},
-						},
-					},
-					['ber rog rng'] = {
-						['Thurg Chain Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Corroded Chain Leggings'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Leggings',
-							},
-						},
-					},
-				},
-			},
-			['chest'] = {
-				['armor'] = {
-					['dru'] = {
-						['Thurg Druid Tunic'] = {
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Eroded Leather Tunic'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Tunic',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Tunic'] = {
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Corroded Chain Tunic'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Tunic',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Breastplate'] = {
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Corroded Breastplate'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Breastplate',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Breastplate'] = {
-							['Flawless Diamond'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Corroded Breastplate'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Breastplate',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Thurg Chain Tunic'] = {
-							['Flawless Diamond'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Corroded Chain Tunic'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Tunic',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Tunic'] = {
-							['Flawless Diamond'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Eroded Leather Tunic'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Tunic',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Thurg Silk Robe'] = {
-							['Pristine Emerald'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Pristine Emerald',
-							},
-							['Torn Enchanted Silk Robe'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Robe',
-							},
-						},
-					},
-				},
-			},
 			['hands'] = {
 				['armor'] = {
-					['dru'] = {
-						['Thurg Druid Gloves'] = {
-							['Eroded Leather Gloves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Gloves',
-							},
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-						},
-					},
 					['shm'] = {
 						['Thurg Shaman Gloves'] = {
 							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
 							},
 							['Corroded Chain Gauntlets'] = {
-								['extra'] = 'Kael',
 								['qty'] = 1,
 								['name'] = 'Corroded Chain Gauntlets',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Corroded Plate Gauntlets'] = {
 								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Gauntlets',
 							},
 						},
 					},
 					['war shd pal brd'] = {
 						['Thurg Plate Gloves'] = {
 							['Corroded Plate Gauntlets'] = {
-								['extra'] = 'Kael',
 								['qty'] = 1,
 								['name'] = 'Corroded Plate Gauntlets',
+								['extra'] = 'Kael',
 							},
 							['Crushed Topaz'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Gloves'] = {
+							['Eroded Leather Gloves'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Gloves',
+								['extra'] = 'Kael',
+							},
+							['Crushed Lava Ruby'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['Thurg Cleric Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
+							},
+							['Corroded Plate Gauntlets'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Gauntlets',
+								['extra'] = 'Kael',
 							},
 						},
 					},
 					['rog rng ber'] = {
 						['Thurg Chain Gloves'] = {
 							['Corroded Chain Gauntlets'] = {
-								['extra'] = 'Kael',
 								['qty'] = 1,
 								['name'] = 'Corroded Chain Gauntlets',
+								['extra'] = 'Kael',
 							},
 							['Crushed Topaz'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
 						['Thurg Leather Gloves'] = {
 							['Eroded Leather Gloves'] = {
-								['extra'] = 'Kael',
 								['qty'] = 1,
 								['name'] = 'Eroded Leather Gloves',
+								['extra'] = 'Kael',
 							},
 							['Crushed Topaz'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
 						['Thurg Silk Gloves'] = {
 							['Torn Enchanted Silk Gloves'] = {
-								['extra'] = 'Kael',
 								['qty'] = 1,
 								['name'] = 'Torn Enchanted Silk Gloves',
+								['extra'] = 'Kael',
 							},
 							['Crushed Topaz'] = {
-								['extra'] = 'caster',
 								['qty'] = 3,
 								['name'] = 'Crushed Topaz',
-							},
-						},
-					},
-				},
-			},
-			['feet'] = {
-				['armor'] = {
-					['dru'] = {
-						['Thurg Druid Boots'] = {
-							['Eroded Leather Boots'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Boots'] = {
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Corroded Chain Boots'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Boots',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Boots'] = {
-							['Corroded Plate Boots'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Boots'] = {
-							['Corroded Plate Boots'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Boots',
-							},
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Thurg Chain Boots'] = {
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Corroded Chain Boots'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Boots',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Boots'] = {
-							['Eroded Leather Boots'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Boots',
-							},
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Thurg Silk Boots'] = {
-							['Crushed Jaundice Gem'] = {
 								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Jaundice Gem',
-							},
-							['Torn Enchanted Silk Boots'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Boots',
-							},
-						},
-					},
-				},
-			},
-			['arms'] = {
-				['armor'] = {
-					['dru'] = {
-						['Thurg Druid Sleeves'] = {
-							['Eroded Leather Sleeves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Sleeves'] = {
-							['Corroded Chain Sleeves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Vambraces'] = {
-							['Corroded Plate Vambraces'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Vambraces',
-							},
-							['Jaundice Gem'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Vambraces'] = {
-							['Corroded Plate Vambraces'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Vambraces',
-							},
-							['Flawed Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Thurg Chain Sleeves'] = {
-							['Flawed Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Corroded Chain Sleeves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Sleeves',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Sleeves'] = {
-							['Eroded Leather Sleeves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Sleeves',
-							},
-							['Flawed Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Thurg SIlk Sleeves'] = {
-							['Torn Enchanted Silk Sleeves'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Sleeves',
-							},
-							['Flawed Topaz'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Flawed Topaz',
-							},
-						},
-					},
-				},
-			},
-			['wrists'] = {
-				['armor'] = {
-					['dru'] = {
-						['Thurg Druir Bracer'] = {
-							['Crushed Opal'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Eroded Leather Bracelet'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Bracelet',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Bracer'] = {
-							['Crushed Opal'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Corroded Chain Bracer'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Bracer',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Bracer'] = {
-							['Corroded Plate Bracer'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Bracer',
-							},
-							['Crushed Opal'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Bracer'] = {
-							['Corroded Plate Bracer'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Bracer',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Thurg Chain Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Corroded Chain Bracer'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Bracer',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Eroded Leather Bracelet'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Bracelet',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Thurg Silk Bracer'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Torn Enchanted Silk Wristband'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Wristband',
-							},
-						},
-					},
-				},
-			},
-			['head'] = {
-				['armor'] = {
-					['dru'] = {
-						['Thurg Druid Cap'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Eroded Leather Cap'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Cap',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Coif'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Corroded Chain Coif'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Coif',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Helmet'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Corroded Plate Helmet'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Helmet',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Helmet'] = {
-							['Corroded Plate Helmet'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Helmet',
-							},
-							['Crushed Coral'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Thurge Chain Coif'] = {
-							['Crushed Coral'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-							['Corroded Chain Coif'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Coif',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Cap'] = {
-							['Eroded Leather Cap'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Cap',
-							},
-							['Crushed Coral'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Thurg Silk Cap'] = {
-							['Crushed Flame Opal'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Opal',
-							},
-							['Torn Enchanted Silk Turban'] = {
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Turban',
-							},
-						},
-					},
-				},
-			},
-		},
-		['Kael Armor'] = {
-			['legs'] = {
-				['armor'] = {
-					['dru'] = {
-						['Kael Druid Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Ancient Leather Leggings'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Leggings',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Ancient Tarnished Chain Leggings'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Leggings',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Greaves'] = {
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Ancient Tarnished Greaves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Greaves',
-							},
-						},
-					},
-					['war pal shd brd'] = {
-						['Kael Plate Greaves'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Ancient Tarnished Greaves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Greaves',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Ancient Leather Leggings'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Leggings',
-							},
-						},
-					},
-					['enc wiz mag nec'] = {
-						['Kael Silk Pantaloons'] = {
-							['Nephrite'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Nephrite',
-							},
-							['Torn Enchanted Silk Pantaloons'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Pantaloons',
-							},
-						},
-					},
-					['ber rog rng'] = {
-						['Kael Chain Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Ancient Tarnished Chain Leggings'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Leggings',
 							},
 						},
 					},
@@ -2067,307 +1491,101 @@ return {
 			},
 			['chest'] = {
 				['armor'] = {
-					['dru'] = {
-						['Kael Druid Tunic'] = {
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Ancient Leather Tunic'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Tunic',
-							},
-						},
-					},
 					['shm'] = {
-						['Kael Shaman Tunic'] = {
-							['Flawless Diamond'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Breastplate'] = {
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Ancient Tarnished Breastplate'] = {
-								['extra'] = 'Temple of Veeshan',
+						['Thurg Shaman Tunic'] = {
+							['Corroded Chain Tunic'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Breastplate',
+								['name'] = 'Corroded Chain Tunic',
+								['extra'] = 'Kael',
+							},
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
 							},
 						},
 					},
 					['war shd pal brd'] = {
-						['Kael Plate Breastplate'] = {
+						['Thurg Plate Breastplate'] = {
+							['Corroded Breastplate'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Breastplate',
+								['extra'] = 'Kael',
+							},
 							['Flawless Diamond'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
 							},
-							['Ancient Tarnished Breastplate'] = {
-								['extra'] = 'Temple of Veeshan',
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Tunic'] = {
+							['Eroded Leather Tunic'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Breastplate',
+								['name'] = 'Eroded Leather Tunic',
+								['extra'] = 'Kael',
+							},
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['Thurg Cleric Breastplate'] = {
+							['Corroded Breastplate'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Breastplate',
+								['extra'] = 'Kael',
+							},
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
 							},
 						},
 					},
 					['rog rng ber'] = {
-						['Kael Chain Tunic'] = {
+						['Thurg Chain Tunic'] = {
+							['Corroded Chain Tunic'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Tunic',
+								['extra'] = 'Kael',
+							},
 							['Flawless Diamond'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawless Diamond',
-							},
-							['Ancient Tarnished Chain Tunic'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Tunic',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['Kael Leather Tunic'] = {
-							['Ancient Leather Tunic'] = {
-								['extra'] = 'Temple of Veeshan',
+						['Thurg Leather Tunic'] = {
+							['Eroded Leather Tunic'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Leather Tunic',
+								['name'] = 'Eroded Leather Tunic',
+								['extra'] = 'Kael',
 							},
-						},
-						['Kael Leather Tunic\r\n'] = {
 							['Flawless Diamond'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
-						['Kael Silk Robe'] = {
+						['Thurg Silk Robe'] = {
+							['Torn Enchanted Silk Robe'] = {
+								['qty'] = 1,
+								['name'] = 'Torn Enchanted Silk Robe',
+								['extra'] = 'Kael',
+							},
 							['Pristine Emerald'] = {
-								['extra'] = 'caster',
 								['qty'] = 3,
 								['name'] = 'Pristine Emerald',
-							},
-							['Ancient Silk Robe'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Robe',
-							},
-						},
-					},
-				},
-			},
-			['hands'] = {
-				['armor'] = {
-					['dru'] = {
-						['Kael Druid Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Ancient Leather Gloves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Gloves',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Ancient Tarnished Chain Gauntlets'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Gauntlets',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Ancient Tarnished Gauntlets'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Gauntlets',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Kael Plate Gloves'] = {
-							['Crushed Topaz'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Ancient Tarnished Gauntlets'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Gauntlets',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Gloves'] = {
-							['Crushed Topaz'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Ancient Tarnished Chain Gauntlets'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Gauntlets',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Gloves'] = {
-							['Ancient Leather Gloves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Gloves',
-							},
-							['Crushed Topaz'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Kael Silk Gloves'] = {
-							['Ancient Silk Gloves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Gloves',
-							},
-							['Crushed Topaz'] = {
 								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-						},
-					},
-				},
-			},
-			['feet'] = {
-				['armor'] = {
-					['dru'] = {
-						['Kael Druid Boots'] = {
-							['Ancient Leather Boots'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Boots'] = {
-							['Ancient Tarnished Chain Boots'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Boots'] = {
-							['Ancient Tarnished Boots'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Kael Plate Boots'] = {
-							['Ancient Tarnished Boots'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Boots',
-							},
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Boots'] = {
-							['Ancient Tarnished Chain Boots'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Boots',
-							},
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Boots'] = {
-							['Ancient Leather Boots'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Boots',
-							},
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Kael Silk Boots'] = {
-							['Crushed Jaundice Gem'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Jaundice Gem',
-							},
-							['Ancient Silk Boots'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Boots',
 							},
 						},
 					},
@@ -2375,101 +1593,305 @@ return {
 			},
 			['arms'] = {
 				['armor'] = {
-					['dru'] = {
-						['Kael Druid Sleeves'] = {
-							['Ancient Leather Sleeves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
 					['shm'] = {
-						['Kael Shaman Sleeves'] = {
-							['Ancient Tarnished Chain Sleeves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Sleeves',
-							},
+						['Thurg Shaman Sleeves'] = {
 							['Jaundice Gem'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Vambraces'] = {
-							['Ancient Tarnished Vambraces'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Vambraces',
-							},
-							['Jaundice Gem'] = {
 								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
+							},
+							['Corroded Chain Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Sleeves',
+								['extra'] = 'Kael',
 							},
 						},
 					},
 					['war shd pal brd'] = {
-						['Kael Plate Vambraces'] = {
-							['Ancient Tarnished Vambraces'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Vambraces',
-							},
+						['Thurg Plate Vambraces'] = {
 							['Flawed Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
+							},
+							['Corroded Plate Vambraces'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Vambraces',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Sleeves'] = {
+							['Eroded Leather Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Sleeves',
+								['extra'] = 'Kael',
+							},
+							['Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Jaundice Gem',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['Thurg Cleric Vambraces'] = {
+							['Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Jaundice Gem',
+								['extra'] = 'priest',
+							},
+							['Corroded Plate Vambraces'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Vambraces',
+								['extra'] = 'Kael',
 							},
 						},
 					},
 					['rog rng ber'] = {
-						['Kael Chain Sleeves'] = {
-							['Ancient Tarnished Chain Sleeves'] = {
-								['extra'] = 'Temple of Veeshan',
+						['Thurg Chain Sleeves'] = {
+							['Corroded Chain Sleeves'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Sleeves',
+								['name'] = 'Corroded Chain Sleeves',
+								['extra'] = 'Kael',
 							},
 							['Flawed Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['Kael Leather Sleeves'] = {
-							['Ancient Leather Sleeves'] = {
-								['extra'] = 'Temple of Veeshan',
+						['Thurg Leather Sleeves'] = {
+							['Eroded Leather Sleeves'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Leather Sleeves',
+								['name'] = 'Eroded Leather Sleeves',
+								['extra'] = 'Kael',
 							},
 							['Flawed Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
-						['Kael Silk Sleeves'] = {
-							['Ancient Silk Sleeves'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Sleeves',
-							},
+						['Thurg SIlk Sleeves'] = {
 							['Flawed Topaz'] = {
-								['extra'] = 'caster',
 								['qty'] = 3,
 								['name'] = 'Flawed Topaz',
+								['extra'] = 'caster',
+							},
+							['Torn Enchanted Silk Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Torn Enchanted Silk Sleeves',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+				},
+			},
+			['feet'] = {
+				['armor'] = {
+					['shm'] = {
+						['Thurg Shaman Boots'] = {
+							['Corroded Chain Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Boots',
+								['extra'] = 'Kael',
+							},
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Thurg Plate Boots'] = {
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+							['Corroded Plate Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Boots',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Boots'] = {
+							['Eroded Leather Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Boots',
+								['extra'] = 'Kael',
+							},
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['Thurg Cleric Boots'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+							['Corroded Plate Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Boots',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Thurg Chain Boots'] = {
+							['Corroded Chain Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Boots',
+								['extra'] = 'Kael',
+							},
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Thurg Leather Boots'] = {
+							['Eroded Leather Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Boots',
+								['extra'] = 'Kael',
+							},
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Thurg Silk Boots'] = {
+							['Torn Enchanted Silk Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Torn Enchanted Silk Boots',
+								['extra'] = 'Kael',
+							},
+							['Crushed Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Jaundice Gem',
+								['extra'] = 'caster',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['ber rog rng'] = {
+						['Thurg Chain Leggings'] = {
+							['Corroded Chain Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Leggings',
+								['extra'] = 'Kael',
+							},
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Thurg Leather Leggings'] = {
+							['Eroded Leather Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Leggings',
+								['extra'] = 'Kael',
+							},
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Leggings'] = {
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Eroded Leather Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Leggings',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['enc wiz mag nec'] = {
+						['Thurg Silk Pantaloons'] = {
+							['Nephrite'] = {
+								['qty'] = 3,
+								['name'] = 'Nephrite',
+								['extra'] = 'caster',
+							},
+							['Torn Enchanted Silk Pantaloons'] = {
+								['qty'] = 1,
+								['name'] = 'Torn Enchanted Silk Pantaloons',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['war pal shd brd'] = {
+						['Thurg Plate Greaves'] = {
+							['Corroded Plate Greaves'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Greaves',
+								['extra'] = 'Kael',
+							},
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['clr'] = {
+						['Thurg Cleric Greaves'] = {
+							['Corroded Plate Greaves'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Greaves',
+								['extra'] = 'Kael',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['shm'] = {
+						['Thurg Shaman Leggings'] = {
+							['Corroded Chain Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Leggings',
+								['extra'] = 'Kael',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
 							},
 						},
 					},
@@ -2477,101 +1899,101 @@ return {
 			},
 			['wrists'] = {
 				['armor'] = {
-					['dru'] = {
-						['Kael Druid Bracer'] = {
-							['Crushed Opal'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Ancient Leather Bracelet'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Bracelet',
-							},
-						},
-					},
 					['shm'] = {
-						['Kael Shaman Bracer'] = {
-							['Ancient Tarnished Chain Bracer'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Bracer',
-							},
+						['Thurg Shaman Bracer'] = {
 							['Crushed Opal'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Crushed Opal',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Bracer'] = {
-							['Ancient Tarnished Bracer'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Bracer',
-							},
-							['Crushed Opal'] = {
 								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
 							},
-						},
-					},
-					['wiz nec enc mag'] = {
-						['Kael Silk Wristband'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Ancient Silk Wristband'] = {
-								['extra'] = 'Temple of Veeshan',
+							['Corroded Chain Bracer'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Silk Wristband',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Bracer'] = {
-							['Ancient Tarnished Chain Bracer'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Bracer',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
+								['name'] = 'Corroded Chain Bracer',
+								['extra'] = 'Kael',
 							},
 						},
 					},
 					['war shd pal brd'] = {
-						['Kael Plate Bracer'] = {
-							['Ancient Tarnished Bracer'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Bracer',
-							},
+						['Thurg Plate Bracer'] = {
 							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
+							},
+							['Corroded Plate Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Bracer',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druir Bracer'] = {
+							['Crushed Opal'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
+							},
+							['Eroded Leather Bracelet'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Bracelet',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['clr'] = {
+						['Thurg Cleric Bracer'] = {
+							['Crushed Opal'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
+							},
+							['Corroded Plate Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Bracer',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Thurg Chain Bracer'] = {
+							['Corroded Chain Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Bracer',
+								['extra'] = 'Kael',
+							},
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['Kael Leather Bracer'] = {
+						['Thurg Leather Bracer'] = {
+							['Eroded Leather Bracelet'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Bracelet',
+								['extra'] = 'Kael',
+							},
 							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
 							},
-							['Ancient Leather Bracelet'] = {
-								['extra'] = 'Temple of Veeshan',
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Thurg Silk Bracer'] = {
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'caster',
+							},
+							['Torn Enchanted Silk Wristband'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Leather Bracelet',
+								['name'] = 'Torn Enchanted Silk Wristband',
+								['extra'] = 'Kael',
 							},
 						},
 					},
@@ -2579,101 +2001,101 @@ return {
 			},
 			['head'] = {
 				['armor'] = {
-					['dru'] = {
-						['Kael Druid Cap'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Ancient Leather Cap'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Cap',
-							},
-						},
-					},
 					['shm'] = {
-						['Kael Shaman Coif'] = {
+						['Thurg Shaman Coif'] = {
 							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Crushed Coral'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Clearic Helmet'] = {
-							['Ancient Tarnished Helmet'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Helmet',
-							},
-							['Crushed Onyx Sapphire'] = {
 								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
 							},
-						},
-					},
-					['rng rog ber'] = {
-						['Kael Chain Coif'] = {
-							['Ancient Tarnished Chain Coif'] = {
-								['extra'] = 'Temple of Veeshan',
+							['Corroded Chain Coif'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Coif',
-							},
-							['Crushed Coral'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
+								['name'] = 'Corroded Chain Coif',
+								['extra'] = 'Kael',
 							},
 						},
 					},
 					['war shd pal brd'] = {
-						['Kael Plate Helmet'] = {
-							['Ancient Tarnished Helmet'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Helmet',
-							},
+						['Thurg Plate Helmet'] = {
 							['Crushed Coral'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
+							},
+							['Corroded Plate Helmet'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Helmet',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Cap'] = {
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Eroded Leather Cap'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Cap',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['clr'] = {
+						['Thurg Cleric Helmet'] = {
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Corroded Plate Helmet'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Plate Helmet',
+								['extra'] = 'Kael',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Thurge Chain Coif'] = {
+							['Corroded Chain Coif'] = {
+								['qty'] = 1,
+								['name'] = 'Corroded Chain Coif',
+								['extra'] = 'Kael',
+							},
+							['Crushed Coral'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['Kael Leather Cap'] = {
-							['Ancient Leather Cap'] = {
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Cap',
-							},
+						['Thurg Leather Cap'] = {
 							['Crushed Coral'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
+							},
+							['Eroded Leather Cap'] = {
+								['qty'] = 1,
+								['name'] = 'Eroded Leather Cap',
+								['extra'] = 'Kael',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
-						['Kael Silk Cap'] = {
-							['Ancient Silk Turban'] = {
-								['extra'] = 'Temple of Veeshan',
+						['Thurg Silk Cap'] = {
+							['Torn Enchanted Silk Turban'] = {
 								['qty'] = 1,
-								['name'] = 'Ancient Silk Turban',
+								['name'] = 'Torn Enchanted Silk Turban',
+								['extra'] = 'Kael',
 							},
 							['Crushed Flame Opal'] = {
-								['extra'] = 'caster',
 								['qty'] = 3,
 								['name'] = 'Crushed Flame Opal',
+								['extra'] = 'caster',
 							},
 						},
 					},
@@ -2681,103 +2103,103 @@ return {
 			},
 		},
 		['SkyShrine Armor'] = {
-			['legs'] = {
+			['hands'] = {
 				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Unadorned Leather Leggings'] = {
-								['extra'] = 'ToV Halls of Testing',
+					['shm'] = {
+						['SkyShrine Shaman Gloves'] = {
+							['Unadorned Chain Gauntlets'] = {
 								['qty'] = 1,
-								['name'] = 'Unadorned Leather Leggings',
+								['name'] = 'Unadorned Chain Gauntlets',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Lava Ruby'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
 							},
 						},
 					},
-					['shm'] = {
-						['Skyshrine Shaman Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Unadorned Chain Leggings'] = {
-								['extra'] = 'ToV Halls of Testing',
+					['war shd pal brd'] = {
+						['SkyShrine Plate Gloves'] = {
+							['Unadorned Plate Gauntlets'] = {
 								['qty'] = 1,
-								['name'] = 'Unadorned Chain Leggings',
+								['name'] = 'Unadorned Plate Gauntlets',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Gloves'] = {
+							['Unadorned Leather Gloves'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Gloves',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Lava Ruby'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
 							},
 						},
 					},
 					['clr'] = {
-						['SkyShrine Cleric Greaves'] = {
-							['Unadorned Plate Greaves'] = {
-								['extra'] = 'ToV Halls of Testing',
+						['SkyShrine Cleric Gloves'] = {
+							['Unadorned Plate Gauntlets'] = {
 								['qty'] = 1,
-								['name'] = 'Unadorned Plate Greaves',
+								['name'] = 'Unadorned Plate Gauntlets',
+								['extra'] = 'ToV Halls of Testing',
 							},
-							['Chipped Onyx Sapphire'] = {
-								['extra'] = 'priest',
+							['Crushed Lava Ruby'] = {
 								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
 							},
 						},
 					},
-					['war pal shd brd'] = {
-						['SkyShrine Plate Greaves'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Unadorned Plate Greaves'] = {
-								['extra'] = 'ToV Halls of Testing',
+					['rog rng ber'] = {
+						['SkyShrine Chain Gloves'] = {
+							['Unadorned Chain Gauntlets'] = {
 								['qty'] = 1,
-								['name'] = 'Unadorned Plate Greaves',
+								['name'] = 'Unadorned Chain Gauntlets',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['SkyShrine Leather Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Unadorned Leather Leggings'] = {
-								['extra'] = 'ToV Halls of Testing',
+						['SkyShrine Leather Gloves'] = {
+							['Unadorned Leather Gloves'] = {
 								['qty'] = 1,
-								['name'] = 'Unadorned Leather Leggings',
+								['name'] = 'Unadorned Leather Gloves',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
 							},
 						},
 					},
-					['enc wiz mag nec'] = {
-						['SkyShrine Silk Pantaloons'] = {
-							['Nephrite'] = {
+					['wiz mag enc nec'] = {
+						['Skyshrine Silk Gloves'] = {
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
 								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Nephrite',
 							},
-							['Torn Enchanted Silk Pantaloons'] = {
-								['extra'] = 'ToV Halls of Testing',
+							['Tattered Silk Gloves'] = {
 								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Pantaloons',
-							},
-						},
-					},
-					['ber rog rng'] = {
-						['Skyshrine Chain Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Unadorned Chain Leggings'] = {
+								['name'] = 'Tattered Silk Gloves',
 								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Leggings',
 							},
 						},
 					},
@@ -2785,305 +2207,101 @@ return {
 			},
 			['chest'] = {
 				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Tunic'] = {
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Unadorned Leather Tunic'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Tunic',
-							},
-						},
-					},
 					['shm'] = {
 						['SkyShrine Shaman Tunic'] = {
 							['Black Marble'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Black Marble',
+								['extra'] = 'priest',
 							},
 							['Unadorned Chain Tunic'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Chain Tunic',
-							},
-						},
-					},
-					['clr'] = {
-						['SkyShrine Cleric Breastplate'] = {
-							['Black Marble'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Unadorned Breastplate'] = {
 								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Breastplate',
 							},
 						},
 					},
 					['war shd pal brd'] = {
 						['SkyShrine Plate Breastplate'] = {
 							['Flawless Diamond'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
 							},
 							['Unadorned Breastplate'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Breastplate',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Tunic'] = {
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
+							},
+							['Unadorned Leather Tunic'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Tunic',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['clr'] = {
+						['SkyShrine Cleric Breastplate'] = {
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
+							},
+							['Unadorned Breastplate'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Breastplate',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
 					['rog rng ber'] = {
 						['SkyShrine Chain Tunic'] = {
 							['Flawless Diamond'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
 							},
 							['Unadorned Chain Tunic'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Chain Tunic',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
 					['mnk bst'] = {
 						['SkyShrine Leather Tunic'] = {
 							['Flawless Diamond'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
 							},
 							['Unadorned Leather Tunic'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Leather Tunic',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
 						['SkyShrine Silk Robe'] = {
-							['Pristine Emerald'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Pristine Emerald',
-							},
 							['Tattered Silk Robe'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Tattered Silk Robe',
+								['extra'] = 'ToV Halls of Testing',
 							},
-						},
-					},
-				},
-			},
-			['hands'] = {
-				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
+							['Pristine Emerald'] = {
 								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Unadorned Leather Gloves'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Gloves',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Unadorned Chain Gauntlets'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Gauntlets',
-							},
-						},
-					},
-					['clr'] = {
-						['SkyShrine Cleric Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Unadorned Plate Gauntlets'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Gauntlets',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Gloves'] = {
-							['Unadorned Plate Gauntlets'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Gauntlets',
-							},
-							['Crushed Topaz'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['SkyShrine Chain Gloves'] = {
-							['Unadorned Chain Gauntlets'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Gauntlets',
-							},
-							['Crushed Topaz'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['SkyShrine Leather Gloves'] = {
-							['Crushed Topaz'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Unadorned Leather Gloves'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Gloves',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['Skyshrine Silk Gloves'] = {
-							['Tattered Silk Gloves'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Tattered Silk Gloves',
-							},
-							['Crushed Topaz'] = {
+								['name'] = 'Pristine Emerald',
 								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-						},
-					},
-				},
-			},
-			['feet'] = {
-				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Boots'] = {
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Unadorned Leather Boots'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Boots',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Boots'] = {
-							['Unadorned Chain Boots'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['clr'] = {
-						['SkyShrine Cleric Boots'] = {
-							['Unadorned Plate Boots'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Boots'] = {
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Unadorned Plate Boots'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Boots',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['SkyShrine Chain Boots'] = {
-							['Unadorned Chain Boots'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Boots',
-							},
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['SkyShrine Leather Boots'] = {
-							['Crushed Black Marble'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Unadorned Leather Boots'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Boots',
-							},
-						},
-					},
-					['wiz mag enc nec'] = {
-						['SkyShrine Silk Boots'] = {
-							['Crushed Jaundice Gem'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Jaundice Gem',
-							},
-							['Unadorned Silk Boots'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Silk Boots',
 							},
 						},
 					},
@@ -3091,101 +2309,305 @@ return {
 			},
 			['arms'] = {
 				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Sleeves'] = {
-							['Jaundice Gem'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-							['Unadorned Leather Sleeves'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Sleeves',
-							},
-						},
-					},
 					['shm'] = {
 						['SkyShrine Shaman Sleeves'] = {
 							['Unadorned Chain Sleeves'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Chain Sleeves',
+								['extra'] = 'ToV Halls of Testing',
 							},
 							['Jaundice Gem'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Jaundice Gem',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['SkyShrine Plate Vambraces'] = {
+							['Unadorned Plate Vambraces'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Plate Vambraces',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Flawed Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Sleeves'] = {
+							['Unadorned Leather Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Sleeves',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Jaundice Gem',
+								['extra'] = 'priest',
 							},
 						},
 					},
 					['clr'] = {
 						['SkyShrine Cleric Vambraces'] = {
 							['Unadorned Plate Vambraces'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Plate Vambraces',
+								['extra'] = 'ToV Halls of Testing',
 							},
 							['Jaundice Gem'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Vambraces'] = {
-							['Flawed Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Unadorned Plate Vambraces'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Vambraces',
+								['extra'] = 'priest',
 							},
 						},
 					},
 					['rog rng ber'] = {
 						['SkyShrine Chain Sleeves'] = {
 							['Unadorned Chain Sleeves'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Chain Sleeves',
+								['extra'] = 'ToV Halls of Testing',
 							},
 							['Flawed Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
 						['SkyShrine Leather Sleeves'] = {
-							['Flawed Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
 							['Unadorned Leather Sleeves'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Leather Sleeves',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Flawed Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
 						['SkyShrine Silk Sleeves'] = {
-							['Unadorned Silk Sleeves'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Silk Sleeves',
-							},
 							['Flawed Topaz'] = {
-								['extra'] = 'caster',
 								['qty'] = 3,
 								['name'] = 'Flawed Topaz',
+								['extra'] = 'caster',
+							},
+							['Unadorned Silk Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Silk Sleeves',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+				},
+			},
+			['feet'] = {
+				['armor'] = {
+					['shm'] = {
+						['SkyShrine Shaman Boots'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+							['Unadorned Chain Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Chain Boots',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['SkyShrine Plate Boots'] = {
+							['Unadorned Plate Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Plate Boots',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Boots'] = {
+							['Unadorned Leather Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Boots',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['SkyShrine Cleric Boots'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+							['Unadorned Plate Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Plate Boots',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['SkyShrine Chain Boots'] = {
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+							['Unadorned Chain Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Chain Boots',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['SkyShrine Leather Boots'] = {
+							['Unadorned Leather Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Boots',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['SkyShrine Silk Boots'] = {
+							['Unadorned Silk Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Silk Boots',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Jaundice Gem',
+								['extra'] = 'caster',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['ber rog rng'] = {
+						['Skyshrine Chain Leggings'] = {
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+							['Unadorned Chain Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Chain Leggings',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['SkyShrine Leather Leggings'] = {
+							['Unadorned Leather Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Leggings',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Leggings'] = {
+							['Unadorned Leather Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Leggings',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['enc wiz mag nec'] = {
+						['SkyShrine Silk Pantaloons'] = {
+							['Nephrite'] = {
+								['qty'] = 3,
+								['name'] = 'Nephrite',
+								['extra'] = 'caster',
+							},
+							['Torn Enchanted Silk Pantaloons'] = {
+								['qty'] = 1,
+								['name'] = 'Torn Enchanted Silk Pantaloons',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['war pal shd brd'] = {
+						['SkyShrine Plate Greaves'] = {
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+							['Unadorned Plate Greaves'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Plate Greaves',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['clr'] = {
+						['SkyShrine Cleric Greaves'] = {
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Unadorned Plate Greaves'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Plate Greaves',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['shm'] = {
+						['Skyshrine Shaman Leggings'] = {
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Unadorned Chain Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Chain Leggings',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
@@ -3193,101 +2615,101 @@ return {
 			},
 			['wrists'] = {
 				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Bracer'] = {
+					['shm'] = {
+						['SkyShrine Shaman Bracer'] = {
 							['Crushed Opal'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
 							},
-							['Unadorned Leather Bracelet'] = {
-								['extra'] = 'ToV Halls of Testing',
+							['Unadorned Chain Bracer'] = {
 								['qty'] = 1,
-								['name'] = 'Unadorned Leather Bracelet',
+								['name'] = 'Unadorned Chain Bracer',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
-					['shm'] = {
-						['SkyShrine Shaman Bracer'] = {
-							['Unadorned Chain Bracer'] = {
-								['extra'] = 'ToV Halls of Testing',
+					['war shd pal brd'] = {
+						['SkyShrine Plate Bracer'] = {
+							['Unadorned Plate Bracer'] = {
 								['qty'] = 1,
-								['name'] = 'Unadorned Chain Bracer',
+								['name'] = 'Unadorned Plate Bracer',
+								['extra'] = 'ToV Halls of Testing',
 							},
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Bracer'] = {
 							['Crushed Opal'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
+							},
+							['Unadorned Leather Bracelet'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Bracelet',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
 					['clr'] = {
 						['SkyShrine Cleric Bracer'] = {
 							['Crushed Opal'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
 							},
 							['Unadorned Plate Bracer'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Plate Bracer',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Unadorned Plate Bracer'] = {
 								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Bracer',
 							},
 						},
 					},
 					['rog rng ber'] = {
 						['SkyShrine Chain Bracer'] = {
-							['Unadorned Chain Bracer'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Bracer',
-							},
 							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
+							},
+							['Unadorned Chain Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Chain Bracer',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
 					['mnk bst'] = {
 						['SkyShrine Leather Bracer'] = {
-							['Unadorned Leather Bracelet'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Bracelet',
-							},
 							['Crushed Flame Emerald'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
+							},
+							['Unadorned Leather Bracelet'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Bracelet',
+								['extra'] = 'ToV Halls of Testing',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
 						['SkyShrine Silk Bracrer'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
 							['Unadorned Silk Wristband'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Silk Wristband',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'caster',
 							},
 						},
 					},
@@ -3295,103 +2717,821 @@ return {
 			},
 			['head'] = {
 				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Cap'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Unadorned Leather Cap'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Cap',
-							},
-						},
-					},
 					['shm'] = {
 						['SkyShrine Shaman Coif'] = {
-							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
 							['Unadorned Chain Coif'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Chain Coif',
+								['extra'] = 'ToV Halls of Testing',
 							},
-						},
-					},
-					['clr'] = {
-						['SkyShrine Cleric Helment'] = {
 							['Crushed Onyx Sapphire'] = {
-								['extra'] = 'priest',
 								['qty'] = 3,
 								['name'] = 'Crushed Onyx Sapphire',
-							},
-						},
-						['SkyShrine Clearic Helmet'] = {
-							['Unadorned Plate Helmet'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Helmet',
+								['extra'] = 'priest',
 							},
 						},
 					},
 					['war shd pal brd'] = {
 						['SkyShrine Plate Helmet'] = {
-							['Unadorned Plate Helmet'] = {
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Helmet',
-							},
 							['Crushed Coral'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
+							},
+							['Unadorned Plate Helmet'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Plate Helmet',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Cap'] = {
+							['Unadorned Leather Cap'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Leather Cap',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['SkyShrine Clearic Helmet'] = {
+							['Unadorned Plate Helmet'] = {
+								['qty'] = 1,
+								['name'] = 'Unadorned Plate Helmet',
+								['extra'] = 'ToV Halls of Testing',
+							},
+						},
+						['SkyShrine Cleric Helment'] = {
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'priest',
 							},
 						},
 					},
 					['rog rng ber'] = {
 						['SkyShrine Chain Coif'] = {
 							['Unadorned Chain Coif'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Chain Coif',
+								['extra'] = 'ToV Halls of Testing',
 							},
 							['Crushed Coral'] = {
-								['extra'] = 'melee',
 								['qty'] = 3,
 								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['mnk bst'] = {
 						['SkyShrine Leather Cap'] = {
-							['Crushed Coral'] = {
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
 							['Unadorned Leather Cap'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Leather Cap',
+								['extra'] = 'ToV Halls of Testing',
+							},
+							['Crushed Coral'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
 							},
 						},
 					},
 					['wiz mag enc nec'] = {
 						['SkyShrine Silk Cap'] = {
 							['Unadorned Silk Turban'] = {
-								['extra'] = 'ToV Halls of Testing',
 								['qty'] = 1,
 								['name'] = 'Unadorned Silk Turban',
+								['extra'] = 'ToV Halls of Testing',
 							},
 							['Crushed Flame Opal'] = {
-								['extra'] = 'caster',
 								['qty'] = 3,
 								['name'] = 'Crushed Flame Opal',
+								['extra'] = 'caster',
+							},
+						},
+					},
+				},
+			},
+		},
+		['Kael Armor'] = {
+			['hands'] = {
+				['armor'] = {
+					['shm'] = {
+						['Kael Shaman Gloves'] = {
+							['Ancient Tarnished Chain Gauntlets'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Gauntlets',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Lava Ruby'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Gloves'] = {
+							['Ancient Tarnished Gauntlets'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Gauntlets',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Gloves'] = {
+							['Ancient Leather Gloves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Gloves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Lava Ruby'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['Kael Cleric Gloves'] = {
+							['Ancient Tarnished Gauntlets'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Gauntlets',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Lava Ruby'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Lava Ruby',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Kael Chain Gloves'] = {
+							['Ancient Tarnished Chain Gauntlets'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Gauntlets',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Gloves'] = {
+							['Ancient Leather Gloves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Gloves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Gloves'] = {
+							['Crushed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Topaz',
+								['extra'] = 'caster',
+							},
+							['Ancient Silk Gloves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Silk Gloves',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+				},
+			},
+			['chest'] = {
+				['armor'] = {
+					['shm'] = {
+						['Kael Shaman Tunic'] = {
+							['Flawless Diamond'] = {
+								['qty'] = 3,
+								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
+							},
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Breastplate'] = {
+							['Flawless Diamond'] = {
+								['qty'] = 3,
+								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
+							},
+							['Ancient Tarnished Breastplate'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Breastplate',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Tunic'] = {
+							['Ancient Leather Tunic'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Tunic',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['Kael Cleric Breastplate'] = {
+							['Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Black Marble',
+								['extra'] = 'priest',
+							},
+							['Ancient Tarnished Breastplate'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Breastplate',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Kael Chain Tunic'] = {
+							['Ancient Tarnished Chain Tunic'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Tunic',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Flawless Diamond'] = {
+								['qty'] = 3,
+								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Tunic\r\n'] = {
+							['Flawless Diamond'] = {
+								['qty'] = 3,
+								['name'] = 'Flawless Diamond',
+								['extra'] = 'melee',
+							},
+						},
+						['Kael Leather Tunic'] = {
+							['Ancient Leather Tunic'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Tunic',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Robe'] = {
+							['Ancient Silk Robe'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Silk Robe',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Pristine Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Pristine Emerald',
+								['extra'] = 'caster',
+							},
+						},
+					},
+				},
+			},
+			['arms'] = {
+				['armor'] = {
+					['shm'] = {
+						['Kael Shaman Sleeves'] = {
+							['Ancient Tarnished Chain Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Sleeves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Jaundice Gem',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Vambraces'] = {
+							['Ancient Tarnished Vambraces'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Vambraces',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Flawed Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Sleeves'] = {
+							['Ancient Leather Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Sleeves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Jaundice Gem',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['clr'] = {
+						['Kael Cleric Vambraces'] = {
+							['Ancient Tarnished Vambraces'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Vambraces',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Jaundice Gem',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Kael Chain Sleeves'] = {
+							['Ancient Tarnished Chain Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Sleeves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Flawed Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Sleeves'] = {
+							['Ancient Leather Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Sleeves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Flawed Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Emerald',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Sleeves'] = {
+							['Flawed Topaz'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Topaz',
+								['extra'] = 'caster',
+							},
+							['Ancient Silk Sleeves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Silk Sleeves',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+				},
+			},
+			['feet'] = {
+				['armor'] = {
+					['shm'] = {
+						['Kael Shaman Boots'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+							['Ancient Tarnished Chain Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Boots',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Boots'] = {
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+							['Ancient Tarnished Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Boots',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Boots'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+							['Ancient Leather Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Boots',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['clr'] = {
+						['Kael Cleric Boots'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'priest',
+							},
+							['Ancient Tarnished Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Boots',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Kael Chain Boots'] = {
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+							['Ancient Tarnished Chain Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Boots',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Boots'] = {
+							['Crushed Black Marble'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Black Marble',
+								['extra'] = 'melee',
+							},
+							['Ancient Leather Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Boots',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Boots'] = {
+							['Ancient Silk Boots'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Silk Boots',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Jaundice Gem'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Jaundice Gem',
+								['extra'] = 'caster',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['ber rog rng'] = {
+						['Kael Chain Leggings'] = {
+							['Ancient Tarnished Chain Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Leggings',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Leggings'] = {
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+							['Ancient Leather Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Leggings',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Leggings'] = {
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Ancient Leather Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Leggings',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['enc wiz mag nec'] = {
+						['Kael Silk Pantaloons'] = {
+							['Nephrite'] = {
+								['qty'] = 3,
+								['name'] = 'Nephrite',
+								['extra'] = 'caster',
+							},
+							['Torn Enchanted Silk Pantaloons'] = {
+								['qty'] = 1,
+								['name'] = 'Torn Enchanted Silk Pantaloons',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['war pal shd brd'] = {
+						['Kael Plate Greaves'] = {
+							['Ancient Tarnished Greaves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Greaves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Flawed Sea Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Flawed Sea Sapphire',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['clr'] = {
+						['Kael Cleric Greaves'] = {
+							['Ancient Tarnished Greaves'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Greaves',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+						},
+					},
+					['shm'] = {
+						['Kael Shaman Leggings'] = {
+							['Ancient Tarnished Chain Leggings'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Leggings',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Chipped Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+						},
+					},
+				},
+			},
+			['wrists'] = {
+				['armor'] = {
+					['wiz nec enc mag'] = {
+						['Kael Silk Wristband'] = {
+							['Ancient Silk Wristband'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Silk Wristband',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'caster',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Bracer'] = {
+							['Ancient Leather Bracelet'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Bracelet',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Bracer'] = {
+							['Crushed Opal'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
+							},
+							['Ancient Leather Bracelet'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Bracelet',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['clr'] = {
+						['Kael Cleric Bracer'] = {
+							['Crushed Opal'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
+							},
+							['Ancient Tarnished Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Bracer',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Kael Chain Bracer'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
+							},
+							['Ancient Tarnished Chain Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Bracer',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['shm'] = {
+						['Kael Shaman Bracer'] = {
+							['Crushed Opal'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Opal',
+								['extra'] = 'priest',
+							},
+							['Ancient Tarnished Chain Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Bracer',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Bracer'] = {
+							['Crushed Flame Emerald'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Emerald',
+								['extra'] = 'melee',
+							},
+							['Ancient Tarnished Bracer'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Bracer',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+				},
+			},
+			['head'] = {
+				['armor'] = {
+					['shm'] = {
+						['Kael Shaman Coif'] = {
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Crushed Coral'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Helmet'] = {
+							['Ancient Tarnished Helmet'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Helmet',
+								['extra'] = 'Temple of Veeshan',
+							},
+							['Crushed Coral'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Cap'] = {
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Ancient Leather Cap'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Cap',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['rng rog ber'] = {
+						['Kael Chain Coif'] = {
+							['Crushed Coral'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
+							},
+							['Ancient Tarnished Chain Coif'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Chain Coif',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['clr'] = {
+						['Kael Clearic Helmet'] = {
+							['Crushed Onyx Sapphire'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Onyx Sapphire',
+								['extra'] = 'priest',
+							},
+							['Ancient Tarnished Helmet'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Tarnished Helmet',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Cap'] = {
+							['Crushed Coral'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Coral',
+								['extra'] = 'melee',
+							},
+							['Ancient Leather Cap'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Leather Cap',
+								['extra'] = 'Temple of Veeshan',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Cap'] = {
+							['Crushed Flame Opal'] = {
+								['qty'] = 3,
+								['name'] = 'Crushed Flame Opal',
+								['extra'] = 'caster',
+							},
+							['Ancient Silk Turban'] = {
+								['qty'] = 1,
+								['name'] = 'Ancient Silk Turban',
+								['extra'] = 'Temple of Veeshan',
 							},
 						},
 					},
