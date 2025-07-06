@@ -6,7 +6,7 @@ local Actors              = require('actors')
 local PackageMan          = require('mq.PackageMan')
 local SQL                 = PackageMan.Require('lsqlite3')
 local Utils               = require('mq.Utils')
-local Version             = 1.4
+local Version             = 2.0
 
 local ResourceDir         = mq.TLO.MacroQuest.Path('resources')()
 local FileDB              = string.format("%s/QuestWatch.db", ResourceDir)
@@ -173,6 +173,7 @@ local function OpenDB(path)
 				quantity INTEGER DEFAULT 1,
 				extra_info TEXT DEFAULT '',
 				is_reward INTEGER DEFAULT 0,
+				item_step INTEGER DEFAULT 1,
 				UNIQUE(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
 			);
 		]]
@@ -230,15 +231,16 @@ local function ImportData(file)
 								local query = string.format([[
 									INSERT INTO quest_data (
 										expansion, quest_name, quest_cat, item_slot,
-										item_type, restriction, item_name, quantity, extra_info, is_reward)
-									VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)
+										item_type, restriction, item_name, quantity, extra_info, is_reward, item_step)
+									VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, %d)
 									ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
 									DO UPDATE SET
 										quantity = excluded.quantity,
 										extra_info = excluded.extra_info,
-										is_reward = excluded.is_reward;
+										is_reward = excluded.is_reward,
+										item_step = excluded.item_step;
 								]], expansionEsc, questNameEsc, questCatEsc, slotEsc, itemTypeEsc,
-									restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (itemData.is_reward and 1 or 0))
+									restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (itemData.is_reward and 1 or 0), itemData.Step or 1)
 
 								local ok, err = pcall(function() db:exec(query) end)
 								if not ok then
@@ -309,14 +311,15 @@ local function AddNewQuest(expansion, questData)
 		local query = string.format([[
 				INSERT INTO quest_data (
 					expansion, quest_name, quest_cat, item_slot,
-					item_type, restriction, item_name, quantity, extra_info, is_reward)
-				VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)
+					item_type, restriction, item_name, quantity, extra_info, is_reward, item_step)
+				VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, %d)
 				ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
 				DO UPDATE SET
 					quantity = excluded.quantity,
 					extra_info = excluded.extra_info,
-					is_reward = excluded.is_reward;
-			]], expansionEsc, questNameEsc, questCatEsc, itemSlotEsc, itemTypeEsc, restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (item.is_reward and 1 or 0))
+					is_reward = excluded.is_reward,
+					item_step = excluded.item_step;
+			]], expansionEsc, questNameEsc, questCatEsc, itemSlotEsc, itemTypeEsc, restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (item.is_reward and 1 or 0), item.Step or 1)
 
 		local ok, err = pcall(function() db:exec(query) end)
 		if not ok then
@@ -391,6 +394,45 @@ local function ModifyTable(ver)
 			db:exec(schema)
 			printf("Database modified successfully.")
 		end
+		ModifyTable(1.4) -- continue to next version
+	elseif ver < 2.0 then
+		-- v2.0 adds item_step column to the quest_data table so you can keep track of which items belong to which step of the quest
+		-- any items returned from a step handin should be set to the step they are handed in on
+		-- this will allow us to track which items are needed for each step of the quest
+
+		schema = [[
+		CREATE TABLE IF NOT EXISTS quest_data_new (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			expansion TEXT,
+			quest_name TEXT,
+			quest_cat TEXT,
+			item_slot TEXT,
+			item_type TEXT,
+			restriction TEXT DEFAULT 'All',
+			item_name TEXT,
+			quantity INTEGER DEFAULT 1,
+			extra_info TEXT DEFAULT '',
+			is_reward INTEGER DEFAULT 0,
+			item_step INTEGER DEFAULT 1,
+			UNIQUE(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
+		);
+	]]
+		db:exec(schema)
+		schema = [[
+		INSERT INTO quest_data_new (expansion, quest_name, quest_cat, item_slot, item_type, restriction, item_name, quantity, extra_info, is_reward)
+		SELECT expansion, quest_name, quest_cat, item_slot, item_type, restriction, item_name, quantity, extra_info, is_reward FROM quest_data;
+	]]
+		local ok, err = pcall(function() db:exec(schema) end)
+		if not ok then
+			print("Failed to copy data to new table: " .. err)
+		else
+			schema = "DROP TABLE quest_data;"
+			db:exec(schema)
+			schema = "ALTER TABLE quest_data_new RENAME TO quest_data;"
+			db:exec(schema)
+			printf("Database modified successfully.")
+		end
+		ModifyTable(2.0)
 	end
 
 	db:close()
@@ -471,7 +513,7 @@ local function CheckUpdate()
 		local tmp = dofile(UpdateFile)
 		if (tmp and tmp.Version and tmp.Version < Version) or not Utils.File.Exists(FileDB) then
 			printf("Updating database to version %s", Version)
-			if tmp.Version < 1.4 then
+			if tmp.Version < Version then
 				ModifyTable(tmp.Version)
 			end
 			ImportData()
@@ -553,6 +595,7 @@ local function GetQuests(expansion, filters)
 				on_hand = Utils.CheckOnHand(itemName),
 				extra = extraInfo,
 				is_reward = (row.is_reward and row.is_reward == 1) or false,
+				Step = row.item_step or 1,
 			})
 		end
 		stmt:finalize()
@@ -620,6 +663,7 @@ local function ExportDBtoLua()
 				qty = quantity,
 				extra = extraInfo,
 				is_reward = (row.is_reward and row.is_reward == 1) or false,
+				Step = row.item_step or 1,
 			}
 		end
 		stmt:finalize()
@@ -681,11 +725,6 @@ end
 ---@param expansion string The expansion to get quest data for.
 ---@return table questData Returns Items and Quantity needed for the desired piece.
 local function GetQuestData(expansion)
-	local ClassFilter = SQLFilters.restriction ~= '' and SQLFilters.restriction or MyClass
-	local ArmorFilter = SQLFilters.restriction ~= '' and SQLFilters.restriction or MyArmor
-	local QuestFilter = SQLFilters.quest_name ~= '' and SQLFilters.quest_name or ''
-	local ItemFilter = SQLFilters.item_name ~= '' and SQLFilters.item_name or ''
-	local SlotFilter = SQLFilters.item_slot ~= '' and SQLFilters.item_slot or ''
 	local questData = GetQuests(expansion, SQLFilters)
 	if not questData or next(questData) == nil then
 		return {}
@@ -860,7 +899,12 @@ local function RenderTable(table_data, who)
 											ImGui.TableNextColumn()
 											ImGui.TextColored(Colors.softblue, item_type)
 											ImGui.TableNextColumn()
-
+											table.sort(items, function(a, b)
+												if a.Step == b.Step then
+													return a.name < b.name
+												end
+												return a.Step < b.Step
+											end)
 											for _, iData in ipairs(items or {}) do
 												if not HideRewards or (HideRewards and not iData.is_reward) then
 													local iName = iData.name or 'Unknown Item'
@@ -923,7 +967,7 @@ local function RenderTable(table_data, who)
 														ImGui.PopID()
 														ImGui.TableNextColumn()
 														ImGui.PushID(category .. item_type .. iName .. slot)
-														ImGui.TextWrapped(iData.extra)
+														ImGui.TextWrapped("Step: %s - %s", iData.Step or 1, iData.extra)
 														ImGui.PopID()
 														ImGui.EndTable()
 													end
@@ -1284,32 +1328,39 @@ local function RenderModifyQuestWindow(QuestData)
 		QuestData.quest_cat = ImGui.InputTextWithHint('Category##ModifyQuestCategory', "Quest Category (optional)", QuestData.quest_cat or '')
 		ImGui.SetNextItemWidth(180)
 		QuestData.item_type = ImGui.InputTextWithHint('Item Type##ModifyQuestItemType', "Reward Item Type (optional)", QuestData.item_type or '')
-		if ImGui.BeginTable("ItemsTable", 5, ImGuiTableFlags.BordersInnerV) then
+		if ImGui.BeginTable("ItemsTable", 6, ImGuiTableFlags.BordersInnerV) then
 			ImGui.TableSetupColumn("Delete", ImGuiTableColumnFlags.WidthFixed, 30)
+			ImGui.TableSetupColumn("Step", ImGuiTableColumnFlags.WidthFixed, 100)
 			ImGui.TableSetupColumn("Item Name", ImGuiTableColumnFlags.WidthFixed, 180)
-			ImGui.TableSetupColumn("Is Reward", ImGuiTableColumnFlags.WidthFixed, 110)
+			ImGui.TableSetupColumn("Reward", ImGuiTableColumnFlags.WidthFixed, 40)
 			ImGui.TableSetupColumn("Quantity", ImGuiTableColumnFlags.WidthFixed, 100)
 			ImGui.TableSetupColumn("Extra Info", ImGuiTableColumnFlags.WidthStretch, 180)
-
+			ImGui.TableHeadersRow()
 			for i, item in ipairs(QuestData.items or {}) do
 				ImGui.TableNextRow()
 				ImGui.TableNextColumn()
 				if ImGui.Button(string.format("X##%d", i)) then
 					table.remove(QuestData.items, i)
 				end
-				ImGui.TableNextColumn()
-				ImGui.SetNextItemWidth(180)
-				item.name = ImGui.InputTextWithHint(string.format("Name##%d", i), "Item Name", item.name)
-
-				ImGui.TableNextColumn()
-				ImGui.SetNextItemWidth(80)
-				item.is_reward = ImGui.Checkbox(string.format("Reward##%d", i), item.is_reward)
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(100)
-				item.qty = ImGui.InputInt(string.format("Qty##%d", i), item.qty)
+				item.Step = ImGui.InputInt(string.format("##Step%d", i), item.Step or 1)
+
 				ImGui.TableNextColumn()
-				item.extra = ImGui.InputTextWithHint(string.format("Info##%d", i), "Extra Info", item.extra or '')
+				ImGui.SetNextItemWidth(180)
+				item.name = ImGui.InputTextWithHint(string.format("##Name%d", i), "Item Name", item.name)
+
+				ImGui.TableNextColumn()
+				ImGui.SetNextItemWidth(40)
+				item.is_reward = ImGui.Checkbox(string.format("##Reward%d", i), item.is_reward)
+
+				ImGui.TableNextColumn()
+				ImGui.SetNextItemWidth(100)
+				item.qty = ImGui.InputInt(string.format("##Qty%d", i), item.qty)
+
+				ImGui.TableNextColumn()
+				item.extra = ImGui.InputTextWithHint(string.format("##Info%d", i), "Extra Info", item.extra or '')
 			end
 
 			ImGui.EndTable()
@@ -1318,7 +1369,7 @@ local function RenderModifyQuestWindow(QuestData)
 			if not QuestData.items then
 				QuestData.items = {}
 			end
-			table.insert(QuestData.items, { name = 'NEWITEM', qty = 1, extra = '', is_reward = false, })
+			table.insert(QuestData.items, { name = 'NEWITEM', qty = 1, extra = '', is_reward = false, Step = 1, })
 		end
 		ImGui.SameLine()
 		if ImGui.Button('Save Changes') then
