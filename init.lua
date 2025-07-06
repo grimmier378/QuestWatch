@@ -31,6 +31,7 @@ local isRunning         = true
 local ShowMain          = false
 local ShowCompletedOnly = false
 local HideCompleted     = false
+local HideRewards       = false
 local ShowAddQuest      = false
 local ExportData        = false
 local ImportQuests      = false
@@ -723,70 +724,72 @@ local function RenderTable(table_data, who)
 										ImGui.TableNextColumn()
 
 										for _, iData in ipairs(items or {}) do
-											local iName = iData.name or 'Unknown Item'
-											ImGui.Separator()
+											if not HideRewards or (HideRewards and not iData.is_reward) then
+												local iName = iData.name or 'Unknown Item'
+												ImGui.Separator()
 
-											if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
-												ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
-												ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
-												ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
+												if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
+													ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
+													ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
+													ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
 
-												ImGui.TableNextRow()
-												ImGui.TableNextColumn()
+													ImGui.TableNextRow()
+													ImGui.TableNextColumn()
 
-												local tCol = Colors.white
-												if iData.on_hand >= iData.qty then
-													tCol = Colors.green -- Green if enough on hand
-												end
-												if iData.on_hand > 0 and iData.on_hand < iData.qty then
-													tCol = Colors.tangarine -- Orange if not enough on hand
-												end
-												if iData.is_reward then
-													ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
-													ImGui.SameLine(0, 0)
+													local tCol = Colors.white
+													if iData.on_hand >= iData.qty then
+														tCol = Colors.green -- Green if enough on hand
+													end
+													if iData.on_hand > 0 and iData.on_hand < iData.qty then
+														tCol = Colors.tangarine -- Orange if not enough on hand
+													end
+													if iData.is_reward then
+														ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
+														ImGui.SameLine(0, 0)
+														if ImGui.IsItemHovered() then
+															ImGui.BeginTooltip()
+															ImGui.Text("This is a reward item.")
+															ImGui.EndTooltip()
+														end
+													end
+													ImGui.PushStyleColor(ImGuiCol.Text, tCol)
+													ImGui.PushID(category .. item_type .. slot .. iName .. who)
+													if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
+														ImGui.SetClipboardText(iName)
+													end
+													ImGui.PopStyleColor()
+
 													if ImGui.IsItemHovered() then
 														ImGui.BeginTooltip()
-														ImGui.Text("This is a reward item.")
+														ImGui.Text(iName)
+														ImGui.Separator()
+														ImGui.Text(iData.extra)
 														ImGui.EndTooltip()
 													end
-												end
-												ImGui.PushStyleColor(ImGuiCol.Text, tCol)
-												ImGui.PushID(category .. item_type .. slot .. iName .. who)
-												if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
-													ImGui.SetClipboardText(iName)
-												end
-												ImGui.PopStyleColor()
+													ImGui.PopID()
 
-												if ImGui.IsItemHovered() then
-													ImGui.BeginTooltip()
-													ImGui.Text(iName)
-													ImGui.Separator()
-													ImGui.Text(iData.extra)
-													ImGui.EndTooltip()
+													ImGui.TableNextColumn()
+													tCol = Colors.teal
+													if iData.on_hand > 0 and iData.on_hand < iData.qty then
+														tCol = Colors.yellow -- Yellow if not enough on hand
+													end
+													if iData.on_hand >= iData.qty then
+														tCol = Colors.green -- Green if enough on hand
+													end
+													ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
+													ImGui.TextColored(tCol, "%s", iData.on_hand)
+													ImGui.PopID()
+													ImGui.SameLine()
+													ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
+													ImGui.Text(" / %s", iData.qty)
+													ImGui.PopID()
+													ImGui.TableNextColumn()
+													ImGui.PushID(category .. item_type .. iName .. slot)
+													ImGui.TextWrapped(iData.extra)
+													ImGui.PopID()
+													ImGui.EndTable()
 												end
-												ImGui.PopID()
 											end
-
-											ImGui.TableNextColumn()
-											local tCol = Colors.teal
-											if iData.on_hand > 0 and iData.on_hand < iData.qty then
-												tCol = Colors.yellow -- Yellow if not enough on hand
-											end
-											if iData.on_hand >= iData.qty then
-												tCol = Colors.green -- Green if enough on hand
-											end
-											ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
-											ImGui.TextColored(tCol, "%s", iData.on_hand)
-											ImGui.PopID()
-											ImGui.SameLine()
-											ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
-											ImGui.Text(" / %s", iData.qty)
-											ImGui.PopID()
-											ImGui.TableNextColumn()
-											ImGui.PushID(category .. item_type .. iName .. slot)
-											ImGui.TextWrapped(iData.extra)
-											ImGui.PopID()
-											ImGui.EndTable()
 										end
 									end
 								end
@@ -945,9 +948,13 @@ local function RenderQuestFilter(id)
 
 	local pressedSC = false
 	ShowCompletedOnly, pressedSC = ImGui.Checkbox('Show Completed Only##' .. id, ShowCompletedOnly)
+
 	ImGui.SameLine()
 	local pressedHC = false
 	HideCompleted, pressedHC = ImGui.Checkbox('Hide Completed##' .. id, HideCompleted)
+
+	ImGui.SameLine()
+	HideRewards = ImGui.Checkbox('Hide Rewards##' .. id, HideRewards)
 
 	if pressedSC then
 		HideCompleted = false
