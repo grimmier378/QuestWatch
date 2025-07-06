@@ -6,7 +6,7 @@ local Actors            = require('actors')
 local PackageMan        = require('mq.PackageMan')
 local SQL               = PackageMan.Require('lsqlite3')
 local Utils             = require('mq.Utils')
-local Version           = 1.3
+local Version           = 1.4
 
 local ResourceDir       = mq.TLO.MacroQuest.Path('resources')()
 local FileDB            = string.format("%s/QuestWatch.db", ResourceDir)
@@ -162,6 +162,7 @@ local function OpenDB(path)
 				item_name TEXT,
 				quantity INTEGER DEFAULT 1,
 				extra_info TEXT DEFAULT '',
+				is_reward INTEGER DEFAULT 0,
 				UNIQUE(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
 			);
 		]]
@@ -219,14 +220,15 @@ local function ImportData(file)
 								local query = string.format([[
 									INSERT INTO quest_data (
 										expansion, quest_name, quest_cat, item_slot,
-										item_type, restriction, item_name, quantity, extra_info)
-									VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s')
+										item_type, restriction, item_name, quantity, extra_info, is_reward)
+									VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)
 									ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
 									DO UPDATE SET
 										quantity = excluded.quantity,
-										extra_info = excluded.extra_info;
+										extra_info = excluded.extra_info,
+										is_reward = excluded.is_reward;
 								]], expansionEsc, questNameEsc, questCatEsc, slotEsc, itemTypeEsc,
-									restrictionEsc, itemNameEsc, quantity, extraInfoEsc)
+									restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (itemData.is_reward and 1 or 0))
 
 								local ok, err = pcall(function() db:exec(query) end)
 								if not ok then
@@ -292,13 +294,14 @@ local function AddNewQuest(expansion, questData)
 		local query = string.format([[
 				INSERT INTO quest_data (
 					expansion, quest_name, quest_cat, item_slot,
-					item_type, restriction, item_name, quantity, extra_info)
-				VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s')
+					item_type, restriction, item_name, quantity, extra_info, is_reward)
+				VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)
 				ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
 				DO UPDATE SET
 					quantity = excluded.quantity,
-					extra_info = excluded.extra_info;
-			]], expansionEsc, questNameEsc, questCatEsc, itemSlotEsc, itemTypeEsc, restrictionEsc, itemNameEsc, quantity, extraInfoEsc)
+					extra_info = excluded.extra_info,
+					is_reward = excluded.is_reward;
+			]], expansionEsc, questNameEsc, questCatEsc, itemSlotEsc, itemTypeEsc, restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (item.is_reward and 1 or 0))
 
 		local ok, err = pcall(function() db:exec(query) end)
 		if not ok then
@@ -331,6 +334,51 @@ local function CheckExpansionData()
 	db:close()
 end
 
+local function ModifyTable(ver)
+	-- create new table then copy data over -- to the new table
+	-- drop the original table then rename the new table to the original name
+	local db = OpenDB(FileDB)
+	if not db then return end
+	local schema = ''
+	if ver < 1.4 then
+		-- v1.4 adds is_reward column to the quest_data table as prior versions did not have this column
+
+		schema = [[
+		CREATE TABLE IF NOT EXISTS quest_data_new (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			expansion TEXT,
+			quest_name TEXT,
+			quest_cat TEXT,
+			item_slot TEXT,
+			item_type TEXT,
+			restriction TEXT DEFAULT 'All',
+			item_name TEXT,
+			quantity INTEGER DEFAULT 1,
+			extra_info TEXT DEFAULT '',
+			is_reward INTEGER DEFAULT 0,
+			UNIQUE(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
+		);
+	]]
+		db:exec(schema)
+		schema = [[
+		INSERT INTO quest_data_new (expansion, quest_name, quest_cat, item_slot, item_type, restriction, item_name, quantity, extra_info)
+		SELECT expansion, quest_name, quest_cat, item_slot, item_type, restriction, item_name, quantity, extra_info FROM quest_data;
+	]]
+		local ok, err = pcall(function() db:exec(schema) end)
+		if not ok then
+			print("Failed to copy data to new table: " .. err)
+		else
+			schema = "DROP TABLE quest_data;"
+			db:exec(schema)
+			schema = "ALTER TABLE quest_data_new RENAME TO quest_data;"
+			db:exec(schema)
+			printf("Database modified successfully.")
+		end
+	end
+
+	db:close()
+end
+
 -- Helpers --
 
 -- Check to see if the database needs to update with new data
@@ -342,6 +390,9 @@ local function CheckUpdate()
 		local tmp = dofile(UpdateFile)
 		if tmp and tmp.Version and tmp.Version < Version then
 			printf("Updating database to version %s", Version)
+			if tmp.Version < 1.4 then
+				ModifyTable(tmp.Version)
+			end
 			ImportData()
 			tmp.Version = Version
 			mq.pickle(UpdateFile, tmp)
@@ -420,6 +471,7 @@ local function GetQuests(expansion, filters)
 				qty = quantity,
 				on_hand = Utils.CheckOnHand(itemName),
 				extra = extraInfo,
+				is_reward = (row.is_reward and row.is_reward == 1) or false,
 			})
 		end
 		stmt:finalize()
@@ -560,6 +612,9 @@ function Utils.QuestStatus(items_table)
 		return false, 0, 0
 	end
 	for _, item in ipairs(items_table) do
+		if item.is_reward and item.on_hand >= item.qty then
+			return true, (item.on_hand <= item.qty and item.on_hand or item.qty), item.qty
+		end
 		if item.qty and item.name then
 			totalNeeded = totalNeeded + item.qty
 			totalOnHand = totalOnHand + (item.on_hand <= item.qty and item.on_hand or item.qty)
@@ -685,12 +740,22 @@ local function RenderTable(table_data, who)
 												if iData.on_hand > 0 and iData.on_hand < iData.qty then
 													tCol = Colors.tangarine -- Orange if not enough on hand
 												end
+												if iData.is_reward then
+													ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
+													ImGui.SameLine(0, 0)
+													if ImGui.IsItemHovered() then
+														ImGui.BeginTooltip()
+														ImGui.Text("This is a reward item.")
+														ImGui.EndTooltip()
+													end
+												end
 												ImGui.PushStyleColor(ImGuiCol.Text, tCol)
 												ImGui.PushID(category .. item_type .. slot .. iName .. who)
 												if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
 													ImGui.SetClipboardText(iName)
 												end
 												ImGui.PopStyleColor()
+
 												if ImGui.IsItemHovered() then
 													ImGui.BeginTooltip()
 													ImGui.Text(iName)
@@ -971,9 +1036,10 @@ local function RenderAddQuestWindow()
 		ImGui.SetNextItemWidth(180)
 		NewQuestData.ItemType = ImGui.InputTextWithHint('Item Type##NewQuestItemType', "Reward Item Type (optional)", NewQuestData.ItemType or '')
 
-		if ImGui.BeginTable("ItemsTable", 4, ImGuiTableFlags.BordersInnerV) then
+		if ImGui.BeginTable("ItemsTable", 5, ImGuiTableFlags.BordersInnerV) then
 			ImGui.TableSetupColumn("Delete", ImGuiTableColumnFlags.WidthFixed, 80)
 			ImGui.TableSetupColumn("Item Name", ImGuiTableColumnFlags.WidthStretch)
+			ImGui.TableSetupColumn("Is Reward", ImGuiTableColumnFlags.WidthFixed, 80)
 			ImGui.TableSetupColumn("Quantity", ImGuiTableColumnFlags.WidthFixed, 100)
 			ImGui.TableSetupColumn("Extra Info", ImGuiTableColumnFlags.WidthStretch)
 
@@ -986,6 +1052,11 @@ local function RenderAddQuestWindow()
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(180)
 				item.Name = ImGui.InputTextWithHint(string.format("ItemName##%d", i), "Item Name", item.Name)
+
+				ImGui.TableNextColumn()
+				ImGui.SetNextItemWidth(80)
+				item.IsReward = ImGui.Checkbox(string.format("ItemIsReward##%d", i), item.IsReward)
+
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(100)
 				item.Qty = ImGui.InputInt(string.format("ItemQty##%d", i), item.Qty)
