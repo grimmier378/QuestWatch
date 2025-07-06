@@ -139,10 +139,10 @@ local WorkingTable = nil
 -- SQL STUFF --
 
 local function OpenDB(path)
-	if not Utils.File.Exists(FileDB) then
-		printf("Database file does not exist, creating new database at %s", FileDB)
+	if not Utils.File.Exists(path) then
+		printf("Database file does not exist, creating new database at %s", path)
 	end
-	local db = SQL.open(FileDB)
+	local db = SQL.open(path)
 	if db then
 		db:exec("PRAGMA journal_mode=WAL;")
 		-- Load the database schema if needed
@@ -388,7 +388,7 @@ local function CheckUpdate()
 		mq.pickle(UpdateFile, { Version = Version, })
 	else
 		local tmp = dofile(UpdateFile)
-		if tmp and tmp.Version and tmp.Version < Version then
+		if (tmp and tmp.Version and tmp.Version < Version) or not Utils.File.Exists(FileDB) then
 			printf("Updating database to version %s", Version)
 			if tmp.Version < 1.4 then
 				ModifyTable(tmp.Version)
