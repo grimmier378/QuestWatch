@@ -77,6 +77,7 @@ local Colors         = {
 	red2 = ImVec4(0.928, 0.352, 0.035, 1.000),
 	pink2 = ImVec4(0.976, 0.518, 0.844, 1.000),
 	pink = ImVec4(0.9, 0.4, 0.4, 0.8),
+	['light pink'] = ImVec4(0.756, 0.519, 0.848, 1.000),
 	orange = ImVec4(0.78, 0.20, 0.05, 0.8),
 	tangarine = ImVec4(1.000, 0.557, 0.000, 1.000),
 	yellow = ImVec4(1, 1, 0, 1),
@@ -818,7 +819,7 @@ local function RenderTable(table_data, who)
 											end
 											if isReady then
 												ImGui.SameLine()
-												ImGui.TextColored(Colors.green, Icons.FA_STAR)
+												ImGui.TextColored(Colors.teal, Icons.FA_STAR)
 												if ImGui.IsItemHovered() then
 													ImGui.BeginTooltip()
 													ImGui.Text("Ready to hand in.")
@@ -834,7 +835,13 @@ local function RenderTable(table_data, who)
 												end
 											end
 											ImGui.PushTextWrapPos(0.0)
-											ImGui.TextColored(Colors.yellow, quest_name)
+											local tCol = Colors['light pink']
+											if isCompleted then
+												tCol = Colors.green -- Green if quest is completed
+											elseif isReady then
+												tCol = Colors.yellow -- Yellow if ready to hand in
+											end
+											ImGui.TextColored(tCol, quest_name)
 											ImGui.PopTextWrapPos()
 
 											ImGui.TableNextColumn()
@@ -1369,8 +1376,8 @@ local function RenderActors()
 				end
 			end
 		end
-		ImGui.EndChild()
 	end
+	ImGui.EndChild()
 
 	-- right side
 	-- display selected actor's data
@@ -1387,12 +1394,13 @@ local function RenderActors()
 		else
 			ImGui.Text('No Data Available')
 		end
-		ImGui.EndChild()
 	end
+	ImGui.EndChild()
 end
 
 --- Renders the main Quest Watch window.
 local function RenderMain()
+	if not ShowMain then return end
 	ImGui.SetNextWindowSize(ImVec2(600, 500), ImGuiCond.FirstUseEver)
 	ImGui.SetNextWindowPos(ImVec2(100, 100), ImGuiCond.FirstUseEver)
 	local open, draw = ImGui.Begin('Quest Watch##QuestWatch' .. MyName, true)
