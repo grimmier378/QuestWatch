@@ -1,48 +1,54 @@
-local mq                = require('mq')
-local ImGui             = require('ImGui')
-local Icons             = require('mq.ICONS')
-local Data              = require('quest.quest_data')
-local Actors            = require('actors')
-local PackageMan        = require('mq.PackageMan')
-local SQL               = PackageMan.Require('lsqlite3')
-local Utils             = require('mq.Utils')
-local Version           = 1.4
+local mq                 = require('mq')
+local ImGui              = require('ImGui')
+local Icons              = require('mq.ICONS')
+local Data               = require('quest.quest_data')
+local Actors             = require('actors')
+local PackageMan         = require('mq.PackageMan')
+local SQL                = PackageMan.Require('lsqlite3')
+local Utils              = require('mq.Utils')
+local Version            = 1.4
 
-local ResourceDir       = mq.TLO.MacroQuest.Path('resources')()
-local FileDB            = string.format("%s/QuestWatch.db", ResourceDir)
-local UpdateFile        = string.format("%s/QuestWatchVer.lua", ResourceDir)
-local ExportFile        = string.format("%s/QuestWatchExport.lua", ResourceDir)
-local ImportFile        = ''
+local ResourceDir        = mq.TLO.MacroQuest.Path('resources')()
+local FileDB             = string.format("%s/QuestWatch.db", ResourceDir)
+local UpdateFile         = string.format("%s/QuestWatchVer.lua", ResourceDir)
+local ExportFile         = string.format("%s/QuestWatchExport.lua", ResourceDir)
+local ImportFile         = ''
 
-local MySelf            = mq.TLO.Me
-local MyName            = MySelf.CleanName()
-local MyClass           = (MySelf.Class.ShortName() or 'unknown'):lower()
-local MyArmor           = 'cloth'
-local MyActor           = nil
+local MySelf             = mq.TLO.Me
+local MyName             = MySelf.CleanName()
+local MyClass            = (MySelf.Class.ShortName() or 'unknown'):lower()
+local MyArmor            = 'cloth'
+local MyActor            = nil
 
-local Boxes             = {} -- holds actors data
-local BoxCompleted      = {}
-local ActorsList        = {}
-local SelectedBox       = 'none' -- currently selected actor box
-local GetData           = false  -- flag to ask for data from actors
-local SendData          = false  -- flag to send data to actors
+local Boxes              = {} -- holds actors data
+local BoxCompleted       = {}
+local ActorsList         = {}
+local SelectedBox        = 'none' -- currently selected actor box
+local GetData            = false  -- flag to ask for data from actors
+local SendData           = false  -- flag to send data to actors
 
-local isRunning         = true
-local ShowMain          = false
-local ShowCompletedOnly = false
-local HideCompleted     = false
-local HideRewards       = false
-local ShowAddQuest      = false
-local ExportData        = false
-local ImportQuests      = false
+local isRunning          = true
+local ShowMain           = false
+local ShowCompletedOnly  = false
+local HideCompleted      = false
+local HideRewards        = false
+local ShowAddQuest       = false
+local ShowModifyQuest    = false
+local ExportData         = false
+local ImportQuests       = false
 
-local LookupExpan       = 'none'
-local LastLookupExpan   = 'none'
-local EnterNewQuest     = false
-local NewQuestExpan     = 'none'
-local NewQuestData      = {}
+local LookupExpan        = 'none'
+local LastLookupExpan    = 'none'
+local EnterNewQuest      = false
+local EnterModifiedQuest = false
+local DeleteQuest        = false
+local NewQuestExpan      = 'none'
+local NewQuestData       = {}
+local ModifyQuestData    = nil
+local ModifyQuestExpan   = 'none'
 
-local SQLFilters        = {
+
+local SQLFilters     = {
 	['expansion'] = '',
 	['quest_name'] = '',
 	['item_slot'] = '',
@@ -52,8 +58,8 @@ local SQLFilters        = {
 	['restriction'] = '', -- class, armor type, etc.
 }
 
-local EQ_ICON_OFFSET    = 500
-local animMini          = mq.FindTextureAnimation("A_DragItem")
+local EQ_ICON_OFFSET = 500
+local animMini       = mq.FindTextureAnimation("A_DragItem")
 
 
 local buttonWinFlags = bit32.bor(
@@ -281,6 +287,11 @@ local function AddNewQuest(expansion, questData)
 
 	db:exec("BEGIN TRANSACTION;")
 	for _, item in ipairs(questData.Items) do
+		if item.name then item.Name = item.name end
+		if item.qty then item.Qty = item.qty end
+		if item.extra then item.Extra = item.extra end
+		if item.is_reward == nil then item.is_reward = false end
+
 		if not item.Name or not item.Qty then
 			print("Invalid item data. Each item must have a Name and Qty.")
 			db:exec("ROLLBACK;")
@@ -335,6 +346,8 @@ local function CheckExpansionData()
 	db:close()
 end
 
+--- Modifies the database schema to add new columns or tables as needed.
+---@param ver number The version of the database schema to modify from.
 local function ModifyTable(ver)
 	-- create new table then copy data over -- to the new table
 	-- drop the original table then rename the new table to the original name
@@ -378,6 +391,56 @@ local function ModifyTable(ver)
 	end
 
 	db:close()
+end
+
+local function DeleteQuestData(expansion, questData)
+	local db = OpenDB(FileDB)
+	if not db then return end
+
+	local expansionEsc = expansion:gsub("'", "''")
+	local questNameEsc = questData.quest_name:gsub("'", "''")
+
+	db:exec("BEGIN TRANSACTION;")
+	local query = string.format([[
+				DELETE FROM quest_data
+				WHERE expansion = '%s' AND quest_name = '%s';
+			]], expansionEsc, questNameEsc)
+	local ok, err = pcall(function() db:exec(query) end)
+	if not ok then
+		print("Failed to delete old quest data: " .. err)
+	end
+
+	db:exec("COMMIT;")
+	db:close()
+end
+
+local function ModifyQuest(expansion, questData)
+	-- first lets delete the current data for the quest incase any items were removed.
+	-- then we can add the quest back in with the updated data
+	if not expansion or not questData then
+		print("Invalid parameters for modifying quest.")
+		return
+	end
+	local expansionEsc = expansion:gsub("'", "''")
+	local questNameEsc = questData.quest_name:gsub("'", "''")
+	local questCatEsc = questData.quest_cat:gsub("'", "''")
+	local itemSlotEsc = questData.item_slot:gsub("'", "''")
+	local restrictionEsc = questData.restriction and questData.restriction:gsub("'", "''") or 'All'
+	local itemTypeEsc = questData.item_type:gsub("'", "''")
+
+	DeleteQuestData(expansion, questData)
+
+	local newData = {
+		expansion = expansionEsc,
+		Name = questNameEsc,
+		Category = questCatEsc,
+		Slot = itemSlotEsc,
+		ItemType = itemTypeEsc,
+		Restrictions = restrictionEsc,
+		Items = questData.items or {},
+	}
+
+	AddNewQuest(expansion, newData)
 end
 
 -- Helpers --
@@ -614,6 +677,8 @@ function Utils.QuestStatus(items_table)
 		return false, 0, 0
 	end
 	for _, item in ipairs(items_table) do
+		item.qty = item.qty or 1
+		item.on_hand = item.on_hand or Utils.CheckOnHand(item.name or 'Unknown Item')
 		if item.is_reward and item.on_hand >= item.qty then
 			return true, (item.on_hand <= item.qty and item.on_hand or item.qty), item.qty
 		end
@@ -698,6 +763,18 @@ local function RenderTable(table_data, who)
 								if not ShowCompletedOnly or (ShowCompletedOnly and Utils.QuestStatus(items)) then
 									if not HideCompleted or (HideCompleted and not Utils.QuestStatus(items)) then
 										ImGui.TableNextColumn()
+										if ImGui.SmallButton(Icons.FA_PENCIL .. "##" .. category .. item_type .. slot .. quest_name .. who) then
+											ModifyQuestData = {
+												quest_cat = category,
+												quest_name = quest_name,
+												restrictions = restrict,
+												item_type = item_type,
+												item_slot = slot,
+												items = items,
+											}
+											ModifyQuestExpan = LookupExpan
+											ShowModifyQuest = true
+										end
 										if Utils.QuestStatus(items) then
 											ImGui.TextColored(Colors.green, Icons.FA_STAR)
 											ImGui.SameLine()
@@ -1045,11 +1122,11 @@ local function RenderAddQuestWindow()
 		NewQuestData.ItemType = ImGui.InputTextWithHint('Item Type##NewQuestItemType', "Reward Item Type (optional)", NewQuestData.ItemType or '')
 
 		if ImGui.BeginTable("ItemsTable", 5, ImGuiTableFlags.BordersInnerV) then
-			ImGui.TableSetupColumn("Delete", ImGuiTableColumnFlags.WidthFixed, 80)
-			ImGui.TableSetupColumn("Item Name", ImGuiTableColumnFlags.WidthStretch)
+			ImGui.TableSetupColumn("Delete", ImGuiTableColumnFlags.WidthFixed, 30)
+			ImGui.TableSetupColumn("Item Name", ImGuiTableColumnFlags.WidthFixed, 180)
 			ImGui.TableSetupColumn("Is Reward", ImGuiTableColumnFlags.WidthFixed, 80)
 			ImGui.TableSetupColumn("Quantity", ImGuiTableColumnFlags.WidthFixed, 100)
-			ImGui.TableSetupColumn("Extra Info", ImGuiTableColumnFlags.WidthStretch)
+			ImGui.TableSetupColumn("Extra Info", ImGuiTableColumnFlags.WidthStretch, 100)
 
 			for i, item in ipairs(NewQuestData.Items or {}) do
 				ImGui.TableNextRow()
@@ -1059,18 +1136,17 @@ local function RenderAddQuestWindow()
 				end
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(180)
-				item.Name = ImGui.InputTextWithHint(string.format("ItemName##%d", i), "Item Name", item.Name)
+				item.Name = ImGui.InputTextWithHint(string.format("Name##%d", i), "Item Name", item.Name)
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(80)
-				item.IsReward = ImGui.Checkbox(string.format("ItemIsReward##%d", i), item.IsReward)
+				item.IsReward = ImGui.Checkbox(string.format("Reward##%d", i), item.IsReward)
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(100)
-				item.Qty = ImGui.InputInt(string.format("ItemQty##%d", i), item.Qty)
+				item.Qty = ImGui.InputInt(string.format("Qty##%d", i), item.Qty)
 				ImGui.TableNextColumn()
-				ImGui.SetNextItemWidth(180)
-				item.Extra = ImGui.InputTextWithHint(string.format("ItemExtra##%d", i), "Extra Info", item.Extra or '')
+				item.Extra = ImGui.InputTextWithHint(string.format("Info##%d", i), "Extra Info", item.Extra or '')
 			end
 
 			ImGui.EndTable()
@@ -1103,6 +1179,100 @@ local function RenderAddQuestWindow()
 	end
 	ImGui.End()
 end
+
+--- Displays the modify quest window for editing quest data.
+--- This window allows users to modify existing quest data in the database.
+---@param QuestData table The quest data to modify.
+local function RenderModifyQuestWindow(QuestData)
+	-- this is a window to allow modifying quests in the database
+	-- you can select a quest from the list and modify its data
+	-- you can also delete quests from the database
+	if not ShowModifyQuest then return end
+
+	ImGui.SetNextWindowSize(ImVec2(600, 400), ImGuiCond.FirstUseEver)
+	ImGui.SetNextWindowPos(ImVec2(100, 100), ImGuiCond.FirstUseEver)
+	local open, draw = ImGui.Begin('Modify Quest Data##QuestWatch' .. MyName, true)
+	if not open then
+		draw = false
+		ShowModifyQuest = false
+	end
+	if draw then
+		ImGui.Text("Modify Quest Data")
+		ImGui.Separator()
+
+		ImGui.SetNextItemWidth(180)
+		QuestData.quest_name = ImGui.InputTextWithHint('Quest Name##ModifyQuestName', 'Quest Name', QuestData.quest_name or '')
+
+		ImGui.SetNextItemWidth(180)
+		QuestData.item_slot = ImGui.InputTextWithHint('Slot##ModifyQuestSlot', 'Slot', QuestData.item_slot)
+
+		ImGui.SetNextItemWidth(180)
+		QuestData.restrictions = ImGui.InputTextWithHint('Restrictions##ModifyQuestRestrictions', "Class Restriction, Armor Type etc (lower case)",
+			QuestData.restrictions)
+		ImGui.SetNextItemWidth(180)
+		QuestData.quest_cat = ImGui.InputTextWithHint('Category##ModifyQuestCategory', "Quest Category (optional)", QuestData.quest_cat or '')
+		ImGui.SetNextItemWidth(180)
+		QuestData.item_type = ImGui.InputTextWithHint('Item Type##ModifyQuestItemType', "Reward Item Type (optional)", QuestData.item_type or '')
+		if ImGui.BeginTable("ItemsTable", 5, ImGuiTableFlags.BordersInnerV) then
+			ImGui.TableSetupColumn("Delete", ImGuiTableColumnFlags.WidthFixed, 30)
+			ImGui.TableSetupColumn("Item Name", ImGuiTableColumnFlags.WidthFixed, 180)
+			ImGui.TableSetupColumn("Is Reward", ImGuiTableColumnFlags.WidthFixed, 110)
+			ImGui.TableSetupColumn("Quantity", ImGuiTableColumnFlags.WidthFixed, 100)
+			ImGui.TableSetupColumn("Extra Info", ImGuiTableColumnFlags.WidthStretch, 180)
+
+			for i, item in ipairs(QuestData.items or {}) do
+				ImGui.TableNextRow()
+				ImGui.TableNextColumn()
+				if ImGui.Button(string.format("X##%d", i)) then
+					table.remove(QuestData.items, i)
+				end
+				ImGui.TableNextColumn()
+				ImGui.SetNextItemWidth(180)
+				item.name = ImGui.InputTextWithHint(string.format("Name##%d", i), "Item Name", item.name)
+
+				ImGui.TableNextColumn()
+				ImGui.SetNextItemWidth(80)
+				item.is_reward = ImGui.Checkbox(string.format("Reward##%d", i), item.is_reward)
+
+				ImGui.TableNextColumn()
+				ImGui.SetNextItemWidth(100)
+				item.qty = ImGui.InputInt(string.format("Qty##%d", i), item.qty)
+				ImGui.TableNextColumn()
+				item.extra = ImGui.InputTextWithHint(string.format("Info##%d", i), "Extra Info", item.extra or '')
+			end
+
+			ImGui.EndTable()
+		end
+		if ImGui.Button('Add Item') then
+			if not QuestData.items then
+				QuestData.items = {}
+			end
+			table.insert(QuestData.items, { name = 'NEWITEM', qty = 1, extra = '', is_reward = false, })
+		end
+		ImGui.SameLine()
+		if ImGui.Button('Save Changes') then
+			ModifyQuestData = QuestData
+			ModifyQuestExpan = LookupExpan
+			EnterModifiedQuest = true
+			ShowModifyQuest = false
+		end
+		ImGui.SameLine()
+		if ImGui.Button('Delete Quest') then
+			ModifyQuestData = QuestData
+			ModifyQuestExpan = LookupExpan
+			DeleteQuest = true
+			ShowModifyQuest = false
+		end
+		ImGui.SameLine()
+		if ImGui.Button('Cancel') then
+			ShowModifyQuest = false
+			ModifyQuestData = nil
+			ModifyQuestExpan = ''
+		end
+	end
+	ImGui.End()
+end
+
 
 --- Renders the actors window for viewing quest data.
 local function RenderActors()
@@ -1241,9 +1411,9 @@ local function RenderGUI()
 	if ShowMain then
 		RenderMain()
 	end
-	-- if ShowActors then
-	-- 	RenderActors()
-	-- end
+	if ShowModifyQuest and ModifyQuestData then
+		RenderModifyQuestWindow(ModifyQuestData)
+	end
 	if ShowAddQuest then
 		RenderAddQuestWindow()
 	end
@@ -1305,6 +1475,21 @@ local function Main()
 			NewQuestExpan = 'none'
 			NewQuestData = {}
 
+			CheckExpansionData()
+		end
+
+		if EnterModifiedQuest then
+			ModifyQuest(ModifyQuestExpan, ModifyQuestData)
+			EnterModifiedQuest = false
+			ModifyQuestData = nil
+			ModifyQuestExpan = ''
+		end
+
+		if DeleteQuest then
+			DeleteQuestData(ModifyQuestExpan, ModifyQuestData)
+			DeleteQuest = false
+			ModifyQuestData = nil
+			ModifyQuestExpan = ''
 			CheckExpansionData()
 		end
 
