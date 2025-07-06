@@ -537,6 +537,7 @@ local function ExportDBtoLua()
 				name = itemName,
 				qty = quantity,
 				extra = extraInfo,
+				is_reward = (row.is_reward and row.is_reward == 1) or false,
 			}
 		end
 		stmt:finalize()
