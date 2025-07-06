@@ -668,7 +668,9 @@ function Utils.CheckOnHand(item_name)
 		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or 0
 	end
 
-	item_count = item_count + (mq.TLO.FindItemCount(item_name)() or 0) + (mq.TLO.FindItemBankCount(item_name)() or 0)
+	item_count = item_count + mq.TLO.FindItemCount(string.format("=%s", item_name))() +
+		mq.TLO.FindItemBankCount(string.format("=%s", item_name))()
+
 
 	return item_count
 end
