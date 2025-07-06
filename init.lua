@@ -30,6 +30,7 @@ local SendData          = false  -- flag to send data to actors
 local isRunning         = true
 local ShowMain          = false
 local ShowCompletedOnly = false
+local HideCompleted     = false
 local ShowAddQuest      = false
 local ExportData        = false
 local ImportQuests      = false
@@ -638,87 +639,89 @@ local function RenderTable(table_data, who)
 						for restrict, quest_data in pairs(restrictions or {}) do
 							for quest_name, items in pairs(quest_data or {}) do
 								if not ShowCompletedOnly or (ShowCompletedOnly and Utils.QuestStatus(items)) then
-									ImGui.TableNextColumn()
-									if Utils.QuestStatus(items) then
-										ImGui.TextColored(Colors.green, Icons.FA_STAR)
-										ImGui.SameLine()
-									end
-									ImGui.PushTextWrapPos(0.0)
-									ImGui.TextColored(Colors.yellow, quest_name)
-									ImGui.PopTextWrapPos()
+									if not HideCompleted or (HideCompleted and not Utils.QuestStatus(items)) then
+										ImGui.TableNextColumn()
+										if Utils.QuestStatus(items) then
+											ImGui.TextColored(Colors.green, Icons.FA_STAR)
+											ImGui.SameLine()
+										end
+										ImGui.PushTextWrapPos(0.0)
+										ImGui.TextColored(Colors.yellow, quest_name)
+										ImGui.PopTextWrapPos()
 
-									ImGui.TableNextColumn()
-									ImGui.PushTextWrapPos(0.0)
-									ImGui.Text("%s", category)
-									ImGui.PopTextWrapPos()
-									ImGui.TableNextColumn()
+										ImGui.TableNextColumn()
+										ImGui.PushTextWrapPos(0.0)
+										ImGui.Text("%s", category)
+										ImGui.PopTextWrapPos()
+										ImGui.TableNextColumn()
 
-									ImGui.PushTextWrapPos(0.0)
-									ImGui.TextColored(Colors.teal, restrict)
-									ImGui.PopTextWrapPos()
+										ImGui.PushTextWrapPos(0.0)
+										ImGui.TextColored(Colors.teal, restrict)
+										ImGui.PopTextWrapPos()
 
-									ImGui.TableNextColumn()
-									ImGui.TextColored(Colors.tangarine, slot)
+										ImGui.TableNextColumn()
+										ImGui.TextColored(Colors.tangarine, slot)
 
-									ImGui.TableNextColumn()
-									ImGui.TextColored(Colors.softblue, item_type)
-									ImGui.TableNextColumn()
+										ImGui.TableNextColumn()
+										ImGui.TextColored(Colors.softblue, item_type)
+										ImGui.TableNextColumn()
 
-									for _, iData in ipairs(items or {}) do
-										local iName = iData.name or 'Unknown Item'
-										ImGui.Separator()
+										for _, iData in ipairs(items or {}) do
+											local iName = iData.name or 'Unknown Item'
+											ImGui.Separator()
 
-										if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
-											ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
-											ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
-											ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
+											if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
+												ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
+												ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
+												ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
 
-											ImGui.TableNextRow()
+												ImGui.TableNextRow()
+												ImGui.TableNextColumn()
+
+												local tCol = Colors.white
+												if iData.on_hand >= iData.qty then
+													tCol = Colors.green -- Green if enough on hand
+												end
+												if iData.on_hand > 0 and iData.on_hand < iData.qty then
+													tCol = Colors.tangarine -- Orange if not enough on hand
+												end
+												ImGui.PushStyleColor(ImGuiCol.Text, tCol)
+												ImGui.PushID(category .. item_type .. slot .. iName .. who)
+												if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
+													ImGui.SetClipboardText(iName)
+												end
+												ImGui.PopStyleColor()
+												if ImGui.IsItemHovered() then
+													ImGui.BeginTooltip()
+													ImGui.Text(iName)
+													ImGui.Separator()
+													ImGui.Text(iData.extra)
+													ImGui.EndTooltip()
+												end
+												ImGui.PopID()
+											end
+
 											ImGui.TableNextColumn()
-
-											local tCol = Colors.white
+											local tCol = Colors.teal
+											if iData.on_hand > 0 and iData.on_hand < iData.qty then
+												tCol = Colors.yellow -- Yellow if not enough on hand
+											end
 											if iData.on_hand >= iData.qty then
 												tCol = Colors.green -- Green if enough on hand
 											end
-											if iData.on_hand > 0 and iData.on_hand < iData.qty then
-												tCol = Colors.tangarine -- Orange if not enough on hand
-											end
-											ImGui.PushStyleColor(ImGuiCol.Text, tCol)
-											ImGui.PushID(category .. item_type .. slot .. iName .. who)
-											if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
-												ImGui.SetClipboardText(iName)
-											end
-											ImGui.PopStyleColor()
-											if ImGui.IsItemHovered() then
-												ImGui.BeginTooltip()
-												ImGui.Text(iName)
-												ImGui.Separator()
-												ImGui.Text(iData.extra)
-												ImGui.EndTooltip()
-											end
+											ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
+											ImGui.TextColored(tCol, "%s", iData.on_hand)
 											ImGui.PopID()
+											ImGui.SameLine()
+											ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
+											ImGui.Text(" / %s", iData.qty)
+											ImGui.PopID()
+											ImGui.TableNextColumn()
+											ImGui.PushID(category .. item_type .. iName .. slot)
+											ImGui.TextWrapped(iData.extra)
+											ImGui.PopID()
+											ImGui.EndTable()
 										end
-
-										ImGui.TableNextColumn()
-										local tCol = Colors.teal
-										if iData.on_hand > 0 and iData.on_hand < iData.qty then
-											tCol = Colors.yellow -- Yellow if not enough on hand
-										end
-										if iData.on_hand >= iData.qty then
-											tCol = Colors.green -- Green if enough on hand
-										end
-										ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
-										ImGui.TextColored(tCol, "%s", iData.on_hand)
-										ImGui.PopID()
-										ImGui.SameLine()
-										ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
-										ImGui.Text(" / %s", iData.qty)
-										ImGui.PopID()
-										ImGui.TableNextColumn()
-										ImGui.PushID(category .. item_type .. iName .. slot)
-										ImGui.TextWrapped(iData.extra)
-										ImGui.PopID()
-										ImGui.EndTable()
 									end
 								end
 							end
@@ -874,7 +877,18 @@ local function RenderQuestFilter(id)
 	ImGui.SetNextItemWidth(200)
 	SQLFilters['item_slot'] = ImGui.InputTextWithHint('Item Slot##' .. id, 'Item Slot (head, chest, etc.)', SQLFilters['item_slot'])
 
-	ShowCompletedOnly = ImGui.Checkbox('Show Completed Only##' .. id, ShowCompletedOnly)
+	local pressedSC = false
+	ShowCompletedOnly, pressedSC = ImGui.Checkbox('Show Completed Only##' .. id, ShowCompletedOnly)
+	ImGui.SameLine()
+	local pressedHC = false
+	HideCompleted, pressedHC = ImGui.Checkbox('Hide Completed##' .. id, HideCompleted)
+
+	if pressedSC then
+		HideCompleted = false
+	end
+	if pressedHC then
+		ShowCompletedOnly = false
+	end
 
 	ImGui.SeparatorText(LookupExpan .. "##" .. id)
 
@@ -886,13 +900,18 @@ local function RenderQuestFilter(id)
 
 	ImGui.SameLine()
 	if ImGui.Button('Clear Filters##' .. id) then
-		SQLFilters = {
-			restriction = '',
-			quest_name = '',
-			item_name = '',
-			item_slot = '',
+		SQLFilters        = {
+			['expansion'] = '',
+			['quest_name'] = '',
+			['item_slot'] = '',
+			['item_type'] = '',
+			['item_name'] = '',
+			['quest_cat'] = '',
+			['restriction'] = '',
 		}
-		GetData = true
+		ShowCompletedOnly = false
+		HideCompleted     = false
+		GetData           = true
 	end
 end
 
