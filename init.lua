@@ -1,51 +1,53 @@
-local mq                 = require('mq')
-local ImGui              = require('ImGui')
-local Icons              = require('mq.ICONS')
-local Data               = require('quest.quest_data')
-local Actors             = require('actors')
-local PackageMan         = require('mq.PackageMan')
-local SQL                = PackageMan.Require('lsqlite3')
-local Utils              = require('mq.Utils')
-local Version            = 1.4
+local mq                  = require('mq')
+local ImGui               = require('ImGui')
+local Icons               = require('mq.ICONS')
+local Data                = require('quest.quest_data')
+local Actors              = require('actors')
+local PackageMan          = require('mq.PackageMan')
+local SQL                 = PackageMan.Require('lsqlite3')
+local Utils               = require('mq.Utils')
+local Version             = 1.4
 
-local ResourceDir        = mq.TLO.MacroQuest.Path('resources')()
-local FileDB             = string.format("%s/QuestWatch.db", ResourceDir)
-local UpdateFile         = string.format("%s/QuestWatchVer.lua", ResourceDir)
-local ExportFile         = string.format("%s/QuestWatchExport.lua", ResourceDir)
-local ImportFile         = ''
+local ResourceDir         = mq.TLO.MacroQuest.Path('resources')()
+local FileDB              = string.format("%s/QuestWatch.db", ResourceDir)
+local UpdateFile          = string.format("%s/QuestWatchVer.lua", ResourceDir)
+local ExportFile          = string.format("%s/QuestWatchExport.lua", ResourceDir)
+local ImportFile          = ''
 
-local MySelf             = mq.TLO.Me
-local MyName             = MySelf.CleanName()
-local MyClass            = (MySelf.Class.ShortName() or 'unknown'):lower()
-local MyArmor            = 'cloth'
-local MyActor            = nil
+local MySelf              = mq.TLO.Me
+local MyName              = MySelf.CleanName()
+local MyClass             = (MySelf.Class.ShortName() or 'unknown'):lower()
+local MyArmor             = 'cloth'
+local MyActor             = nil
 
-local Boxes              = {} -- holds actors data
-local BoxCompleted       = {}
-local ActorsList         = {}
-local SelectedBox        = 'none' -- currently selected actor box
-local GetData            = false  -- flag to ask for data from actors
-local SendData           = false  -- flag to send data to actors
+local Boxes               = {}     -- holds actors data
+local BoxCompleted        = {}
+local BoxHandInReady      = {}     -- holds actors data for quests that are ready to hand in
+local ActorsList          = {}
+local SelectedBox         = 'none' -- currently selected actor box
+local GetData             = false  -- flag to ask for data from actors
+local SendData            = false  -- flag to send data to actors
 
-local isRunning          = true
-local ShowMain           = false
-local ShowCompletedOnly  = false
-local HideCompleted      = false
-local HideRewards        = false
-local ShowAddQuest       = false
-local ShowModifyQuest    = false
-local ExportData         = false
-local ImportQuests       = false
+local isRunning           = true
+local ShowMain            = false
+local ShowCompletedOnly   = false
+local ShowHandInReadyOnly = false
+local HideCompleted       = false
+local HideRewards         = false
+local ShowAddQuest        = false
+local ShowModifyQuest     = false
+local ExportData          = false
+local ImportQuests        = false
 
-local LookupExpan        = 'none'
-local LastLookupExpan    = 'none'
-local EnterNewQuest      = false
-local EnterModifiedQuest = false
-local DeleteQuest        = false
-local NewQuestExpan      = 'none'
-local NewQuestData       = {}
-local ModifyQuestData    = nil
-local ModifyQuestExpan   = 'none'
+local LookupExpan         = 'none'
+local LastLookupExpan     = 'none'
+local EnterNewQuest       = false
+local EnterModifiedQuest  = false
+local DeleteQuest         = false
+local NewQuestExpan       = 'none'
+local NewQuestData        = {}
+local ModifyQuestData     = nil
+local ModifyQuestExpan    = 'none'
 
 
 local SQLFilters     = {
@@ -557,6 +559,7 @@ local function GetQuests(expansion, filters)
 	db:close()
 
 	BoxCompleted[MyName] = false
+	BoxHandInReady[MyName] = false
 	-- check if any of the quests are completed and add a flag to the BoxCompleted table for that user so we can highlight them in the list
 	-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
 
@@ -565,8 +568,8 @@ local function GetQuests(expansion, filters)
 			for _, restrictions in pairs(sData or {}) do
 				for _, quest_data in pairs(restrictions or {}) do
 					for _, items in pairs(quest_data or {}) do
-						BoxCompleted[MyName] = Utils.QuestStatus(items or {})
-						if BoxCompleted[MyName] then
+						BoxHandInReady[MyName], BoxCompleted[MyName] = Utils.QuestStatus(items or {})
+						if BoxCompleted[MyName] or BoxHandInReady[MyName] then
 							goto continue
 						end
 					end
@@ -693,6 +696,7 @@ end
 ---comment
 ---@param items_table table The quest items to check.
 ---@return boolean readyToHandIn
+---@return boolean isCompleted
 ---@return number OnHand
 ---@return number Needed
 function Utils.QuestStatus(items_table)
@@ -700,9 +704,10 @@ function Utils.QuestStatus(items_table)
 	local totalNeeded = 0
 	local totalOnHand = 0
 	local readyToHandIn = false
+	local isCompleted = false
 
 	if not items_table then
-		return false, 0, 0
+		return false, false, 0, 0
 	end
 	for _, item in ipairs(items_table or {}) do
 		if item then
@@ -710,7 +715,7 @@ function Utils.QuestStatus(items_table)
 			item.on_hand = item.on_hand or Utils.CheckOnHand(item.name or 'Unknown Item')
 
 			if item.is_reward and item.on_hand >= item.qty then
-				return true, (item.on_hand <= item.qty and item.on_hand or item.qty), item.qty
+				isCompleted = true
 			end
 			if not item.is_reward then
 				totalNeeded = totalNeeded + item.qty
@@ -720,7 +725,7 @@ function Utils.QuestStatus(items_table)
 	end
 
 	readyToHandIn = totalNeeded > 0 and totalOnHand >= totalNeeded
-	return readyToHandIn, totalOnHand, totalNeeded
+	return readyToHandIn, isCompleted, totalOnHand, totalNeeded
 end
 
 -- ACTORS --
@@ -738,6 +743,7 @@ local function ActorsHandler()
 					Expansion = newMessage.Expansion,
 					Data = WorkingTable and WorkingTable[newMessage.Expansion] or nil,
 					Completed = BoxCompleted[MyName] or false,
+					Ready = BoxHandInReady[MyName] or false,
 				})
 			end
 			return
@@ -756,6 +762,7 @@ local function ActorsHandler()
 			Boxes[newMessage.From][newMessage.Expansion] = {}
 			Boxes[newMessage.From][newMessage.Expansion] = newMessage.Data
 			BoxCompleted[newMessage.From] = newMessage.Completed or false
+			BoxHandInReady[newMessage.From] = newMessage.Ready or false
 		end
 	end)
 end
@@ -791,111 +798,127 @@ local function RenderTable(table_data, who)
 					for item_type, restrictions in pairs(sData) do
 						for restrict, quest_data in pairs(restrictions or {}) do
 							for quest_name, items in pairs(quest_data or {}) do
-								if not ShowCompletedOnly or (ShowCompletedOnly and Utils.QuestStatus(items)) then
-									if not HideCompleted or (HideCompleted and not Utils.QuestStatus(items)) then
-										ImGui.TableNextColumn()
-										if ImGui.SmallButton(Icons.FA_PENCIL .. "##" .. category .. item_type .. slot .. quest_name .. who) then
-											ModifyQuestData = {
-												quest_cat = category,
-												quest_name = quest_name,
-												restrictions = restrict,
-												item_type = item_type,
-												item_slot = slot,
-												items = DeepCopy(items),
-											}
-											ModifyQuestExpan = LookupExpan
-											ShowModifyQuest = true
-										end
-										if Utils.QuestStatus(items) then
-											ImGui.TextColored(Colors.green, Icons.FA_STAR)
-											ImGui.SameLine()
-										end
-										ImGui.PushTextWrapPos(0.0)
-										ImGui.TextColored(Colors.yellow, quest_name)
-										ImGui.PopTextWrapPos()
+								local isReady, isCompleted = Utils.QuestStatus(items or {})
+								if not ShowCompletedOnly or (ShowCompletedOnly and isCompleted) then
+									if not HideCompleted or (HideCompleted and not isCompleted) then
+										if not ShowHandInReadyOnly or (ShowHandInReadyOnly and isReady) then
+											ImGui.TableNextColumn()
+											if ImGui.SmallButton(Icons.FA_PENCIL .. "##" .. category .. item_type .. slot .. quest_name .. who) then
+												ModifyQuestData = {
+													quest_cat = category,
+													quest_name = quest_name,
+													restrictions = restrict,
+													item_type = item_type,
+													item_slot = slot,
+													items = DeepCopy(items),
+												}
+												ModifyQuestExpan = LookupExpan
+												ShowModifyQuest = true
+											end
+											if isReady then
+												ImGui.TextColored(Colors.green, Icons.FA_STAR)
+												if ImGui.IsItemHovered() then
+													ImGui.BeginTooltip()
+													ImGui.Text("Ready to hand in.")
+													ImGui.EndTooltip()
+												end
+												ImGui.SameLine()
+											elseif isCompleted then
+												ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
+												if ImGui.IsItemHovered() then
+													ImGui.BeginTooltip()
+													ImGui.Text("Quest completed.")
+													ImGui.EndTooltip()
+												end
+												ImGui.SameLine()
+											end
+											ImGui.PushTextWrapPos(0.0)
+											ImGui.TextColored(Colors.yellow, quest_name)
+											ImGui.PopTextWrapPos()
 
-										ImGui.TableNextColumn()
-										ImGui.PushTextWrapPos(0.0)
-										ImGui.Text("%s", category)
-										ImGui.PopTextWrapPos()
-										ImGui.TableNextColumn()
+											ImGui.TableNextColumn()
+											ImGui.PushTextWrapPos(0.0)
+											ImGui.Text("%s", category)
+											ImGui.PopTextWrapPos()
+											ImGui.TableNextColumn()
 
-										ImGui.PushTextWrapPos(0.0)
-										ImGui.TextColored(Colors.teal, restrict)
-										ImGui.PopTextWrapPos()
+											ImGui.PushTextWrapPos(0.0)
+											ImGui.TextColored(Colors.teal, restrict)
+											ImGui.PopTextWrapPos()
 
-										ImGui.TableNextColumn()
-										ImGui.TextColored(Colors.tangarine, slot)
+											ImGui.TableNextColumn()
+											ImGui.TextColored(Colors.tangarine, slot)
 
-										ImGui.TableNextColumn()
-										ImGui.TextColored(Colors.softblue, item_type)
-										ImGui.TableNextColumn()
+											ImGui.TableNextColumn()
+											ImGui.TextColored(Colors.softblue, item_type)
+											ImGui.TableNextColumn()
 
-										for _, iData in ipairs(items or {}) do
-											if not HideRewards or (HideRewards and not iData.is_reward) then
-												local iName = iData.name or 'Unknown Item'
-												ImGui.Separator()
+											for _, iData in ipairs(items or {}) do
+												if not HideRewards or (HideRewards and not iData.is_reward) then
+													local iName = iData.name or 'Unknown Item'
+													ImGui.Separator()
 
-												if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
-													ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
-													ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
-													ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
+													if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
+														ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
+														ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
+														ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
 
-													ImGui.TableNextRow()
-													ImGui.TableNextColumn()
+														ImGui.TableNextRow()
+														ImGui.TableNextColumn()
 
-													local tCol = Colors.white
-													if iData.on_hand >= iData.qty then
-														tCol = Colors.green -- Green if enough on hand
-													end
-													if iData.on_hand > 0 and iData.on_hand < iData.qty then
-														tCol = Colors.tangarine -- Orange if not enough on hand
-													end
-													if iData.is_reward then
-														ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
-														ImGui.SameLine(0, 0)
+														local tCol = Colors.white
+														if iData.on_hand >= iData.qty then
+															tCol = Colors.green -- Green if enough on hand
+														end
+														if iData.on_hand > 0 and iData.on_hand < iData.qty then
+															tCol = Colors.tangarine -- Orange if not enough on hand
+														end
+														if iData.is_reward then
+															ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
+															ImGui.SameLine(0, 0)
+															if ImGui.IsItemHovered() then
+																ImGui.BeginTooltip()
+																ImGui.Text("This is a reward item.")
+																ImGui.EndTooltip()
+															end
+														end
+														ImGui.PushStyleColor(ImGuiCol.Text, tCol)
+														ImGui.PushID(category .. item_type .. slot .. iName .. who)
+														if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
+															ImGui.SetClipboardText(iName)
+														end
+														ImGui.PopStyleColor()
+
 														if ImGui.IsItemHovered() then
 															ImGui.BeginTooltip()
-															ImGui.Text("This is a reward item.")
+															ImGui.Text(iName)
+															ImGui.Separator()
+															ImGui.Text(iData.extra)
 															ImGui.EndTooltip()
 														end
-													end
-													ImGui.PushStyleColor(ImGuiCol.Text, tCol)
-													ImGui.PushID(category .. item_type .. slot .. iName .. who)
-													if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
-														ImGui.SetClipboardText(iName)
-													end
-													ImGui.PopStyleColor()
+														ImGui.PopID()
 
-													if ImGui.IsItemHovered() then
-														ImGui.BeginTooltip()
-														ImGui.Text(iName)
-														ImGui.Separator()
-														ImGui.Text(iData.extra)
-														ImGui.EndTooltip()
+														ImGui.TableNextColumn()
+														tCol = Colors.teal
+														if iData.on_hand > 0 and iData.on_hand < iData.qty then
+															tCol = Colors.yellow -- Yellow if not enough on hand
+														end
+														if iData.on_hand >= iData.qty then
+															tCol = Colors.green -- Green if enough on hand
+														end
+														ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
+														ImGui.TextColored(tCol, "%s", iData.on_hand)
+														ImGui.PopID()
+														ImGui.SameLine()
+														ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
+														ImGui.Text(" / %s", iData.qty)
+														ImGui.PopID()
+														ImGui.TableNextColumn()
+														ImGui.PushID(category .. item_type .. iName .. slot)
+														ImGui.TextWrapped(iData.extra)
+														ImGui.PopID()
+														ImGui.EndTable()
 													end
-													ImGui.PopID()
-
-													ImGui.TableNextColumn()
-													tCol = Colors.teal
-													if iData.on_hand > 0 and iData.on_hand < iData.qty then
-														tCol = Colors.yellow -- Yellow if not enough on hand
-													end
-													if iData.on_hand >= iData.qty then
-														tCol = Colors.green -- Green if enough on hand
-													end
-													ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
-													ImGui.TextColored(tCol, "%s", iData.on_hand)
-													ImGui.PopID()
-													ImGui.SameLine()
-													ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
-													ImGui.Text(" / %s", iData.qty)
-													ImGui.PopID()
-													ImGui.TableNextColumn()
-													ImGui.PushID(category .. item_type .. iName .. slot)
-													ImGui.TextWrapped(iData.extra)
-													ImGui.PopID()
-													ImGui.EndTable()
 												end
 											end
 										end
@@ -1058,6 +1081,9 @@ local function RenderQuestFilter(id)
 	ShowCompletedOnly, pressedSC = ImGui.Checkbox('Show Completed Only##' .. id, ShowCompletedOnly)
 
 	ImGui.SameLine()
+	local pressedSR = false
+	ShowHandInReadyOnly, pressedSR = ImGui.Checkbox('Show Hand-In Ready Only##' .. id, ShowHandInReadyOnly)
+
 	local pressedHC = false
 	HideCompleted, pressedHC = ImGui.Checkbox('Hide Completed##' .. id, HideCompleted)
 
@@ -1066,11 +1092,16 @@ local function RenderQuestFilter(id)
 
 	if pressedSC then
 		HideCompleted = false
+		ShowHandInReadyOnly = false
 	end
 	if pressedHC then
 		ShowCompletedOnly = false
+		ShowHandInReadyOnly = false
 	end
-
+	if pressedSR then
+		ShowCompletedOnly = false
+		HideCompleted = false
+	end
 	ImGui.SeparatorText(LookupExpan .. "##" .. id)
 
 	if ImGui.Button('Refresh Data##' .. id) then
@@ -1081,7 +1112,7 @@ local function RenderQuestFilter(id)
 
 	ImGui.SameLine()
 	if ImGui.Button('Clear Filters##' .. id) then
-		SQLFilters        = {
+		SQLFilters          = {
 			['expansion'] = '',
 			['quest_name'] = '',
 			['item_slot'] = '',
@@ -1090,9 +1121,10 @@ local function RenderQuestFilter(id)
 			['quest_cat'] = '',
 			['restriction'] = '',
 		}
-		ShowCompletedOnly = false
-		HideCompleted     = false
-		GetData           = true
+		ShowCompletedOnly   = false
+		ShowHandInReadyOnly = false
+		HideCompleted       = false
+		GetData             = true
 	end
 end
 
@@ -1321,15 +1353,19 @@ local function RenderActors()
 		ImGui.Separator()
 		for _, actorName in ipairs(ActorsList) do
 			if not ShowCompletedOnly or (ShowCompletedOnly and BoxCompleted[actorName]) then
-				if BoxCompleted[actorName] then
-					ImGui.PushStyleColor(ImGuiCol.Text, Colors.green)
-				else
-					ImGui.PushStyleColor(ImGuiCol.Text, Colors.white)
+				if not ShowHandInReadyOnly or (ShowHandInReadyOnly and BoxHandInReady[actorName]) then
+					if BoxCompleted[actorName] then
+						ImGui.PushStyleColor(ImGuiCol.Text, Colors.green)
+					elseif BoxHandInReady[actorName] then
+						ImGui.PushStyleColor(ImGuiCol.Text, Colors.yellow)
+					else
+						ImGui.PushStyleColor(ImGuiCol.Text, Colors.white)
+					end
+					if ImGui.Selectable(actorName, SelectedBox == actorName) then
+						SelectedBox = actorName
+					end
+					ImGui.PopStyleColor()
 				end
-				if ImGui.Selectable(actorName, SelectedBox == actorName) then
-					SelectedBox = actorName
-				end
-				ImGui.PopStyleColor()
 			end
 		end
 		ImGui.EndChild()
@@ -1551,6 +1587,7 @@ local function Main()
 				Expansion = LookupExpan,
 				Filters = SQLFilters,
 				Completed = BoxCompleted[MyName] or false,
+				Ready = BoxHandInReady[MyName] or false,
 			})
 			GetData = false
 			mq.delay(50)
@@ -1564,6 +1601,7 @@ local function Main()
 				Expansion = LookupExpan,
 				Data = WorkingTable and WorkingTable[LookupExpan] or nil,
 				Completed = BoxCompleted[MyName] or false,
+				Ready = BoxHandInReady[MyName] or false,
 			})
 			SendData = false
 			mq.delay(50)
