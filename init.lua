@@ -7,7 +7,7 @@ local PackageMan          = require('mq.PackageMan')
 local SQL                 = PackageMan.Require('lsqlite3')
 local Utils               = require('mq.Utils')
 local Version             = 2.0
-
+local isEMU               = mq.TLO.MacroQuest.BuildName() == 'Emu'
 local ResourceDir         = mq.TLO.MacroQuest.Path('resources')()
 local FileDB              = string.format("%s/QuestWatch.db", ResourceDir)
 local UpdateFile          = string.format("%s/QuestWatchVer.lua", ResourceDir)
@@ -38,6 +38,7 @@ local ShowAddQuest        = false
 local ShowModifyQuest     = false
 local ExportData          = false
 local ImportQuests        = false
+local ExportToLNS         = nil
 
 local LookupExpan         = 'none'
 local LastLookupExpan     = 'none'
@@ -856,6 +857,17 @@ local function RenderTable(table_data, who)
 												ModifyQuestExpan = LookupExpan
 												ShowModifyQuest = true
 											end
+											if isEMU then
+												ImGui.SameLine()
+												if ImGui.SmallButton(Icons.FA_CART_ARROW_DOWN .. "##" .. category .. item_type .. slot .. quest_name .. who) then
+													ExportToLNS = DeepCopy(items)
+												end
+												if ImGui.IsItemHovered() then
+													ImGui.BeginTooltip()
+													ImGui.Text("Send the items to Lootnscoot as personal rules.")
+													ImGui.EndTooltip()
+												end
+											end
 											if isReady then
 												ImGui.SameLine()
 												ImGui.TextColored(Colors.teal, Icons.FA_STAR)
@@ -1669,6 +1681,13 @@ local function Main()
 		end
 
 		SortActors()
+
+		if ExportToLNS then
+			for _, item in ipairs(ExportToLNS) do
+				mq.cmdf("/lns personalitem quest \"%s\" %d", item.name, item.qty)
+			end
+			ExportToLNS = nil
+		end
 
 		if ExportData then
 			ExportDBtoLua()
