@@ -1,73 +1,3191 @@
 return {
 	['Classic'] = {
-		['Temple of Solusek Row'] = {
-			['primary'] = {
-				['weapon'] = {
-					['enc'] = {
-						['Rod of Insidious Glamour'] = {
-							['A Shining Stone'] = {
-								['is_reward'] = false,
-								['extra'] = 'From a Shadowed Man',
+		['General'] = {
+			['feet'] = {
+				['armor'] = {
+					['All'] = {
+						['J-Boots'] = {
+							['Journeyman\'s Boots'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'A Shining Stone',
-							},
-							['Glamour Stone'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handing in A Shining Stone and 50Plat to Cynthia in Rathe Mountains',
-								['qty'] = 1,
-								['name'] = 'Glamour Stone',
-							},
-							['Golden Rod'] = {
-								['is_reward'] = false,
-								['extra'] = 'From  a froglok priest in Upper Guk',
-								['qty'] = 1,
-								['name'] = 'Golden Rod',
-							},
-							['Glowing Glamour Stone'] = {
-								['is_reward'] = false,
-								['extra'] = 'From giving a Glamour Stone and 50Plat to Tarn Visilin in High Keep',
-								['qty'] = 1,
-								['name'] = 'Glowing Glamour Stone',
-							},
-							['Rod of Insidious Glamour'] = {
+								['Step'] = 999,
+								['extra'] = 'Reward',
 								['is_reward'] = true,
-								['extra'] = 'Reward from handing in Glowing Glamour Stone and Golden Rod in Temple of Solusek Ro',
+								['name'] = 'Journeyman\'s Boots',
+							},
+							['Ring of the Ancients'] = {
+								['reward_restriction'] = '',
 								['qty'] = 1,
-								['name'] = 'Rod of Insidious Glamour',
+								['Step'] = 1,
+								['extra'] = 'From an Ancient Cyclops',
+								['is_reward'] = false,
+								['name'] = 'Ring of the Ancients',
+							},
+							['Gold'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3250,
+								['Step'] = 1,
+								['extra'] = 'Must Be Gold!',
+								['is_reward'] = false,
+								['name'] = 'Gold',
+							},
+							['Shadowed Rapier'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From a Shadowed Man',
+								['is_reward'] = false,
+								['name'] = 'Shadowed Rapier',
 							},
 						},
 					},
 				},
 			},
 		},
-		['General'] = {
+		['Temple of Solusek Row'] = {
+			['primary'] = {
+				['weapon'] = {
+					['enc'] = {
+						['Rod of Insidious Glamour'] = {
+							['Glamour Stone'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handing in A Shining Stone and 50Plat to Cynthia in Rathe Mountains',
+								['is_reward'] = false,
+								['name'] = 'Glamour Stone',
+							},
+							['Rod of Insidious Glamour'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Reward from handing in Glowing Glamour Stone and Golden Rod in Temple of Solusek Ro',
+								['is_reward'] = true,
+								['name'] = 'Rod of Insidious Glamour',
+							},
+							['Golden Rod'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From  a froglok priest in Upper Guk',
+								['is_reward'] = false,
+								['name'] = 'Golden Rod',
+							},
+							['A Shining Stone'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From a Shadowed Man',
+								['is_reward'] = false,
+								['name'] = 'A Shining Stone',
+							},
+							['Glowing Glamour Stone'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From giving a Glamour Stone and 50Plat to Tarn Visilin in High Keep',
+								['is_reward'] = false,
+								['name'] = 'Glowing Glamour Stone',
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+	['Omens of War'] = {
+		['Tier2 Armor'] = {
+			['hands'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T2 Cloth Gloves'] = {
+							['Mindereaver\'s Handguards of Coercion'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Gloves',
+								['is_reward'] = true,
+								['name'] = 'Mindereaver\'s Handguards of Coercion',
+							},
+							['Makyah\'s Axe'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Makyah\'s Axe',
+							},
+							['Kuuan Whetstone'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Kuuan Whetstone',
+							},
+							['Blightbringer\'s Handguards of the Grave'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Gloves',
+								['is_reward'] = true,
+								['name'] = 'Blightbringer\'s Handguards of the Grave',
+							},
+							['Glyphwielder\'s Gloves of the Summoner'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Gloves',
+								['is_reward'] = true,
+								['name'] = 'Glyphwielder\'s Gloves of the Summoner',
+							},
+							['Academic\'s Gloves of the Arcanists'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Gloves',
+								['is_reward'] = true,
+								['name'] = 'Academic\'s Gloves of the Arcanists',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Gauntlets'] = {
+							['Crystal of Yearning'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Crystal of Yearning',
+							},
+							['Makyah\'s Axe'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Makyah\'s Axe',
+							},
+							['Dawnseeker\'s Mitts of the Defender'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Gloves',
+								['is_reward'] = true,
+								['name'] = 'Dawnseeker\'s Mitts of the Defender',
+							},
+							['Farseeker\'s Gloves of Harmony'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Gloves',
+								['is_reward'] = true,
+								['name'] = 'Farseeker\'s Gloves of Harmony',
+							},
+							['Gladiator\'s Plate Gloves of War'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Gloves',
+								['is_reward'] = true,
+								['name'] = 'Gladiator\'s Plate Gloves of War',
+							},
+							['Faithbringer\'s Gloves of Conviction'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Gloves',
+								['is_reward'] = true,
+								['name'] = 'Faithbringer\'s Gloves of Conviction',
+							},
+							['Duskbringer\'s Gloves of the Hateful'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Gloves',
+								['is_reward'] = true,
+								['name'] = 'Duskbringer\'s Gloves of the Hateful',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Gloves'] = {
+							['Everspring Mitts of the Tangled Briars'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Gloves',
+								['is_reward'] = true,
+								['name'] = 'Everspring Mitts of the Tangled Briars',
+							},
+							['Savagesoul Gloves of the Wilds'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord Gloves',
+								['is_reward'] = true,
+								['name'] = 'Savagesoul Gloves of the Wilds',
+							},
+							['Makyah\'s Axe'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Makyah\'s Axe',
+							},
+							['Fiercehand Gloves of the Focused'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Gloves',
+								['is_reward'] = true,
+								['name'] = 'Fiercehand Gloves of the Focused',
+							},
+							['Fine Chimera Hide'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Fine Chimera Hide',
+							},
+						},
+					},
+					['chain'] = {
+						['T2 Chain Gloves'] = {
+							['Makyah\'s Axe'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Makyah\'s Axe',
+							},
+							['Ritualchanter\'s Mitts of the Ancestors'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Gloves',
+								['is_reward'] = true,
+								['name'] = 'Ritualchanter\'s Mitts of the Ancestors',
+							},
+							['Kyv Whetstone'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Kyv Whetstone',
+							},
+							['Bladewhisper Chain Gloves of Journeys'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Gloves',
+								['is_reward'] = true,
+								['name'] = 'Bladewhisper Chain Gloves of Journeys',
+							},
+							['Wraithbringer\'s Chain Gloves of the Vindicator'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Gloves',
+								['is_reward'] = true,
+								['name'] = 'Wraithbringer\'s Chain Gloves of the Vindicator',
+							},
+							['Whispering Gloves of Sorrows'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Gloves',
+								['is_reward'] = true,
+								['name'] = 'Whispering Gloves of Sorrows',
+							},
+						},
+					},
+				},
+			},
+			['chest'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T2 Cloth Robe'] = {
+							['Blightbringer\'s Tunic of the Grave'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Robe',
+								['is_reward'] = true,
+								['name'] = 'Blightbringer\'s Tunic of the Grave',
+							},
+							['Piece of Vrenlar Fruit'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Piece of Vrenlar Fruit',
+							},
+							['Jayruk\'s Vest'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Jayruk\'s Vest',
+							},
+							['Mindereaver\'s Vest of Coercion'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Robe',
+								['is_reward'] = true,
+								['name'] = 'Mindereaver\'s Vest of Coercion',
+							},
+							['Glyphwielder\'s Tunic of the Summoner'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Robe',
+								['is_reward'] = true,
+								['name'] = 'Glyphwielder\'s Tunic of the Summoner',
+							},
+							['Academic\'s Robe of the Arcanists'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Robe',
+								['is_reward'] = true,
+								['name'] = 'Academic\'s Robe of the Arcanists',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Breastplate'] = {
+							['Dawnseeker\'s Chestguard of the Defender'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin BP',
+								['is_reward'] = true,
+								['name'] = 'Dawnseeker\'s Chestguard of the Defender',
+							},
+							['Duskbringer\'s Chestguard of the Hateful'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight BP',
+								['is_reward'] = true,
+								['name'] = 'Duskbringer\'s Chestguard of the Hateful',
+							},
+							['Gladiator\'s Plate Chestguard of War'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior BP',
+								['is_reward'] = true,
+								['name'] = 'Gladiator\'s Plate Chestguard of War',
+							},
+							['Faithbringer\'s Breastplate of Conviction'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric BP',
+								['is_reward'] = true,
+								['name'] = 'Faithbringer\'s Breastplate of Conviction',
+							},
+							['Farseeker\'s Chestguard of Harmony'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard BP',
+								['is_reward'] = true,
+								['name'] = 'Farseeker\'s Chestguard of Harmony',
+							},
+							['Ceremonial Dragorn Candle'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Ceremonial Dragorn Candle',
+							},
+							['Jayruk\'s Vest'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Jayruk\'s Vest',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Tunic'] = {
+							['Savagesoul Jerkin of the Wilds'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord BP',
+								['is_reward'] = true,
+								['name'] = 'Savagesoul Jerkin of the Wilds',
+							},
+							['Everspring Jerkin of the Tangled Briars'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid BP',
+								['is_reward'] = true,
+								['name'] = 'Everspring Jerkin of the Tangled Briars',
+							},
+							['Fiercehand Shroud of the Focused'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk BP',
+								['is_reward'] = true,
+								['name'] = 'Fiercehand Shroud of the Focused',
+							},
+							['Bazu Nail Bracelet'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Noble\'s Causeway, Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Bazu Nail Bracelet',
+							},
+							['Jayruk\'s Vest'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Jayruk\'s Vest',
+							},
+						},
+					},
+					['chain'] = {
+						['T2 Chain Tunic'] = {
+							['Ritualchanter\'s Tunic of the Ancestors'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman BP',
+								['is_reward'] = true,
+								['name'] = 'Ritualchanter\'s Tunic of the Ancestors',
+							},
+							['Kyv Short Bow'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Kyv Short Bow',
+							},
+							['Bladewhisper Chain Vast of Journeys'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger BP',
+								['is_reward'] = true,
+								['name'] = 'Bladewhisper Chain Vast of Journeys',
+							},
+							['Wraithbringer\'s Chain Chestguard of the Vindicator'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker BP',
+								['is_reward'] = true,
+								['name'] = 'Wraithbringer\'s Chain Chestguard of the Vindicator',
+							},
+							['Whispering Tunic of Sorrows'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue BP',
+								['is_reward'] = true,
+								['name'] = 'Whispering Tunic of Sorrows',
+							},
+							['Jayruk\'s Vest'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Jayruk\'s Vest',
+							},
+						},
+					},
+				},
+			},
 			['feet'] = {
 				['armor'] = {
-					['All'] = {
-						['J-Boots'] = {
-							['Gold'] = {
-								['is_reward'] = false,
-								['extra'] = 'Must Be Gold!',
-								['qty'] = 3250,
-								['name'] = 'Gold',
-							},
-							['Journeyman\'s Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Reward',
+					['cloth'] = {
+						['T2 Cloth Slippers'] = {
+							['Blightbringer\'s Sandals of the Grave'] = {
+								['reward_restriction'] = 'nec',
 								['qty'] = 1,
-								['name'] = 'Journeyman\'s Boots',
+								['Step'] = 999,
+								['extra'] = 'Necromancer Boots',
+								['is_reward'] = true,
+								['name'] = 'Blightbringer\'s Sandals of the Grave',
 							},
-							['Ring of the Ancients'] = {
-								['is_reward'] = false,
-								['extra'] = 'From an Ancient Cyclops',
+							['Academic\'s Slippers of the Arcanists'] = {
+								['reward_restriction'] = 'wiz',
 								['qty'] = 1,
-								['name'] = 'Ring of the Ancients',
+								['Step'] = 999,
+								['extra'] = 'Wizard Boots',
+								['is_reward'] = true,
+								['name'] = 'Academic\'s Slippers of the Arcanists',
 							},
-							['Shadowed Rapier'] = {
-								['is_reward'] = false,
-								['extra'] = 'From a Shadowed Man',
+							['Glyphwielder\'s Slippers of the Summoner'] = {
+								['reward_restriction'] = 'mag',
 								['qty'] = 1,
-								['name'] = 'Shadowed Rapier',
+								['Step'] = 999,
+								['extra'] = 'Magician Boots',
+								['is_reward'] = true,
+								['name'] = 'Glyphwielder\'s Slippers of the Summoner',
+							},
+							['Mindereaver\'s Shoes of Coercion'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Boots',
+								['is_reward'] = true,
+								['name'] = 'Mindereaver\'s Shoes of Coercion',
+							},
+							['Ikaav Tail'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Ikaav Tail',
+							},
+							['Muramite Cruelty Medal'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Muramite Cruelty Medal',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Boots'] = {
+							['Kyv Hunter Ring'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Kyv Hunter Ring',
+							},
+							['Duskbringer\'s Boots of the Hateful'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Boots',
+								['is_reward'] = true,
+								['name'] = 'Duskbringer\'s Boots of the Hateful',
+							},
+							['Faithbringer\'s Boots of Conviction'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Boots',
+								['is_reward'] = true,
+								['name'] = 'Faithbringer\'s Boots of Conviction',
+							},
+							['Gladiator\'s Plate Boots of War'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Boots',
+								['is_reward'] = true,
+								['name'] = 'Gladiator\'s Plate Boots of War',
+							},
+							['Farseeker\'s Boots of Harmony'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Boots',
+								['is_reward'] = true,
+								['name'] = 'Farseeker\'s Boots of Harmony',
+							},
+							['Muramite Cruelty Medal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Muramite Cruelty Medal',
+							},
+							['Dawnseeker\'s Boots of the Defender'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Boots',
+								['is_reward'] = true,
+								['name'] = 'Dawnseeker\'s Boots of the Defender',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Boots'] = {
+							['Chimera Gut String'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Chimera Gut String',
+							},
+							['Savagesoul Sandals of the Wilds'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord Boots',
+								['is_reward'] = true,
+								['name'] = 'Savagesoul Sandals of the Wilds',
+							},
+							['Fiercehand Tabis of the Focused'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Boots',
+								['is_reward'] = true,
+								['name'] = 'Fiercehand Tabis of the Focused',
+							},
+							['Muramite Cruelty Medal'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Muramite Cruelty Medal',
+							},
+							['Everspring Slippers of the Tangled Briars'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Boots',
+								['is_reward'] = true,
+								['name'] = 'Everspring Slippers of the Tangled Briars',
+							},
+						},
+					},
+					['chain'] = {
+						['T2 Chain Boots'] = {
+							['Bladewhisper Chain Boots of Journeys'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Boots',
+								['is_reward'] = true,
+								['name'] = 'Bladewhisper Chain Boots of Journeys',
+							},
+							['Dragorn Muramite Ring'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Dragorn Muramite Ring',
+							},
+							['Wraithbringer\'s Chain Boots of the Vindicator'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Boots',
+								['is_reward'] = true,
+								['name'] = 'Wraithbringer\'s Chain Boots of the Vindicator',
+							},
+							['Whispering Boots of Sorrows'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Boots',
+								['is_reward'] = true,
+								['name'] = 'Whispering Boots of Sorrows',
+							},
+							['Ritualchanter\'s Boots of the Ancestors'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Boots',
+								['is_reward'] = true,
+								['name'] = 'Ritualchanter\'s Boots of the Ancestors',
+							},
+							['Muramite Cruelty Medal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Muramite Cruelty Medal',
+							},
+						},
+					},
+				},
+			},
+			['wrists'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T2 Cloth Wristband'] = {
+							['Glyphwielder\'s Wristband of the Summoner'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Bracer',
+								['is_reward'] = true,
+								['name'] = 'Glyphwielder\'s Wristband of the Summoner',
+							},
+							['Softened Feran Hide'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Softened Feran Hide',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+							['Blightbringer\'s Bracer of the Grave'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Bracer',
+								['is_reward'] = true,
+								['name'] = 'Blightbringer\'s Bracer of the Grave',
+							},
+							['Mindereaver\'s Bracer of Coercion'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Bracer',
+								['is_reward'] = true,
+								['name'] = 'Mindereaver\'s Bracer of Coercion',
+							},
+							['Academic\'s Wristband of the Arcanists'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Bracer',
+								['is_reward'] = true,
+								['name'] = 'Academic\'s Wristband of the Arcanists',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Bracer'] = {
+							['Farseeker\'s Wristguard of Harmony'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Bracer',
+								['is_reward'] = true,
+								['name'] = 'Farseeker\'s Wristguard of Harmony',
+							},
+							['Gladiator\'s Plate Bracer of War'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Bracer',
+								['is_reward'] = true,
+								['name'] = 'Gladiator\'s Plate Bracer of War',
+							},
+							['Dawnseeker\'s Wristguard of the Defender'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Bracer',
+								['is_reward'] = true,
+								['name'] = 'Dawnseeker\'s Wristguard of the Defender',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+							['Duskbringer\'s Wristguard of the Hateful'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Bracer',
+								['is_reward'] = true,
+								['name'] = 'Duskbringer\'s Wristguard of the Hateful',
+							},
+							['Large Piece of Kuuan Ore'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Large Piece of Kuuan Ore',
+							},
+							['Faithbringer\'s Wristband of Conviction'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Bracer',
+								['is_reward'] = true,
+								['name'] = 'Faithbringer\'s Wristband of Conviction',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Bracer'] = {
+							['Everspring Wristband of the Tangled Briars'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Bracer',
+								['is_reward'] = true,
+								['name'] = 'Everspring Wristband of the Tangled Briars',
+							},
+							['Quality Feran Hide'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Quality Feran Hide',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+							['Fiercehand Wristband of the Focused'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Bracer',
+								['is_reward'] = true,
+								['name'] = 'Fiercehand Wristband of the Focused',
+							},
+							['Savagesoul Wristband of the Wilds'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord Bracer',
+								['is_reward'] = true,
+								['name'] = 'Savagesoul Wristband of the Wilds',
+							},
+						},
+					},
+					['chain'] = {
+						['T2 Chain Bracer'] = {
+							['Ritualchanter\'s Wristband of the Ancestors'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Bracer',
+								['is_reward'] = true,
+								['name'] = 'Ritualchanter\'s Wristband of the Ancestors',
+							},
+							['Wraithbringer\'s Chain Wristguard of the Vindicator'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Bracer',
+								['is_reward'] = true,
+								['name'] = 'Wraithbringer\'s Chain Wristguard of the Vindicator',
+							},
+							['Bladewhisper Chain Wristguard of Journeys'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Bracer',
+								['is_reward'] = true,
+								['name'] = 'Bladewhisper Chain Wristguard of Journeys',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+							['Whispering Bracer of Sorrows'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Bracer',
+								['is_reward'] = true,
+								['name'] = 'Whispering Bracer of Sorrows',
+							},
+							['Withered Discordling Tongue'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Withered Discordling Tongue',
+							},
+						},
+					},
+				},
+			},
+			['head'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T2 Cloth Cap'] = {
+							['Glyphwielder\'s Hat of the Summoner'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Cap',
+								['is_reward'] = true,
+								['name'] = 'Glyphwielder\'s Hat of the Summoner',
+							},
+							['Mindereaver\'s Skullcap of Coercion'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Cap',
+								['is_reward'] = true,
+								['name'] = 'Mindereaver\'s Skullcap of Coercion',
+							},
+							['Blightbringer\'s Cap of the Grave'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Cap',
+								['is_reward'] = true,
+								['name'] = 'Blightbringer\'s Cap of the Grave',
+							},
+							['Academic\'s Cap of the Arcanists'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Cap',
+								['is_reward'] = true,
+								['name'] = 'Academic\'s Cap of the Arcanists',
+							},
+							['Patorav\'s Walking Stick'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Walking Stick',
+							},
+							['Bar of Nashtar Berry Soap'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Bar of Nashtar Berry Soap',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Helmet'] = {
+							['Dawnseeker\'s Coif of the Defender'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Helm',
+								['is_reward'] = true,
+								['name'] = 'Dawnseeker\'s Coif of the Defender',
+							},
+							['Duskbringer\'s Helm of the Hateful'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Helm',
+								['is_reward'] = true,
+								['name'] = 'Duskbringer\'s Helm of the Hateful',
+							},
+							['Patorav\'s Walking Stick'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Walking Stick',
+							},
+							['Faithbringer\'s Cap of Conviction'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Helm',
+								['is_reward'] = true,
+								['name'] = 'Faithbringer\'s Cap of Conviction',
+							},
+							['Gladiator\'s Plate Helm of War'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Helm',
+								['is_reward'] = true,
+								['name'] = 'Gladiator\'s Plate Helm of War',
+							},
+							['Farseeker\'s Helm of Harmony'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Helm',
+								['is_reward'] = true,
+								['name'] = 'Farseeker\'s Helm of Harmony',
+							},
+							['Kyv Food Sack'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Kyv Food Sack',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Cap'] = {
+							['Fiercehand Cap of the Focused'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Helm',
+								['is_reward'] = true,
+								['name'] = 'Fiercehand Cap of the Focused',
+							},
+							['Savagesoul Cap of the Wilds'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord Helm',
+								['is_reward'] = true,
+								['name'] = 'Savagesoul Cap of the Wilds',
+							},
+							['Patorav\'s Walking Stick'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Walking Stick',
+							},
+							['Everspring Cap of the Tangled Briars'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Helm',
+								['is_reward'] = true,
+								['name'] = 'Everspring Cap of the Tangled Briars',
+							},
+							['Muramite Noble\'s March Award'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Muramite Noble\'s March Award',
+							},
+						},
+					},
+					['chain'] = {
+						['T2 Chain Coif'] = {
+							['Ritualchanter\'s Cap of the Ancestors'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Helm',
+								['is_reward'] = true,
+								['name'] = 'Ritualchanter\'s Cap of the Ancestors',
+							},
+							['Patorav\'s Walking Stick'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Walking Stick',
+							},
+							['Bladewhisper Chain Cap of Journeys'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Helm',
+								['is_reward'] = true,
+								['name'] = 'Bladewhisper Chain Cap of Journeys',
+							},
+							['Kyv Scout Ring'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Kyv Scout Ring',
+							},
+							['Whispering Hat of Sorrows'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Helm',
+								['is_reward'] = true,
+								['name'] = 'Whispering Hat of Sorrows',
+							},
+							['Wraithbringer\'s Chain Helm of the Vindicator'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Helm',
+								['is_reward'] = true,
+								['name'] = 'Wraithbringer\'s Chain Helm of the Vindicator',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T2 Cloth Legs'] = {
+							['Glyphwielder\'s Leggings of the Summoner'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Leggings',
+								['is_reward'] = true,
+								['name'] = 'Glyphwielder\'s Leggings of the Summoner',
+							},
+							['Blightbringer\'s Pants of the Grave'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Leggings',
+								['is_reward'] = true,
+								['name'] = 'Blightbringer\'s Pants of the Grave',
+							},
+							['Mindereaver\'s Leggings of Coercion'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Leggings',
+								['is_reward'] = true,
+								['name'] = 'Mindereaver\'s Leggings of Coercion',
+							},
+							['Academic\'s Pants of the Arcanists'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Leggings',
+								['is_reward'] = true,
+								['name'] = 'Academic\'s Pants of the Arcanists',
+							},
+							['Softened Feran Hide'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Softened Feran Hide',
+							},
+							['Patorav\'s Amulet'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Amulet',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Legs'] = {
+							['Blackened Discordling Tail'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Blackened Discordling Tail',
+							},
+							['Patorav\'s Amulet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Amulet',
+							},
+							['Farseeker\'s Legguards of Harmony'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Leggings',
+								['is_reward'] = true,
+								['name'] = 'Farseeker\'s Legguards of Harmony',
+							},
+							['Gladiator\'s Plate Legguards of War'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Leggings',
+								['is_reward'] = true,
+								['name'] = 'Gladiator\'s Plate Legguards of War',
+							},
+							['Dawnseeker\'s Leggings of the Defender'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Leggings',
+								['is_reward'] = true,
+								['name'] = 'Dawnseeker\'s Leggings of the Defender',
+							},
+							['Faithbringer\'s Leggings of Conviction'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Leggings',
+								['is_reward'] = true,
+								['name'] = 'Faithbringer\'s Leggings of Conviction',
+							},
+							['Duskbringer\'s Legguards of the Hateful'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Leggings',
+								['is_reward'] = true,
+								['name'] = 'Duskbringer\'s Legguards of the Hateful',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Legs'] = {
+							['Discordling Hoof'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Discordling Hoof',
+							},
+							['Patorav\'s Amulet'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Amulet',
+							},
+							['Savagesoul Leggings of the Wilds'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord Leggings',
+								['is_reward'] = true,
+								['name'] = 'Savagesoul Leggings of the Wilds',
+							},
+							['Fiercehand Leggings of the Focused'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Leggings',
+								['is_reward'] = true,
+								['name'] = 'Fiercehand Leggings of the Focused',
+							},
+							['Everspring Pants of the Tangled Briars'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Leggings',
+								['is_reward'] = true,
+								['name'] = 'Everspring Pants of the Tangled Briars',
+							},
+						},
+					},
+					['chain'] = {
+						['T2 Chain Legs'] = {
+							['Whispering Pants of Sorrows'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Leggings',
+								['is_reward'] = true,
+								['name'] = 'Whispering Pants of Sorrows',
+							},
+							['Patorav\'s Amulet'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Patorav\'s Amulet',
+							},
+							['Shattered Ukun Hide'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds, Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Shattered Ukun Hide',
+							},
+							['Ritualchanter\'s Leggings of the Ancestors'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Leggings',
+								['is_reward'] = true,
+								['name'] = 'Ritualchanter\'s Leggings of the Ancestors',
+							},
+							['Wraithbringer\'s Chain Leggings of the Vindicator'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Leggings',
+								['is_reward'] = true,
+								['name'] = 'Wraithbringer\'s Chain Leggings of the Vindicator',
+							},
+							['Bladewhisper Chain Legguards of Journeys'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Leggings',
+								['is_reward'] = true,
+								['name'] = 'Bladewhisper Chain Legguards of Journeys',
+							},
+						},
+					},
+				},
+			},
+			['arms'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T2 Cloth Sleeves'] = {
+							['Blightbringer\'s Armband of the Grave'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Blightbringer\'s Armband of the Grave',
+							},
+							['Mindereaver\'s Convictionof Coercion'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Mindereaver\'s Convictionof Coercion',
+							},
+							['Academic\'s Sleeves of the Arcanists'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Academic\'s Sleeves of the Arcanists',
+							},
+							['Glyphwielder\'s Sleeves of the Summoner'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Glyphwielder\'s Sleeves of the Summoner',
+							},
+							['Spool of Balemoon Silk'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Spool of Balemoon Silk',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+						},
+					},
+					['plate'] = {
+						['T2 Plate Vambraces'] = {
+							['Dawnseeker\'s Sleeves of the Defender'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Dawnseeker\'s Sleeves of the Defender',
+							},
+							['Noc Right Hand'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Noc Right Hand',
+							},
+							['Duskbringer\'s Armguards of the Hateful'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Duskbringer\'s Armguards of the Hateful',
+							},
+							['Faithbringer\'s Armguards of Conviction'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Faithbringer\'s Armguards of Conviction',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+							['Farseeker\'s Armbands of Harmony'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Farseeker\'s Armbands of Harmony',
+							},
+							['Gladiator\'s Plate Sleeves of War'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Gladiator\'s Plate Sleeves of War',
+							},
+						},
+					},
+					['leather'] = {
+						['T2 Leather Sleeves'] = {
+							['Everspring Sleeves of the Tangled Briars'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Everspring Sleeves of the Tangled Briars',
+							},
+							['Fiercehand Sleeves of the Focused'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Fiercehand Sleeves of the Focused',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+							['Savagesoul Sleeves of the Wilds'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Savagesoul Sleeves of the Wilds',
+							},
+							['Spiked Discordling Collar'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+								['is_reward'] = false,
+								['name'] = 'Spiked Discordling Collar',
+							},
+						},
+					},
+					['chain'] = {
+						['T2 Chain Sleeves'] = {
+							['Bladewhisper Chain Sleeves of Journeys'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Bladewhisper Chain Sleeves of Journeys',
+							},
+							['Ikaav Head'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+								['is_reward'] = false,
+								['name'] = 'Ikaav Head',
+							},
+							['Wraithbringer\'s Chain Sleeves of the Vindicator'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Wraithbringer\'s Chain Sleeves of the Vindicator',
+							},
+							['Riftseeker Heart'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Asylum of Anguish',
+								['is_reward'] = false,
+								['name'] = 'Riftseeker Heart',
+							},
+							['Whispering Armguard of Sorrows'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Whispering Armguard of Sorrows',
+							},
+							['Ritualchanter\'s Armguards of the Ancestors'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Ritualchanter\'s Armguards of the Ancestors',
+							},
+						},
+					},
+				},
+			},
+		},
+		['Spells'] = {
+			['spell'] = {
+				['spell'] = {
+					['wiz dru'] = {
+						['Wall of Slaughter Ports'] = {
+							['Spell: Slaughter Portal'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wiz Group Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Slaughter Portal',
+							},
+							['Spell: Circle of Slaughter'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Group Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Circle of Slaughter',
+							},
+							['Pure Discordant Blood'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = '',
+								['is_reward'] = false,
+								['name'] = 'Pure Discordant Blood',
+							},
+							['Dark Enchanted Scroll'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = '',
+								['is_reward'] = false,
+								['name'] = 'Dark Enchanted Scroll',
+							},
+							['Spell: Slaughter Gate'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wiz Self Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Slaughter Gate',
+							},
+							['Spell: Ring of Slaughter'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Self Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Ring of Slaughter',
+							},
+						},
+						['Bloodfields Ports'] = {
+							['Spell: Circle of Bloodfields'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Group Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Circle of Bloodfields',
+							},
+							['Spell: Bloodfields Gate'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wiz Self Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Bloodfields Gate',
+							},
+							['Spell: Ring of Bloodfields'] = {
+								['reward_restriction'] = 'dur',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Self Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Ring of Bloodfields',
+							},
+							['Discordant Crystal Shard'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = '',
+								['is_reward'] = false,
+								['name'] = 'Discordant Crystal Shard',
+							},
+							['Spell: Bloodfields Portal'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wiz Group Port',
+								['is_reward'] = true,
+								['name'] = 'Spell: Bloodfields Portal',
+							},
+							['Rolled Discordant Parchment'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = '',
+								['is_reward'] = false,
+								['name'] = 'Rolled Discordant Parchment',
+							},
+						},
+					},
+				},
+			},
+		},
+		['Tier1 Armor'] = {
+			['hands'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T1 Cloth Gloves'] = {
+							['Deathcaller\'s Gloves'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Gloves',
+								['is_reward'] = true,
+								['name'] = 'Deathcaller\'s Gloves',
+							},
+							['Spire Control Shard'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Spire Control Shard',
+							},
+							['Spelldeviser\'s Cloth Gloves'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Gloves',
+								['is_reward'] = true,
+								['name'] = 'Spelldeviser\'s Cloth Gloves',
+							},
+							['Charmweaver\'s Mittens'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Gloves',
+								['is_reward'] = true,
+								['name'] = 'Charmweaver\'s Mittens',
+							},
+							['Runemaster\'s Gloves'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Gloves',
+								['is_reward'] = true,
+								['name'] = 'Runemaster\'s Gloves',
+							},
+							['Discordling Finger Bone'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Discordling Finger Bone',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Gauntlets'] = {
+							['Discordling Message Satchel'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Discordling Message Satchel',
+							},
+							['Spire Control Shard'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Spire Control Shard',
+							},
+						},
+						['T1 Plate Gloves'] = {
+							['Oathbound Gauntlets'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Gloves',
+								['is_reward'] = true,
+								['name'] = 'Oathbound Gauntlets',
+							},
+							['Spire Control Shard'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Spire Control Shard',
+							},
+							['Discordling Message Satchel'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Discordling Message Satchel',
+							},
+							['Sanctified Gloves'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Gloves',
+								['is_reward'] = true,
+								['name'] = 'Sanctified Gloves',
+							},
+							['Heartstiller\'s Mail Gloves'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Gloves',
+								['is_reward'] = true,
+								['name'] = 'Heartstiller\'s Mail Gloves',
+							},
+							['Traveler\'s Mail Gloves'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Gloves',
+								['is_reward'] = true,
+								['name'] = 'Traveler\'s Mail Gloves',
+							},
+							['Armmaster\'s Gloves'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Gloves',
+								['is_reward'] = true,
+								['name'] = 'Armmaster\'s Gloves',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Gloves'] = {
+							['Greenvale Gauntlets'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Gloves',
+								['is_reward'] = true,
+								['name'] = 'Greenvale Gauntlets',
+							},
+							['Spire Control Shard'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Spire Control Shard',
+							},
+							['Glistening Murkglider Pelts'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'The Ruined City of Dranik and the Wall of Slaughter.',
+								['is_reward'] = false,
+								['name'] = 'Glistening Murkglider Pelts',
+							},
+							['Beast Tamer\'s Gloves'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'BL',
+								['is_reward'] = true,
+								['name'] = 'Beast Tamer\'s Gloves',
+							},
+							['Stillmind Fistguards'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Gloves',
+								['is_reward'] = true,
+								['name'] = 'Stillmind Fistguards',
+							},
+						},
+					},
+					['chain'] = {
+						['T1 Chain Gloves'] = {
+							['Spire Control Shard'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Spire Control Shard',
+							},
+							['Sunrider\'s Gloves'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Gloves',
+								['is_reward'] = true,
+								['name'] = 'Sunrider\'s Gloves',
+							},
+							['Spiritkin Mittens'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Gloves',
+								['is_reward'] = true,
+								['name'] = 'Spiritkin Mittens',
+							},
+							['Darkshorn Kyv Hood'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Darkshorn Kyv Hood',
+							},
+							['Ragebound Chain Mittens'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Gloves',
+								['is_reward'] = true,
+								['name'] = 'Ragebound Chain Mittens',
+							},
+							['Darkraider\'s Gloves'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Gloves',
+								['is_reward'] = true,
+								['name'] = 'Darkraider\'s Gloves',
+							},
+						},
+					},
+				},
+			},
+			['chest'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T1 Cloth Robe'] = {
+							['Deathcaller\'s Robe'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Robe',
+								['is_reward'] = true,
+								['name'] = 'Deathcaller\'s Robe',
+							},
+							['Charmweaver\'s Robe'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Robe',
+								['is_reward'] = true,
+								['name'] = 'Charmweaver\'s Robe',
+							},
+							['Spelldeviser\'s Cloth Robe'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Robe',
+								['is_reward'] = true,
+								['name'] = 'Spelldeviser\'s Cloth Robe',
+							},
+							['Runemaster\'s Robe'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Robe',
+								['is_reward'] = true,
+								['name'] = 'Runemaster\'s Robe',
+							},
+							['Kuuan Oil Candle'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Kuuan Oil Candle',
+							},
+							['Dragorn Elder Scepter'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Dragorn Elder Scepter',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Breastplate'] = {
+							['Sanctified Chestguard'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric BP',
+								['is_reward'] = true,
+								['name'] = 'Sanctified Chestguard',
+							},
+							['Heartstiller\'s Mail Chestguard'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight BP',
+								['is_reward'] = true,
+								['name'] = 'Heartstiller\'s Mail Chestguard',
+							},
+							['Oathbound Breastplate'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin BP',
+								['is_reward'] = true,
+								['name'] = 'Oathbound Breastplate',
+							},
+							['Traveler\'s Mail Chestguard'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard BP',
+								['is_reward'] = true,
+								['name'] = 'Traveler\'s Mail Chestguard',
+							},
+							['Shorn Murkglider Tentacle'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Shorn Murkglider Tentacle',
+							},
+							['Dragorn Elder Scepter'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Dragorn Elder Scepter',
+							},
+							['Armmaster\'s Breastplate'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior BP',
+								['is_reward'] = true,
+								['name'] = 'Armmaster\'s Breastplate',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Tunic'] = {
+							['Stillmind Tunic'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk BP',
+								['is_reward'] = true,
+								['name'] = 'Stillmind Tunic',
+							},
+							['Greenvale Jerkin'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid BP',
+								['is_reward'] = true,
+								['name'] = 'Greenvale Jerkin',
+							},
+							['Beast Tamer\'s Jerkin'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'BL',
+								['is_reward'] = true,
+								['name'] = 'Beast Tamer\'s Jerkin',
+							},
+							['Dragorn Elder Scepter'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Dragorn Elder Scepter',
+							},
+							['Tattered Chimera Pelt'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Tattered Chimera Pelt',
+							},
+						},
+					},
+					['chain'] = {
+						['T1 Chain Tunic'] = {
+							['Darkraider\'s Vest'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue BP',
+								['is_reward'] = true,
+								['name'] = 'Darkraider\'s Vest',
+							},
+							['Spiritkin Tunic'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman BP',
+								['is_reward'] = true,
+								['name'] = 'Spiritkin Tunic',
+							},
+							['Ragged Discordling Skin'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Ragged Discordling Skin',
+							},
+							['Ragebound Chain Chestguard'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker BP',
+								['is_reward'] = true,
+								['name'] = 'Ragebound Chain Chestguard',
+							},
+							['Dragorn Elder Scepter'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Dragorn Elder Scepter',
+							},
+							['Sunrider\'s Vest'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger BP',
+								['is_reward'] = true,
+								['name'] = 'Sunrider\'s Vest',
+							},
+						},
+					},
+				},
+			},
+			['feet'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T1 Cloth Slippers'] = {
+							['Spelldeviser\'s Cloth Shoes'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Boots',
+								['is_reward'] = true,
+								['name'] = 'Spelldeviser\'s Cloth Shoes',
+							},
+							['Deathcaller\'s Slippers'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Boots',
+								['is_reward'] = true,
+								['name'] = 'Deathcaller\'s Slippers',
+							},
+							['Ikaav Braid'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Ikaav Braid',
+							},
+							['Kuuan Traitor Stones'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Kuuan Traitor Stones',
+							},
+							['Charmweaver\'s Slippers'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Boots',
+								['is_reward'] = true,
+								['name'] = 'Charmweaver\'s Slippers',
+							},
+							['Runemaster\'s Boots'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Boots',
+								['is_reward'] = true,
+								['name'] = 'Runemaster\'s Boots',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Boots'] = {
+							['Sanctified Footwear'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Boots',
+								['is_reward'] = true,
+								['name'] = 'Sanctified Footwear',
+							},
+							['Traveler\'s Mail Boot'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Boots',
+								['is_reward'] = true,
+								['name'] = 'Traveler\'s Mail Boot',
+							},
+							['Armmaster\'s Boots'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Boots',
+								['is_reward'] = true,
+								['name'] = 'Armmaster\'s Boots',
+							},
+							['Oathbound Boots'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Boots',
+								['is_reward'] = true,
+								['name'] = 'Oathbound Boots',
+							},
+							['Kuuan Traitor Stones'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Kuuan Traitor Stones',
+							},
+							['Heartstiller\'s Mail Boots'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Boots',
+								['is_reward'] = true,
+								['name'] = 'Heartstiller\'s Mail Boots',
+							},
+							['Kyv Bowstring'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Kyv Bowstring',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Boots'] = {
+							['Stillmind Sandals'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Boots',
+								['is_reward'] = true,
+								['name'] = 'Stillmind Sandals',
+							},
+							['Greenvale Slippers'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Boots',
+								['is_reward'] = true,
+								['name'] = 'Greenvale Slippers',
+							},
+							['Beast Tamer\'s Boots'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Beastlord Boots',
+								['is_reward'] = true,
+								['name'] = 'Beast Tamer\'s Boots',
+							},
+							['Kuuan Traitor Stones'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Kuuan Traitor Stones',
+							},
+							['Muramite Dragorn Slaver Whip'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Muramite Dragorn Slaver Whip',
+							},
+						},
+					},
+					['chain'] = {
+						['T1 Chain Boots'] = {
+							['Spiritkin Slippers'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Boots',
+								['is_reward'] = true,
+								['name'] = 'Spiritkin Slippers',
+							},
+							['Muramite Dispatch'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Muramite Dispatch',
+							},
+							['Darkraider\'s Boots'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Boots',
+								['is_reward'] = true,
+								['name'] = 'Darkraider\'s Boots',
+							},
+							['Kuuan Traitor Stones'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Kuuan Traitor Stones',
+							},
+							['Ragebound Chain Boots'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Boots',
+								['is_reward'] = true,
+								['name'] = 'Ragebound Chain Boots',
+							},
+							['Sunrider\'s Boots'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger BP',
+								['is_reward'] = true,
+								['name'] = 'Sunrider\'s Boots',
+							},
+						},
+					},
+				},
+			},
+			['head'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T1 Cloth Cap'] = {
+							['Runemaster\'s Cap'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Cap',
+								['is_reward'] = true,
+								['name'] = 'Runemaster\'s Cap',
+							},
+							['Charmweaver\'s Cap'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Cap',
+								['is_reward'] = true,
+								['name'] = 'Charmweaver\'s Cap',
+							},
+							['Duskfall Chronicles'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Duskfall Chronicles',
+							},
+							['Spelldeviser\'s Cloth Hat'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Cap',
+								['is_reward'] = true,
+								['name'] = 'Spelldeviser\'s Cloth Hat',
+							},
+							['Deathcaller\'s Skullcap'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Cap',
+								['is_reward'] = true,
+								['name'] = 'Deathcaller\'s Skullcap',
+							},
+							['Rugged Murkglider Skin'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik, Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Rugged Murkglider Skin',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Helm'] = {
+							['Traveler\'s Mail Cap'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Helm',
+								['is_reward'] = true,
+								['name'] = 'Traveler\'s Mail Cap',
+							},
+							['Armmaster\'s Helm'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Helm',
+								['is_reward'] = true,
+								['name'] = 'Armmaster\'s Helm',
+							},
+							['Duskfall Chronicles'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Duskfall Chronicles',
+							},
+							['Oathbound Helm'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Helm',
+								['is_reward'] = true,
+								['name'] = 'Oathbound Helm',
+							},
+							['Sanctified Headdress'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Helm',
+								['is_reward'] = true,
+								['name'] = 'Sanctified Headdress',
+							},
+							['Bristling Ukun Hide'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Bristling Ukun Hide',
+							},
+							['Heartstiller\'s Mail Helm'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Helm',
+								['is_reward'] = true,
+								['name'] = 'Heartstiller\'s Mail Helm',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Cap'] = {
+							['Stillmind Cap'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Helm',
+								['is_reward'] = true,
+								['name'] = 'Stillmind Cap',
+							},
+							['Greenvale Cap'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Helm',
+								['is_reward'] = true,
+								['name'] = 'Greenvale Cap',
+							},
+							['Beast Tamer\'s Hat'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'BL',
+								['is_reward'] = true,
+								['name'] = 'Beast Tamer\'s Hat',
+							},
+							['Duskfall Chronicles'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Duskfall Chronicles',
+							},
+							['Muramite Ritual Scroll'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Bloodfields',
+								['is_reward'] = false,
+								['name'] = 'Muramite Ritual Scroll',
+							},
+						},
+					},
+					['chain'] = {
+						['T1 Chain Coif'] = {
+							['Ragebound Chain Cap'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Helm',
+								['is_reward'] = true,
+								['name'] = 'Ragebound Chain Cap',
+							},
+							['Deepshadow Feran Pelt'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Deepshadow Feran Pelt',
+							},
+							['Darkraider\'s Coif'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Helm',
+								['is_reward'] = true,
+								['name'] = 'Darkraider\'s Coif',
+							},
+							['Sunrider\'s Hat'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Helm',
+								['is_reward'] = true,
+								['name'] = 'Sunrider\'s Hat',
+							},
+							['Duskfall Chronicles'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Duskfall Chronicles',
+							},
+							['Spiritkin Cap'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Helm',
+								['is_reward'] = true,
+								['name'] = 'Spiritkin Cap',
+							},
+						},
+					},
+				},
+			},
+			['wrists'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T1 Cloth Wristband'] = {
+							['Hooked Chimera Claw'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Riftseekers\' Sanctum, Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Hooked Chimera Claw',
+							},
+							['Deathcaller\'s Wristband'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Bracer',
+								['is_reward'] = true,
+								['name'] = 'Deathcaller\'s Wristband',
+							},
+							['Charmweaver\'s Bracer'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Bracer',
+								['is_reward'] = true,
+								['name'] = 'Charmweaver\'s Bracer',
+							},
+							['Dranik Blood Standard'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dranik Blood Standard',
+							},
+							['Spelldeviser\'s Cloth Wristband'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Bracer',
+								['is_reward'] = true,
+								['name'] = 'Spelldeviser\'s Cloth Wristband',
+							},
+							['Runemaster\'s Bracer'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Bracer',
+								['is_reward'] = true,
+								['name'] = 'Runemaster\'s Bracer',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Bracer'] = {
+							['Sanctified Wristguard'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Bracer',
+								['is_reward'] = true,
+								['name'] = 'Sanctified Wristguard',
+							},
+							['Ashlock Branch'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Ashlock Branch',
+							},
+							['Heartstiller\'s Mail Wristguard'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Bracer',
+								['is_reward'] = true,
+								['name'] = 'Heartstiller\'s Mail Wristguard',
+							},
+							['Dranik Blood Standard'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dranik Blood Standard',
+							},
+							['Armmaster\'s Bracer'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Bracer',
+								['is_reward'] = true,
+								['name'] = 'Armmaster\'s Bracer',
+							},
+							['Traveler\'s Mail Wristband'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Bracer',
+								['is_reward'] = true,
+								['name'] = 'Traveler\'s Mail Wristband',
+							},
+							['Oathbound Bracer'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Bracer',
+								['is_reward'] = true,
+								['name'] = 'Oathbound Bracer',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Bracer'] = {
+							['Dansk Branch'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Dansk Branch',
+							},
+							['Dranik Blood Standard'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dranik Blood Standard',
+							},
+							['Stillmind Wristband'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Bracer',
+								['is_reward'] = true,
+								['name'] = 'Stillmind Wristband',
+							},
+							['Greenvale Wristband'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Bracer',
+								['is_reward'] = true,
+								['name'] = 'Greenvale Wristband',
+							},
+							['Beast Tamer\'s Wristguard'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'BL',
+								['is_reward'] = true,
+								['name'] = 'Beast Tamer\'s Wristguard',
+							},
+						},
+					},
+					['chain'] = {
+						['T1 Chain Bracer'] = {
+							['Sunrider\'s Wristguard'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Bracer',
+								['is_reward'] = true,
+								['name'] = 'Sunrider\'s Wristguard',
+							},
+							['Darkraider\'s Wristguard'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Bracer',
+								['is_reward'] = true,
+								['name'] = 'Darkraider\'s Wristguard',
+							},
+							['Spiritkin Bracer'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Bracer',
+								['is_reward'] = true,
+								['name'] = 'Spiritkin Bracer',
+							},
+							['Ragebound Chain Wristband'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Bracer',
+								['is_reward'] = true,
+								['name'] = 'Ragebound Chain Wristband',
+							},
+							['Dranik Blood Standard'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dranik Blood Standard',
+							},
+							['Shed Ikaav Skin'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik, Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Shed Ikaav Skin',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T1 Cloth Pantaloons'] = {
+							['Dragorn City Ember'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dragorn City Ember',
+							},
+							['Deathcaller\'s Pants'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Leggings',
+								['is_reward'] = true,
+								['name'] = 'Deathcaller\'s Pants',
+							},
+							['Charmweaver\'s Legguards'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Leggings',
+								['is_reward'] = true,
+								['name'] = 'Charmweaver\'s Legguards',
+							},
+							['Dragorn Muramite Insignia Necklace'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Harbingers\' Spire, Wall of Slaughter, Ruined City of Dranik, Noble\'s Causeway',
+								['is_reward'] = false,
+								['name'] = 'Dragorn Muramite Insignia Necklace',
+							},
+							['Runemaster\'s Pants'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Leggings',
+								['is_reward'] = true,
+								['name'] = 'Runemaster\'s Pants',
+							},
+							['Spelldeviser\'s Cloth Britches'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Leggings',
+								['is_reward'] = true,
+								['name'] = 'Spelldeviser\'s Cloth Britches',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Leggings'] = {
+							['Dragorn City Ember'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dragorn City Ember',
+							},
+							['Heartstiller\'s Mail Leggings'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Leggings',
+								['is_reward'] = true,
+								['name'] = 'Heartstiller\'s Mail Leggings',
+							},
+							['Traveler\'s Mail Legguards'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Leggings',
+								['is_reward'] = true,
+								['name'] = 'Traveler\'s Mail Legguards',
+							},
+							['Armmaster\'s Leggings'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Leggings',
+								['is_reward'] = true,
+								['name'] = 'Armmaster\'s Leggings',
+							},
+							['Sanctified Leggings'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Leggings',
+								['is_reward'] = true,
+								['name'] = 'Sanctified Leggings',
+							},
+							['Oathbound Legguards'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Leggings',
+								['is_reward'] = true,
+								['name'] = 'Oathbound Legguards',
+							},
+							['Dranik Incense Burner'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Dranik Incense Burner',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Leggings'] = {
+							['Dragorn City Ember'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dragorn City Ember',
+							},
+							['Beast Tamer\'s Pants'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'BL',
+								['is_reward'] = true,
+								['name'] = 'Beast Tamer\'s Pants',
+							},
+							['Stillmind Leggings'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Leggings',
+								['is_reward'] = true,
+								['name'] = 'Stillmind Leggings',
+							},
+							['Greenvale Leggings'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Leggings',
+								['is_reward'] = true,
+								['name'] = 'Greenvale Leggings',
+							},
+							['Dragorn Metal Bowl'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Dragorn Metal Bowl',
+							},
+						},
+					},
+					['chain'] = {
+						['T1 Chain Leggings'] = {
+							['Dragorn City Ember'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dragorn City Ember',
+							},
+							['Ragebound Chain Legguards'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Legs',
+								['is_reward'] = true,
+								['name'] = 'Ragebound Chain Legguards',
+							},
+							['Darkraider\'s Pants'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Legs',
+								['is_reward'] = true,
+								['name'] = 'Darkraider\'s Pants',
+							},
+							['Sunrider\'s Pants'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Legs',
+								['is_reward'] = true,
+								['name'] = 'Sunrider\'s Pants',
+							},
+							['Spiritkin Leggings'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Legs',
+								['is_reward'] = true,
+								['name'] = 'Spiritkin Leggings',
+							},
+							['Lock of Hair from a Chimera Mane'] = {
+								['reward_restriction'] = '',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Lock of Hair from a Chimera Mane',
+							},
+						},
+					},
+				},
+			},
+			['arms'] = {
+				['armor'] = {
+					['cloth'] = {
+						['T1 Cloth Sleeves'] = {
+							['Deathcaller\'s Armbands'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Deathcaller\'s Armbands',
+							},
+							['Charmweaver\'s Armguards'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Charmweaver\'s Armguards',
+							},
+							['Jagged Noc Tusk'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Jagged Noc Tusk',
+							},
+							['Spelldeviser\'s Cloth Sleeves'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Spelldeviser\'s Cloth Sleeves',
+							},
+							['Runemaster\'s Sleeves'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Runemaster\'s Sleeves',
+							},
+							['Map of Old Kuua'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Map of Old Kuua',
+							},
+						},
+					},
+					['plate'] = {
+						['T1 Plate Sleeves'] = {
+							['Sanctified Sleeves'] = {
+								['reward_restriction'] = 'clr',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Cleric Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Sanctified Sleeves',
+							},
+							['Heartstiller\'s Mail Sleeves'] = {
+								['reward_restriction'] = 'shd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shadow Knight Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Heartstiller\'s Mail Sleeves',
+							},
+							['Traveler\'s Mail Sleeves'] = {
+								['reward_restriction'] = 'brd',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Bard Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Traveler\'s Mail Sleeves',
+							},
+							['Oathbound Armguards'] = {
+								['reward_restriction'] = 'pal',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Paladin Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Oathbound Armguards',
+							},
+							['Ukun Quill'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
+								['is_reward'] = false,
+								['name'] = 'Ukun Quill',
+							},
+							['Armmaster\'s Sleeves'] = {
+								['reward_restriction'] = 'war',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Warrior Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Armmaster\'s Sleeves',
+							},
+							['Map of Old Kuua'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Map of Old Kuua',
+							},
+						},
+					},
+					['leather'] = {
+						['T1 Leather Sleeves'] = {
+							['Beast Tamer\'s Sleeves'] = {
+								['reward_restriction'] = 'bst',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'BL',
+								['is_reward'] = true,
+								['name'] = 'Beast Tamer\'s Sleeves',
+							},
+							['Greenvale Armguards'] = {
+								['reward_restriction'] = 'dru',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Druid Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Greenvale Armguards',
+							},
+							['Dansk Blossom'] = {
+								['reward_restriction'] = '',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Dansk Blossom',
+							},
+							['Stillmind Armguards'] = {
+								['reward_restriction'] = 'mnk',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Monk Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Stillmind Armguards',
+							},
+							['Map of Old Kuua'] = {
+								['reward_restriction'] = '',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Map of Old Kuua',
+							},
+						},
+					},
+					['chain'] = {
+						['T1 Chain Sleeves'] = {
+							['Ragebound Chain Sleeves'] = {
+								['reward_restriction'] = 'ber',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Berserker Arms',
+								['is_reward'] = true,
+								['name'] = 'Ragebound Chain Sleeves',
+							},
+							['Darkraider\'s Sleeves'] = {
+								['reward_restriction'] = 'rog',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Rogue Arms',
+								['is_reward'] = true,
+								['name'] = 'Darkraider\'s Sleeves',
+							},
+							['Sunrider\'s Sleeves'] = {
+								['reward_restriction'] = 'rng',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Ranger Arms',
+								['is_reward'] = true,
+								['name'] = 'Sunrider\'s Sleeves',
+							},
+							['Spiritkin Sleeves'] = {
+								['reward_restriction'] = 'shm',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Shaman Arms',
+								['is_reward'] = true,
+								['name'] = 'Spiritkin Sleeves',
+							},
+							['Kuuan Lodestone'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Kuuan Lodestone',
+							},
+							['Map of Old Kuua'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+								['is_reward'] = false,
+								['name'] = 'Map of Old Kuua',
 							},
 						},
 					},
@@ -79,323 +3197,427 @@ return {
 		['Epic 1.0'] = {
 			['weapon'] = {
 				['weapon'] = {
-					['bst'] = {
-						['Beastlord Epic 1.0'] = {
-							['Perfect Acrylia Ore'] = {
-								['is_reward'] = false,
-								['extra'] = 'The Grey',
-								['qty'] = 1,
-								['name'] = 'Perfect Acrylia Ore',
-							},
-							['Totem of the Wolf'] = {
-								['is_reward'] = false,
-								['extra'] = 'From The Spirit of Malevolence in Lesser Faydark',
-								['qty'] = 1,
-								['name'] = 'Totem of the Wolf',
-							},
-							['Wrapped Wolf Totem'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handin of Totem of the Wolf',
-								['qty'] = 1,
-								['name'] = 'Wrapped Wolf Totem',
-							},
-							['Totem of the Watcher'] = {
-								['is_reward'] = false,
-								['extra'] = 'From The Spirit of Torment in Stonebrunt Mountains',
-								['qty'] = 1,
-								['name'] = 'Totem of the Watcher',
-							},
-							['Wrapped Watcher Totem'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handin of Totem of the Watcher',
-								['qty'] = 1,
-								['name'] = 'Wrapped Watcher Totem',
-							},
-							['Totem of the Alligator'] = {
-								['is_reward'] = false,
-								['extra'] = 'From The Spirit of Sorrow in Swamp of No Hope',
-								['qty'] = 1,
-								['name'] = 'Totem of the Alligator',
-							},
-							['Wrapped Alligator Totem'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handin of Totem of the Alligator',
-								['qty'] = 1,
-								['name'] = 'Wrapped Alligator Totem',
-							},
-							['Sealed Box of Totems'] = {
-								['is_reward'] = false,
-								['extra'] = 'From Combining the 6 Totems in the Carved Wooden Chest',
-								['qty'] = 1,
-								['name'] = 'Sealed Box of Totems',
-							},
-							['Gem of the Void'] = {
-								['is_reward'] = false,
-								['extra'] = 'Maiden’s Eye',
-								['qty'] = 2,
-								['name'] = 'Gem of the Void',
-							},
-							['Seal of Elder Dumul'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handing in Sealed Box in Shar Vahl',
-								['qty'] = 1,
-								['name'] = 'Seal of Elder Dumul',
-							},
-							['Black Silk Sack'] = {
-								['is_reward'] = false,
-								['extra'] = '6 slot bag from handing in Seal, spawns 6 npc on nearby isle to kill',
-								['qty'] = 1,
-								['name'] = 'Black Silk Sack',
-							},
-							['Rahoul\'s Collection Box'] = {
-								['is_reward'] = false,
-								['extra'] = '4 slot container, from handing in the receipt',
-								['qty'] = 1,
-								['name'] = 'Rahoul\'s Collection Box',
-							},
-							['Khati Sha Seal of War'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handing in Jagged Claw of Rending x2',
-								['qty'] = 1,
-								['name'] = 'Khati Sha Seal of War',
-							},
-							['Shards of Broken Glass'] = {
-								['is_reward'] = false,
-								['extra'] = 'From killing the 6 npc spawned',
-								['qty'] = 6,
-								['name'] = 'Shards of Broken Glass',
-							},
-							['Wrapped Ice Bear Totem'] = {
-								['is_reward'] = false,
-								['extra'] = 'from hand of Totem of the Ice Bear',
-								['qty'] = 1,
-								['name'] = 'Wrapped Ice Bear Totem',
-							},
-							['Jagged Claw of Rending'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handing in the Sealed Collection Box in Shar Vahl',
-								['qty'] = 2,
-								['name'] = 'Jagged Claw of Rending',
-							},
-							['Acrylia Gilded Box'] = {
-								['is_reward'] = false,
-								['extra'] = '4 slot Container From handing in Jagged Claw of Rending x2',
-								['qty'] = 1,
-								['name'] = 'Acrylia Gilded Box',
-							},
-							['Sack of Broken Glass'] = {
-								['is_reward'] = false,
-								['extra'] = 'From combining the Shards of Broken Glass in the Black Silk Sack',
-								['qty'] = 1,
-								['name'] = 'Sack of Broken Glass',
-							},
-							['Copper Medal of War'] = {
-								['is_reward'] = false,
-								['extra'] = 'Grimling Forest',
-								['qty'] = 1,
-								['name'] = 'Copper Medal of War',
-							},
-							['Sealed Gilded Wooden Chest'] = {
-								['is_reward'] = false,
-								['extra'] = 'Combine 2x Jagged Claw of Rending,  Khati Sha Seal of War,  Draz Nurakk\'s Head in  Acrylia Gilded Box ',
-								['qty'] = 1,
-								['name'] = 'Sealed Gilded Wooden Chest',
-							},
-							['Official Seal of the Khati Sha'] = {
-								['is_reward'] = false,
-								['extra'] = 'From Handin of Copper Medal of War',
-								['qty'] = 1,
-								['name'] = 'Official Seal of the Khati Sha',
-							},
-							['Note for Historian Qua'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handin of Sack of Broken Glass',
-								['qty'] = 1,
-								['name'] = 'Note for Historian Qua',
-							},
-							['Carved Wooden Chest'] = {
-								['is_reward'] = false,
-								['extra'] = '6 slot container for combine',
-								['qty'] = 1,
-								['name'] = 'Carved Wooden Chest',
-							},
-							['Qua\'s Receipt'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handing in Note for Historian Qua',
-								['qty'] = 1,
-								['name'] = 'Qua\'s Receipt',
-							},
-							['Totem of the Gorilla'] = {
-								['is_reward'] = false,
-								['extra'] = 'from Spirit of Rage in Emerald Jungle',
-								['qty'] = 1,
-								['name'] = 'Totem of the Gorilla',
-							},
-							['Draz Nurakk\'s Head'] = {
-								['is_reward'] = false,
-								['extra'] = 'Fungus Grove Draz Spawns after handing in the Khati Sha Seal of War',
-								['qty'] = 1,
-								['name'] = 'Draz Nurakk\'s Head',
-							},
-							['Wrapped Gorilla Totem'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handin of Totem of the Gorilla',
-								['qty'] = 1,
-								['name'] = 'Wrapped Gorilla Totem',
-							},
-							['Sealed Collection Box'] = {
-								['is_reward'] = false,
-								['extra'] = 'Combining the Gem of the Void x2, Dhunk of Dense Fungal Padding, and Perfect Acrylia Ore',
-								['qty'] = 1,
-								['name'] = 'Sealed Collection Box',
-							},
-							['Totem of the Ice Bear'] = {
-								['is_reward'] = false,
-								['extra'] = 'From The Icebound Spirit in Permafrost',
-								['qty'] = 1,
-								['name'] = 'Totem of the Ice Bear',
-							},
-							['Claw of the Savage Spirit'] = {
-								['is_reward'] = true,
-								['extra'] = 'Epic 1.0',
-								['qty'] = 2,
-								['name'] = 'Claw of the Savage Spirit',
-							},
-							['Chunk of Dense Fungal Padding'] = {
-								['is_reward'] = false,
-								['extra'] = 'The Deep',
-								['qty'] = 1,
-								['name'] = 'Chunk of Dense Fungal Padding',
-							},
-							['Wrapped Spider Totem'] = {
-								['is_reward'] = false,
-								['extra'] = 'From handin of Totem of the Spider',
-								['qty'] = 1,
-								['name'] = 'Wrapped Spider Totem',
-							},
-							['Totem of the Spider'] = {
-								['is_reward'] = false,
-								['extra'] = 'From The Spirit of Decay in Feerrott',
-								['qty'] = 1,
-								['name'] = 'Totem of the Spider',
-							},
-						},
-					},
 					['clr'] = {
 						['Cleric Epic 1.0'] = {
-							['Assembled Pearlescent Shard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Combine in Skyfire',
-								['qty'] = 1,
-								['name'] = 'Assembled Pearlescent Shard',
-							},
-							['Zordak Ragefire\'s Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Assembled',
-								['qty'] = 1,
-								['name'] = 'Zordak Ragefire\'s Heart',
-							},
-							['Orb of Vapor'] = {
-								['is_reward'] = false,
-								['extra'] = 'Tim Deep',
-								['qty'] = 1,
-								['name'] = 'Orb of Vapor',
-							},
-							['Orb of the Triumvirate'] = {
-								['is_reward'] = false,
-								['extra'] = ' combine 3 orbs',
-								['qty'] = 1,
-								['name'] = 'Orb of the Triumvirate',
-							},
-							['Water Sprinkler of Nem Ankh'] = {
-								['is_reward'] = true,
-								['extra'] = 'Epic 1.0',
-								['qty'] = 1,
-								['name'] = 'Water Sprinkler of Nem Ankh',
-							},
-							['Natasha\'s Letter'] = {
-								['is_reward'] = false,
-								['extra'] = 'Give to Naxot in BW',
-								['qty'] = 1,
-								['name'] = 'Natasha\'s Letter',
-							},
-							['Orb of Clear Water'] = {
-								['is_reward'] = false,
-								['extra'] = 'Tim Deep',
-								['qty'] = 1,
-								['name'] = 'Orb of Clear Water',
-							},
-							['Singed Scroll'] = {
-								['is_reward'] = false,
-								['extra'] = 'Chardok',
-								['qty'] = 1,
-								['name'] = 'Singed Scroll',
-							},
-							['Shimmering Pearl'] = {
-								['is_reward'] = false,
-								['extra'] = 'Give To Zordak',
-								['qty'] = 1,
-								['name'] = 'Shimmering Pearl',
-							},
-							['Sceptre of Ixiblat Fer'] = {
-								['is_reward'] = false,
-								['extra'] = 'Burning Woods',
-								['qty'] = 1,
-								['name'] = 'Sceptre of Ixiblat Fer',
-							},
-							['Lord Bergurgle\'s Crown'] = {
-								['is_reward'] = false,
-								['extra'] = 'Lake Rathtear',
-								['qty'] = 1,
-								['name'] = 'Lord Bergurgle\'s Crown',
-							},
-							['Ornate Sea Shell'] = {
-								['is_reward'] = false,
-								['extra'] = 'After Crown Handin',
-								['qty'] = 1,
-								['name'] = 'Ornate Sea Shell',
-							},
 							['Coral Statue of Tarew'] = {
-								['is_reward'] = false,
-								['extra'] = 'Tim Deep',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Tim Deep',
+								['is_reward'] = false,
 								['name'] = 'Coral Statue of Tarew',
 							},
 							['Blood Soaked Plasmatic Priest Robe'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple Solusek Ro',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple Solusek Ro',
+								['is_reward'] = false,
 								['name'] = 'Blood Soaked Plasmatic Priest Robe',
 							},
 							['Orb of Frozen Water'] = {
-								['is_reward'] = false,
-								['extra'] = 'Tim Deep',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Tim Deep',
+								['is_reward'] = false,
 								['name'] = 'Orb of Frozen Water',
 							},
 							['Lord Gimblox\'s Signet Ring'] = {
-								['is_reward'] = false,
-								['extra'] = 'Sol A',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Sol A',
+								['is_reward'] = false,
 								['name'] = 'Lord Gimblox\'s Signet Ring',
 							},
 							['Swirling Pearl'] = {
-								['is_reward'] = false,
-								['extra'] = 'Zordak',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Zordak',
+								['is_reward'] = false,
 								['name'] = 'Swirling Pearl',
 							},
 							['Message to Natasha'] = {
-								['is_reward'] = false,
-								['extra'] = 'Sol A',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Sol A',
+								['is_reward'] = false,
 								['name'] = 'Message to Natasha',
 							},
 							['Pearlescent Fragment'] = {
-								['is_reward'] = false,
-								['extra'] = 'Skyfire',
+								['reward_restriction'] = 'All',
 								['qty'] = 4,
+								['Step'] = 1,
+								['extra'] = 'Skyfire',
+								['is_reward'] = false,
 								['name'] = 'Pearlescent Fragment',
+							},
+							['Assembled Pearlescent Shard'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Combine in Skyfire',
+								['is_reward'] = false,
+								['name'] = 'Assembled Pearlescent Shard',
+							},
+							['Zordak Ragefire\'s Heart'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Assembled',
+								['is_reward'] = false,
+								['name'] = 'Zordak Ragefire\'s Heart',
+							},
+							['Orb of Vapor'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Tim Deep',
+								['is_reward'] = false,
+								['name'] = 'Orb of Vapor',
+							},
+							['Orb of the Triumvirate'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = ' combine 3 orbs',
+								['is_reward'] = false,
+								['name'] = 'Orb of the Triumvirate',
+							},
+							['Water Sprinkler of Nem Ankh'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Epic 1.0',
+								['is_reward'] = true,
+								['name'] = 'Water Sprinkler of Nem Ankh',
+							},
+							['Natasha\'s Letter'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Give to Naxot in BW',
+								['is_reward'] = false,
+								['name'] = 'Natasha\'s Letter',
+							},
+							['Orb of Clear Water'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Tim Deep',
+								['is_reward'] = false,
+								['name'] = 'Orb of Clear Water',
+							},
+							['Singed Scroll'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Chardok',
+								['is_reward'] = false,
+								['name'] = 'Singed Scroll',
+							},
+							['Shimmering Pearl'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Give To Zordak',
+								['is_reward'] = false,
+								['name'] = 'Shimmering Pearl',
+							},
+							['Sceptre of Ixiblat Fer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Burning Woods',
+								['is_reward'] = false,
+								['name'] = 'Sceptre of Ixiblat Fer',
+							},
+							['Lord Bergurgle\'s Crown'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Lake Rathtear',
+								['is_reward'] = false,
+								['name'] = 'Lord Bergurgle\'s Crown',
+							},
+							['Ornate Sea Shell'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'After Crown Handin',
+								['is_reward'] = false,
+								['name'] = 'Ornate Sea Shell',
+							},
+						},
+					},
+					['bst'] = {
+						['Beastlord Epic 1.0'] = {
+							['Shards of Broken Glass'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 6,
+								['Step'] = 1,
+								['extra'] = 'From killing the 6 npc spawned',
+								['is_reward'] = false,
+								['name'] = 'Shards of Broken Glass',
+							},
+							['Wrapped Ice Bear Totem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'from hand of Totem of the Ice Bear',
+								['is_reward'] = false,
+								['name'] = 'Wrapped Ice Bear Totem',
+							},
+							['Jagged Claw of Rending'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'From handing in the Sealed Collection Box in Shar Vahl',
+								['is_reward'] = false,
+								['name'] = 'Jagged Claw of Rending',
+							},
+							['Acrylia Gilded Box'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = '4 slot Container From handing in Jagged Claw of Rending x2',
+								['is_reward'] = false,
+								['name'] = 'Acrylia Gilded Box',
+							},
+							['Sack of Broken Glass'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From combining the Shards of Broken Glass in the Black Silk Sack',
+								['is_reward'] = false,
+								['name'] = 'Sack of Broken Glass',
+							},
+							['Copper Medal of War'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Grimling Forest',
+								['is_reward'] = false,
+								['name'] = 'Copper Medal of War',
+							},
+							['Sealed Gilded Wooden Chest'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Combine 2x Jagged Claw of Rending,  Khati Sha Seal of War,  Draz Nurakk\'s Head in  Acrylia Gilded Box ',
+								['is_reward'] = false,
+								['name'] = 'Sealed Gilded Wooden Chest',
+							},
+							['Official Seal of the Khati Sha'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From Handin of Copper Medal of War',
+								['is_reward'] = false,
+								['name'] = 'Official Seal of the Khati Sha',
+							},
+							['Note for Historian Qua'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handin of Sack of Broken Glass',
+								['is_reward'] = false,
+								['name'] = 'Note for Historian Qua',
+							},
+							['Carved Wooden Chest'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = '6 slot container for combine',
+								['is_reward'] = false,
+								['name'] = 'Carved Wooden Chest',
+							},
+							['Qua\'s Receipt'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handing in Note for Historian Qua',
+								['is_reward'] = false,
+								['name'] = 'Qua\'s Receipt',
+							},
+							['Totem of the Gorilla'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'from Spirit of Rage in Emerald Jungle',
+								['is_reward'] = false,
+								['name'] = 'Totem of the Gorilla',
+							},
+							['Draz Nurakk\'s Head'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Fungus Grove Draz Spawns after handing in the Khati Sha Seal of War',
+								['is_reward'] = false,
+								['name'] = 'Draz Nurakk\'s Head',
+							},
+							['Wrapped Gorilla Totem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handin of Totem of the Gorilla',
+								['is_reward'] = false,
+								['name'] = 'Wrapped Gorilla Totem',
+							},
+							['Sealed Collection Box'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Combining the Gem of the Void x2, Dhunk of Dense Fungal Padding, and Perfect Acrylia Ore',
+								['is_reward'] = false,
+								['name'] = 'Sealed Collection Box',
+							},
+							['Totem of the Ice Bear'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From The Icebound Spirit in Permafrost',
+								['is_reward'] = false,
+								['name'] = 'Totem of the Ice Bear',
+							},
+							['Claw of the Savage Spirit'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Epic 1.0',
+								['is_reward'] = true,
+								['name'] = 'Claw of the Savage Spirit',
+							},
+							['Chunk of Dense Fungal Padding'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'The Deep',
+								['is_reward'] = false,
+								['name'] = 'Chunk of Dense Fungal Padding',
+							},
+							['Wrapped Spider Totem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handin of Totem of the Spider',
+								['is_reward'] = false,
+								['name'] = 'Wrapped Spider Totem',
+							},
+							['Totem of the Spider'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From The Spirit of Decay in Feerrott',
+								['is_reward'] = false,
+								['name'] = 'Totem of the Spider',
+							},
+							['Perfect Acrylia Ore'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'The Grey',
+								['is_reward'] = false,
+								['name'] = 'Perfect Acrylia Ore',
+							},
+							['Totem of the Wolf'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From The Spirit of Malevolence in Lesser Faydark',
+								['is_reward'] = false,
+								['name'] = 'Totem of the Wolf',
+							},
+							['Wrapped Wolf Totem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handin of Totem of the Wolf',
+								['is_reward'] = false,
+								['name'] = 'Wrapped Wolf Totem',
+							},
+							['Totem of the Watcher'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From The Spirit of Torment in Stonebrunt Mountains',
+								['is_reward'] = false,
+								['name'] = 'Totem of the Watcher',
+							},
+							['Wrapped Watcher Totem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handin of Totem of the Watcher',
+								['is_reward'] = false,
+								['name'] = 'Wrapped Watcher Totem',
+							},
+							['Totem of the Alligator'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From The Spirit of Sorrow in Swamp of No Hope',
+								['is_reward'] = false,
+								['name'] = 'Totem of the Alligator',
+							},
+							['Wrapped Alligator Totem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handin of Totem of the Alligator',
+								['is_reward'] = false,
+								['name'] = 'Wrapped Alligator Totem',
+							},
+							['Sealed Box of Totems'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From Combining the 6 Totems in the Carved Wooden Chest',
+								['is_reward'] = false,
+								['name'] = 'Sealed Box of Totems',
+							},
+							['Gem of the Void'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 2,
+								['Step'] = 1,
+								['extra'] = 'Maiden’s Eye',
+								['is_reward'] = false,
+								['name'] = 'Gem of the Void',
+							},
+							['Seal of Elder Dumul'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handing in Sealed Box in Shar Vahl',
+								['is_reward'] = false,
+								['name'] = 'Seal of Elder Dumul',
+							},
+							['Black Silk Sack'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = '6 slot bag from handing in Seal, spawns 6 npc on nearby isle to kill',
+								['is_reward'] = false,
+								['name'] = 'Black Silk Sack',
+							},
+							['Rahoul\'s Collection Box'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = '4 slot container, from handing in the receipt',
+								['is_reward'] = false,
+								['name'] = 'Rahoul\'s Collection Box',
+							},
+							['Khati Sha Seal of War'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From handing in Jagged Claw of Rending x2',
+								['is_reward'] = false,
+								['name'] = 'Khati Sha Seal of War',
 							},
 						},
 					},
@@ -408,22 +3630,28 @@ return {
 					['All'] = {
 						['Key to Sebilis'] = {
 							['Medallion of the Nathsar'] = {
-								['is_reward'] = false,
-								['extra'] = 'From the froglok hunter in Trakanon\'s Teeth',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From the froglok hunter in Trakanon\'s Teeth',
+								['is_reward'] = false,
 								['name'] = 'Medallion of the Nathsar',
 							},
-							['Trakanon Idol'] = {
-								['is_reward'] = false,
-								['extra'] = 'Key from handing in the 2 Medallions to Emperor Ganak in Trakanon\'s Teeth',
-								['qty'] = 1,
-								['name'] = 'Trakanon Idol',
-							},
 							['Medallion of the Kunzar'] = {
-								['is_reward'] = false,
-								['extra'] = 'From the froglok forager in Trakanon\'s Teeth',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'From the froglok forager in Trakanon\'s Teeth',
+								['is_reward'] = false,
 								['name'] = 'Medallion of the Kunzar',
+							},
+							['Trakanon Idol'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Key from handing in the 2 Medallions to Emperor Ganak in Trakanon\'s Teeth',
+								['is_reward'] = true,
+								['name'] = 'Trakanon Idol',
 							},
 						},
 					},
@@ -433,233 +3661,177 @@ return {
 	},
 	['Scars of Velious'] = {
 		['Thurg Armor'] = {
-			['feet'] = {
+			['hands'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Thurg Silk Boots'] = {
-							['Torn Enchanted Silk Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Boots',
-							},
-							['Crushed Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Jaundice Gem',
-							},
-						},
-					},
 					['clr'] = {
-						['Thurg Cleric Boots'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
+						['Thurg Cleric Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Corroded Plate Boots'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['name'] = 'Crushed Lava Ruby',
+							},
+							['Corroded Plate Gauntlets'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Corroded Plate Boots',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Boots'] = {
-							['Crushed Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Corroded Plate Boots'] = {
-								['is_reward'] = false,
+								['Step'] = 1,
 								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Boots',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Gauntlets',
 							},
 						},
 					},
 					['rog rng ber'] = {
-						['Thurg Chain Boots'] = {
-							['Crushed Black Marble'] = {
+						['Thurg Chain Gloves'] = {
+							['Corroded Chain Gauntlets'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
 								['is_reward'] = false,
+								['name'] = 'Corroded Chain Gauntlets',
+							},
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Corroded Chain Boots'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Boots',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Boots'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Corroded Chain Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Boots',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Boots'] = {
-							['Crushed Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Eroded Leather Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Boots',
+								['name'] = 'Crushed Topaz',
 							},
 						},
 					},
 					['dru'] = {
-						['Thurg Druid Boots'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+						['Thurg Druid Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Eroded Leather Boots'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['name'] = 'Crushed Lava Ruby',
+							},
+							['Eroded Leather Gloves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Eroded Leather Boots',
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Gloves',
 							},
 						},
 					},
-				},
-			},
-			['wrists'] = {
-				['armor'] = {
 					['wiz mag enc nec'] = {
-						['Thurg Silk Bracer'] = {
-							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Torn Enchanted Silk Wristband'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+						['Thurg Silk Gloves'] = {
+							['Sage\'s Gloves'] = {
+								['reward_restriction'] = 'wiz',
 								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Wristband',
+								['Step'] = 999,
+								['extra'] = 'Wizard Gloves',
+								['is_reward'] = true,
+								['name'] = 'Sage\'s Gloves',
+							},
+							['Warlock\'s Gloves'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Gloves',
+								['is_reward'] = true,
+								['name'] = 'Warlock\'s Gloves',
+							},
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Topaz',
+							},
+							['Torn Enchanted Silk Gloves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Torn Enchanted Silk Gloves',
+							},
+							['Arch Mage\'s Gloves'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Gloves',
+								['is_reward'] = true,
+								['name'] = 'Arch Mage\'s Gloves',
+							},
+							['Beguiler\'s Gloves'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Gloves',
+								['is_reward'] = true,
+								['name'] = 'Beguiler\'s Gloves',
 							},
 						},
 					},
-					['clr'] = {
-						['Thurg Cleric Bracer'] = {
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+					['shm'] = {
+						['Thurg Shaman Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Corroded Plate Bracer'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['name'] = 'Crushed Lava Ruby',
+							},
+							['Corroded Chain Gauntlets'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Corroded Plate Bracer',
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Gauntlets',
 							},
 						},
 					},
 					['war shd pal brd'] = {
-						['Thurg Plate Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
+						['Thurg Plate Gloves'] = {
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Corroded Plate Bracer'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['name'] = 'Crushed Topaz',
+							},
+							['Corroded Plate Gauntlets'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Corroded Plate Bracer',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Thurg Chain Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Corroded Chain Bracer'] = {
-								['is_reward'] = false,
+								['Step'] = 1,
 								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Bracer',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Bracer'] = {
-							['Crushed Opal'] = {
 								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Corroded Chain Bracer'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Bracer',
+								['name'] = 'Corroded Plate Gauntlets',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['Thurg Leather Bracer'] = {
-							['Crushed Flame Emerald'] = {
+						['Thurg Leather Gloves'] = {
+							['Eroded Leather Gloves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
 								['is_reward'] = false,
+								['name'] = 'Eroded Leather Gloves',
+							},
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Eroded Leather Bracelet'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Bracelet',
-							},
-						},
-					},
-					['dru'] = {
-						['Thurg Druir Bracer'] = {
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Eroded Leather Bracelet'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Bracelet',
+								['name'] = 'Crushed Topaz',
 							},
 						},
 					},
@@ -667,463 +3839,351 @@ return {
 			},
 			['chest'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Thurg Silk Robe'] = {
-							['Torn Enchanted Silk Robe'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Robe',
-							},
-							['Pristine Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Pristine Emerald',
-							},
-						},
-					},
 					['clr'] = {
 						['Thurg Cleric Breastplate'] = {
-							['Corroded Breastplate'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Breastplate',
-							},
 							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Black Marble',
 							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Breastplate'] = {
 							['Corroded Breastplate'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Corroded Breastplate',
-							},
-							['Flawless Diamond'] = {
+								['Step'] = 1,
+								['extra'] = 'Kael',
 								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
+								['name'] = 'Corroded Breastplate',
 							},
 						},
 					},
 					['rog rng ber'] = {
 						['Thurg Chain Tunic'] = {
 							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Flawless Diamond',
 							},
 							['Corroded Chain Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
 								['name'] = 'Corroded Chain Tunic',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Tunic'] = {
-							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Corroded Chain Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Tunic',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Tunic'] = {
-							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Eroded Leather Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Tunic',
 							},
 						},
 					},
 					['dru'] = {
 						['Thurg Druid Tunic'] = {
 							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Black Marble',
 							},
 							['Eroded Leather Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Tunic',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Thurg Silk Robe'] = {
+							['Arch Mage\'s Robe'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Robe',
+								['is_reward'] = true,
+								['name'] = 'Arch Mage\'s Robe',
+							},
+							['Beguiler\'s Robe'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Robe',
+								['is_reward'] = true,
+								['name'] = 'Beguiler\'s Robe',
+							},
+							['Torn Enchanted Silk Robe'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Torn Enchanted Silk Robe',
+							},
+							['Pristine Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Pristine Emerald',
+							},
+							['Warlock\'s Robe'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Robe',
+								['is_reward'] = true,
+								['name'] = 'Warlock\'s Robe',
+							},
+							['Sage\'s Robe'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Robe',
+								['is_reward'] = true,
+								['name'] = 'Sage\'s Robe',
+							},
+						},
+					},
+					['shm'] = {
+						['Thurg Shaman Tunic'] = {
+							['Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Black Marble',
+							},
+							['Corroded Chain Tunic'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Tunic',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Thurg Plate Breastplate'] = {
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+							['Corroded Breastplate'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Breastplate',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Thurg Leather Tunic'] = {
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+							['Eroded Leather Tunic'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
 								['name'] = 'Eroded Leather Tunic',
 							},
 						},
 					},
 				},
 			},
-			['hands'] = {
+			['feet'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Thurg Silk Gloves'] = {
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Torn Enchanted Silk Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Gloves',
-							},
-						},
-					},
 					['clr'] = {
-						['Thurg Cleric Gloves'] = {
-							['Crushed Lava Ruby'] = {
+						['Thurg Cleric Boots'] = {
+							['Corroded Plate Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
 								['is_reward'] = false,
+								['name'] = 'Corroded Plate Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Corroded Plate Gauntlets'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Gauntlets',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Gloves'] = {
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Corroded Plate Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Gauntlets',
+								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
 					['rog rng ber'] = {
-						['Thurg Chain Gloves'] = {
-							['Crushed Topaz'] = {
+						['Thurg Chain Boots'] = {
+							['Corroded Chain Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
 								['is_reward'] = false,
+								['name'] = 'Corroded Chain Boots',
+							},
+							['Crushed Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Corroded Chain Gauntlets'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Gauntlets',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Corroded Chain Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Gauntlets',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Gloves'] = {
-							['Eroded Leather Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Gloves',
-							},
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
+								['name'] = 'Crushed Black Marble',
 							},
 						},
 					},
 					['dru'] = {
-						['Thurg Druid Gloves'] = {
-							['Eroded Leather Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+						['Thurg Druid Boots'] = {
+							['Eroded Leather Boots'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Eroded Leather Gloves',
-							},
-							['Crushed Lava Ruby'] = {
+								['Step'] = 1,
+								['extra'] = 'Kael',
 								['is_reward'] = false,
-								['extra'] = 'priest',
+								['name'] = 'Eroded Leather Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
-				},
-			},
-			['arms'] = {
-				['armor'] = {
 					['wiz mag enc nec'] = {
-						['Thurg SIlk Sleeves'] = {
-							['Flawed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
+						['Thurg Silk Boots'] = {
+							['Crushed Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Flawed Topaz',
-							},
-							['Torn Enchanted Silk Sleeves'] = {
+								['Step'] = 1,
+								['extra'] = 'caster',
 								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['name'] = 'Crushed Jaundice Gem',
+							},
+							['Warlock\'s Boots'] = {
+								['reward_restriction'] = 'nec',
 								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Sleeves',
+								['Step'] = 999,
+								['extra'] = 'Necromancer Boots',
+								['is_reward'] = true,
+								['name'] = 'Warlock\'s Boots',
+							},
+							['Sage\'s Boots'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Boots',
+								['is_reward'] = true,
+								['name'] = 'Sage\'s Boots',
+							},
+							['Torn Enchanted Silk Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Torn Enchanted Silk Boots',
+							},
+							['Arch Mage\'s Boots'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Boots',
+								['is_reward'] = true,
+								['name'] = 'Arch Mage\'s Boots',
+							},
+							['Beguiler\'s Slippers'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Boots',
+								['is_reward'] = true,
+								['name'] = 'Beguiler\'s Slippers',
 							},
 						},
 					},
-					['clr'] = {
-						['Thurg Cleric Vambraces'] = {
-							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-							['Corroded Plate Vambraces'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+					['shm'] = {
+						['Thurg Shaman Boots'] = {
+							['Corroded Chain Boots'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Corroded Plate Vambraces',
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
 					['war shd pal brd'] = {
-						['Thurg Plate Vambraces'] = {
-							['Flawed Emerald'] = {
-								['is_reward'] = false,
+						['Thurg Plate Boots'] = {
+							['Crushed Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Corroded Plate Vambraces'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['name'] = 'Crushed Black Marble',
+							},
+							['Corroded Plate Boots'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Corroded Plate Vambraces',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Thurg Chain Sleeves'] = {
-							['Flawed Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Corroded Chain Sleeves'] = {
-								['is_reward'] = false,
+								['Step'] = 1,
 								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Sleeves',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Sleeves'] = {
-							['Corroded Chain Sleeves'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
+								['name'] = 'Corroded Plate Boots',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['Thurg Leather Sleeves'] = {
-							['Flawed Emerald'] = {
-								['is_reward'] = false,
+						['Thurg Leather Boots'] = {
+							['Crushed Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Eroded Leather Sleeves'] = {
 								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['name'] = 'Crushed Black Marble',
+							},
+							['Eroded Leather Boots'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Eroded Leather Sleeves',
-							},
-						},
-					},
-					['dru'] = {
-						['Thurg Druid Sleeves'] = {
-							['Eroded Leather Sleeves'] = {
-								['is_reward'] = false,
+								['Step'] = 1,
 								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Sleeves',
-							},
-							['Jaundice Gem'] = {
 								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-				},
-			},
-			['legs'] = {
-				['armor'] = {
-					['dru'] = {
-						['Thurg Druid Leggings'] = {
-							['Eroded Leather Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Leggings',
-							},
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-						},
-					},
-					['clr'] = {
-						['Thurg Cleric Greaves'] = {
-							['Corroded Plate Greaves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Greaves',
-							},
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-						},
-					},
-					['war pal shd brd'] = {
-						['Thurg Plate Greaves'] = {
-							['Corroded Plate Greaves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Greaves',
-							},
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-						},
-					},
-					['enc wiz mag nec'] = {
-						['Thurg Silk Pantaloons'] = {
-							['Nephrite'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Nephrite',
-							},
-							['Torn Enchanted Silk Pantaloons'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Pantaloons',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Leggings'] = {
-							['Corroded Chain Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Leggings',
-							},
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Eroded Leather Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Leggings',
-							},
-						},
-					},
-					['ber rog rng'] = {
-						['Thurg Chain Leggings'] = {
-							['Corroded Chain Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Leggings',
-							},
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
+								['name'] = 'Eroded Leather Boots',
 							},
 						},
 					},
@@ -1131,98 +4191,42 @@ return {
 			},
 			['head'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Thurg Silk Cap'] = {
-							['Crushed Flame Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Opal',
-							},
-							['Torn Enchanted Silk Turban'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Turban',
-							},
-						},
-					},
 					['clr'] = {
 						['Thurg Cleric Helmet'] = {
-							['Corroded Plate Helmet'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Plate Helmet',
-							},
 							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Crushed Onyx Sapphire',
 							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Thurg Plate Helmet'] = {
 							['Corroded Plate Helmet'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Corroded Plate Helmet',
-							},
-							['Crushed Coral'] = {
+								['Step'] = 1,
+								['extra'] = 'Kael',
 								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
+								['name'] = 'Corroded Plate Helmet',
 							},
 						},
 					},
 					['rog rng ber'] = {
 						['Thurge Chain Coif'] = {
 							['Corroded Chain Coif'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
 								['name'] = 'Corroded Chain Coif',
 							},
 							['Crushed Coral'] = {
-								['is_reward'] = false,
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-						},
-					},
-					['shm'] = {
-						['Thurg Shaman Coif'] = {
-							['Crushed Onyx Sapphire'] = {
 								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-							['Corroded Chain Coif'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Corroded Chain Coif',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Thurg Leather Cap'] = {
-							['Eroded Leather Cap'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
-								['qty'] = 1,
-								['name'] = 'Eroded Leather Cap',
-							},
-							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
 								['name'] = 'Crushed Coral',
 							},
 						},
@@ -1230,16 +4234,608 @@ return {
 					['dru'] = {
 						['Thurg Druid Cap'] = {
 							['Eroded Leather Cap'] = {
-								['is_reward'] = false,
-								['extra'] = 'Kael',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
 								['name'] = 'Eroded Leather Cap',
 							},
 							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Crushed Onyx Sapphire',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Thurg Silk Cap'] = {
+							['Beguiler\'s Crown'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Crown',
+								['is_reward'] = true,
+								['name'] = 'Beguiler\'s Crown',
+							},
+							['Sage\'s Crown'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Crown',
+								['is_reward'] = true,
+								['name'] = 'Sage\'s Crown',
+							},
+							['Warlock\'s Crown'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Crown',
+								['is_reward'] = true,
+								['name'] = 'Warlock\'s Crown',
+							},
+							['Crushed Flame Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Opal',
+							},
+							['Arch Mage\'s Crown'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Crown',
+								['is_reward'] = true,
+								['name'] = 'Arch Mage\'s Crown',
+							},
+							['Torn Enchanted Silk Turban'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Torn Enchanted Silk Turban',
+							},
+						},
+					},
+					['shm'] = {
+						['Thurg Shaman Coif'] = {
+							['Crushed Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Onyx Sapphire',
+							},
+							['Corroded Chain Coif'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Coif',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Thurg Plate Helmet'] = {
+							['Corroded Plate Helmet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Helmet',
+							},
+							['Crushed Coral'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Coral',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Thurg Leather Cap'] = {
+							['Eroded Leather Cap'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Cap',
+							},
+							['Crushed Coral'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Coral',
+							},
+						},
+					},
+				},
+			},
+			['wrists'] = {
+				['armor'] = {
+					['clr'] = {
+						['Thurg Cleric Bracer'] = {
+							['Corroded Plate Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Bracer',
+							},
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Opal',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Thurg Chain Bracer'] = {
+							['Corroded Chain Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Bracer',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druir Bracer'] = {
+							['Eroded Leather Bracelet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Bracelet',
+							},
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Opal',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Thurg Silk Bracer'] = {
+							['Arch Mage\'s Warband'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Bracer',
+								['is_reward'] = true,
+								['name'] = 'Arch Mage\'s Warband',
+							},
+							['Beguiler\'s Wristguard'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Bracer',
+								['is_reward'] = true,
+								['name'] = 'Beguiler\'s Wristguard',
+							},
+							['Sage\'s Bracelet'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Bracer',
+								['is_reward'] = true,
+								['name'] = 'Sage\'s Bracelet',
+							},
+							['Warlock\'s Wristguard'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Bracer',
+								['is_reward'] = true,
+								['name'] = 'Warlock\'s Wristguard',
+							},
+							['Crushed Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Onyx Sapphire',
+							},
+							['Torn Enchanted Silk Wristband'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Torn Enchanted Silk Wristband',
+							},
+						},
+					},
+					['shm'] = {
+						['Thurg Shaman Bracer'] = {
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Opal',
+							},
+							['Corroded Chain Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Bracer',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Thurg Plate Bracer'] = {
+							['Corroded Plate Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Bracer',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Thurg Leather Bracer'] = {
+							['Eroded Leather Bracelet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Bracelet',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['clr'] = {
+						['Thurg Cleric Greaves'] = {
+							['Corroded Plate Greaves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Greaves',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Leggings'] = {
+							['Eroded Leather Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Leggings',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+						},
+					},
+					['ber rog rng'] = {
+						['Thurg Chain Leggings'] = {
+							['Corroded Chain Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Leggings',
+							},
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Sea Sapphire',
+							},
+						},
+					},
+					['shm'] = {
+						['Thurg Shaman Leggings'] = {
+							['Corroded Chain Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Leggings',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+						},
+					},
+					['war pal shd brd'] = {
+						['Thurg Plate Greaves'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Sea Sapphire',
+							},
+							['Corroded Plate Greaves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Greaves',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Thurg Leather Leggings'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Sea Sapphire',
+							},
+							['Eroded Leather Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Leggings',
+							},
+						},
+					},
+				},
+			},
+			['arms'] = {
+				['armor'] = {
+					['clr'] = {
+						['Thurg Cleric Vambraces'] = {
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Jaundice Gem',
+							},
+							['Corroded Plate Vambraces'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Vambraces',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Thurg Chain Sleeves'] = {
+							['Flawed Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Emerald',
+							},
+							['Corroded Chain Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Sleeves',
+							},
+						},
+					},
+					['dru'] = {
+						['Thurg Druid Sleeves'] = {
+							['Eroded Leather Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Sleeves',
+							},
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Jaundice Gem',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Thurg Silk Sleeves'] = {
+							['Beguiler\'s Sleeves'] = {
+								['reward_restriction'] = 'enc',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Enchanter Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Beguiler\'s Sleeves',
+							},
+							['Flawed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = '',
+								['is_reward'] = false,
+								['name'] = 'Flawed Topaz',
+							},
+							['Torn Enchanted Silk Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = '',
+								['is_reward'] = false,
+								['name'] = 'Torn Enchanted Silk Sleeves',
+							},
+							['Warlock\'s Sleeves'] = {
+								['reward_restriction'] = 'nec',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Necromancer Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Warlock\'s Sleeves',
+							},
+							['Sage\'s Sleeves'] = {
+								['reward_restriction'] = 'wiz',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Wizard Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Sage\'s Sleeves',
+							},
+							['Arch Mage\'s Sleeves'] = {
+								['reward_restriction'] = 'mag',
+								['qty'] = 1,
+								['Step'] = 999,
+								['extra'] = 'Magician Sleeves',
+								['is_reward'] = true,
+								['name'] = 'Arch Mage\'s Sleeves',
+							},
+						},
+					},
+					['shm'] = {
+						['Thurg Shaman Sleeves'] = {
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Jaundice Gem',
+							},
+							['Corroded Chain Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Chain Sleeves',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Thurg Plate Vambraces'] = {
+							['Flawed Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Emerald',
+							},
+							['Corroded Plate Vambraces'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Corroded Plate Vambraces',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Thurg Leather Sleeves'] = {
+							['Eroded Leather Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Kael',
+								['is_reward'] = false,
+								['name'] = 'Eroded Leather Sleeves',
+							},
+							['Flawed Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Emerald',
 							},
 						},
 					},
@@ -1247,233 +4843,145 @@ return {
 			},
 		},
 		['SkyShrine Armor'] = {
-			['feet'] = {
+			['hands'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['SkyShrine Silk Boots'] = {
-							['Unadorned Silk Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Silk Boots',
-							},
-							['Crushed Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Jaundice Gem',
-							},
-						},
-					},
 					['clr'] = {
-						['SkyShrine Cleric Boots'] = {
-							['Unadorned Plate Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+						['SkyShrine Cleric Gloves'] = {
+							['Unadorned Plate Gauntlets'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Plate Boots',
-							},
-							['Crushed Flame Emerald'] = {
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
 								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Gauntlets',
+							},
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Boots'] = {
-							['Crushed Black Marble'] = {
 								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Unadorned Plate Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Boots',
+								['name'] = 'Crushed Lava Ruby',
 							},
 						},
 					},
 					['rog rng ber'] = {
-						['SkyShrine Chain Boots'] = {
-							['Unadorned Chain Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Boots',
-							},
-							['Crushed Black Marble'] = {
-								['is_reward'] = false,
+						['SkyShrine Chain Gloves'] = {
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Boots'] = {
-							['Unadorned Chain Boots'] = {
 								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['name'] = 'Crushed Topaz',
+							},
+							['Unadorned Chain Gauntlets'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Chain Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['SkyShrine Leather Boots'] = {
-							['Crushed Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-							['Unadorned Leather Boots'] = {
-								['is_reward'] = false,
+								['Step'] = 1,
 								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Boots',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Gauntlets',
 							},
 						},
 					},
 					['dru'] = {
-						['SkyShrine Druid Boots'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Unadorned Leather Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+						['SkyShrine Druid Gloves'] = {
+							['Unadorned Leather Gloves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Leather Boots',
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Gloves',
+							},
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Lava Ruby',
 							},
 						},
 					},
-				},
-			},
-			['wrists'] = {
-				['armor'] = {
 					['wiz mag enc nec'] = {
-						['SkyShrine Silk Bracrer'] = {
-							['Unadorned Silk Wristband'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+						['Skyshrine Silk Gloves'] = {
+							['Tattered Silk Gloves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Silk Wristband',
-							},
-							['Crushed Onyx Sapphire'] = {
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
 								['is_reward'] = false,
-								['extra'] = 'caster',
+								['name'] = 'Tattered Silk Gloves',
+							},
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Topaz',
 							},
 						},
 					},
-					['clr'] = {
-						['SkyShrine Cleric Bracer'] = {
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+					['shm'] = {
+						['SkyShrine Shaman Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Unadorned Plate Bracer'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['name'] = 'Crushed Lava Ruby',
+							},
+							['Unadorned Chain Gauntlets'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Plate Bracer',
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Gauntlets',
 							},
 						},
 					},
 					['war shd pal brd'] = {
-						['SkyShrine Plate Bracer'] = {
-							['Crushed Flame Emerald'] = {
+						['SkyShrine Plate Gloves'] = {
+							['Unadorned Plate Gauntlets'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
 								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Gauntlets',
+							},
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Unadorned Plate Bracer'] = {
 								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Bracer',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['SkyShrine Chain Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Unadorned Chain Bracer'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Bracer',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Bracer'] = {
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Unadorned Chain Bracer'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Bracer',
+								['name'] = 'Crushed Topaz',
 							},
 						},
 					},
 					['mnk bst'] = {
-						['SkyShrine Leather Bracer'] = {
-							['Crushed Flame Emerald'] = {
+						['SkyShrine Leather Gloves'] = {
+							['Unadorned Leather Gloves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
 								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Gloves',
+							},
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Unadorned Leather Bracelet'] = {
 								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Bracelet',
-							},
-						},
-					},
-					['dru'] = {
-						['SkyShrine Druid Bracer'] = {
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Unadorned Leather Bracelet'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Bracelet',
+								['name'] = 'Crushed Topaz',
 							},
 						},
 					},
@@ -1481,50 +4989,22 @@ return {
 			},
 			['chest'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['SkyShrine Silk Robe'] = {
-							['Tattered Silk Robe'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Tattered Silk Robe',
-							},
-							['Pristine Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Pristine Emerald',
-							},
-						},
-					},
 					['clr'] = {
 						['SkyShrine Cleric Breastplate'] = {
 							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Black Marble',
 							},
 							['Unadorned Breastplate'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Breastplate',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Breastplate'] = {
-							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Unadorned Breastplate'] = {
-								['is_reward'] = false,
+								['Step'] = 1,
 								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
+								['is_reward'] = false,
 								['name'] = 'Unadorned Breastplate',
 							},
 						},
@@ -1532,180 +5012,698 @@ return {
 					['rog rng ber'] = {
 						['SkyShrine Chain Tunic'] = {
 							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Flawless Diamond',
 							},
 							['Unadorned Chain Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
 								['name'] = 'Unadorned Chain Tunic',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Tunic'] = {
-							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Unadorned Chain Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Tunic',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['SkyShrine Leather Tunic'] = {
-							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Unadorned Leather Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Tunic',
 							},
 						},
 					},
 					['dru'] = {
 						['SkyShrine Druid Tunic'] = {
 							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Black Marble',
 							},
 							['Unadorned Leather Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Tunic',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['SkyShrine Silk Robe'] = {
+							['Tattered Silk Robe'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Tattered Silk Robe',
+							},
+							['Pristine Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Pristine Emerald',
+							},
+						},
+					},
+					['shm'] = {
+						['SkyShrine Shaman Tunic'] = {
+							['Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Black Marble',
+							},
+							['Unadorned Chain Tunic'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Tunic',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['SkyShrine Plate Breastplate'] = {
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+							['Unadorned Breastplate'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Breastplate',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['SkyShrine Leather Tunic'] = {
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+							['Unadorned Leather Tunic'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
 								['name'] = 'Unadorned Leather Tunic',
 							},
 						},
 					},
 				},
 			},
-			['hands'] = {
+			['feet'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Skyshrine Silk Gloves'] = {
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Tattered Silk Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Tattered Silk Gloves',
-							},
-						},
-					},
 					['clr'] = {
-						['SkyShrine Cleric Gloves'] = {
-							['Unadorned Plate Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+						['SkyShrine Cleric Boots'] = {
+							['Unadorned Plate Boots'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Plate Gauntlets',
-							},
-							['Crushed Lava Ruby'] = {
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
 								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Gloves'] = {
-							['Crushed Topaz'] = {
 								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Unadorned Plate Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Gauntlets',
+								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
 					['rog rng ber'] = {
-						['SkyShrine Chain Gloves'] = {
-							['Crushed Topaz'] = {
+						['SkyShrine Chain Boots'] = {
+							['Unadorned Chain Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
 								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Boots',
+							},
+							['Crushed Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Unadorned Chain Gauntlets'] = {
 								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Gauntlets',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Unadorned Chain Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Gauntlets',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['SkyShrine Leather Gloves'] = {
-							['Unadorned Leather Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Gloves',
-							},
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
+								['name'] = 'Crushed Black Marble',
 							},
 						},
 					},
 					['dru'] = {
-						['SkyShrine Druid Gloves'] = {
-							['Unadorned Leather Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+						['SkyShrine Druid Boots'] = {
+							['Unadorned Leather Boots'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Leather Gloves',
-							},
-							['Crushed Lava Ruby'] = {
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
 								['is_reward'] = false,
-								['extra'] = 'priest',
+								['name'] = 'Unadorned Leather Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['SkyShrine Silk Boots'] = {
+							['Unadorned Silk Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Silk Boots',
+							},
+							['Crushed Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Jaundice Gem',
+							},
+						},
+					},
+					['shm'] = {
+						['SkyShrine Shaman Boots'] = {
+							['Unadorned Chain Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['SkyShrine Plate Boots'] = {
+							['Crushed Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Black Marble',
+							},
+							['Unadorned Plate Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Boots',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['SkyShrine Leather Boots'] = {
+							['Crushed Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Black Marble',
+							},
+							['Unadorned Leather Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Boots',
+							},
+						},
+					},
+				},
+			},
+			['head'] = {
+				['armor'] = {
+					['clr'] = {
+						['SkyShrine Clearic Helmet'] = {
+							['Unadorned Plate Helmet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Helmet',
+							},
+						},
+						['SkyShrine Cleric Helment'] = {
+							['Crushed Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Onyx Sapphire',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['SkyShrine Chain Coif'] = {
+							['Unadorned Chain Coif'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Coif',
+							},
+							['Crushed Coral'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Coral',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Cap'] = {
+							['Crushed Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Onyx Sapphire',
+							},
+							['Unadorned Leather Cap'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Cap',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['SkyShrine Silk Cap'] = {
+							['Crushed Flame Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Opal',
+							},
+							['Unadorned Silk Turban'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Silk Turban',
+							},
+						},
+					},
+					['shm'] = {
+						['SkyShrine Shaman Coif'] = {
+							['Unadorned Chain Coif'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Coif',
+							},
+							['Crushed Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Onyx Sapphire',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['SkyShrine Plate Helmet'] = {
+							['Unadorned Plate Helmet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Helmet',
+							},
+							['Crushed Coral'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Coral',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['SkyShrine Leather Cap'] = {
+							['Unadorned Leather Cap'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Cap',
+							},
+							['Crushed Coral'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Coral',
+							},
+						},
+					},
+				},
+			},
+			['wrists'] = {
+				['armor'] = {
+					['clr'] = {
+						['SkyShrine Cleric Bracer'] = {
+							['Unadorned Plate Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Bracer',
+							},
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Opal',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['SkyShrine Chain Bracer'] = {
+							['Unadorned Chain Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Bracer',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Bracer'] = {
+							['Unadorned Leather Bracelet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Bracelet',
+							},
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Opal',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['SkyShrine Silk Bracrer'] = {
+							['Unadorned Silk Wristband'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Silk Wristband',
+							},
+							['Crushed Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Onyx Sapphire',
+							},
+						},
+					},
+					['shm'] = {
+						['SkyShrine Shaman Bracer'] = {
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Opal',
+							},
+							['Unadorned Chain Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Bracer',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['SkyShrine Plate Bracer'] = {
+							['Unadorned Plate Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Bracer',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['SkyShrine Leather Bracer'] = {
+							['Unadorned Leather Bracelet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Bracelet',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+				},
+			},
+			['legs'] = {
+				['armor'] = {
+					['clr'] = {
+						['SkyShrine Cleric Greaves'] = {
+							['Unadorned Plate Greaves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Greaves',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Leggings'] = {
+							['Unadorned Leather Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Leggings',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+						},
+					},
+					['enc wiz mag nec'] = {
+						['SkyShrine Silk Pantaloons'] = {
+							['Torn Enchanted Silk Pantaloons'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Torn Enchanted Silk Pantaloons',
+							},
+							['Nephrite'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Nephrite',
+							},
+						},
+					},
+					['ber rog rng'] = {
+						['Skyshrine Chain Leggings'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Sea Sapphire',
+							},
+							['Unadorned Chain Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Leggings',
+							},
+						},
+					},
+					['shm'] = {
+						['Skyshrine Shaman Leggings'] = {
+							['Unadorned Chain Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Leggings',
+							},
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+						},
+					},
+					['war pal shd brd'] = {
+						['SkyShrine Plate Greaves'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Sea Sapphire',
+							},
+							['Unadorned Plate Greaves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Greaves',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['SkyShrine Leather Leggings'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Sea Sapphire',
+							},
+							['Unadorned Leather Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Leggings',
 							},
 						},
 					},
@@ -1713,34 +5711,102 @@ return {
 			},
 			['arms'] = {
 				['armor'] = {
+					['clr'] = {
+						['SkyShrine Cleric Vambraces'] = {
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Jaundice Gem',
+							},
+							['Unadorned Plate Vambraces'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Plate Vambraces',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['SkyShrine Chain Sleeves'] = {
+							['Unadorned Chain Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Sleeves',
+							},
+							['Flawed Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Emerald',
+							},
+						},
+					},
+					['dru'] = {
+						['SkyShrine Druid Sleeves'] = {
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Jaundice Gem',
+							},
+							['Unadorned Leather Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Leather Sleeves',
+							},
+						},
+					},
 					['wiz mag enc nec'] = {
 						['SkyShrine Silk Sleeves'] = {
 							['Unadorned Silk Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
 								['name'] = 'Unadorned Silk Sleeves',
 							},
 							['Flawed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
 								['name'] = 'Flawed Topaz',
 							},
 						},
 					},
-					['clr'] = {
-						['SkyShrine Cleric Vambraces'] = {
-							['Unadorned Plate Vambraces'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+					['shm'] = {
+						['SkyShrine Shaman Sleeves'] = {
+							['Unadorned Chain Sleeves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Unadorned Plate Vambraces',
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
+								['name'] = 'Unadorned Chain Sleeves',
 							},
 							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Jaundice Gem',
 							},
 						},
@@ -1748,314 +5814,40 @@ return {
 					['war shd pal brd'] = {
 						['SkyShrine Plate Vambraces'] = {
 							['Flawed Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Flawed Emerald',
 							},
 							['Unadorned Plate Vambraces'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
 								['name'] = 'Unadorned Plate Vambraces',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['SkyShrine Chain Sleeves'] = {
-							['Flawed Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Unadorned Chain Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Sleeves',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Sleeves'] = {
-							['Unadorned Chain Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
 							},
 						},
 					},
 					['mnk bst'] = {
 						['SkyShrine Leather Sleeves'] = {
 							['Flawed Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Flawed Emerald',
 							},
 							['Unadorned Leather Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'ToV Halls of Testing',
+								['is_reward'] = false,
 								['name'] = 'Unadorned Leather Sleeves',
-							},
-						},
-					},
-					['dru'] = {
-						['SkyShrine Druid Sleeves'] = {
-							['Unadorned Leather Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-				},
-			},
-			['legs'] = {
-				['armor'] = {
-					['dru'] = {
-						['SkyShrine Druid Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Unadorned Leather Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Leggings',
-							},
-						},
-					},
-					['clr'] = {
-						['SkyShrine Cleric Greaves'] = {
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Unadorned Plate Greaves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Greaves',
-							},
-						},
-					},
-					['war pal shd brd'] = {
-						['SkyShrine Plate Greaves'] = {
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Unadorned Plate Greaves'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Greaves',
-							},
-						},
-					},
-					['enc wiz mag nec'] = {
-						['SkyShrine Silk Pantaloons'] = {
-							['Nephrite'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Nephrite',
-							},
-							['Torn Enchanted Silk Pantaloons'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Pantaloons',
-							},
-						},
-					},
-					['shm'] = {
-						['Skyshrine Shaman Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Unadorned Chain Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Leggings',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['SkyShrine Leather Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Unadorned Leather Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Leggings',
-							},
-						},
-					},
-					['ber rog rng'] = {
-						['Skyshrine Chain Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Unadorned Chain Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Leggings',
-							},
-						},
-					},
-				},
-			},
-			['head'] = {
-				['armor'] = {
-					['wiz mag enc nec'] = {
-						['SkyShrine Silk Cap'] = {
-							['Crushed Flame Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Opal',
-							},
-							['Unadorned Silk Turban'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Silk Turban',
-							},
-						},
-					},
-					['clr'] = {
-						['SkyShrine Cleric Helment'] = {
-							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-						},
-						['SkyShrine Clearic Helmet'] = {
-							['Unadorned Plate Helmet'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Helmet',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['SkyShrine Plate Helmet'] = {
-							['Unadorned Plate Helmet'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Plate Helmet',
-							},
-							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['SkyShrine Chain Coif'] = {
-							['Unadorned Chain Coif'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Coif',
-							},
-							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-						},
-					},
-					['shm'] = {
-						['SkyShrine Shaman Coif'] = {
-							['Unadorned Chain Coif'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Chain Coif',
-							},
-							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['SkyShrine Leather Cap'] = {
-							['Unadorned Leather Cap'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Cap',
-							},
-							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
-						},
-					},
-					['dru'] = {
-						['SkyShrine Druid Cap'] = {
-							['Unadorned Leather Cap'] = {
-								['is_reward'] = false,
-								['extra'] = 'ToV Halls of Testing',
-								['qty'] = 1,
-								['name'] = 'Unadorned Leather Cap',
-							},
-							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
 							},
 						},
 					},
@@ -2063,36 +5855,394 @@ return {
 			},
 		},
 		['Kael Armor'] = {
-			['feet'] = {
+			['hands'] = {
 				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Kael Silk Boots'] = {
-							['Ancient Silk Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Boots',
-							},
-							['Crushed Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
+					['clr'] = {
+						['Kael Cleric Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Jaundice Gem',
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Lava Ruby',
+							},
+							['Ancient Tarnished Gauntlets'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Gauntlets',
 							},
 						},
 					},
+					['rog rng ber'] = {
+						['Kael Chain Gloves'] = {
+							['Ancient Tarnished Chain Gauntlets'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Gauntlets',
+							},
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Topaz',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Lava Ruby',
+							},
+							['Ancient Leather Gloves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Gloves',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Gloves'] = {
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Topaz',
+							},
+							['Ancient Silk Gloves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Silk Gloves',
+							},
+						},
+					},
+					['shm'] = {
+						['Kael Shaman Gloves'] = {
+							['Crushed Lava Ruby'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Lava Ruby',
+							},
+							['Ancient Tarnished Chain Gauntlets'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Gauntlets',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Gloves'] = {
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Topaz',
+							},
+							['Ancient Tarnished Gauntlets'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Gauntlets',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Gloves'] = {
+							['Crushed Topaz'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Topaz',
+							},
+							['Ancient Leather Gloves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Gloves',
+							},
+						},
+					},
+				},
+			},
+			['chest'] = {
+				['armor'] = {
+					['clr'] = {
+						['Kael Cleric Breastplate'] = {
+							['Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Black Marble',
+							},
+							['Ancient Tarnished Breastplate'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Breastplate',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Kael Chain Tunic'] = {
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+							['Ancient Tarnished Chain Tunic'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Tunic',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Tunic'] = {
+							['Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Black Marble',
+							},
+							['Ancient Leather Tunic'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Tunic',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Robe'] = {
+							['Pristine Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Pristine Emerald',
+							},
+							['Ancient Silk Robe'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Silk Robe',
+							},
+						},
+					},
+					['shm'] = {
+						['Kael Shaman Tunic'] = {
+							['Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Black Marble',
+							},
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Breastplate'] = {
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+							['Ancient Tarnished Breastplate'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Breastplate',
+							},
+						},
+					},
+					['mnk bst'] = {
+						['Kael Leather Tunic\r\n'] = {
+							['Flawless Diamond'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawless Diamond',
+							},
+						},
+						['Kael Leather Tunic'] = {
+							['Ancient Leather Tunic'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Tunic',
+							},
+						},
+					},
+				},
+			},
+			['feet'] = {
+				['armor'] = {
 					['clr'] = {
 						['Kael Cleric Boots'] = {
 							['Ancient Tarnished Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
 								['name'] = 'Ancient Tarnished Boots',
 							},
 							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['rog rng ber'] = {
+						['Kael Chain Boots'] = {
+							['Crushed Black Marble'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Black Marble',
+							},
+							['Ancient Tarnished Chain Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Boots',
+							},
+						},
+					},
+					['dru'] = {
+						['Kael Druid Boots'] = {
+							['Ancient Leather Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Boots'] = {
+							['Crushed Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Jaundice Gem',
+							},
+							['Ancient Silk Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Silk Boots',
+							},
+						},
+					},
+					['shm'] = {
+						['Kael Shaman Boots'] = {
+							['Ancient Tarnished Chain Boots'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Boots',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Crushed Flame Emerald',
 							},
 						},
@@ -2100,662 +6250,40 @@ return {
 					['war shd pal brd'] = {
 						['Kael Plate Boots'] = {
 							['Ancient Tarnished Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
 								['name'] = 'Ancient Tarnished Boots',
 							},
 							['Crushed Black Marble'] = {
-								['is_reward'] = false,
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
 								['extra'] = 'melee',
-								['qty'] = 3,
+								['is_reward'] = false,
 								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Boots'] = {
-							['Ancient Tarnished Chain Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Boots',
-							},
-							['Crushed Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Boots'] = {
-							['Ancient Tarnished Chain Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
 					['mnk bst'] = {
 						['Kael Leather Boots'] = {
 							['Ancient Leather Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
 								['name'] = 'Ancient Leather Boots',
 							},
 							['Crushed Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Crushed Black Marble',
-							},
-						},
-					},
-					['dru'] = {
-						['Kael Druid Boots'] = {
-							['Ancient Leather Boots'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Boots',
-							},
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-						},
-					},
-				},
-			},
-			['wrists'] = {
-				['armor'] = {
-					['dru'] = {
-						['Kael Druid Bracer'] = {
-							['Ancient Leather Bracelet'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Bracelet',
-							},
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Bracer'] = {
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Ancient Tarnished Bracer'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Bracer',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Kael Plate Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Ancient Tarnished Bracer'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Bracer',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Ancient Tarnished Chain Bracer'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Bracer',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Bracer'] = {
-							['Crushed Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Opal',
-							},
-							['Ancient Tarnished Chain Bracer'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Bracer',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Bracer'] = {
-							['Crushed Flame Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Flame Emerald',
-							},
-							['Ancient Leather Bracelet'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Bracelet',
-							},
-						},
-					},
-					['wiz nec enc mag'] = {
-						['Kael Silk Wristband'] = {
-							['Ancient Silk Wristband'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Wristband',
-							},
-							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Onyx Sapphire',
-							},
-						},
-					},
-				},
-			},
-			['chest'] = {
-				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Kael Silk Robe'] = {
-							['Pristine Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Pristine Emerald',
-							},
-							['Ancient Silk Robe'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Robe',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Breastplate'] = {
-							['Ancient Tarnished Breastplate'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Breastplate',
-							},
-							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Kael Plate Breastplate'] = {
-							['Ancient Tarnished Breastplate'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Breastplate',
-							},
-							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Tunic'] = {
-							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-							['Ancient Tarnished Chain Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Tunic',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Tunic'] = {
-							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Tunic\r\n'] = {
-							['Flawless Diamond'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawless Diamond',
-							},
-						},
-						['Kael Leather Tunic'] = {
-							['Ancient Leather Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Tunic',
-							},
-						},
-					},
-					['dru'] = {
-						['Kael Druid Tunic'] = {
-							['Ancient Leather Tunic'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Tunic',
-							},
-							['Black Marble'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Black Marble',
-							},
-						},
-					},
-				},
-			},
-			['hands'] = {
-				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Kael Silk Gloves'] = {
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Ancient Silk Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Gloves',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Gloves'] = {
-							['Ancient Tarnished Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Gauntlets',
-							},
-							['Crushed Lava Ruby'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Kael Plate Gloves'] = {
-							['Ancient Tarnished Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Gauntlets',
-							},
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Gloves'] = {
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Ancient Tarnished Chain Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Gauntlets',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Gloves'] = {
-							['Crushed Lava Ruby'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-							['Ancient Tarnished Chain Gauntlets'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Gauntlets',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Gloves'] = {
-							['Crushed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Topaz',
-							},
-							['Ancient Leather Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Gloves',
-							},
-						},
-					},
-					['dru'] = {
-						['Kael Druid Gloves'] = {
-							['Ancient Leather Gloves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Gloves',
-							},
-							['Crushed Lava Ruby'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Crushed Lava Ruby',
-							},
-						},
-					},
-				},
-			},
-			['arms'] = {
-				['armor'] = {
-					['wiz mag enc nec'] = {
-						['Kael Silk Sleeves'] = {
-							['Ancient Silk Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Sleeves',
-							},
-							['Flawed Topaz'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Flawed Topaz',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Vambraces'] = {
-							['Ancient Tarnished Vambraces'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Vambraces',
-							},
-							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Kael Plate Vambraces'] = {
-							['Flawed Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Ancient Tarnished Vambraces'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Vambraces',
-							},
-						},
-					},
-					['rog rng ber'] = {
-						['Kael Chain Sleeves'] = {
-							['Flawed Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Ancient Tarnished Chain Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Sleeves',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Sleeves'] = {
-							['Ancient Tarnished Chain Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Sleeves'] = {
-							['Flawed Emerald'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Emerald',
-							},
-							['Ancient Leather Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Sleeves',
-							},
-						},
-					},
-					['dru'] = {
-						['Kael Druid Sleeves'] = {
-							['Ancient Leather Sleeves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Sleeves',
-							},
-							['Jaundice Gem'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Jaundice Gem',
-							},
-						},
-					},
-				},
-			},
-			['legs'] = {
-				['armor'] = {
-					['dru'] = {
-						['Kael Druid Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Ancient Leather Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Leggings',
-							},
-						},
-					},
-					['clr'] = {
-						['Kael Cleric Greaves'] = {
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Ancient Tarnished Greaves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Greaves',
-							},
-						},
-					},
-					['war pal shd brd'] = {
-						['Kael Plate Greaves'] = {
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Ancient Tarnished Greaves'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Greaves',
-							},
-						},
-					},
-					['enc wiz mag nec'] = {
-						['Kael Silk Pantaloons'] = {
-							['Nephrite'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
-								['qty'] = 3,
-								['name'] = 'Nephrite',
-							},
-							['Torn Enchanted Silk Pantaloons'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Torn Enchanted Silk Pantaloons',
-							},
-						},
-					},
-					['shm'] = {
-						['Kael Shaman Leggings'] = {
-							['Chipped Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
-								['qty'] = 3,
-								['name'] = 'Chipped Onyx Sapphire',
-							},
-							['Ancient Tarnished Chain Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Leggings',
-							},
-						},
-					},
-					['mnk bst'] = {
-						['Kael Leather Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Ancient Leather Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Leggings',
-							},
-						},
-					},
-					['ber rog rng'] = {
-						['Kael Chain Leggings'] = {
-							['Flawed Sea Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Flawed Sea Sapphire',
-							},
-							['Ancient Tarnished Chain Leggings'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Chain Leggings',
 							},
 						},
 					},
@@ -2763,82 +6291,122 @@ return {
 			},
 			['head'] = {
 				['armor'] = {
-					['dru'] = {
-						['Kael Druid Cap'] = {
-							['Ancient Leather Cap'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Leather Cap',
-							},
+					['clr'] = {
+						['Kael Clearic Helmet'] = {
 							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Crushed Onyx Sapphire',
+							},
+							['Ancient Tarnished Helmet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Helmet',
 							},
 						},
 					},
 					['rng rog ber'] = {
 						['Kael Chain Coif'] = {
-							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
-								['qty'] = 3,
-								['name'] = 'Crushed Coral',
-							},
 							['Ancient Tarnished Chain Coif'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
 								['name'] = 'Ancient Tarnished Chain Coif',
 							},
-						},
-					},
-					['war shd pal brd'] = {
-						['Kael Plate Helmet'] = {
-							['Ancient Tarnished Helmet'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Helmet',
-							},
 							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Crushed Coral',
 							},
 						},
 					},
-					['clr'] = {
-						['Kael Clearic Helmet'] = {
+					['dru'] = {
+						['Kael Druid Cap'] = {
 							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Crushed Onyx Sapphire',
 							},
-							['Ancient Tarnished Helmet'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
+							['Ancient Leather Cap'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Ancient Tarnished Helmet',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Cap',
+							},
+						},
+					},
+					['wiz mag enc nec'] = {
+						['Kael Silk Cap'] = {
+							['Crushed Flame Opal'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'caster',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Opal',
+							},
+							['Ancient Silk Turban'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Silk Turban',
 							},
 						},
 					},
 					['shm'] = {
 						['Kael Shaman Coif'] = {
 							['Crushed Onyx Sapphire'] = {
-								['is_reward'] = false,
-								['extra'] = 'priest',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
+								['is_reward'] = false,
 								['name'] = 'Crushed Onyx Sapphire',
 							},
 							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Coral',
+							},
+						},
+					},
+					['war shd pal brd'] = {
+						['Kael Plate Helmet'] = {
+							['Ancient Tarnished Helmet'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Helmet',
+							},
+							['Crushed Coral'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Crushed Coral',
 							},
 						},
@@ -2846,376 +6414,164 @@ return {
 					['mnk bst'] = {
 						['Kael Leather Cap'] = {
 							['Ancient Leather Cap'] = {
-								['is_reward'] = false,
-								['extra'] = 'Temple of Veeshan',
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
 								['name'] = 'Ancient Leather Cap',
 							},
 							['Crushed Coral'] = {
-								['is_reward'] = false,
-								['extra'] = 'melee',
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
 								['name'] = 'Crushed Coral',
 							},
 						},
 					},
-					['wiz mag enc nec'] = {
-						['Kael Silk Cap'] = {
-							['Crushed Flame Opal'] = {
-								['is_reward'] = false,
-								['extra'] = 'caster',
+				},
+			},
+			['wrists'] = {
+				['armor'] = {
+					['clr'] = {
+						['Kael Cleric Bracer'] = {
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Crushed Flame Opal',
-							},
-							['Ancient Silk Turban'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
+								['name'] = 'Crushed Opal',
+							},
+							['Ancient Tarnished Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
 								['extra'] = 'Temple of Veeshan',
-								['qty'] = 1,
-								['name'] = 'Ancient Silk Turban',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Bracer',
 							},
 						},
 					},
-				},
-			},
-		},
-	},
-	['Omens of War'] = {
-		['Tier2 Armor'] = {
-			['feet'] = {
-				['armor'] = {
-					['plate'] = {
-						['T2 Plate Boots'] = {
-							['Muramite Cruelty Medal'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-							['Kyv Hunter Ring'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Hunter Ring',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Boots'] = {
-							['Muramite Cruelty Medal'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-							['Dragorn Muramite Ring'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Dragorn Muramite Ring',
-							},
-						},
-					},
-					['cloth'] = {
-						['T2 Cloth Slippers'] = {
-							['Muramite Cruelty Medal'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-							['Ikaav Tail'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Ikaav Tail',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Boots'] = {
-							['Muramite Cruelty Medal'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Muramite Cruelty Medal',
-							},
-							['Chimera Gut String'] = {
-								['is_reward'] = false,
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Chimera Gut String',
-							},
-						},
-					},
-				},
-			},
-			['wrists'] = {
-				['armor'] = {
-					['plate'] = {
-						['T2 Plate Bracer'] = {
-							['Large Piece of Kuuan Ore'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Large Piece of Kuuan Ore',
-							},
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Bracer'] = {
-							['Withered Discordling Tongue'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Withered Discordling Tongue',
-							},
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-						},
-					},
-					['cloth'] = {
-						['T2 Cloth Wristband'] = {
-							['Softened Feran Hide'] = {
-								['is_reward'] = false,
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Softened Feran Hide',
-							},
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Bracer'] = {
-							['Quality Feran Hide'] = {
-								['is_reward'] = false,
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Quality Feran Hide',
-							},
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-						},
-					},
-				},
-			},
-			['chest'] = {
-				['armor'] = {
-					['plate'] = {
-						['T2 Plate Breastplate'] = {
-							['Ceremonial Dragorn Candle'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+					['wiz nec enc mag'] = {
+						['Kael Silk Wristband'] = {
+							['Crushed Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Ceremonial Dragorn Candle',
-							},
-							['Jayruk\'s Vest'] = {
+								['Step'] = 1,
+								['extra'] = 'caster',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
+								['name'] = 'Crushed Onyx Sapphire',
+							},
+							['Ancient Silk Wristband'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Silk Wristband',
 							},
 						},
 					},
-					['chain'] = {
-						['T2 Chain Tunic'] = {
-							['Kyv Short Bow'] = {
+					['rog rng ber'] = {
+						['Kael Chain Bracer'] = {
+							['Ancient Tarnished Chain Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
+								['name'] = 'Ancient Tarnished Chain Bracer',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Kyv Short Bow',
-							},
-							['Jayruk\'s Vest'] = {
+								['Step'] = 1,
+								['extra'] = 'melee',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
+								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
-					['cloth'] = {
-						['T2 Cloth Robe'] = {
-							['Piece of Vrenlar Fruit'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
+					['dru'] = {
+						['Kael Druid Bracer'] = {
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Piece of Vrenlar Fruit',
-							},
-							['Jayruk\'s Vest'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
+								['name'] = 'Crushed Opal',
+							},
+							['Ancient Leather Bracelet'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Bracelet',
 							},
 						},
 					},
-					['leather'] = {
-						['T2 Leather Tunic'] = {
-							['Bazu Nail Bracelet'] = {
+					['shm'] = {
+						['Kael Shaman Bracer'] = {
+							['Ancient Tarnished Chain Bracer'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Noble\'s Causeway, Muramite Proving Grounds',
+								['name'] = 'Ancient Tarnished Chain Bracer',
+							},
+							['Crushed Opal'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Bazu Nail Bracelet',
-							},
-							['Jayruk\'s Vest'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Jayruk\'s Vest',
+								['name'] = 'Crushed Opal',
 							},
 						},
 					},
-				},
-			},
-			['hands'] = {
-				['armor'] = {
-					['plate'] = {
-						['T2 Plate Gauntlets'] = {
-							['Crystal of Yearning'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Crystal of Yearning',
-							},
-							['Makyah\'s Axe'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
+					['war shd pal brd'] = {
+						['Kael Plate Bracer'] = {
+							['Ancient Tarnished Bracer'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Bracer',
+							},
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
-					['chain'] = {
-						['T2 Chain Gloves'] = {
-							['Kyv Whetstone'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Whetstone',
-							},
-							['Makyah\'s Axe'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
+					['mnk bst'] = {
+						['Kael Leather Bracer'] = {
+							['Ancient Leather Bracelet'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
-							},
-						},
-					},
-					['cloth'] = {
-						['T2 Cloth Gloves'] = {
-							['Kuuan Whetstone'] = {
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Kuuan Whetstone',
+								['name'] = 'Ancient Leather Bracelet',
 							},
-							['Makyah\'s Axe'] = {
+							['Crushed Flame Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Gloves'] = {
-							['Fine Chimera Hide'] = {
-								['is_reward'] = false,
-								['extra'] = 'Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Fine Chimera Hide',
-							},
-							['Makyah\'s Axe'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Makyah\'s Axe',
-							},
-						},
-					},
-				},
-			},
-			['arms'] = {
-				['armor'] = {
-					['plate'] = {
-						['T2 Plate Vambraces'] = {
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Noc Right Hand'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Noc Right Hand',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Sleeves'] = {
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Ikaav Head'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Ikaav Head',
-							},
-						},
-					},
-					['cloth'] = {
-						['T2 Cloth Sleeves'] = {
-							['Spool of Balemoon Silk'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Spool of Balemoon Silk',
-							},
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Sleeves'] = {
-							['Riftseeker Heart'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Riftseeker Heart',
-							},
-							['Spiked Discordling Collar'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Spiked Discordling Collar',
+								['name'] = 'Crushed Flame Emerald',
 							},
 						},
 					},
@@ -3223,541 +6579,143 @@ return {
 			},
 			['legs'] = {
 				['armor'] = {
-					['plate'] = {
-						['T2 Plate Legs'] = {
-							['Blackened Discordling Tail'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds, Riftseekers\' Sanctum',
+					['clr'] = {
+						['Kael Cleric Greaves'] = {
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Blackened Discordling Tail',
-							},
-							['Patorav\'s Amulet'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+							['Ancient Tarnished Greaves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Greaves',
 							},
 						},
 					},
-					['chain'] = {
-						['T2 Chain Legs'] = {
-							['Shattered Ukun Hide'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds, Noble\'s Causeway',
+					['dru'] = {
+						['Kael Druid Leggings'] = {
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Shattered Ukun Hide',
-							},
-							['Patorav\'s Amulet'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+							['Ancient Leather Leggings'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Leather Leggings',
 							},
 						},
 					},
-					['cloth'] = {
-						['T2 Cloth Legs'] = {
-							['Softened Feran Hide'] = {
+					['enc wiz mag nec'] = {
+						['Kael Silk Pantaloons'] = {
+							['Torn Enchanted Silk Pantaloons'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Riftseekers\' Sanctum',
+								['name'] = 'Torn Enchanted Silk Pantaloons',
+							},
+							['Nephrite'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Softened Feran Hide',
-							},
-							['Patorav\'s Amulet'] = {
+								['Step'] = 1,
+								['extra'] = 'caster',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
+								['name'] = 'Nephrite',
 							},
 						},
 					},
-					['leather'] = {
-						['T2 Leather Legs'] = {
-							['Discordling Hoof'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
+					['ber rog rng'] = {
+						['Kael Chain Leggings'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Discordling Hoof',
-							},
-							['Patorav\'s Amulet'] = {
+								['Step'] = 1,
+								['extra'] = 'melee',
 								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
+								['name'] = 'Flawed Sea Sapphire',
+							},
+							['Ancient Tarnished Chain Leggings'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Patorav\'s Amulet',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Leggings',
 							},
 						},
 					},
-				},
-			},
-			['head'] = {
-				['armor'] = {
-					['plate'] = {
-						['T2 Plate Helmet'] = {
-							['Kyv Food Sack'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Food Sack',
-							},
-							['Patorav\'s Walking Stick'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-						},
-					},
-					['chain'] = {
-						['T2 Chain Coif'] = {
-							['Kyv Scout Ring'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Kyv Scout Ring',
-							},
-							['Patorav\'s Walking Stick'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-						},
-					},
-					['cloth'] = {
-						['T2 Cloth Cap'] = {
-							['Bar of Nashtar Berry Soap'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish, Muramite Proving Grounds, Riftseekers\' Sanctum',
-								['qty'] = 2,
-								['name'] = 'Bar of Nashtar Berry Soap',
-							},
-							['Patorav\'s Walking Stick'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-						},
-					},
-					['leather'] = {
-						['T2 Leather Cap'] = {
-							['Muramite Noble\'s March Award'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds',
-								['qty'] = 2,
-								['name'] = 'Muramite Noble\'s March Award',
-							},
-							['Patorav\'s Walking Stick'] = {
-								['is_reward'] = false,
-								['extra'] = 'Asylum of Anguish',
-								['qty'] = 1,
-								['name'] = 'Patorav\'s Walking Stick',
-							},
-						},
-					},
-				},
-			},
-		},
-		['Spells'] = {
-			['spell'] = {
-				['spell'] = {
-					['wiz dru'] = {
-						['Bloodfields Ports'] = {
-							['Discordant Crystal Shard'] = {
-								['is_reward'] = false,
-								['extra'] = '',
+					['shm'] = {
+						['Kael Shaman Leggings'] = {
+							['Chipped Onyx Sapphire'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Discordant Crystal Shard',
-							},
-							['Rolled Discordant Parchment'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = '',
+								['name'] = 'Chipped Onyx Sapphire',
+							},
+							['Ancient Tarnished Chain Leggings'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Rolled Discordant Parchment',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Leggings',
 							},
 						},
-						['Wall of Slaughter Ports'] = {
-							['Dark Enchanted Scroll'] = {
-								['is_reward'] = false,
-								['extra'] = '',
-								['qty'] = 1,
-								['name'] = 'Dark Enchanted Scroll',
-							},
-							['Pure Discordant Blood'] = {
-								['is_reward'] = false,
-								['extra'] = '',
+					},
+					['war pal shd brd'] = {
+						['Kael Plate Greaves'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Pure Discordant Blood',
+								['Step'] = 1,
+								['extra'] = 'melee',
+								['is_reward'] = false,
+								['name'] = 'Flawed Sea Sapphire',
+							},
+							['Ancient Tarnished Greaves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Greaves',
 							},
 						},
 					},
-				},
-			},
-		},
-		['Tier1 Armor'] = {
-			['feet'] = {
-				['armor'] = {
-					['plate'] = {
-						['T1 Plate Boots'] = {
-							['Kuuan Traitor Stones'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
-							},
-							['Kyv Bowstring'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Kyv Bowstring',
-							},
-						},
-					},
-					['chain'] = {
-						['T1 Chain Boots'] = {
-							['Sunrider\'s Boots'] = {
-								['is_reward'] = true,
-								['extra'] = 'Ranger BP',
-								['qty'] = 1,
-								['name'] = 'Sunrider\'s Boots',
-							},
-							['Kuuan Traitor Stones'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
-							},
-							['Darkraider\'s Boots'] = {
-								['is_reward'] = true,
-								['extra'] = 'Rogue Boots',
-								['qty'] = 1,
-								['name'] = 'Darkraider\'s Boots',
-							},
-							['Ragebound Chain Boots'] = {
-								['is_reward'] = true,
-								['extra'] = 'Berserker Boots',
-								['qty'] = 1,
-								['name'] = 'Ragebound Chain Boots',
-							},
-							['Spiritkin Slippers'] = {
-								['is_reward'] = true,
-								['extra'] = 'Shaman Boots',
-								['qty'] = 1,
-								['name'] = 'Spiritkin Slippers',
-							},
-							['Muramite Dispatch'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Muramite Dispatch',
-							},
-						},
-					},
-					['cloth'] = {
-						['T1 Cloth Slippers'] = {
-							['Kuuan Traitor Stones'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
-							},
-							['Ikaav Braid'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Ikaav Braid',
-							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Boots'] = {
-							['Kuuan Traitor Stones'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Kuuan Traitor Stones',
-							},
-							['Muramite Dragorn Slaver Whip'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Muramite Dragorn Slaver Whip',
-							},
-						},
-					},
-				},
-			},
-			['wrists'] = {
-				['armor'] = {
-					['plate'] = {
-						['T1 Plate Bracer'] = {
-							['Ashlock Branch'] = {
-								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Ashlock Branch',
-							},
-							['Dranik Blood Standard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dranik Blood Standard',
-							},
-						},
-					},
-					['chain'] = {
-						['T1 Chain Bracer'] = {
-							['Ragebound Chain Wristband'] = {
-								['is_reward'] = true,
-								['extra'] = 'Berserker Bracer',
-								['qty'] = 1,
-								['name'] = 'Ragebound Chain Wristband',
-							},
-							['Shed Ikaav Skin'] = {
-								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik, Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Shed Ikaav Skin',
-							},
-							['Dranik Blood Standard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dranik Blood Standard',
-							},
-							['Sunrider\'s Wristguard'] = {
-								['is_reward'] = true,
-								['extra'] = 'Ranger Bracer',
-								['qty'] = 1,
-								['name'] = 'Sunrider\'s Wristguard',
-							},
-							['Darkraider\'s Wristguard'] = {
-								['is_reward'] = true,
-								['extra'] = 'Rogue Bracer',
-								['qty'] = 1,
-								['name'] = 'Darkraider\'s Wristguard',
-							},
-							['Spiritkin Bracer'] = {
-								['is_reward'] = true,
-								['extra'] = 'Shaman Bracer',
-								['qty'] = 1,
-								['name'] = 'Spiritkin Bracer',
-							},
-						},
-					},
-					['cloth'] = {
-						['T1 Cloth Wristband'] = {
-							['Dranik Blood Standard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dranik Blood Standard',
-							},
-							['Hooked Chimera Claw'] = {
-								['is_reward'] = false,
-								['extra'] = 'Riftseekers\' Sanctum, Wall of Slaughter',
-								['qty'] = 2,
-								['name'] = 'Hooked Chimera Claw',
-							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Bracer'] = {
-							['Dranik Blood Standard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dranik Blood Standard',
-							},
-							['Dansk Branch'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Dansk Branch',
-							},
-						},
-					},
-				},
-			},
-			['chest'] = {
-				['armor'] = {
-					['plate'] = {
-						['T1 Plate Breastplate'] = {
-							['Shorn Murkglider Tentacle'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+					['mnk bst'] = {
+						['Kael Leather Leggings'] = {
+							['Flawed Sea Sapphire'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Shorn Murkglider Tentacle',
-							},
-							['Dragorn Elder Scepter'] = {
+								['Step'] = 1,
+								['extra'] = 'melee',
 								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
-								['qty'] = 1,
-								['name'] = 'Dragorn Elder Scepter',
+								['name'] = 'Flawed Sea Sapphire',
 							},
-						},
-					},
-					['chain'] = {
-						['T1 Chain Tunic'] = {
-							['Ragged Discordling Skin'] = {
+							['Ancient Leather Leggings'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter',
-								['qty'] = 3,
-								['name'] = 'Ragged Discordling Skin',
-							},
-							['Ragebound Chain Chestguard'] = {
-								['is_reward'] = true,
-								['extra'] = 'Berserker BP',
-								['qty'] = 1,
-								['name'] = 'Ragebound Chain Chestguard',
-							},
-							['Sunrider\'s Vest'] = {
-								['is_reward'] = true,
-								['extra'] = 'Ranger BP',
-								['qty'] = 1,
-								['name'] = 'Sunrider\'s Vest',
-							},
-							['Darkraider\'s Vest'] = {
-								['is_reward'] = true,
-								['extra'] = 'Rogue BP',
-								['qty'] = 1,
-								['name'] = 'Darkraider\'s Vest',
-							},
-							['Dragorn Elder Scepter'] = {
-								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
-								['qty'] = 1,
-								['name'] = 'Dragorn Elder Scepter',
-							},
-							['Spiritkin Tunic'] = {
-								['is_reward'] = true,
-								['extra'] = 'Shaman BP',
-								['qty'] = 1,
-								['name'] = 'Spiritkin Tunic',
-							},
-						},
-					},
-					['cloth'] = {
-						['T1 Cloth Robe'] = {
-							['Kuuan Oil Candle'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 3,
-								['name'] = 'Kuuan Oil Candle',
-							},
-							['Dragorn Elder Scepter'] = {
-								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
-								['qty'] = 1,
-								['name'] = 'Dragorn Elder Scepter',
-							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Tunic'] = {
-							['Tattered Chimera Pelt'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter',
-								['qty'] = 3,
-								['name'] = 'Tattered Chimera Pelt',
-							},
-							['Dragorn Elder Scepter'] = {
-								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik and Wall of Slaughter',
-								['qty'] = 1,
-								['name'] = 'Dragorn Elder Scepter',
-							},
-						},
-					},
-				},
-			},
-			['hands'] = {
-				['armor'] = {
-					['plate'] = {
-						['T1 Plate Gauntlets'] = {
-							['Spire Control Shard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
-							},
-							['Discordling Message Satchel'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Discordling Message Satchel',
-							},
-						},
-					},
-					['chain'] = {
-						['T1 Chain Gloves'] = {
-							['Spire Control Shard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
-							},
-							['Ragebound Chain Mittens'] = {
-								['is_reward'] = true,
-								['extra'] = 'Berserker Gloves',
-								['qty'] = 1,
-								['name'] = 'Ragebound Chain Mittens',
-							},
-							['Darkraider\'s Gloves'] = {
-								['is_reward'] = true,
-								['extra'] = 'Rogue Gloves',
-								['qty'] = 1,
-								['name'] = 'Darkraider\'s Gloves',
-							},
-							['Spiritkin Mittens'] = {
-								['is_reward'] = true,
-								['extra'] = 'Shaman Gloves',
-								['qty'] = 1,
-								['name'] = 'Spiritkin Mittens',
-							},
-							['Sunrider\'s Gloves'] = {
-								['is_reward'] = true,
-								['extra'] = 'Ranger Gloves',
-								['qty'] = 1,
-								['name'] = 'Sunrider\'s Gloves',
-							},
-							['Darkshorn Kyv Hood'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Darkshorn Kyv Hood',
-							},
-						},
-					},
-					['cloth'] = {
-						['T1 Cloth Gloves'] = {
-							['Spire Control Shard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
-							},
-							['Discordling Finger Bone'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
-								['qty'] = 2,
-								['name'] = 'Discordling Finger Bone',
-							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Gloves'] = {
-							['Glistening Murkglider Pelts'] = {
-								['is_reward'] = false,
-								['extra'] = 'The Ruined City of Dranik and the Wall of Slaughter.',
-								['qty'] = 2,
-								['name'] = 'Glistening Murkglider Pelts',
-							},
-							['Spire Control Shard'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Spire Control Shard',
+								['name'] = 'Ancient Leather Leggings',
 							},
 						},
 					},
@@ -3765,275 +6723,143 @@ return {
 			},
 			['arms'] = {
 				['armor'] = {
-					['plate'] = {
-						['T1 Plate Vambraces'] = {
-							['Ukun Quill'] = {
-								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
-								['qty'] = 2,
-								['name'] = 'Ukun Quill',
-							},
-							['Map of Old Kuua'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Map of Old Kuua',
-							},
-						},
-					},
-					['chain'] = {
-						['T1 Chain Sleeves'] = {
-							['Ragebound Chain Sleeves'] = {
-								['is_reward'] = true,
-								['extra'] = 'Berserker Arms',
-								['qty'] = 1,
-								['name'] = 'Ragebound Chain Sleeves',
-							},
-							['Darkraider\'s Sleeves'] = {
-								['is_reward'] = true,
-								['extra'] = 'Rogue Arms',
-								['qty'] = 1,
-								['name'] = 'Darkraider\'s Sleeves',
-							},
-							['Spiritkin Sleeves'] = {
-								['is_reward'] = true,
-								['extra'] = 'Shaman Arms',
-								['qty'] = 1,
-								['name'] = 'Spiritkin Sleeves',
-							},
-							['Sunrider\'s Sleeves'] = {
-								['is_reward'] = true,
-								['extra'] = 'Ranger Arms',
-								['qty'] = 1,
-								['name'] = 'Sunrider\'s Sleeves',
-							},
-							['Kuuan Lodestone'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Kuuan Lodestone',
-							},
-							['Map of Old Kuua'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Map of Old Kuua',
-							},
-						},
-					},
-					['cloth'] = {
-						['T1 Cloth Sleeves'] = {
-							['Jagged Noc Tusk'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Jagged Noc Tusk',
-							},
-							['Map of Old Kuua'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Map of Old Kuua',
-							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Sleeves'] = {
-							['Map of Old Kuua'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Map of Old Kuua',
-							},
-							['Dansk Blossom'] = {
-								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 2,
-								['name'] = 'Dansk Blossom',
-							},
-						},
-					},
-				},
-			},
-			['legs'] = {
-				['armor'] = {
-					['plate'] = {
-						['T1 Plate Greaves'] = {
-							['Dranik Incense Burner'] = {
-								['is_reward'] = false,
-								['extra'] = 'Muramite Proving Grounds, Wall of Slaughter',
+					['clr'] = {
+						['Kael Cleric Vambraces'] = {
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Dranik Incense Burner',
-							},
-							['Dragorn City Ember'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
+								['name'] = 'Jaundice Gem',
+							},
+							['Ancient Tarnished Vambraces'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Vambraces',
 							},
 						},
 					},
-					['chain'] = {
-						['T1 Chain Leggings'] = {
-							['Darkraider\'s Pants'] = {
-								['is_reward'] = true,
-								['extra'] = 'Rogue Legs',
-								['qty'] = 1,
-								['name'] = 'Darkraider\'s Pants',
-							},
-							['Sunrider\'s Pants'] = {
-								['is_reward'] = true,
-								['extra'] = 'Ranger Legs',
-								['qty'] = 1,
-								['name'] = 'Sunrider\'s Pants',
-							},
-							['Lock of Hair from a Chimera Mane'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter',
+					['rog rng ber'] = {
+						['Kael Chain Sleeves'] = {
+							['Flawed Emerald'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Lock of Hair from a Chimera Mane',
-							},
-							['Dragorn City Ember'] = {
+								['Step'] = 1,
+								['extra'] = 'melee',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+								['name'] = 'Flawed Emerald',
 							},
-							['Spiritkin Leggings'] = {
-								['is_reward'] = true,
-								['extra'] = 'Shaman Legs',
+							['Ancient Tarnished Chain Sleeves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Spiritkin Leggings',
-							},
-							['Ragebound Chain Legguards'] = {
-								['is_reward'] = true,
-								['extra'] = 'Berserker Legs',
-								['qty'] = 1,
-								['name'] = 'Ragebound Chain Legguards',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Sleeves',
 							},
 						},
 					},
-					['cloth'] = {
-						['T1 Cloth Pantaloons'] = {
-							['Dragorn Muramite Insignia Necklace'] = {
+					['dru'] = {
+						['Kael Druid Sleeves'] = {
+							['Ancient Leather Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Harbingers\' Spire, Wall of Slaughter, Ruined City of Dranik, Noble\'s Causeway',
+								['name'] = 'Ancient Leather Sleeves',
+							},
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Dragorn Muramite Insignia Necklace',
-							},
-							['Dragorn City Ember'] = {
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+								['name'] = 'Jaundice Gem',
 							},
 						},
 					},
-					['leather'] = {
-						['T1 Leather Leggings'] = {
-							['Dragorn Metal Bowl'] = {
+					['wiz mag enc nec'] = {
+						['Kael Silk Sleeves'] = {
+							['Ancient Silk Sleeves'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 1,
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter',
+								['name'] = 'Ancient Silk Sleeves',
+							},
+							['Flawed Topaz'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 3,
-								['name'] = 'Dragorn Metal Bowl',
-							},
-							['Dragorn City Ember'] = {
+								['Step'] = 1,
+								['extra'] = 'caster',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Dragorn City Ember',
+								['name'] = 'Flawed Topaz',
 							},
 						},
 					},
-				},
-			},
-			['head'] = {
-				['armor'] = {
-					['plate'] = {
-						['T1 Plate Helmet'] = {
-							['Bristling Ukun Hide'] = {
+					['shm'] = {
+						['Kael Shaman Sleeves'] = {
+							['Jaundice Gem'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'priest',
 								['is_reward'] = false,
-								['extra'] = 'Ruined City of Dranik, Wall of Slaughter',
-								['qty'] = 2,
-								['name'] = 'Bristling Ukun Hide',
+								['name'] = 'Jaundice Gem',
 							},
-							['Duskfall Chronicles'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+							['Ancient Tarnished Chain Sleeves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Duskfall Chronicles',
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
+								['is_reward'] = false,
+								['name'] = 'Ancient Tarnished Chain Sleeves',
 							},
 						},
 					},
-					['chain'] = {
-						['T1 Chain Coif'] = {
-							['Sunrider\'s Hat'] = {
-								['is_reward'] = true,
-								['extra'] = 'Ranger Helm',
+					['war shd pal brd'] = {
+						['Kael Plate Vambraces'] = {
+							['Ancient Tarnished Vambraces'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Sunrider\'s Hat',
-							},
-							['Duskfall Chronicles'] = {
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Duskfall Chronicles',
+								['name'] = 'Ancient Tarnished Vambraces',
 							},
-							['Spiritkin Cap'] = {
-								['is_reward'] = true,
-								['extra'] = 'Shaman Helm',
-								['qty'] = 1,
-								['name'] = 'Spiritkin Cap',
-							},
-							['Ragebound Chain Cap'] = {
-								['is_reward'] = true,
-								['extra'] = 'Berserker Helm',
-								['qty'] = 1,
-								['name'] = 'Ragebound Chain Cap',
-							},
-							['Deepshadow Feran Pelt'] = {
+							['Flawed Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
 								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway',
-								['qty'] = 2,
-								['name'] = 'Deepshadow Feran Pelt',
-							},
-							['Darkraider\'s Coif'] = {
-								['is_reward'] = true,
-								['extra'] = 'Rogue Helm',
-								['qty'] = 1,
-								['name'] = 'Darkraider\'s Coif',
+								['name'] = 'Flawed Emerald',
 							},
 						},
 					},
-					['cloth'] = {
-						['T1 Cloth Cap'] = {
-							['Duskfall Chronicles'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
+					['mnk bst'] = {
+						['Kael Leather Sleeves'] = {
+							['Ancient Leather Sleeves'] = {
+								['reward_restriction'] = 'All',
 								['qty'] = 1,
-								['name'] = 'Duskfall Chronicles',
-							},
-							['Rugged Murkglider Skin'] = {
+								['Step'] = 1,
+								['extra'] = 'Temple of Veeshan',
 								['is_reward'] = false,
-								['extra'] = 'Noble\'s Causeway, Ruined City of Dranik, Wall of Slaughter',
-								['qty'] = 2,
-								['name'] = 'Rugged Murkglider Skin',
+								['name'] = 'Ancient Leather Sleeves',
 							},
-						},
-					},
-					['leather'] = {
-						['T1 Leather Cap'] = {
-							['Muramite Ritual Scroll'] = {
+							['Flawed Emerald'] = {
+								['reward_restriction'] = 'All',
+								['qty'] = 3,
+								['Step'] = 1,
+								['extra'] = 'melee',
 								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Bloodfields',
-								['qty'] = 2,
-								['name'] = 'Muramite Ritual Scroll',
-							},
-							['Duskfall Chronicles'] = {
-								['is_reward'] = false,
-								['extra'] = 'Wall of Slaughter, Noble\'s Causeway, Ruined City of Dranik',
-								['qty'] = 1,
-								['name'] = 'Duskfall Chronicles',
+								['name'] = 'Flawed Emerald',
 							},
 						},
 					},

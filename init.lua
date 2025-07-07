@@ -1,32 +1,34 @@
-local mq                  = require('mq')
-local ImGui               = require('ImGui')
-local Icons               = require('mq.ICONS')
-local Data                = require('quest.quest_data')
-local Actors              = require('actors')
-local PackageMan          = require('mq.PackageMan')
-local SQL                 = PackageMan.Require('lsqlite3')
-local Utils               = require('mq.Utils')
-local Version             = 3
-local isEMU               = mq.TLO.MacroQuest.BuildName() == 'Emu'
-local ResourceDir         = mq.TLO.MacroQuest.Path('resources')()
-local FileDB              = string.format("%s/QuestWatch.db", ResourceDir)
-local UpdateFile          = string.format("%s/QuestWatchVer.lua", ResourceDir)
-local ExportFile          = string.format("%s/QuestWatchExport.lua", ResourceDir)
-local ImportFile          = ''
+local mq             = require('mq')
+local ImGui          = require('ImGui')
+local Icons          = require('mq.ICONS')
+local Data           = require('quest.quest_data')
+local Actors         = require('actors')
+local PackageMan     = require('mq.PackageMan')
+local SQL            = PackageMan.Require('lsqlite3')
+local Utils          = require('mq.Utils')
+local Version        = 3
+local isEMU          = mq.TLO.MacroQuest.BuildName() == 'Emu'
+local ResourceDir    = mq.TLO.MacroQuest.Path('resources')()
+local FileDB         = string.format("%s/QuestWatch.db", ResourceDir)
+local UpdateFile     = string.format("%s/QuestWatchVer.lua", ResourceDir)
+local ExportFile     = string.format("%s/QuestWatchExport.lua", ResourceDir)
+local ImportFile     = ''
 
-local MySelf              = mq.TLO.Me
-local MyName              = MySelf.CleanName()
-local MyClass             = (MySelf.Class.ShortName() or 'unknown'):lower()
-local MyArmor             = 'cloth'
-local MyActor             = nil
+local MySelf         = mq.TLO.Me
+local MyName         = MySelf.CleanName()
+local MyClass        = (MySelf.Class.ShortName() or 'unknown'):lower()
+local MyArmor        = 'cloth'
+local MyActor        = nil
 
-local Boxes               = {}     -- holds actors data
-local BoxCompleted        = {}
-local BoxHandInReady      = {}     -- holds actors data for quests that are ready to hand in
-local ActorsList          = {}
-local SelectedBox         = 'none' -- currently selected actor box
-local GetData             = false  -- flag to ask for data from actors
-local SendData            = false  -- flag to send data to actors
+local Boxes          = {}     -- holds actors data
+local BoxCompleted   = {}
+local BoxHandInReady = {}     -- holds actors data for quests that are ready to hand in
+local ActorsList     = {}
+local SelectedBox    = 'none' -- currently selected actor box
+local GetData        = false  -- flag to ask for data from actors
+local SendData       = false  -- flag to send data to actors
+Boxes[MyName]        = nil    -- holds my data
+
 
 local isRunning           = true
 local ShowMain            = false
@@ -144,9 +146,6 @@ local expans         = {
 }
 
 local hasData        = {} -- lists all expansions and if they have data we will enable them for the drop down filter (adding new quests will always show all expansions)
-
-
-local WorkingTable = nil
 
 -- SQL STUFF --
 
@@ -312,7 +311,7 @@ local function AddNewQuest(expansion, questData)
 		local itemNameEsc = item.Name:gsub("'", "''")
 		local extraInfoEsc = (item.Extra or ''):gsub("'", "''")
 		local quantity = tonumber(item.Qty) or 1
-		local rewardRestrictionEsc = (item.reward_restriction or 'All'):gsub("'", "''")
+		local rewardRestrictionEsc = item.is_reward and (item.reward_restriction or 'All'):gsub("'", "''") or ''
 		local query = string.format([[
 				INSERT INTO quest_data (
 					expansion, quest_name, quest_cat, item_slot,
@@ -832,7 +831,7 @@ local function ActorsHandler()
 					Class = MyClass,
 					Armor = Utils.GetArmorType(),
 					Expansion = newMessage.Expansion,
-					Data = WorkingTable and WorkingTable[newMessage.Expansion] or nil,
+					Data = Boxes[MyName] and Boxes[MyName] or nil,
 					Completed = BoxCompleted[MyName] or false,
 					Ready = BoxHandInReady[MyName] or false,
 				})
@@ -850,8 +849,9 @@ local function ActorsHandler()
 
 		if newMessage.Subject == 'data_reply' and newMessage.Data ~= nil and newMessage.From ~= MyName then
 			Boxes[newMessage.From] = {}
-			Boxes[newMessage.From][newMessage.Expansion] = {}
-			Boxes[newMessage.From][newMessage.Expansion] = newMessage.Data
+			Boxes[newMessage.From] = newMessage.Data
+			-- Boxes[newMessage.From][newMessage.Expansion] = {}
+			-- Boxes[newMessage.From][newMessage.Expansion] = newMessage.Data
 			Boxes[newMessage.From].Class = newMessage.Class or 'Unknown'
 			Boxes[newMessage.From].Armor = newMessage.Armor or 'Unknown'
 			BoxCompleted[newMessage.From] = newMessage.Completed or false
@@ -1321,8 +1321,12 @@ local function RenderAddQuestWindow()
 					table.remove(NewQuestData.Items, i)
 				end
 				ImGui.TableNextColumn()
-				ImGui.SetNextItemWidth(100)
-				item.Step = ImGui.InputInt(string.format("Step##%d", i), item.Step)
+				if not item.is_reward then
+					ImGui.SetNextItemWidth(100)
+					item.Step = ImGui.InputInt(string.format("Step##%d", i), item.Step)
+				else
+					item.Step = 999
+				end
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(180)
@@ -1330,11 +1334,13 @@ local function RenderAddQuestWindow()
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(80)
-				item.IsReward = ImGui.Checkbox(string.format("Reward##%d", i), item.IsReward)
+				item.is_reward = ImGui.Checkbox(string.format("Reward##%d", i), item.is_reward)
 
 				ImGui.TableNextColumn()
-				ImGui.SetNextItemWidth(80)
-				item.reward_restriction = ImGui.InputTextWithHint(string.format("RewardRestrictions##%d", i), "Reward Restrictions", item.reward_restriction or '')
+				if item.is_reward then
+					ImGui.SetNextItemWidth(80)
+					item.reward_restriction = ImGui.InputTextWithHint(string.format("RewardClass##%d", i), "Reward Class", item.reward_restriction or 'All')
+				end
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(100)
@@ -1426,8 +1432,12 @@ local function RenderModifyQuestWindow(QuestData)
 				end
 
 				ImGui.TableNextColumn()
-				ImGui.SetNextItemWidth(100)
-				item.Step = ImGui.InputInt(string.format("##Step%d", i), item.Step or 1)
+				if not item.is_reward then
+					ImGui.SetNextItemWidth(100)
+					item.Step = ImGui.InputInt(string.format("##Step%d", i), item.Step or 1)
+				else
+					item.Step = 999
+				end
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(180)
@@ -1438,9 +1448,10 @@ local function RenderModifyQuestWindow(QuestData)
 				item.is_reward = ImGui.Checkbox(string.format("##Reward%d", i), item.is_reward)
 
 				ImGui.TableNextColumn()
-				ImGui.SetNextItemWidth(80)
-				item.reward_restriction = ImGui.InputTextWithHint(string.format("##RewardRestrictions%d", i), "Reward Restrictions", rewardRes)
-
+				if item.is_reward then
+					ImGui.SetNextItemWidth(80)
+					item.reward_restriction = ImGui.InputTextWithHint(string.format("##RewardClass%d", i), "Reward Class", rewardRes)
+				end
 
 				ImGui.TableNextColumn()
 				ImGui.SetNextItemWidth(100)
@@ -1595,27 +1606,33 @@ local function RenderMain()
 		ImGui.Text("Clicking on an item will copy its name to the clipboard.")
 
 		ImGui.Separator()
-		if ImGui.BeginTabBar('Quests##') then
-			if ImGui.BeginTabItem(MyName .. ' - ' .. LookupExpan .. '###QuestTab') then
-				if WorkingTable == nil then
-					ImGui.Text('No Data Available')
-				else
-					-- Render the quest data table for the selected expansion
-					if WorkingTable then RenderTable(WorkingTable, MyName) end
-				end
-				ImGui.EndTabItem()
-			end
-			if ImGui.BeginTabItem(SelectedBox .. ' - ' .. LookupExpan .. '###ActorTab') then
-				if ActorsList == nil then
-					ImGui.Text('No Data Available')
-				else
-					-- Render the actors data table
-					RenderActors()
-				end
-				ImGui.EndTabItem()
-			end
-			ImGui.EndTabBar()
+		if ActorsList == nil then
+			ImGui.Text('No Data Available')
+		else
+			-- Render the actors data table
+			RenderActors()
 		end
+		-- if ImGui.BeginTabBar('Quests##') then
+		-- 	if ImGui.BeginTabItem(MyName .. ' - ' .. LookupExpan .. '###QuestTab') then
+		-- 		if Boxes[MyName] == nil then
+		-- 			ImGui.Text('No Data Available')
+		-- 		else
+		-- 			-- Render the quest data table for the selected expansion
+		-- 			if Boxes[MyName] then RenderTable(Boxes[MyName], MyName) end
+		-- 		end
+		-- 		ImGui.EndTabItem()
+		-- 	end
+		-- 	if ImGui.BeginTabItem(SelectedBox .. ' - ' .. LookupExpan .. '###ActorTab') then
+		-- 		if ActorsList == nil then
+		-- 			ImGui.Text('No Data Available')
+		-- 		else
+		-- 			-- Render the actors data table
+		-- 			RenderActors()
+		-- 		end
+		-- 		ImGui.EndTabItem()
+		-- 	end
+		-- 	ImGui.EndTabBar()
+		-- end
 	end
 	ImGui.End()
 end
@@ -1650,7 +1667,7 @@ local function Init()
 
 	MyArmor = Utils.GetArmorType()
 
-	WorkingTable = GetQuestData(LookupExpan)
+	Boxes[MyName] = GetQuestData(LookupExpan)
 
 	mq.imgui.init('QuestData', RenderGUI)
 	if MyActor then
@@ -1660,7 +1677,7 @@ local function Init()
 			Class = MyClass,
 			Armor = Utils.GetArmorType(),
 			Expansion = LookupExpan,
-			Data = WorkingTable and WorkingTable[LookupExpan] or nil,
+			Data = Boxes[MyName] and Boxes[MyName] or nil,
 		})
 	end
 	isRunning = true
@@ -1720,13 +1737,13 @@ local function Main()
 			CheckExpansionData()
 		end
 
-		if (LookupExpan ~= 'none' and WorkingTable == nil) or LastLookupExpan ~= LookupExpan then
-			WorkingTable = GetQuestData(LookupExpan)
+		if (LookupExpan ~= 'none' and Boxes[MyName] == nil) or LastLookupExpan ~= LookupExpan then
+			Boxes[MyName] = GetQuestData(LookupExpan)
 			LastLookupExpan = LookupExpan
 		end
 
 		if LookupExpan == 'none' then
-			WorkingTable = nil
+			Boxes[MyName] = nil
 		end
 
 		if GetData and MyActor then
@@ -1743,14 +1760,14 @@ local function Main()
 		end
 
 		if SendData and MyActor then
-			WorkingTable = GetQuestData(LookupExpan)
+			Boxes[MyName] = GetQuestData(LookupExpan)
 			MyActor:send({ mailbox = 'QuestWatch', }, {
 				Subject = 'data_reply',
 				From = MyName,
 				Class = MyClass,
 				Armor = Utils.GetArmorType(),
 				Expansion = LookupExpan,
-				Data = WorkingTable and WorkingTable[LookupExpan] or nil,
+				Data = Boxes[MyName] and Boxes[MyName] or nil,
 				Completed = BoxCompleted[MyName] or false,
 				Ready = BoxHandInReady[MyName] or false,
 			})
