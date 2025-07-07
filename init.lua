@@ -587,14 +587,39 @@ local function GetQuests(expansion, filters)
 	local catFilter = filters.quest_cat ~= '' and filters.quest_cat or ''
 	local questNameFilter = filters.quest_name ~= '' and filters.quest_name or ''
 	local rewardTypeFilter = filters.item_type ~= '' and filters.item_type or 'All'
-
+	local restrictions = nil
+	if filters.restriction:find(' ') then
+		restrictions = {}
+		for word in filters.restriction:gmatch("%S+") do
+			table.insert(restrictions, word)
+		end
+	end
+	if filters.restriction:find(',') then
+		restrictions = {}
+		for word in filters.restriction:gmatch("%S+") do
+			table.insert(restrictions, word)
+		end
+	end
 
 	local expansionEsc = expansion:gsub("'", "''")
-	local query = string.format([[
+	local query = ''
+
+	if restrictions == nil then
+		query = string.format([[
 		SELECT * FROM quest_data
 		WHERE expansion = '%s'
 		AND (restriction = 'All' OR restriction LIKE '%%%s%%' OR restriction LIKE '%%%s%%')
 	]], expansionEsc, classFilter, armorFilter)
+	else
+		query = string.format([[
+		SELECT * FROM quest_data
+		WHERE expansion = '%s'
+		AND (restriction = 'All' ]], expansionEsc)
+		for _, restriction in ipairs(restrictions) do
+			query = query .. string.format(" OR restriction LIKE '%%%s%%'", restriction:gsub("'", "''"))
+		end
+		query = query .. string.format(")")
+	end
 	if itemNameFilter ~= '' then
 		query = query .. string.format(" AND item_name LIKE '%%%s%%'", itemNameFilter:gsub("'", "''"))
 	end
@@ -1518,6 +1543,7 @@ local function RenderActors()
 					else
 						ImGui.PushStyleColor(ImGuiCol.Text, Colors.white)
 					end
+					-- local lable = string.format("%s %s", (Boxes[actorName].Class or ''):upper(), actorName)
 					if ImGui.Selectable(actorName, SelectedBox == actorName) then
 						SelectedBox = actorName
 					end
