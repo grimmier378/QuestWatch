@@ -1536,10 +1536,10 @@ local function RenderActors()
 		for _, actorName in ipairs(ActorsList) do
 			if not ShowCompletedOnly or (ShowCompletedOnly and BoxCompleted[actorName]) then
 				if not ShowHandInReadyOnly or (ShowHandInReadyOnly and BoxHandInReady[actorName]) then
-					if BoxCompleted[actorName] then
-						ImGui.PushStyleColor(ImGuiCol.Text, Colors.green)
-					elseif BoxHandInReady[actorName] then
+					if BoxHandInReady[actorName] then
 						ImGui.PushStyleColor(ImGuiCol.Text, Colors.yellow)
+					elseif BoxCompleted[actorName] then
+						ImGui.PushStyleColor(ImGuiCol.Text, Colors.green)
 					else
 						ImGui.PushStyleColor(ImGuiCol.Text, Colors.white)
 					end
