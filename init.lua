@@ -219,7 +219,7 @@ local function ImportData(file)
 				local itemTypeEsc = questData.ItemType and questData.ItemType:gsub("'", "''") or 'All'
 				local restrictionEsc = questData.Restrictions and questData.Restrictions:gsub("'", "''") or 'All'
 				local extraInfoEsc = (itemData.extra or ''):gsub("'", "''")
-				local itemStep = tonumber(itemData.item_step) or 1
+				local itemStep = tonumber(itemData.Step) or 1
 				local rewardRestrictionEsc = (itemData.reward_restriction or 'All'):gsub("'", "''")
 
 				local quantity = tonumber(itemData.qty) or 1
