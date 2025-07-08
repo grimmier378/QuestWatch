@@ -1,7 +1,6 @@
 local mq             = require('mq')
 local ImGui          = require('ImGui')
 local Icons          = require('mq.ICONS')
-local Data           = require('quest.quest_data')
 local Actors         = require('actors')
 local PackageMan     = require('mq.PackageMan')
 local SQL            = PackageMan.Require('lsqlite3')
@@ -13,6 +12,7 @@ local FileDB         = string.format("%s/QuestWatch.db", ResourceDir)
 local UpdateFile     = string.format("%s/QuestWatchVer.lua", ResourceDir)
 local ExportFile     = string.format("%s/QuestWatchExport.lua", ResourceDir)
 local ImportFile     = ''
+local BaseDataFile   = string.format("%s/QuestWatch/quest/quest_data_v", mq.luaDir)
 
 local MySelf         = mq.TLO.Me
 local MyName         = MySelf.CleanName()
@@ -187,11 +187,88 @@ local function OpenDB(path)
 	end
 end
 
+local function ExportDBtoSQL(filename)
+	local db = OpenDB(FileDB)
+	if not db then return end
+
+	local file = io.open(filename, "w")
+	if not file then
+		print(string.format("Failed to open file %s for writing.", filename))
+		return
+	end
+
+	file:write("BEGIN TRANSACTION;\n")
+
+	local query = "SELECT * FROM quest_data ORDER BY expansion, quest_name, item_step ASC;"
+	for row in db:nrows(query) do
+		-- Escape single quotes in string fields
+		local function esc(str)
+			return tostring(str or ''):gsub("'", "''")
+		end
+
+		local insert = string.format([[
+INSERT INTO quest_data (expansion, quest_name, quest_cat, item_slot, item_type, restriction, item_name, quantity, extra_info, is_reward, item_step, reward_restriction)
+VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, %d, '%s')
+ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
+DO UPDATE SET quantity = excluded.quantity,extra_info = excluded.extra_info,is_reward = excluded.is_reward,item_step = excluded.item_step,reward_restriction = excluded.reward_restriction;]],
+			esc(row.expansion), esc(row.quest_name), esc(row.quest_cat), esc(row.item_slot),
+			esc(row.item_type), esc(row.restriction), esc(row.item_name), tonumber(row.quantity) or 1,
+			esc(row.extra_info), row.is_reward or 0, row.item_step or 1, esc(row.reward_restriction)
+		)
+
+		file:write(string.format("%s\n", insert))
+	end
+	db:close()
+	file:write("COMMIT;\n")
+	file:close()
+	print(string.format("Quest data exported successfully to '%s'.", filename))
+end
+
+local function ImportSQLFile(filename)
+	if not filename then
+		filename = string.format("%s%s.sql", BaseDataFile, Version)
+	end
+	local db = OpenDB(FileDB)
+	if not db then
+		print("Failed to open database.")
+		return false
+	end
+
+	local file = io.open(filename, "r")
+	if not file then
+		print(string.format("Failed to open file '%s' for reading.", filename))
+		return false
+	end
+
+	local sql = file:read("*a")
+	file:close()
+
+	if not sql or sql == "" then
+		print(string.format("File '%s' is empty or unreadable.", filename))
+		return false
+	end
+
+	local success, err = pcall(function()
+		db:exec(sql)
+	end)
+
+	db:close()
+
+	if success then
+		print(string.format("Successfully imported quest data from '%s'.", filename))
+		return true
+	else
+		print(string.format("Failed to import from '%s': %s", filename, err))
+		return false
+	end
+end
+
+
 local function ImportData(file)
 	local tmpData = {}
 
 	if file == nil then
-		tmpData = Data
+		tmpData = dofile('quest.quest_data')
 	else
 		if Utils.File.Exists(file) then
 			tmpData = dofile(file)
@@ -541,8 +618,11 @@ end
 
 -- Check to see if the database needs to update with new data
 local function CheckUpdate()
+	local fName = string.format("%s%s.sql", BaseDataFile, Version)
+
 	if not Utils.File.Exists(UpdateFile) then
-		ImportData()
+		-- ImportData()
+		ImportSQLFile(fName)
 		mq.pickle(UpdateFile, { Version = Version, })
 	else
 		local tmp = dofile(UpdateFile)
@@ -551,7 +631,8 @@ local function CheckUpdate()
 			if tmp.Version < Version then
 				ModifyTable(tmp.Version)
 			end
-			ImportData()
+			-- ImportData()
+			ImportSQLFile(fName)
 			tmp.Version = Version
 			mq.pickle(UpdateFile, tmp)
 		else
@@ -1303,7 +1384,7 @@ local function RenderAddQuestWindow()
 			ImGui.Text('Import Quest Data from a file\nPlace File inside your MQDir/Resources folder')
 			ImGui.Separator()
 			ImGui.SetNextItemWidth(200)
-			ImportFile = ImGui.InputTextWithHint('Import File##ImportFile', 'File to Import (in Resource Folder) ex. import.lua', ImportFile)
+			ImportFile = ImGui.InputTextWithHint('Import File##ImportFile', 'File to Import (in Resource Folder) ex. import.sql', ImportFile)
 			ImGui.SameLine()
 			if ImGui.Button('Import Data') then
 				ImportQuests = true
@@ -1630,7 +1711,7 @@ local function RenderMain()
 		end
 		if ImGui.IsItemHovered() then
 			ImGui.BeginTooltip()
-			ImGui.Text('Export Quest Data to MQDir/Resources/QuestWatchExport.lua file')
+			ImGui.Text('Export Quest Data to MQDir/Resources/QuestWatchExport.sql file')
 			ImGui.Text('This file can be shared with others and imported by them')
 			ImGui.EndTooltip()
 		end
@@ -1704,10 +1785,12 @@ local function Main()
 	local checkTime = 0
 	while isRunning do
 		if ImportQuests then
-			if ImportFile:find('%.lua$') == nil then
-				ImportFile = ImportFile .. '.lua'
+			if ImportFile:find('%.sql$') == nil then
+				ImportFile = ImportFile .. '.sql'
 			end
-			ImportData(string.format("%s/%s", ResourceDir, ImportFile))
+
+			-- ImportData(string.format("%s/%s", ResourceDir, ImportFile))
+			ImportSQLFile(string.format("%s/%s", ResourceDir, ImportFile))
 			ImportQuests = false
 		end
 
@@ -1815,6 +1898,10 @@ local function Main()
 
 		if ExportData then
 			ExportDBtoLua()
+
+			-- ExportDBtoSQL(string.format("%s/QuestWatchExport_v%s_%s.sql", ResourceDir, Version, os.date("%Y%m%d_%H%M%S")))
+			ExportDBtoSQL(string.format("%s/QuestWatchExport_v%s.sql", ResourceDir, Version))
+
 			printf("Quest data exported to %s", ExportFile)
 			ExportData = false
 		end
