@@ -6,7 +6,7 @@ local Actors         = require('actors')
 local PackageMan     = require('mq.PackageMan')
 local SQL            = PackageMan.Require('lsqlite3')
 local Utils          = require('mq.Utils')
-local Version        = 3
+local Version        = 4 -- database version
 local isEMU          = mq.TLO.MacroQuest.BuildName() == 'Emu'
 local ResourceDir    = mq.TLO.MacroQuest.Path('resources')()
 local FileDB         = string.format("%s/QuestWatch.db", ResourceDir)
@@ -654,7 +654,7 @@ local function GetQuests(expansion, filters)
 				on_hand = Utils.CheckOnHand(itemName),
 				extra = extraInfo,
 				is_reward = (row.is_reward and row.is_reward == 1) or false,
-				Step = row.item_step or 1,
+				Step = row.is_reward == 1 and 999 or (row.item_step or 1),
 				reward_restriction = row.is_reward and (row.reward_restriction or 'All') or '',
 			})
 		end
@@ -670,12 +670,14 @@ local function GetQuests(expansion, filters)
 			local questName = row.quest_name or 'Unknown Quest'
 			table.insert(QuestNames, questName)
 		end
+
 		stmt:finalize()
 	end
 	db:close()
 
 	BoxCompleted[MyName] = false
 	BoxHandInReady[MyName] = false
+
 	local completed = {}
 	local qRdy = {}
 
@@ -683,9 +685,12 @@ local function GetQuests(expansion, filters)
 	tmp.Armor = Utils.GetArmorType()
 
 	for qName, questData in pairs(tmp[expansion] or {}) do
-		qRdy[qName] = Utils.QuestStatus(questData.Items or {})
-		completed[qName] = Utils.QuestStatus(questData.Items or {})
+		if questData.Items and type(questData.Items) == 'table' then
+			qRdy[qName], completed[qName] = Utils.QuestStatus(questData.Items or {})
+		end
+		-- _,completed[qName] = Utils.QuestStatus(questData.Items or {})
 	end
+
 	for _, isReady in pairs(qRdy) do
 		if isReady then
 			BoxHandInReady[MyName] = true
@@ -699,10 +704,6 @@ local function GetQuests(expansion, filters)
 		end
 	end
 
-
-	table.sort(QuestNames, function(a, b)
-		return a < b
-	end)
 	return tmp
 end
 
@@ -829,6 +830,7 @@ function Utils.QuestStatus(items_table)
 	local isCompleted = false
 
 	if not items_table then
+		printf("No items table provided for quest status check.")
 		return false, false, 0, 0
 	end
 	for _, item in ipairs(items_table or {}) do
@@ -923,7 +925,7 @@ local function RenderTable(table_data, who)
 		if table_data and table_data[LookupExpan] then
 			for _, questName in ipairs(QuestNames) do
 				if table_data[LookupExpan][questName] == nil then
-					-- skip if the quest data is not available for this expansion
+					-- skip if the quest data is not available for this Character
 					goto continue
 				end
 				local Category = table_data[LookupExpan][questName].Category or 'Unknown Category'
@@ -1003,12 +1005,7 @@ local function RenderTable(table_data, who)
 							ImGui.TableNextColumn()
 							ImGui.TextColored(Colors.softblue, ItemType)
 							ImGui.TableNextColumn()
-							table.sort(Items, function(a, b)
-								if a.Step == b.Step then
-									return a.name < b.name
-								end
-								return a.Step < b.Step
-							end)
+
 							-- Draw the item list
 							for _, iData in ipairs(Items or {}) do
 								if not HideRewards or (HideRewards and not iData.is_reward) then
