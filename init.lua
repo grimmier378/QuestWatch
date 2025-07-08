@@ -35,6 +35,7 @@ local ShowMain            = false
 local ShowCompletedOnly   = false
 local ShowHandInReadyOnly = false
 local HideCompleted       = false
+local QuestNames          = {}
 local HideRewards         = false
 local HideCantUseRewards  = false
 local ShowAddQuest        = false
@@ -205,67 +206,55 @@ local function ImportData(file)
 
 	db:exec("BEGIN TRANSACTION;")
 	local success = true
-	for expansion, questCat in pairs(tmpData) do
-		for cat, itemSlots in pairs(questCat) do
-			for slot, itemTypes in pairs(itemSlots) do
-				for itemType, restrictions in pairs(itemTypes) do
-					for restriction, quests in pairs(restrictions) do
-						for questName, items in pairs(quests) do
-							-- escape single quotes in SQL strings
-							local expansionEsc = expansion:gsub("'", "''")
-							local questNameEsc = questName:gsub("'", "''")
-							local questCatEsc = cat:gsub("'", "''")
-							local slotEsc = slot:gsub("'", "''")
-							local itemTypeEsc = itemType:gsub("'", "''")
-							local restrictionEsc = restriction:gsub("'", "''")
+	-- tmpData[expansion][questName] = {Name, Category, Slot, ItemType, Restrictions, Items = {name, qty, extra, is_reward, reward_restriction, item_step}}
 
-							for _, itemData in pairs(items or {}) do
-								if not itemData.name or not itemData.qty then
-									print("Invalid item data. Each item must have a Name and Qty.")
-									success = false
-									break
-								end
+	for expansion, eData in pairs(tmpData) do
+		for quest_name, questData in pairs(eData) do
+			for _, itemData in pairs(questData.Items or {}) do
+				local itemName = itemData.name or 'Unknown Item'
+				local expansionEsc = expansion:gsub("'", "''")
+				local questNameEsc = quest_name:gsub("'", "''")
+				local questCatEsc = questData.Category and questData.Category:gsub("'", "''") or 'Unknown Category'
+				local itemSlotEsc = questData.Slot and questData.Slot:gsub("'", "''") or 'Unknown Slot'
+				local itemTypeEsc = questData.ItemType and questData.ItemType:gsub("'", "''") or 'All'
+				local restrictionEsc = questData.Restrictions and questData.Restrictions:gsub("'", "''") or 'All'
+				local extraInfoEsc = (itemData.extra or ''):gsub("'", "''")
+				local itemStep = tonumber(itemData.item_step) or 1
+				local rewardRestrictionEsc = (itemData.reward_restriction or 'All'):gsub("'", "''")
 
-								local itemNameEsc = itemData.name:gsub("'", "''")
-								local extraInfoEsc = (itemData.extra or ''):gsub("'", "''")
-								local quantity = tonumber(itemData.qty) or 1
-								local rewardRestrictionEsc = (itemData.reward_restriction or 'All'):gsub("'", "''")
-
-								local query = string.format([[
-									INSERT INTO quest_data (
-										expansion, quest_name, quest_cat, item_slot,
-										item_type, restriction, item_name, quantity, extra_info, is_reward, item_step, reward_restriction)
-									VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, %d, '%s')
-									ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
-									DO UPDATE SET
-										quantity = excluded.quantity,
-										extra_info = excluded.extra_info,
-										is_reward = excluded.is_reward,
-										item_step = excluded.item_step,
-										reward_restriction = excluded.reward_restriction;
-								]], expansionEsc, questNameEsc, questCatEsc, slotEsc, itemTypeEsc,
-									restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (itemData.is_reward and 1 or 0), itemData.Step or 1, rewardRestrictionEsc)
-
-								local ok, err = pcall(function() db:exec(query) end)
-								if not ok then
-									print(string.format("Insert failed for item '%s': %s", itemNameEsc, err))
-									success = false
-									break
-								end
-							end
-							if not success then break end
-						end
-
-						if not success then break end
-					end
-					if not success then break end
+				local quantity = tonumber(itemData.qty) or 1
+				if not itemName or itemName == '' then
+					print("Invalid item data. Each item must have a Name.")
+					success = false
+					break
 				end
-				if not success then break end
+				local itemNameEsc = itemName:gsub("'", "''")
+
+
+				local query = string.format([[
+				INSERT INTO quest_data (
+					expansion, quest_name, quest_cat, item_slot,
+					item_type, restriction, item_name, quantity, extra_info, is_reward, item_step, reward_restriction)
+				VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, %d, '%s')
+				ON CONFLICT(expansion, quest_name, quest_cat, item_slot, item_type, item_name)
+				DO UPDATE SET
+					quantity = excluded.quantity,
+					extra_info = excluded.extra_info,
+					is_reward = excluded.is_reward,
+					item_step = excluded.item_step,
+					reward_restriction = excluded.reward_restriction;
+			]], expansionEsc, questNameEsc, questCatEsc, itemSlotEsc, itemTypeEsc,
+					restrictionEsc, itemNameEsc, quantity, extraInfoEsc, (itemData.is_reward and 1 or 0), itemStep, rewardRestrictionEsc)
+				local ok, err = pcall(function() db:exec(query) end)
+				if not ok then
+					print(string.format("Insert failed for item '%s': %s", itemNameEsc, err))
+					success = false
+					break
+				end
 			end
-			if not success then break end
 		end
-		if not success then break end
 	end
+
 
 	if success then
 		db:exec("COMMIT;")
@@ -636,6 +625,7 @@ local function GetQuests(expansion, filters)
 		query = query .. string.format(" AND (item_type = 'All' OR item_type LIKE '%%%s%%')", rewardTypeFilter:gsub("'", "''"))
 	end
 	query = query .. " ORDER BY quest_name, item_step, item_name ASC;"
+	-- tmpData[expansion][questName] = {Name, Category, Slot, ItemType, Restrictions, Items = {name, qty, extra, is_reward, reward_restriction, item_step}}
 
 	local stmt = db:prepare(query)
 	if stmt then
@@ -644,23 +634,21 @@ local function GetQuests(expansion, filters)
 			local questCat = row.quest_cat or 'Unknown Category'
 			local itemSlot = row.item_slot or 'Unknown Slot'
 			local itemType = row.item_type or 'All'
-			local restriction = row.restriction or 'All'
+			local questRestrict = row.restriction or 'All'
 			local itemName = row.item_name or 'Unknown Item'
 			local quantity = tonumber(row.quantity) or 1
 			local extraInfo = row.extra_info or ''
-			-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
-			if not tmp[expansion] then tmp[expansion] = {} end
-			if not tmp[expansion][questCat] then tmp[expansion][questCat] = {} end
-			if not tmp[expansion][questCat][itemSlot] then tmp[expansion][questCat][itemSlot] = {} end
-			if not tmp[expansion][questCat][itemSlot][itemType] then tmp[expansion][questCat][itemSlot][itemType] = {} end
-			if not tmp[expansion][questCat][itemSlot][itemType][restriction] then
-				tmp[expansion][questCat][itemSlot][itemType][restriction] = {}
-			end
-			if not tmp[expansion][questCat][itemSlot][itemType][restriction][questName] then
-				tmp[expansion][questCat][itemSlot][itemType][restriction][questName] = {}
-			end
 
-			table.insert(tmp[expansion][questCat][itemSlot][itemType][restriction][questName], {
+			if not tmp[expansion] then tmp[expansion] = {} end
+			if not tmp[expansion][questName] then tmp[expansion][questName] = { Items = {}, } end
+
+			tmp[expansion][questName].Name = questName
+			tmp[expansion][questName].Category = questCat
+			tmp[expansion][questName].Slot = itemSlot
+			tmp[expansion][questName].ItemType = itemType
+			tmp[expansion][questName].Restrictions = questRestrict
+
+			table.insert(tmp[expansion][questName].Items, {
 				name = itemName,
 				qty = quantity,
 				on_hand = Utils.CheckOnHand(itemName),
@@ -678,34 +666,36 @@ local function GetQuests(expansion, filters)
 	BoxHandInReady[MyName] = false
 	local completed = {}
 	local qRdy = {}
-	-- check if any of the quests are completed and add a flag to the BoxCompleted table for that user so we can highlight them in the list
-	-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
+
 	tmp.Class = MyClass
 	tmp.Armor = Utils.GetArmorType()
-	for _, catSlots in pairs(tmp[expansion] or {}) do
-		for _, sData in pairs(catSlots or {}) do
-			for _, restrictions in pairs(sData or {}) do
-				for _, quest_data in pairs(restrictions or {}) do
-					for qName, items in pairs(quest_data or {}) do
-						qRdy[qName], completed[qName] = Utils.QuestStatus(items or {})
-					end
-				end
-			end
-		end
+
+	for qName, questData in pairs(tmp[expansion] or {}) do
+		qRdy[qName] = Utils.QuestStatus(questData.Items or {})
+		completed[qName] = Utils.QuestStatus(questData.Items or {})
 	end
-	::continue::
-	for qName, isReady in pairs(qRdy) do
+	for _, isReady in pairs(qRdy) do
 		if isReady then
 			BoxHandInReady[MyName] = true
 			break
 		end
 	end
-	for qName, isCompleted in pairs(completed) do
+	for _, isCompleted in pairs(completed) do
 		if isCompleted then
 			BoxCompleted[MyName] = true
 			break
 		end
 	end
+
+	QuestNames = {}
+	for qName, _ in pairs(tmp[expansion] or {}) do
+		if qName then
+			table.insert(QuestNames, qName)
+		end
+	end
+	table.sort(QuestNames, function(a, b)
+		return a < b
+	end)
 	return tmp
 end
 
@@ -730,21 +720,21 @@ local function ExportDBtoLua()
 			local extraInfo = row.extra_info or ''
 
 			if not tmpData[expansion] then tmpData[expansion] = {} end
-			if not tmpData[expansion][questCat] then tmpData[expansion][questCat] = {} end
-			if not tmpData[expansion][questCat][itemSlot] then tmpData[expansion][questCat][itemSlot] = {} end
-			if not tmpData[expansion][questCat][itemSlot][itemType] then
-				tmpData[expansion][questCat][itemSlot][itemType] = {}
+			if not tmpData[expansion][questName] then tmpData[expansion][questName] = {} end
+			-- 	tmpData[expansion][questCat][itemSlot][itemType][restriction][questName] = {}
+			-- end
+			tmpData[expansion][questName].Name = questName
+			tmpData[expansion][questName].Category = questCat
+			tmpData[expansion][questName].Slot = itemSlot
+			tmpData[expansion][questName].ItemType = itemType
+			tmpData[expansion][questName].Restrictions = restriction
+			if not tmpData[expansion][questName].Items then
+				tmpData[expansion][questName].Items = {}
 			end
-			if not tmpData[expansion][questCat][itemSlot][itemType][restriction] then
-				tmpData[expansion][questCat][itemSlot][itemType][restriction] = {}
-			end
-			if not tmpData[expansion][questCat][itemSlot][itemType][restriction][questName] then
-				tmpData[expansion][questCat][itemSlot][itemType][restriction][questName] = {}
-			end
-
-			tmpData[expansion][questCat][itemSlot][itemType][restriction][questName][itemName] = {
+			tmpData[expansion][questName].Items[itemName] = {
 				name = itemName,
 				qty = quantity,
+				on_hand = Utils.CheckOnHand(itemName),
 				extra = extraInfo,
 				is_reward = (row.is_reward and row.is_reward == 1) or false,
 				Step = row.item_step or 1,
@@ -921,161 +911,160 @@ local function RenderTable(table_data, who)
 		ImGui.TableHeadersRow()
 		ImGui.TableNextRow()
 
-		-- display data by tiers
-		--tmp[expansion][questCat][itemSlot][itemType][restriction][questName]
+		-- display data
+		-- tmpData[expansion][questName] = {Name, Category, Slot, ItemType, Restrictions, Items = {name, qty, extra, is_reward, reward_restriction, item_step}}
 		if table_data and table_data[LookupExpan] then
-			for category, catSlots in pairs(table_data[LookupExpan]) do
-				for slot, sData in pairs(catSlots) do
-					for item_type, restrictions in pairs(sData) do
-						for restrict, quest_data in pairs(restrictions or {}) do
-							for quest_name, items in pairs(quest_data or {}) do
-								local isReady, isCompleted = Utils.QuestStatus(items or {})
-								if not ShowCompletedOnly or (ShowCompletedOnly and isCompleted) then
-									if not HideCompleted or (HideCompleted and not isCompleted) then
-										if not ShowHandInReadyOnly or (ShowHandInReadyOnly and isReady) then
+			for _, questName in ipairs(QuestNames) do
+				local Category = table_data[LookupExpan][questName].Category or 'Unknown Category'
+				local Slot = table_data[LookupExpan][questName].Slot or 'Unknown Slot'
+				local ItemType = table_data[LookupExpan][questName].ItemType or 'All'
+				local Restrictions = table_data[LookupExpan][questName].Restrictions or 'All'
+				local Items = table_data[LookupExpan][questName].Items or {}
+				local isReady, isCompleted, totalOnHand, totalNeeded = Utils.QuestStatus(Items)
+				if not ShowCompletedOnly or (ShowCompletedOnly and isCompleted) then
+					if not HideCompleted or (HideCompleted and not isCompleted) then
+						if not ShowHandInReadyOnly or (ShowHandInReadyOnly and isReady) then
+							ImGui.TableNextColumn()
+							if ImGui.SmallButton(Icons.FA_PENCIL .. "##" .. questName .. who) then
+								ModifyQuestData = {
+									quest_cat = Category,
+									quest_name = questName,
+									restrictions = Restrictions,
+									item_type = ItemType,
+									item_slot = Slot,
+									items = DeepCopy(Items),
+								}
+								ModifyQuestExpan = LookupExpan
+								ShowModifyQuest = true
+							end
+							if isEMU then
+								ImGui.SameLine()
+								if ImGui.SmallButton(Icons.FA_CART_ARROW_DOWN .. "##" .. questName .. who) then
+									ExportToLNS = DeepCopy(Items)
+								end
+								if ImGui.IsItemHovered() then
+									ImGui.BeginTooltip()
+									ImGui.Text("Send the items to Lootnscoot as personal rules.")
+									ImGui.EndTooltip()
+								end
+							end
+
+							if isReady then
+								ImGui.SameLine()
+								ImGui.TextColored(Colors.teal, Icons.FA_STAR)
+								if ImGui.IsItemHovered() then
+									ImGui.BeginTooltip()
+									ImGui.Text("Ready to hand in.")
+									ImGui.EndTooltip()
+								end
+							elseif isCompleted then
+								ImGui.SameLine()
+								ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
+								if ImGui.IsItemHovered() then
+									ImGui.BeginTooltip()
+									ImGui.Text("Quest completed.")
+									ImGui.EndTooltip()
+								end
+							end
+
+							ImGui.PushTextWrapPos(0.0)
+							local tCol = Colors['light pink']
+							if isCompleted then
+								tCol = Colors.green -- Green if quest is completed
+							elseif isReady then
+								tCol = Colors.yellow -- Yellow if ready to hand in
+							end
+							ImGui.TextColored(tCol, questName)
+							ImGui.PopTextWrapPos()
+
+							ImGui.TableNextColumn()
+							ImGui.PushTextWrapPos(0.0)
+							ImGui.Text("%s", Category)
+							ImGui.PopTextWrapPos()
+
+							ImGui.TableNextColumn()
+							ImGui.PushTextWrapPos(0.0)
+							ImGui.TextColored(Colors.teal, Restrictions)
+							ImGui.PopTextWrapPos()
+
+							ImGui.TableNextColumn()
+							ImGui.TextColored(Colors.tangarine, Slot)
+							ImGui.TableNextColumn()
+							ImGui.TextColored(Colors.softblue, ItemType)
+							ImGui.TableNextColumn()
+							table.sort(Items, function(a, b)
+								if a.Step == b.Step then
+									return a.name < b.name
+								end
+								return a.Step < b.Step
+							end)
+							-- Draw the item list
+							for _, iData in ipairs(Items or {}) do
+								if not HideRewards or (HideRewards and not iData.is_reward) then
+									if not iData.is_reward or not HideCantUseRewards or (iData.is_reward and HideCantUseRewards and ((iData.reward_restriction:find(table_data.Class) or iData.reward_restriction == 'All'))) then
+										ImGui.Separator()
+										local iName = iData.name or 'Unknown Item'
+
+										if ImGui.BeginTable('ItemData##' .. Category .. ItemType .. Slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
+											ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
+											ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
+											ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
+
+											ImGui.TableNextRow()
 											ImGui.TableNextColumn()
-											if ImGui.SmallButton(Icons.FA_PENCIL .. "##" .. category .. item_type .. slot .. quest_name .. who) then
-												ModifyQuestData = {
-													quest_cat = category,
-													quest_name = quest_name,
-													restrictions = restrict,
-													item_type = item_type,
-													item_slot = slot,
-													items = DeepCopy(items),
-												}
-												ModifyQuestExpan = LookupExpan
-												ShowModifyQuest = true
+
+											local tCol = Colors.white
+											if iData.on_hand >= iData.qty then
+												tCol = Colors.green -- Green if enough on hand
 											end
-											if isEMU then
-												ImGui.SameLine()
-												if ImGui.SmallButton(Icons.FA_CART_ARROW_DOWN .. "##" .. category .. item_type .. slot .. quest_name .. who) then
-													ExportToLNS = DeepCopy(items)
-												end
-												if ImGui.IsItemHovered() then
-													ImGui.BeginTooltip()
-													ImGui.Text("Send the items to Lootnscoot as personal rules.")
-													ImGui.EndTooltip()
-												end
+											if iData.on_hand > 0 and iData.on_hand < iData.qty then
+												tCol = Colors.tangarine -- Orange if not enough on hand
 											end
-											if isReady then
-												ImGui.SameLine()
-												ImGui.TextColored(Colors.teal, Icons.FA_STAR)
-												if ImGui.IsItemHovered() then
-													ImGui.BeginTooltip()
-													ImGui.Text("Ready to hand in.")
-													ImGui.EndTooltip()
-												end
-											elseif isCompleted then
-												ImGui.SameLine()
+											if iData.is_reward then
 												ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
+												ImGui.SameLine(0, 0)
 												if ImGui.IsItemHovered() then
 													ImGui.BeginTooltip()
-													ImGui.Text("Quest completed.")
+													ImGui.Text("This is a reward item.")
 													ImGui.EndTooltip()
 												end
 											end
-											ImGui.PushTextWrapPos(0.0)
-											local tCol = Colors['light pink']
-											if isCompleted then
-												tCol = Colors.green -- Green if quest is completed
-											elseif isReady then
-												tCol = Colors.yellow -- Yellow if ready to hand in
+											ImGui.PushStyleColor(ImGuiCol.Text, tCol)
+											ImGui.PushID(Category .. ItemType .. Slot .. iName .. who)
+											if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
+												ImGui.SetClipboardText(iName)
 											end
-											ImGui.TextColored(tCol, quest_name)
-											ImGui.PopTextWrapPos()
+											ImGui.PopStyleColor()
 
-											ImGui.TableNextColumn()
-											ImGui.PushTextWrapPos(0.0)
-											ImGui.Text("%s", category)
-											ImGui.PopTextWrapPos()
-											ImGui.TableNextColumn()
-
-											ImGui.PushTextWrapPos(0.0)
-											ImGui.TextColored(Colors.teal, restrict)
-											ImGui.PopTextWrapPos()
-
-											ImGui.TableNextColumn()
-											ImGui.TextColored(Colors.tangarine, slot)
-
-											ImGui.TableNextColumn()
-											ImGui.TextColored(Colors.softblue, item_type)
-											ImGui.TableNextColumn()
-											table.sort(items, function(a, b)
-												if a.Step == b.Step then
-													return a.name < b.name
-												end
-												return a.Step < b.Step
-											end)
-											for _, iData in ipairs(items or {}) do
-												if not HideRewards or (HideRewards and not iData.is_reward) then
-													if not iData.is_reward or not HideCantUseRewards or (iData.is_reward and HideCantUseRewards and ((iData.reward_restriction:find(table_data.Class) or iData.reward_restriction == 'All'))) then
-														ImGui.Separator()
-														local iName = iData.name or 'Unknown Item'
-
-														if ImGui.BeginTable('ItemData##' .. category .. item_type .. slot .. iName, 3, ImGuiTableFlags.BordersInnerV) then
-															ImGui.TableSetupColumn('Item Name', ImGuiTableColumnFlags.WidthFixed, 180)
-															ImGui.TableSetupColumn('Status', ImGuiTableColumnFlags.WidthFixed, 70)
-															ImGui.TableSetupColumn('Info', ImGuiTableColumnFlags.WidthStretch, 70)
-
-															ImGui.TableNextRow()
-															ImGui.TableNextColumn()
-
-															local tCol = Colors.white
-															if iData.on_hand >= iData.qty then
-																tCol = Colors.green -- Green if enough on hand
-															end
-															if iData.on_hand > 0 and iData.on_hand < iData.qty then
-																tCol = Colors.tangarine -- Orange if not enough on hand
-															end
-															if iData.is_reward then
-																ImGui.TextColored(Colors.yellow, Icons.FA_TROPHY)
-																ImGui.SameLine(0, 0)
-																if ImGui.IsItemHovered() then
-																	ImGui.BeginTooltip()
-																	ImGui.Text("This is a reward item.")
-																	ImGui.EndTooltip()
-																end
-															end
-															ImGui.PushStyleColor(ImGuiCol.Text, tCol)
-															ImGui.PushID(category .. item_type .. slot .. iName .. who)
-															if ImGui.Selectable(iName, false, ImGuiSelectableFlags.SpanAllColumns) then
-																ImGui.SetClipboardText(iName)
-															end
-															ImGui.PopStyleColor()
-
-															if ImGui.IsItemHovered() then
-																ImGui.BeginTooltip()
-																ImGui.Text(iName)
-																ImGui.Separator()
-																ImGui.Text(iData.extra)
-																ImGui.EndTooltip()
-															end
-															ImGui.PopID()
-
-															ImGui.TableNextColumn()
-															tCol = Colors.teal
-															if iData.on_hand > 0 and iData.on_hand < iData.qty then
-																tCol = Colors.yellow -- Yellow if not enough on hand
-															end
-															if iData.on_hand >= iData.qty then
-																tCol = Colors.green -- Green if enough on hand
-															end
-															ImGui.PushID(category .. item_type .. slot .. iName .. iData.on_hand)
-															ImGui.TextColored(tCol, "%s", iData.on_hand)
-															ImGui.PopID()
-															ImGui.SameLine()
-															ImGui.PushID(category .. item_type .. slot .. iName .. iData.qty)
-															ImGui.Text(" / %s", iData.qty)
-															ImGui.PopID()
-															ImGui.TableNextColumn()
-															ImGui.PushID(category .. item_type .. iName .. slot)
-															ImGui.TextWrapped("Step: %s - %s", iData.Step or 1, iData.extra)
-															ImGui.PopID()
-															ImGui.EndTable()
-														end
-													end
-												end
+											if ImGui.IsItemHovered() then
+												ImGui.BeginTooltip()
+												ImGui.Text(iName)
+												ImGui.Separator()
+												ImGui.Text(iData.extra)
+												ImGui.EndTooltip()
 											end
+											ImGui.PopID()
+
+											ImGui.TableNextColumn()
+											tCol = Colors.teal
+											if iData.on_hand > 0 and iData.on_hand < iData.qty then
+												tCol = Colors.yellow -- Yellow if not enough on hand
+											end
+											if iData.on_hand >= iData.qty then
+												tCol = Colors.green -- Green if enough on hand
+											end
+											ImGui.PushID(Category .. ItemType .. Slot .. iName .. iData.on_hand)
+											ImGui.TextColored(tCol, "%s", iData.on_hand)
+											ImGui.PopID()
+											ImGui.SameLine()
+											ImGui.PushID(Category .. ItemType .. Slot .. iName .. iData.qty)
+											ImGui.Text(" / %s", iData.qty)
+											ImGui.PopID()
+											ImGui.TableNextColumn()
+											ImGui.PushID(Category .. ItemType .. iName .. Slot)
+											ImGui.TextWrapped("Step: %s - %s", iData.Step or 1, iData.extra)
+											ImGui.PopID()
+											ImGui.EndTable()
 										end
 									end
 								end
@@ -1651,27 +1640,6 @@ local function RenderMain()
 			-- Render the actors data table
 			RenderActors()
 		end
-		-- if ImGui.BeginTabBar('Quests##') then
-		-- 	if ImGui.BeginTabItem(MyName .. ' - ' .. LookupExpan .. '###QuestTab') then
-		-- 		if Boxes[MyName] == nil then
-		-- 			ImGui.Text('No Data Available')
-		-- 		else
-		-- 			-- Render the quest data table for the selected expansion
-		-- 			if Boxes[MyName] then RenderTable(Boxes[MyName], MyName) end
-		-- 		end
-		-- 		ImGui.EndTabItem()
-		-- 	end
-		-- 	if ImGui.BeginTabItem(SelectedBox .. ' - ' .. LookupExpan .. '###ActorTab') then
-		-- 		if ActorsList == nil then
-		-- 			ImGui.Text('No Data Available')
-		-- 		else
-		-- 			-- Render the actors data table
-		-- 			RenderActors()
-		-- 		end
-		-- 		ImGui.EndTabItem()
-		-- 	end
-		-- 	ImGui.EndTabBar()
-		-- end
 	end
 	ImGui.End()
 end
@@ -1698,6 +1666,8 @@ local function Init()
 	for _, expan in ipairs(expans) do
 		hasData[expan] = false
 	end
+
+	CheckExpansionData()
 
 	-- initialize Actors
 	ActorsHandler()
@@ -1775,12 +1745,12 @@ local function Main()
 			CheckExpansionData()
 		end
 
-		-- if os.clock() - checkTime > 60 then
-		-- 	LastLookupExpan = 'none'
-		-- 	checkTime = os.clock()
-		-- 	GetData = true
-		-- 	SendData = true
-		-- end
+		if os.clock() - checkTime > 300 then
+			LastLookupExpan = 'none'
+			checkTime = os.clock()
+			GetData = true
+			SendData = true
+		end
 
 		if (LookupExpan ~= 'none' and Boxes[MyName] == nil) or LastLookupExpan ~= LookupExpan then
 			Boxes[MyName] = GetQuestData(LookupExpan)
@@ -1826,7 +1796,9 @@ local function Main()
 
 		if ExportToLNS then
 			for _, item in ipairs(ExportToLNS) do
-				mq.cmdf("/lns personalitem quest \"%s\" %d", item.name, item.qty)
+				if not item.is_reward then
+					mq.cmdf("/lns personalitem quest \"%s\" %d", item.name, item.qty)
+				end
 			end
 			ExportToLNS = nil
 		end
