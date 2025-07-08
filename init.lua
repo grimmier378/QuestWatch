@@ -12,7 +12,7 @@ local FileDB         = string.format("%s/QuestWatch.db", ResourceDir)
 local UpdateFile     = string.format("%s/QuestWatchVer.lua", ResourceDir)
 local ExportFile     = string.format("%s/QuestWatchExport.lua", ResourceDir)
 local ImportFile     = ''
-local BaseDataFile   = string.format("%s/QuestWatch/quest/quest_data_v", mq.luaDir)
+local BaseDataFile   = string.format("%s/QuestWatch/quest/quest_data_v4.sql", mq.luaDir)
 
 local MySelf         = mq.TLO.Me
 local MyName         = MySelf.CleanName()
@@ -226,7 +226,7 @@ end
 
 local function ImportSQLFile(filename)
 	if not filename then
-		filename = string.format("%s%s.sql", BaseDataFile, Version)
+		filename = BaseDataFile
 	end
 	local db = OpenDB(FileDB)
 	if not db then
@@ -618,11 +618,9 @@ end
 
 -- Check to see if the database needs to update with new data
 local function CheckUpdate()
-	local fName = string.format("%s%s.sql", BaseDataFile, Version)
-
 	if not Utils.File.Exists(UpdateFile) then
 		-- ImportData()
-		ImportSQLFile(fName)
+		ImportSQLFile()
 		mq.pickle(UpdateFile, { Version = Version, })
 	else
 		local tmp = dofile(UpdateFile)
@@ -632,7 +630,7 @@ local function CheckUpdate()
 				ModifyTable(tmp.Version)
 			end
 			-- ImportData()
-			ImportSQLFile(fName)
+			ImportSQLFile()
 			tmp.Version = Version
 			mq.pickle(UpdateFile, tmp)
 		else
