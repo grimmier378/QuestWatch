@@ -635,7 +635,8 @@ local function GetQuests(expansion, filters)
 	if rewardTypeFilter ~= 'All' then
 		query = query .. string.format(" AND (item_type = 'All' OR item_type LIKE '%%%s%%')", rewardTypeFilter:gsub("'", "''"))
 	end
-	query = query .. ";"
+	query = query .. " ORDER BY quest_name, item_step, item_name ASC;"
+
 	local stmt = db:prepare(query)
 	if stmt then
 		for row in stmt:nrows() do
@@ -675,6 +676,8 @@ local function GetQuests(expansion, filters)
 
 	BoxCompleted[MyName] = false
 	BoxHandInReady[MyName] = false
+	local completed = {}
+	local qRdy = {}
 	-- check if any of the quests are completed and add a flag to the BoxCompleted table for that user so we can highlight them in the list
 	-- tmp[expansion][questCat][itemSlot][itemType][restrictions][questName]={items}
 	tmp.Class = MyClass
@@ -683,17 +686,26 @@ local function GetQuests(expansion, filters)
 		for _, sData in pairs(catSlots or {}) do
 			for _, restrictions in pairs(sData or {}) do
 				for _, quest_data in pairs(restrictions or {}) do
-					for _, items in pairs(quest_data or {}) do
-						BoxHandInReady[MyName], BoxCompleted[MyName] = Utils.QuestStatus(items or {})
-						if BoxCompleted[MyName] or BoxHandInReady[MyName] then
-							goto continue
-						end
+					for qName, items in pairs(quest_data or {}) do
+						qRdy[qName], completed[qName] = Utils.QuestStatus(items or {})
 					end
 				end
 			end
 		end
 	end
 	::continue::
+	for qName, isReady in pairs(qRdy) do
+		if isReady then
+			BoxHandInReady[MyName] = true
+			break
+		end
+	end
+	for qName, isCompleted in pairs(completed) do
+		if isCompleted then
+			BoxCompleted[MyName] = true
+			break
+		end
+	end
 	return tmp
 end
 
@@ -1536,6 +1548,7 @@ local function RenderActors()
 		for _, actorName in ipairs(ActorsList) do
 			if not ShowCompletedOnly or (ShowCompletedOnly and BoxCompleted[actorName]) then
 				if not ShowHandInReadyOnly or (ShowHandInReadyOnly and BoxHandInReady[actorName]) then
+					local actorLbl = actorName == MyName and string.format("%s %s", Icons.FA_STAR, actorName) or actorName
 					if BoxHandInReady[actorName] then
 						ImGui.PushStyleColor(ImGuiCol.Text, Colors.yellow)
 					elseif BoxCompleted[actorName] then
@@ -1544,7 +1557,7 @@ local function RenderActors()
 						ImGui.PushStyleColor(ImGuiCol.Text, Colors.white)
 					end
 					-- local lable = string.format("%s %s", (Boxes[actorName].Class or ''):upper(), actorName)
-					if ImGui.Selectable(actorName, SelectedBox == actorName) then
+					if ImGui.Selectable(actorLbl, SelectedBox == actorName) then
 						SelectedBox = actorName
 					end
 					ImGui.PopStyleColor()
@@ -1685,8 +1698,6 @@ local function Init()
 	for _, expan in ipairs(expans) do
 		hasData[expan] = false
 	end
-	-- check for data and update the hasData table
-	CheckExpansionData()
 
 	-- initialize Actors
 	ActorsHandler()
@@ -1710,6 +1721,7 @@ local function Init()
 end
 
 local function Main()
+	local checkTime = 0
 	while isRunning do
 		if ImportQuests then
 			if ImportFile:find('%.lua$') == nil then
@@ -1763,8 +1775,16 @@ local function Main()
 			CheckExpansionData()
 		end
 
+		-- if os.clock() - checkTime > 60 then
+		-- 	LastLookupExpan = 'none'
+		-- 	checkTime = os.clock()
+		-- 	GetData = true
+		-- 	SendData = true
+		-- end
+
 		if (LookupExpan ~= 'none' and Boxes[MyName] == nil) or LastLookupExpan ~= LookupExpan then
 			Boxes[MyName] = GetQuestData(LookupExpan)
+			checkTime = os.clock()
 			LastLookupExpan = LookupExpan
 		end
 
