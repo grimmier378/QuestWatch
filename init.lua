@@ -660,6 +660,18 @@ local function GetQuests(expansion, filters)
 		end
 		stmt:finalize()
 	end
+
+	-- get all quests names from expansion
+	QuestNames = {}
+	query = string.format("SELECT DISTINCT quest_name FROM quest_data WHERE expansion = '%s' ORDER BY quest_name ASC;", expansionEsc)
+	stmt = db:prepare(query)
+	if stmt then
+		for row in stmt:nrows() do
+			local questName = row.quest_name or 'Unknown Quest'
+			table.insert(QuestNames, questName)
+		end
+		stmt:finalize()
+	end
 	db:close()
 
 	BoxCompleted[MyName] = false
@@ -687,12 +699,7 @@ local function GetQuests(expansion, filters)
 		end
 	end
 
-	QuestNames = {}
-	for qName, _ in pairs(tmp[expansion] or {}) do
-		if qName then
-			table.insert(QuestNames, qName)
-		end
-	end
+
 	table.sort(QuestNames, function(a, b)
 		return a < b
 	end)
@@ -915,6 +922,10 @@ local function RenderTable(table_data, who)
 		-- tmpData[expansion][questName] = {Name, Category, Slot, ItemType, Restrictions, Items = {name, qty, extra, is_reward, reward_restriction, item_step}}
 		if table_data and table_data[LookupExpan] then
 			for _, questName in ipairs(QuestNames) do
+				if table_data[LookupExpan][questName] == nil then
+					-- skip if the quest data is not available for this expansion
+					goto continue
+				end
 				local Category = table_data[LookupExpan][questName].Category or 'Unknown Category'
 				local Slot = table_data[LookupExpan][questName].Slot or 'Unknown Slot'
 				local ItemType = table_data[LookupExpan][questName].ItemType or 'All'
@@ -1001,7 +1012,8 @@ local function RenderTable(table_data, who)
 							-- Draw the item list
 							for _, iData in ipairs(Items or {}) do
 								if not HideRewards or (HideRewards and not iData.is_reward) then
-									if not iData.is_reward or not HideCantUseRewards or (iData.is_reward and HideCantUseRewards and ((iData.reward_restriction:find(table_data.Class) or iData.reward_restriction == 'All'))) then
+									if not iData.is_reward or not HideCantUseRewards or (iData.is_reward and HideCantUseRewards and
+											((iData.reward_restriction:find(table_data.Class) or iData.reward_restriction == 'All'))) then
 										ImGui.Separator()
 										local iName = iData.name or 'Unknown Item'
 
@@ -1072,6 +1084,7 @@ local function RenderTable(table_data, who)
 						end
 					end
 				end
+				::continue::
 			end
 		else
 			ImGui.TableNextColumn()
