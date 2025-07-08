@@ -13,6 +13,7 @@ local UpdateFile     = string.format("%s/QuestWatchVer.lua", ResourceDir)
 local ExportFile     = string.format("%s/QuestWatchExport.lua", ResourceDir)
 local ImportFile     = ''
 local BaseDataFile   = string.format("%s/QuestWatch/quest/quest_data_v4.sql", mq.luaDir)
+local SavedFilters   = string.format("%s/QuestWatchFilters.lua", mq.configDir)
 
 local MySelf         = mq.TLO.Me
 local MyName         = MySelf.CleanName()
@@ -54,8 +55,9 @@ local NewQuestData        = {}
 local ModifyQuestData     = nil
 local ModifyQuestExpan    = 'none'
 
+local Filters             = {}
 
-local SQLFilters     = {
+local SQLFilters          = {
 	['expansion'] = '',
 	['quest_name'] = '',
 	['item_slot'] = '',
@@ -65,8 +67,8 @@ local SQLFilters     = {
 	['restriction'] = '', -- class, armor type, etc.
 }
 
-local EQ_ICON_OFFSET = 500
-local animMini       = mq.FindTextureAnimation("A_DragItem")
+local EQ_ICON_OFFSET      = 500
+local animMini            = mq.FindTextureAnimation("A_DragItem")
 
 
 local buttonWinFlags = bit32.bor(
@@ -614,6 +616,21 @@ local function DeepCopy(original)
 		end
 	end
 	return copy
+end
+
+local function SaveFilters()
+	mq.pickle(SavedFilters, SQLFilters)
+end
+
+local function LoadSavedFilters()
+	if Utils.File.Exists(SavedFilters) then
+		local tmp = dofile(SavedFilters)
+		if tmp then
+			-- Apply the loaded filters
+			SQLFilters = tmp
+		end
+	end
+	LookupExpan = SQLFilters.expansion or 'none'
 end
 
 -- Check to see if the database needs to update with new data
@@ -1283,6 +1300,7 @@ local function RenderQuestFilter(id)
 					end
 					LookupExpan = expan
 					SQLFilters.expansion = expan
+					SaveFilters()
 				end
 			end
 		end
@@ -1344,6 +1362,7 @@ local function RenderQuestFilter(id)
 		LastLookupExpan = 'none'
 		GetData = true
 		SendData = true
+		SaveFilters()
 	end
 
 	ImGui.SameLine()
@@ -1361,6 +1380,7 @@ local function RenderQuestFilter(id)
 		ShowHandInReadyOnly = false
 		HideCompleted       = false
 		GetData             = true
+		SaveFilters()
 	end
 end
 
@@ -1749,6 +1769,7 @@ end
 
 ------------------------- Main --------------
 local function Init()
+	LoadSavedFilters()
 	CheckUpdate()
 
 	-- initialize the hasData table
