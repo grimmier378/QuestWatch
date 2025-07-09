@@ -42,6 +42,7 @@ local HideCantUseRewards  = false
 local ShowAddQuest        = false
 local ShowModifyQuest     = false
 local ExportData          = false
+local ExportWho           = ''
 local ImportQuests        = false
 local ExportToLNS         = nil
 
@@ -989,6 +990,12 @@ local function ActorsHandler()
 			BoxCompleted[newMessage.From] = newMessage.Completed or false
 			BoxHandInReady[newMessage.From] = newMessage.Ready or false
 		end
+
+		if newMessage.Subject == 'export_lns' and newMessage.ExportData ~= nil and newMessage.To == MyName then
+			ExportToLNS = newMessage.ExportData
+			ExportWho = MyName
+			printf("Received export data from %s", newMessage.From)
+		end
 	end)
 end
 
@@ -1050,6 +1057,7 @@ local function RenderTable(table_data, who)
 								ImGui.SameLine()
 								if ImGui.SmallButton(Icons.FA_CART_ARROW_DOWN .. "##" .. questName .. who) then
 									ExportToLNS = DeepCopy(Items)
+									ExportWho = who
 								end
 								if ImGui.IsItemHovered() then
 									ImGui.BeginTooltip()
@@ -1906,13 +1914,23 @@ local function Main()
 
 		SortActors()
 
-		if ExportToLNS then
+		if ExportToLNS and (ExportWho == MyName) then
 			for _, item in ipairs(ExportToLNS) do
 				if not item.is_reward then
 					mq.cmdf("/lns personalitem quest \"%s\" %d", item.name, item.qty)
 				end
 			end
+			ExportWho = ''
 			ExportToLNS = nil
+		elseif ExportToLNS and (ExportWho ~= MyName) and MyActor then
+			MyActor:send({ mailbox = 'QuestWatch', }, {
+				Subject = 'export_lns',
+				From = MyName,
+				To = ExportWho,
+				ExportData = ExportToLNS,
+			})
+			ExportToLNS = nil
+			ExportWho = ''
 		end
 
 		if ExportData then
