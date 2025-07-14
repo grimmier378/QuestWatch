@@ -55,6 +55,9 @@ local NewQuestExpan       = 'none'
 local NewQuestData        = {}
 local ModifyQuestData     = nil
 local ModifyQuestExpan    = 'none'
+local LastRefresh         = 0
+local CheckedTime         = 0
+local RefreshRate         = 3 -- how often to refresh the data in minutes
 
 local Filters             = {}
 
@@ -71,8 +74,7 @@ local SQLFilters          = {
 local EQ_ICON_OFFSET      = 500
 local animMini            = mq.FindTextureAnimation("A_DragItem")
 
-
-local buttonWinFlags = bit32.bor(
+local buttonWinFlags      = bit32.bor(
 	ImGuiWindowFlags.NoTitleBar,
 	ImGuiWindowFlags.NoResize,
 	ImGuiWindowFlags.NoScrollbar,
@@ -80,7 +82,7 @@ local buttonWinFlags = bit32.bor(
 	ImGuiWindowFlags.AlwaysAutoResize
 )
 
-local Colors         = {
+local Colors              = {
 	red = ImVec4(0.9, 0.1, 0.1, 1),
 	red2 = ImVec4(0.928, 0.352, 0.035, 1.000),
 	pink2 = ImVec4(0.976, 0.518, 0.844, 1.000),
@@ -107,14 +109,14 @@ local Colors         = {
 	transparent2 = ImVec4(0.5, 0.5, 0.0, 0.5),
 }
 
-local ArmorTypes     = {
+local ArmorTypes          = {
 	['plate'] = 'clr war pal shd brd',
 	['chain'] = 'rng shm rog ber',
 	['leather'] = 'dru bst mnk',
 	['cloth'] = 'wiz mag nec enc',
 }
 
-local expans         = {
+local expans              = {
 	'Classic',
 	'Ruins of Kunark',
 	'Scars of Velious',
@@ -149,7 +151,7 @@ local expans         = {
 	'The Outer Brood',
 }
 
-local hasData        = {} -- lists all expansions and if they have data we will enable them for the drop down filter (adding new quests will always show all expansions)
+local hasData             = {} -- lists all expansions and if they have data we will enable them for the drop down filter (adding new quests will always show all expansions)
 
 -- SQL STUFF --
 
@@ -420,7 +422,7 @@ local function CheckExpansionData()
 	if stmt then
 		for row in stmt:nrows() do
 			local expansion = row.expansion or 'Unknown Expansion'
-			hasData[expansion] = true
+			if expansion ~= 'Unknown Expansion' then hasData[expansion] = true end
 		end
 		stmt:finalize()
 	end
@@ -905,6 +907,8 @@ end
 ---@param expansion string The expansion to get quest data for.
 ---@return table questData Returns Items and Quantity needed for the desired piece.
 local function GetQuestData(expansion)
+	CheckedTime = os.clock()
+
 	local questData = GetQuests(expansion, SQLFilters)
 	if not questData or next(questData) == nil then
 		return {}
@@ -1366,7 +1370,7 @@ local function RenderQuestFilter(id)
 	end
 	ImGui.SeparatorText(LookupExpan .. "##" .. id)
 
-	if ImGui.Button('Refresh Data##' .. id) then
+	if ImGui.Button(string.format('Refresh Data [%s]###QW%s', os.date("%M:%S", LastRefresh), id)) then
 		LastLookupExpan = 'none'
 		GetData = true
 		SendData = true
@@ -1390,6 +1394,10 @@ local function RenderQuestFilter(id)
 		GetData             = true
 		SaveFilters()
 	end
+
+	ImGui.SameLine()
+	ImGui.SetNextItemWidth(100)
+	RefreshRate = ImGui.InputInt('Refresh Rate (min)##' .. id, RefreshRate)
 end
 
 local function RenderAddQuestWindow()
@@ -1809,8 +1817,9 @@ local function Init()
 end
 
 local function Main()
-	local checkTime = 0
 	while isRunning do
+		local now = os.clock()
+
 		if ImportQuests then
 			if ImportFile:find('%.sql$') == nil then
 				ImportFile = ImportFile .. '.sql'
@@ -1865,16 +1874,17 @@ local function Main()
 			CheckExpansionData()
 		end
 
-		if os.clock() - checkTime > 300 then
+		-- recheck every RefreshRate minutes
+		if (now - CheckedTime) >= (RefreshRate * 60) then
 			LastLookupExpan = 'none'
-			checkTime = os.clock()
 			GetData = true
 			SendData = true
 		end
 
+		LastRefresh = os.clock() - CheckedTime
+
 		if (LookupExpan ~= 'none' and Boxes[MyName] == nil) or LastLookupExpan ~= LookupExpan then
 			Boxes[MyName] = GetQuestData(LookupExpan)
-			checkTime = os.clock()
 			LastLookupExpan = LookupExpan
 		end
 
@@ -1942,6 +1952,8 @@ local function Main()
 			printf("Quest data exported to %s", ExportFile)
 			ExportData = false
 		end
+
+		LastRefresh = os.clock() - CheckedTime
 
 		mq.delay(100)
 	end
