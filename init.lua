@@ -1925,9 +1925,15 @@ local function Main()
 		SortActors()
 
 		if ExportToLNS and (ExportWho == MyName) then
+			local isReady, isCompleted, totalOnHand, totalNeeded = Utils.QuestStatus(ExportToLNS)
+			local rule = (isCompleted or isReady) and 'ignore' or 'quest'
 			for _, item in ipairs(ExportToLNS) do
 				if not item.is_reward then
-					mq.cmdf("/lns personalitem quest \"%s\" %d", item.name, item.qty)
+					if rule == 'quest' then
+						mq.cmdf("/lns personalitem %s \"%s\" %d", rule, item.name, item.qty)
+					else
+						mq.cmdf("/lns personalitem %s \"%s\"", rule, item.name)
+					end
 				end
 			end
 			ExportWho = ''
