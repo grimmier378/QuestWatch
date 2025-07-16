@@ -976,6 +976,11 @@ local function ActorsHandler()
 			return
 		end
 
+		if newMessage.Subject == 'switch' and newMessage.Who == MyName then
+			mq.cmd("/foreground")
+			return
+		end
+
 		if newMessage.Subject == 'data_req' and newMessage.Expansion ~= nil then
 			LookupExpan = newMessage.Expansion
 			SQLFilters = newMessage.Filters or SQLFilters
@@ -1675,6 +1680,22 @@ local function RenderActors()
 						SelectedBox = actorName
 					end
 					ImGui.PopStyleColor()
+					if ImGui.BeginPopupContextItem("switch##" .. actorName) then
+						if ImGui.Selectable("Switch to " .. actorName) then
+							if MyActor then
+								MyActor:send({ mailbox = 'QuestWatch', }, {
+									Subject = 'switch',
+									From = MyName,
+									Class = MyClass,
+									Armor = MyArmor,
+									Who = actorName,
+									Expansion = LookupExpan,
+									Data = Boxes[actorName] and Boxes[actorName] or nil,
+								})
+							end
+						end
+						ImGui.EndPopup()
+					end
 				end
 			end
 		end
