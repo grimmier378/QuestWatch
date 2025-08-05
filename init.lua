@@ -5,14 +5,14 @@ local Actors         = require('actors')
 local PackageMan     = require('mq.PackageMan')
 local SQL            = PackageMan.Require('lsqlite3')
 local Utils          = require('mq.Utils')
-local Version        = 4 -- database version
+local Version        = 5 -- database version
 local isEMU          = mq.TLO.MacroQuest.BuildName() == 'Emu'
 local ResourceDir    = mq.TLO.MacroQuest.Path('resources')()
 local FileDB         = string.format("%s/QuestWatch.db", ResourceDir)
 local UpdateFile     = string.format("%s/QuestWatchVer.lua", ResourceDir)
 local ExportFile     = string.format("%s/QuestWatchExport.lua", ResourceDir)
 local ImportFile     = ''
-local BaseDataFile   = string.format("%s/QuestWatch/quest/quest_data_v4.sql", mq.luaDir)
+local BaseDataFile   = string.format("%s/QuestWatch/quest/quest_data.sql", mq.luaDir)
 local SavedFilters   = string.format("%s/QuestWatchFilters.lua", mq.configDir)
 
 local MySelf         = mq.TLO.Me
@@ -204,7 +204,7 @@ local function ExportDBtoSQL(filename)
 
 	file:write("BEGIN TRANSACTION;\n")
 
-	local query = "SELECT * FROM quest_data ORDER BY expansion, quest_name, item_step ASC;"
+	local query = "SELECT * FROM quest_data;" -- ORDER BY expansion, quest_name, item_step ASC;"
 	for row in db:nrows(query) do
 		-- Escape single quotes in string fields
 		local function esc(str)
@@ -223,6 +223,8 @@ DO UPDATE SET quantity = excluded.quantity,extra_info = excluded.extra_info,is_r
 
 		file:write(string.format("%s\n", insert))
 	end
+	db:exec("PRAGMA optimize;")
+
 	db:close()
 	file:write("COMMIT;\n")
 	file:close()
@@ -256,6 +258,7 @@ local function ImportSQLFile(filename)
 	local success, err = pcall(function()
 		db:exec(sql)
 	end)
+	db:exec("PRAGMA optimize;")
 
 	db:close()
 
@@ -345,7 +348,7 @@ local function ImportData(file)
 		db:exec("ROLLBACK;")
 		print("Import failed. Transaction rolled back.")
 	end
-
+	db:exec("PRAGMA optimize;")
 	db:close()
 end
 
@@ -407,6 +410,8 @@ local function AddNewQuest(expansion, questData)
 		end
 	end
 	db:exec("COMMIT;")
+	db:exec("PRAGMA optimize;")
+
 	printf("New quest '%s' added successfully to the database.", questData.Name)
 	db:close()
 end
@@ -426,6 +431,8 @@ local function CheckExpansionData()
 		end
 		stmt:finalize()
 	end
+	db:exec("PRAGMA optimize;")
+
 	db:close()
 end
 
@@ -549,8 +556,17 @@ local function ModifyTable(ver)
 			printf("Database modified successfully.")
 		end
 		ModifyTable(3.0)
+	elseif ver < 5.0 then
+		-- imports more data to the table
+		local dbV4 = string.format("%s/QuestWatch/quest/quest_data_v5.sql", mq.luaDir)
+		if Utils.File.Exists(dbV4) then
+			ImportSQLFile(dbV4)
+		end
+		printf("Database modified successfully.")
+		ModifyTable(5.0)
 	end
 
+	db:exec("PRAGMA optimize;")
 
 	db:close()
 end
@@ -573,6 +589,8 @@ local function DeleteQuestData(expansion, questData)
 	end
 
 	db:exec("COMMIT;")
+	db:exec("PRAGMA optimize;")
+
 	db:close()
 end
 
@@ -641,13 +659,16 @@ local function CheckUpdate()
 	if not Utils.File.Exists(UpdateFile) then
 		-- ImportData()
 		ImportSQLFile()
-		mq.pickle(UpdateFile, { Version = Version, })
+		mq.pickle(UpdateFile, { Version = 1, })
+		CheckUpdate()
 	else
 		local tmp = dofile(UpdateFile)
-		if (tmp and tmp.Version and tmp.Version < Version) or not Utils.File.Exists(FileDB) then
+		local tVer = tmp and tmp.Version or 0
+
+		if (tmp and tVer < Version) or not Utils.File.Exists(FileDB) then
 			printf("Updating database to version %s", Version)
-			if tmp.Version < Version then
-				ModifyTable(tmp.Version)
+			if tVer < Version then
+				ModifyTable(tVer)
 			end
 			-- ImportData()
 			ImportSQLFile()
@@ -772,6 +793,8 @@ local function GetQuests(expansion, filters)
 
 		stmt:finalize()
 	end
+	db:exec("PRAGMA optimize;")
+
 	db:close()
 
 	BoxCompleted[MyName] = false
@@ -850,6 +873,8 @@ local function ExportDBtoLua()
 		end
 		stmt:finalize()
 	end
+	db:exec("PRAGMA optimize;")
+
 	db:close()
 
 	mq.pickle(ExportFile, tmpData)
