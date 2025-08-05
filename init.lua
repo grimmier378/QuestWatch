@@ -598,7 +598,7 @@ local function ModifyQuest(expansion, questData)
 		Category = questCatEsc,
 		Slot = itemSlotEsc,
 		ItemType = itemTypeEsc,
-		Restrictions = restrictionEsc,
+		Restrictions = restrictionEsc:lower(),
 		Items = questData.items or {},
 	}
 
@@ -696,13 +696,13 @@ local function GetQuests(expansion, filters)
 		query = string.format([[
 		SELECT * FROM quest_data
 		WHERE expansion = '%s'
-		AND (restriction = 'All' OR restriction LIKE '%%%s%%' OR restriction LIKE '%%%s%%')
+		AND (restriction LIKE 'all' OR restriction LIKE '%%%s%%' OR restriction LIKE '%%%s%%')
 	]], expansionEsc, classFilter, armorFilter)
 	else
 		query = string.format([[
 		SELECT * FROM quest_data
 		WHERE expansion = '%s'
-		AND (restriction = 'All' ]], expansionEsc)
+		AND (restriction LIKE 'all' ]], expansionEsc)
 		for _, restriction in ipairs(restrictions) do
 			query = query .. string.format(" OR restriction LIKE '%%%s%%'", restriction:gsub("'", "''"))
 		end
@@ -898,6 +898,10 @@ function Utils.CheckOnHand(item_name)
 		item_count = mq.TLO.Me.Book(spellname)() ~= nil and 1 or item_count
 	end
 
+	if item_name:find("CombatAbility: ") then
+		local abilityName = item_name:gsub("CombatAbility: ", "")
+		item_count = mq.TLO.Me.CombatAbility(abilityName)() ~= nil and 1 or item_count
+	end
 	item_count = item_count + mq.TLO.FindItemCount(string.format("=%s", item_name))() + mq.TLO.FindItemBankCount(string.format("=%s", item_name))()
 
 	return item_count
@@ -1043,7 +1047,7 @@ local function RenderTable(table_data, who)
 				local Category = table_data[LookupExpan][questName].Category or 'Unknown Category'
 				local Slot = table_data[LookupExpan][questName].Slot or 'Unknown Slot'
 				local ItemType = table_data[LookupExpan][questName].ItemType or 'All'
-				local Restrictions = table_data[LookupExpan][questName].Restrictions or 'All'
+				local Restrictions = table_data[LookupExpan][questName].Restrictions:lower() or 'All'
 				local Items = table_data[LookupExpan][questName].Items or {}
 				local isReady, isCompleted, totalOnHand, totalNeeded = Utils.QuestStatus(Items)
 				if not ShowCompletedOnly or (ShowCompletedOnly and isCompleted) then
@@ -1123,7 +1127,7 @@ local function RenderTable(table_data, who)
 							for _, iData in ipairs(Items or {}) do
 								if not HideRewards or (HideRewards and not iData.is_reward) then
 									if not iData.is_reward or not HideCantUseRewards or (iData.is_reward and HideCantUseRewards and
-											((iData.reward_restriction:find(table_data.Class) or iData.reward_restriction == 'All'))) then
+											((iData.reward_restriction:lower():find(table_data.Class) or iData.reward_restriction:lower() == 'all'))) then
 										ImGui.Separator()
 										local iName = iData.name or 'Unknown Item'
 
